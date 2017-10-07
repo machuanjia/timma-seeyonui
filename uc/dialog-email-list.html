@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>uc</title>
+        <script src="jquery.js"></script>
+        <script src="js/uc.js"></script>
+		<script src="js/seeyon.ui.contextmenu-debug.js"></script>
+		<link rel="stylesheet" href="css/uc.css" />
+		<script>
+			UcObject.page = 'dialog';
+		</script>
+    <style>
+        .list_area { display: flex; flex-direction: column; width: 100%; height: 100%; background: #F2F7FF; cursor: default; }
+        .list_area .r_1 { overflow: hidden; padding: 0 20px; height: 34px; }
+        .list_area .r_2 { overflow: auto; padding: 0 20px; flex: 1; }
+        .list_area .r_3 { overflow: hidden; padding: 0 20px; height: 40px; }
+
+        .list_area .tab_area { position: relative; }
+        .list_area .tab_area li { float: left; margin-right: 15px; padding: 0 5px; font-size: 14px; height: 34px; line-height: 34px; color: #444444; cursor: pointer; }
+        .list_area .tab_area li.current { color: #08A3DC; }
+        .list_area .search_area { margin-top: 10px; padding: 3px 15px; border: solid 1px #DCDFE5; border-radius: 20px; background: #F9FBFF; }
+        .list_area .search_area input { padding: 0; width: 100px; height: 14px; line-height: 14px; font-size: 12px; border: 0;  background: #F9FBFF;}
+        .list_area .search_area input:focus { outline: none; }
+        .list_area .search_area .icon24 { position: absolute; margin: -4px 0 0 -14px; vertical-align: top; }
+        .list_area .search_icon_hidden .icon24 { display: none; }
+
+        .list_area .listMail { table-layout: fixed; }
+        .list_area .listMail td {overflow: hidden; height: 28px; line-height: 28px; color: #646464; font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+        .list_area .listMail td.name_text { padding-right: 15px; width: 140px; height: 0; }
+        .list_area .listMail td.content_text { padding-right: 15px; height: 0; }
+        .list_area .listMail td.time_text { width: 68px; height: 0; }
+
+        .list_area .listCollaboration { table-layout: fixed; }
+        .list_area .listCollaboration td { overflow: hidden; height: 28px; line-height: 28px; color: #646464; font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+        .list_area .listCollaboration td.content_text { padding-right: 15px; height: 0; }
+        .list_area .listCollaboration td.time_text { width: 130px; height: 0; }
+        .list_area .listCollaboration td.name_text { width: 75px; height: 0; }
+        .list_area .listCollaboration td.type_text { width: 30px; height: 0; }
+
+        .list_area .btn_gray { margin-top: 7px; display: inline-block; width: 98px; height: 22px; line-height: 22px; color: #414141; text-align: center; background: #DADADA; border: solid 1px #C6C6C6; border-radius: 4px; cursor: pointer; }
+        .list_area .list_page { margin-top: 9px; }
+        .list_area .icon16 { vertical-align: top; }
+        .list_area .list_page .pageNumber { margin-top: -4px; width: 20px; height: 16px; line-height: 16px; text-align: center; border: solid 1px #969696; }
+    </style>
+    <script>
+        var ListContent = {};
+        //邮箱列表数据
+        ListContent.listMail_data = [
+			{
+			    name_text: "携程旅游网",
+			    content_text: "朱鹏，携程旅游网8月电子对账单",
+			    time_text: "2014-12-21"
+			}, {
+			    name_text: "武科大何春芳",
+			    content_text: "2013年度班级综合考核",
+			    time_text: "2014-08-10"
+			}, {
+			    name_text: "1号店1号店1号店1号店1号店1号店1号店1号店1号店",
+			    content_text: "1号店订单1140853389物流详情1号店订单1140853389物流详情1号店订单1140853389物流详情1号店订单1140853389物流详情1号店订单1140853389物流详情1号店订单1140853389物流详情",
+			    time_text: "2014-08-10"
+			}, {
+			    name_text: "1号店",
+			    content_text: "1号店订单1140853389物流详情",
+			    time_text: "2014-08-10"
+			}, {
+			    name_text: "杨老师",
+			    content_text: "毕业设计开题通知",
+			    time_text: "2014-08-10"
+			}, {
+			    name_text: "携程旅游网",
+			    content_text: "朱鹏，携程旅游网8月电子对账单",
+			    time_text: "2014-12-21"
+			}, {
+			    name_text: "武科大何春芳",
+			    content_text: "2013年度班级综合考核",
+			    time_text: "2014-08-10"
+			}, {
+			    name_text: "杨老师",
+			    content_text: "毕业设计开题通知",
+			    time_text: "2014-08-10"
+			}, {
+			    name_text: "携程旅游网",
+			    content_text: "朱鹏，携程旅游网8月电子对账单",
+			    time_text: "2014-12-21"
+			}, {
+			    name_text: "武科大何春芳",
+			    content_text: "2013年度班级综合考核",
+			    time_text: "2014-08-10"
+			}, {
+			    name_text: "1号店",
+			    content_text: "1号店订单1140853389物流详情",
+			    time_text: "2014-08-10"
+			}, {
+			    name_text: "杨老师",
+			    content_text: "毕业设计开题通知",
+			    time_text: "2014-08-10"
+			}, {
+			    name_text: "携程旅游网",
+			    content_text: "朱鹏，携程旅游网8月电子对账单",
+			    time_text: "2014-12-21"
+			}, {
+			    name_text: "武科大何春芳",
+			    content_text: "2013年度班级综合考核",
+			    time_text: "2014-08-10"
+			}, {
+			    name_text: "武科大何春芳",
+			    content_text: "2013年度班级综合考核",
+			    time_text: "2014-08-10"
+			}, {
+			    name_text: "1号店",
+			    content_text: "1号店订单1140853389物流详情",
+			    time_text: "2014-08-10"
+			}, {
+			    name_text: "杨老师",
+			    content_text: "毕业设计开题通知",
+			    time_text: "2014-08-10"
+			}
+        ];
+        //协同消息列表
+        ListContent.listCollaboration_data = [
+			{
+			    content_text: "职员公告",
+			    name_text: "管理员",
+			    time_text: "2014-12-21",
+			    type_text: "公告"
+			}, {
+			    content_text: "十月份工作计划",
+			    name_text: "朱鹏",
+			    time_text: "2014-12-21",
+			    type_text: "计划"
+			}, {
+			    content_text: "十月份工作计划十月份工作计划十月份工作计划十月份工作计划十月份工作计划十月份工作计划十月份工作计划十月份工作计划十月份工作计划十月份工作计划十月份工作计划十月份工作计划",
+			    name_text: "朱鹏",
+			    time_text: "2014-12-21",
+			    type_text: "计划"
+			}, {
+			    content_text: "十月份工作计划",
+			    name_text: "朱鹏",
+			    time_text: "2014-12-21",
+			    type_text: "计划"
+			}
+        ];
+
+        //组件：邮箱列表
+        function listMail (json) {
+            this.p = {
+                listObj: $("#list_content"),
+                data: ListContent.listMail_data
+            };
+            $.extend(this.p, json);
+
+            if (this.p.data == undefined) {
+                throw new Error("列表数据不能为空");
+            };
+        };
+        listMail.prototype.addData = function(data) {
+            var _html = "";
+            _html += '<table cellspacing="0" cellpadding="0" border="0" width="100%" height="100%" class="listMail">';
+            for (var i = data.reverse().length - 1; i >= 0; i--) {
+                _html += '<tr>';
+                _html += '<td class="name_text">' + data[i].name_text + '</td>';
+                _html += '<td class="content_text">' + data[i].content_text + '</td>';
+                _html += '<td class="time_text">' + data[i].time_text + '</td>';
+                _html += '</tr>';
+            };
+            _html += '</table>';
+            this.p.listObj.html(_html);
+        };
+
+        //协同消息列表初始化
+        function listCollaboration (json) {
+            this.p = {
+                listObj: $("#list_content"),
+                data: ListContent.listCollaboration_data
+            };
+            $.extend(this.p, json);
+            if (this.p.data == undefined) {
+                throw new Error("列表数据不能为空");
+            };
+        };
+        listCollaboration.prototype.addData = function(data) {
+            var _html = "";
+            _html += '<table cellspacing="0" cellpadding="0" border="0" width="100%" height="100%" class="listCollaboration">';
+            for (var i = data.reverse().length - 1; i >= 0; i--) {
+                _html += '<tr>';
+                _html += '<td class="content_text">' + data[i].content_text + '</td>';
+                _html += '<td class="time_text">' + data[i].time_text + '</td>';
+                _html += '<td class="name_text">' + data[i].name_text + '</td>';
+                _html += '<td class="type_text">' + data[i].type_text + '</td>';
+                _html += '</tr>';
+            };
+            _html += '</table>';
+            this.p.listObj.html(_html);
+        };
+
+        //搜索查询初始化
+        function listSearch (json) {
+            this.p = {
+                listObj: $("#list_content"),
+                data: ListContent.listMail_data
+            };
+            $.extend(this.p, json);
+
+            $("#list_search input").click(function () {
+                $("#list_search").addClass("search_icon_hidden");
+            }).blur(function () {
+                if ($.trim($(this).val()) == "") {
+                    $(this).val("");
+                    $("#list_search").removeClass("search_icon_hidden");
+                };
+            }).click(function () {
+                this.p.fnSearch();
+            });
+        }
+
+        //翻页初始化
+        function listPage (json) {
+            this.p = {
+                listObj: $("#list_content"),
+                data: ListContent.listMail_data
+            };
+            $.extend(this.p, json);
+        }
+        listPage.prototype.fnPrevious = function() {
+            
+        };
+        listPage.prototype.fnNext = function() {
+            
+        };
+
+
+        $(function () {
+            
+            ListContent.listMail = new listMail();
+            ListContent.listMail.addData(ListContent.listMail_data);
+
+            ListContent.listCollaboration = new listCollaboration();
+            ListContent.listCollaboration.addData(ListContent.listCollaboration_data);
+            
+            ListContent.listSearch = new listSearch({
+                fnSearch: function(){
+                    console.log();
+                }
+            });
+        })
+    </script>
+    </head>
+    <body>
+    	<!--外层框架-->
+        <section class="dialog_layout">
+        	<!--左侧导航-->
+			<nav class="dialog_left">
+				<div class="dialog_left_top">
+					<!--左侧搜索-->
+					<input id="dialog_nav_search" class="dialog_nav_search"/>
+					<em id="dialog_nav_search_close" class="icon16 search_close_16 dialog_nav_search_close"></em>
+				</div>
+					<!--左侧菜单-->
+					<ul id="nav_ul" class="nav_ul">
+						<li>
+							<em class="icon16 dilaog_nav_close_16 remove"></em>
+							<span class="photo">
+								<img src="css/images/person_img.jpg" class="nav_photo_img"/>
+								<em class='icon16 mobile_16'></em>
+							</span>
+							<span class="name">习近平习近平</span>
+							<em class="read">3</em>
+						</li>
+						<li>
+							<em class="icon16 dilaog_nav_close_16 remove"></em>
+							<span class="photo">
+								<img src="css/images/person_img.jpg" class="nav_photo_img"/>
+								<em class='icon16 busy_16'></em>
+							</span>
+							<span class="name">习近平习近平</span>
+							<em class="read">3</em>
+						</li>
+						<li class="current">
+							<em class="icon16 dilaog_nav_close_16 remove"></em>
+							<span class="photo">
+								<img src="css/images/email.png" class="nav_photo_img"/>
+							</span>
+							<span class="name no_num">QQ邮箱</span>
+						</li>
+						<li>
+							<em class="icon16 dilaog_nav_close_16 remove"></em>
+							<span class="photo">
+								<img src="css/images/coll.png" class="nav_photo_img"/>
+							</span>
+							<span class="name no_num">协同消息</span>
+						</li>
+						<li>
+							<em class="icon16 dilaog_nav_close_16 remove"></em>
+							<span class="photo">
+								<img src="css/images/ued.png" class="nav_photo_img"/>
+							</span>
+							<span class="name no_num">致远UED</span>
+						</li>
+					</ul>	
+					<!--左侧菜单搜索-->
+					<ul id="nav_ul_search" class="nav_ul_search">
+						<li class="group_title">个人</li>
+						<li><span class="text">张译丹</span><em class="icon32 history_32 margin_l_5"></em><em class="icon32 mail_go_32 margin_l_5"></em></li>
+						<li><span class="text">张译丹</span></li>
+						<li class="group_title">群组</li>
+						<li>致远UED(张译丹)</li>
+					</ul>			
+			</nav>
+			<!--中间内容层-->
+			<div class="dialog_center">
+				<!--中间banner-->
+				<header class="dialog_center_header">
+					<div class="dialog_banner">
+						<div class="dialog_banner_layout">
+							<div class="dialog_banner_l">
+								<div class="dialog_banner_photo"><img src="css/images/email.png" class="banner_photo_img"/></div>
+							</div>
+							<div class="dialog_banner_c">
+								<div class="dialog_banner_name dialog_banner_only">QQ邮箱</div>
+							</div>
+							<div class="dialog_banner_r">
+								<em class="icon16 dialog_min_16 margin_l_5"></em>
+								<em class="icon16 dialog_max_16 margin_l_5"></em>
+								<em class="icon16 dialog_close_16 margin_l_5"></em>
+							</div>
+						</div>
+					</div>
+				</header>
+				<!---中间内容区域list-qq邮箱-->
+			    <section class="list_area">
+			        <div class="r_1">
+			            <ul class="tab_area clearfix left">
+			                <li class="current">全部</li>
+			                <li>未读</li>
+			            </ul>
+			            <div id="list_search" class="search_area right">
+			                <em class="icon24 search_gray_24"></em>
+			                <input type="text">
+			            </div>
+			        </div>
+			        <div id="list_content" class="r_2">
+						<!-- 列表区域 -->
+			        </div>
+			        <div class="r_3">
+			            <a class="btn_gray left">进入QQ邮箱</a>
+			            <div class="list_page right">
+			                <span id="list_page_text" class="margin_r_5">2/40页</span><span id="list_btn_next" class="margin_r_5 hand">下一页</span><span id="list_btn_previous" class="margin_r_5 hand">上一页</span><span class="margin_r_5">跳转</span><input id="list_go_number" class="pageNumber margin_r_5" type="text"><em id="list_btn_go" class="icon16 jump_16 hand"></em>
+			            </div>
+			        </div>
+			    </section>
+				<!--中间左右弹性布局-->
+				<section class="dialog_center_layout" style="display:none;">
+					<!--中间内容区域-->
+					<div class="dialog_center_content" >
+						<div class="content_show">
+							<article class="l_article">
+								<div class="article_photo"><img src="css/images/person_img.jpg" class="article_photo_img"/></div>
+								<div class="article_detail"><span class="detail_content"><em class="arrow"></em>这里是内容区域</span></div>
+							</article>
+							
+							<article class="r_article">
+								<div class="article_detail"><span class="detail_content"><em class="arrow"></em>这里是内容区域</span></div>
+								<div class="article_photo"><img src="css/images/person_img.jpg" class="article_photo_img"/></div>
+							</article>
+							<article class="l_article">
+								<div class="article_photo"><img src="css/images/person_img.jpg" class="article_photo_img"/></div>
+								<div class="article_detail"><span class="detail_content"><em class="arrow"></em>这里是内容区域</span></div>
+							</article>
+							
+							<article class="r_article">
+								<div class="article_detail"><span class="detail_content"><em class="arrow"></em>这里是内容区域</span></div>
+								<div class="article_photo"><img src="css/images/person_img.jpg" class="article_photo_img"/></div>
+							</article>
+							<article class="l_article">
+								<div class="article_photo"><img src="css/images/person_img.jpg" class="article_photo_img"/></div>
+								<div class="article_detail"><span class="detail_content"><em class="arrow"></em>这里是内容区域</span></div>
+							</article>
+							
+							<article class="r_article">
+								<div class="article_detail"><span class="detail_content"><em class="arrow"></em>这里是内容区域</span></div>
+								<div class="article_photo"><img src="css/images/person_img.jpg" class="article_photo_img"/></div>
+							</article>
+						</div>
+						<div class="content_input">
+							<ul class="dialog_toolbar">
+								<li><em class="icon24 face_24"></em></li>
+								<li><em class="icon24 audio_24_2"></em></li>
+								<li><em class="icon24 img_24"></em></li>
+								<li><em class="icon24 export_24"></em></li>
+								<li><em class="icon24 shear_24"></em></li>
+								<li id="history_show_btn" class="right margin_r_10"><em class="icon24 history_24"></em>消息记录</li>
+							</ul>
+							<div class="dialog_input_div" contentEditable="true"></div>
+							<div class="dialog_action">
+								<a href="#" class="dialog_button">关闭</a>
+								<a href="#" class="dialog_button dialog_button_stg">发送</a>
+								<a id="dialog_button_set" href="#" class="dialog_button dialog_button_set"></a>
+								<ul id="dialog_button_set_ul" class="dialog_button_set_ul">
+									<li id="enter_select"><span class="select_send clearfix"></span><span class="text">按Enter键发送消息</span></li>
+									<li id="ctrl_enter_select"><span class="select_send clearfix"></span><span class="text">按Ctrl+Enter键发送消息</span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--右侧消息记录 -->
+					<aside id="dialog_history" class="dialog_history">
+							<div class="dialog_history_lay_top">
+								<span class="margin_l_10">消息记录<em id="dialog_history_close_16" class="icon16 dialog_history_close_16 margin_l_5"></em></span>
+							</div>
+							<div class="dialog_history_lay_nav">
+								<a class="dialog_history_lay_nav_btn dialog_history_lay_nav_current" href="#">全部</a>
+								<a class="dialog_history_lay_nav_btn" href="#">图片</a>
+								<a class="dialog_history_lay_nav_btn" href="#">文件</a>
+								<a class="dialog_history_lay_nav_btn" href="#">收藏</a>
+							</div>
+							<div class="dialog_history_lay_cen">
+								<div class='dialog_history_lay_cen_h'></div>
+								<div id="dialog_history_lay_cen_c" class='dialog_history_lay_cen_c'>
+									<div class='dialog_history_lay_cen_scroll'>
+										<article class="history_info">
+											<div class="history_info_title"><span class="name">习近平</span><span class="time">15:56:26</span></div>
+											<div class="history_info_detail">这里是内容区域.这里是内容区域.这里是内容区域.这里是内容区域.</div>
+										</article>
+										<article class="history_info">
+											<div class="history_info_title"><span class="name">习近平</span><span class="time">15:56:26</span></div>
+											<div class="history_info_detail">这里是内容区域.这里是内容区域.这里是内容区域.这里是内容区域.</div>
+										</article>
+										<article class="history_info history_info_my">
+											<div class="history_info_title"><span class="name">朱鹏</span><span class="time">15:56:26</span></div>
+											<div class="history_info_detail">这里是内容区域.这里是内容区域.这里是内容区域.这里是内容区域.</div>
+										</article>
+										<article class="history_info history_info_my">
+											<div class="history_info_title"><span class="name">朱鹏</span><span class="time">15:56:26</span></div>
+											<div class="history_info_detail">这里是内容区域.这里是内容区域.这里是内容区域.这里是内容区域.</div>
+										</article>
+										
+									</div>
+								</div>
+								<div class='dialog_history_lay_cen_f'></div>
+							</div>
+							<div class="dialog_history_lay_btm">
+								<input class="history_search"/>
+								<em class="icon16 prev_end_dis_16"></em>
+								<em class="icon16 prev_dis_16 margin_l_5"></em>
+								<em class="icon16 next_16 margin_l_20"></em>
+								<em class="icon16 next_end_16 margin_l_5"></em>
+							</div>
+					</aside>
+				</section>		
+			</div>
+        </section>
+    </body>
+</html>

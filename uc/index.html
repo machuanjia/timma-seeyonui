@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>index</title>
+        <script src="js/jquery.js"></script>
+        <script src="js/uc.js"></script>
+        <script src="js/seeyon.ui.contextmenu-debug.js"></script>
+        <script src="js/jquery.ztree.core.js"></script>
+        <!-- <link rel="stylesheet" href="../css/common.css" /> -->
+        <link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css" />
+        <link rel="stylesheet" href="css/uc.css" />
+		<!-- <link rel="stylesheet" href="css/website.css" /> -->
+		<script>
+			UcObject.page = 'main';
+		</script>
+    </head>
+    <body>
+        <section class="main" onselectstart="return false">
+            <!-- 头部 start-->
+			<header class="header">
+                <div class="logo"><em class="icon24 zhixin_logo_24"></em>致信</div>
+                <div class="user-infos">
+                    <div class="person_logo">
+                        
+                    </div>
+                    <div class="infos">
+                        <div class="user_name">
+                        </div>
+
+                        <div class="user_sign"></div>
+                       <!--  <div class="own">
+                            <i><em class="icon24 mail_24"></em></i>
+                            <i><em class="icon24 mail_24"></em></i>
+                            <i><em class="icon24 mail_24"></em></i>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="btns">
+                    <i><em class="icon24 skin_24"></em></i>
+                    <i><em class="icon24 min_24"></em></i>
+                    <i><em class="icon24 close_24"></em></i>
+                </div>
+                <div class="search">
+                        <div class="search_opacity"></div>
+                        <div>
+                            <i class="close_search"><em class="icon16 search_close_16"></em></i>
+                            <i class="search_icon"><em class="icon24 search_24"></em></i>
+
+                            <input type="input" name="" id="search" placeholder="搜索：联系人、群组">
+                        </div>
+                         
+                                          
+                </div>
+            </header>
+            <!-- 头部 end-->
+            <!-- 个人资料 start-->
+                <div class="personal_msg" style="display:none;">
+                    <div class="personal-infos">
+                        <div class="personal_logo">
+                            <img src="css/images/mine.jpg">
+                        </div>
+                        <div class="detailed">
+                            <div class="personal_name">用户体验部Jerry</div>
+                        </div>
+                    </div>
+                    <div class="personal_detailed">
+                        <ul>
+                            <li><span>部门：</span>用户体验部</li>
+                            <li><span>职务：</span>UI设计师</li>
+                            <li><span>工作电话：</span>010-98748745</li>
+                            <li><span>移动电话：</span>15998501517</li>
+                            <li><span>电子邮箱：</span>lxy@seeyon.com</li>
+                        </ul>
+                    </div>
+                </div>  
+                <!-- 个人资料 end-->
+            <!-- 中间 start-->
+            <div class="content">
+                
+                <div class="friends-list">
+
+                    <div class="tab-head">
+                        <ul class="list_handle">
+                            <li id="list_handle1" class="current"><div class="msg_pop_titlecurrent" style=""></div><i><em class="icon24 recent_24"></em></i></li>
+                            <li id="list_handle2"><i><em class="icon24 contact_24"></em></i></li>
+                            <li id="list_handle3"><i><em class="icon24 friend_group_24"></em></i></li>
+                            <li id="list_handle4"><i><em class="icon24 space_24"></em></i></li>
+                        </ul>
+                    </div>
+            
+                    <div class="tab-body content_show">
+                        <div class="list_handle1" class="slideLeft">
+                            <div class="content_show_header"></div>
+                                <div id="content_show_center" class="content_show_center">
+
+                                    <div class="tab-item content_show_center_scroll">
+                                     
+                                        <ul class="list-info">
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                            <div class="content_show_footer"></div>
+                        </div>
+                        <div class="list_handle2" class="slideLeft" anclass="slideLeft"  style="display:none;">
+                            <div class="content_show_header"></div>
+                                <div id="content_show_center" class="content_show_center">
+                                    <div class="content_show_center_scroll">
+                                        <ul id="treeDemo" class="ztree">
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                            <div class="content_show_footer"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 鼠标右键 start-->
+                <div class="contextMenu" id="myMenu1">
+                    <ul class="menuStyle">
+                        <li>
+                            <!-- <em class="icon_info"></em> -->
+                            <span class="text_info" id="top">置顶</span>
+                        </li>
+                        <li>
+                            <!-- <em class="icon_info"></em> -->
+                            <span class="text_info" id="remove">移除</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contextMenu" id="myMenu2">
+                    <ul class="menuStyle">
+                        <li>
+                            <!-- <em class="icon_info"></em> -->
+                            <span class="text_info" id="cancel_top">取消置顶</span>
+                        </li>
+                        <li>
+                            <!-- <em class="icon_info"></em> -->
+                            <span class="text_info" id="top_remove">移除</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contextMenu" id="myMenu3">
+                    <ul class="menuStyle">
+                        <li>
+                            <em class="icon16 online_16"></em>
+                            <span class="user_menu" id="online">在线</span>
+                        </li>
+                        <li>
+                            <em class="icon16 busy_16"></em>
+                            <span class="user_menu" id="busy">忙碌</span>
+                        </li>
+                        <li>
+                            <em class="icon16 leave_16"></em>
+                            <span class="user_menu" id="leave">离开</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contextMenu" id="myMenu4">
+                    <ul class="menuStyle">
+                        <li>
+                            <em class="icon_info"></em>
+                            <span class="text_info" id="talk">发起交流</span>
+                        </li>
+                        <li>
+                            <em class="icon_info"></em>
+                            <span class="text_info" id="send_flie">发送文件</span>
+                        </li>
+                        <li>
+                            <em class="icon_info"></em>
+                            <span class="text_info" id="seeyon">协同</span>
+                        </li>
+                        <li>
+                            <em class="icon_info"></em>
+                            <span class="text_info" id="photos">图片</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 鼠标右键 end-->
+        
+            </div>
+			<!-- 中间 end-->
+            <!-- 底部 start-->
+			<footer>
+				<div class="btns">
+                	<section class="btns1">
+                    	<em class="icon16 like_16"></em>
+                		<em class="icon16 home_16"></em>
+                    </section>
+                    <section class="btns2">
+                    	 <em class="icon16 set_16"></em>
+                		<em class="icon16 add_friend_16"></em>
+                    </section>
+                </div>                         
+                </div>
+                <div class="news_list">
+                    <div class="news_icon">
+                        <em class="icon24 news_24"></em>
+                    </div>
+                    <ul>
+                    </ul> 
+                </div>
+			</footer>
+        </section>
+    </body>
+</html>

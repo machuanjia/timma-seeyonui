@@ -1,0 +1,307 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>list</title>
+    <script src="../scriptes/jquery.js"></script>
+    <script src="js/uc.js"></script>
+    <script src="js/seeyon.ui.contextmenu-debug.js"></script>
+    <link rel="stylesheet" href="css/uc.css" />
+    <style>
+        .list_area { display: flex; flex-direction: column; width: 100%; height: 100%; background: #F2F7FF; cursor: default; }
+        .list_area .r_1 { overflow: hidden; padding: 0 20px; height: 34px; }
+        .list_area .r_2 { overflow: auto; flex: 1; }
+        .list_area .r_3 { overflow: hidden; padding: 0 20px; height: 40px; }
+
+        .list_area .tab_area { position: relative; }
+        .list_area .tab_area li { float: left; margin-right: 15px; padding: 0 5px; font-size: 14px; height: 34px; line-height: 34px; color: #444444; cursor: pointer; }
+        .list_area .tab_area li.current { color: #08A3DC; }
+        .list_area .search_area { margin-top: 10px; padding: 3px 15px; border: solid 1px #DCDFE5; border-radius: 20px; background: #F9FBFF; }
+        .list_area .search_area input { padding: 0; width: 100px; height: 14px; line-height: 14px; font-size: 12px; border: 0; }
+        .list_area .search_area input:focus { outline: none; }
+        .list_area .search_area .icon24 { position: absolute; margin: -4px 0 0 -14px; vertical-align: top; }
+        .list_area .search_icon_hidden .icon24 { display: none; }
+
+        .list_area .listMail { table-layout: fixed; }
+        .list_area .listMail tr { cursor: pointer; }
+        .list_area .listMail tr:hover { background: #ddedf1;}
+        .list_area .listMail td { overflow: hidden; height: 28px; line-height: 28px; color: #646464; font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+        .list_area .listMail td.name_text { padding-left: 20px; padding-right: 15px; width: 140px; height: 0; }
+        .list_area .listMail td.content_text { padding-right: 15px; height: 0; }
+        .list_area .listMail td.time_text { padding-right: 20px; width: 68px; height: 0; }
+
+        .list_area .listCollaboration { table-layout: fixed; }
+        .list_area .listCollaboration tr { cursor: pointer; }
+        .list_area .listCollaboration tr:hover { background: #ddedf1;}
+        .list_area .listCollaboration td { overflow: hidden; height: 28px; line-height: 28px; color: #646464; font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+        .list_area .listCollaboration td.content_text { padding-left: 20px; padding-right: 15px; height: 0; }
+        .list_area .listCollaboration td.content_btn { width: 50px; }
+        .list_area .listCollaboration td.content_btn .icon24 { margin-top: 2px; vertical-align: top; }
+        .list_area .listCollaboration td.time_text { width: 130px; height: 0; }
+        .list_area .listCollaboration td.name_text { width: 75px; height: 0; }
+        .list_area .listCollaboration td.type_text { padding-right: 20px; width: 30px; height: 0; }
+
+        .list_area .btn_gray { margin-top: 7px; display: inline-block; width: 98px; height: 22px; line-height: 22px; color: #414141; text-align: center; background: #DADADA; border: solid 1px #C6C6C6; border-radius: 4px; cursor: pointer; }
+        .list_area .list_page { margin-top: 9px; }
+        .list_area .icon16 { vertical-align: top; }
+        .list_area .list_page .pageNumber { margin-top: -4px; width: 20px; height: 16px; line-height: 16px; text-align: center; border: solid 1px #969696; }
+    </style>
+    <script>
+        var ListContent = {};
+        //邮箱列表数据
+        ListContent.listMail_data = [
+			{
+			    name_text: "携程旅游网",
+			    content_text: "朱鹏，携程旅游网8月电子对账单",
+			    time_text: "2014-12-21",
+                handler: "mailOpen('id1')"
+			}, {
+			    name_text: "武科大何春芳",
+			    content_text: "2013年度班级综合考核",
+			    time_text: "2014-08-10",
+                handler: "mailOpen('id2')"
+			}, {
+			    name_text: "1号店1号店1号店1号店1号店1号店1号店1号店1号店",
+			    content_text: "1号店订单1140853389物流详情1号店订单1140853389物流详情1号店订单1140853389物流详情1号店订单1140853389物流详情1号店订单1140853389物流详情1号店订单1140853389物流详情",
+			    time_text: "2014-08-10",
+                handler: "mailOpen('id3')"
+			}, {
+			    name_text: "1号店",
+			    content_text: "1号店订单1140853389物流详情",
+			    time_text: "2014-08-10",
+                handler: "mailOpen('id4')"
+			}, {
+			    name_text: "杨老师",
+			    content_text: "毕业设计开题通知",
+			    time_text: "2014-08-10",
+                handler: "mailOpen('id5')"
+			}, {
+			    name_text: "携程旅游网",
+			    content_text: "朱鹏，携程旅游网8月电子对账单",
+			    time_text: "2014-12-21",
+                handler: "mailOpen('id6')"
+			}, {
+			    name_text: "武科大何春芳",
+			    content_text: "2013年度班级综合考核",
+			    time_text: "2014-08-10",
+                handler: "mailOpen('id7')"
+			}, {
+			    name_text: "杨老师",
+			    content_text: "毕业设计开题通知",
+			    time_text: "2014-08-10",
+                handler: "mailOpen('id8')"
+			}, {
+			    name_text: "携程旅游网",
+			    content_text: "朱鹏，携程旅游网8月电子对账单",
+			    time_text: "2014-12-21",
+                handler: "mailOpen('id9')"
+			}, {
+			    name_text: "武科大何春芳",
+			    content_text: "2013年度班级综合考核",
+			    time_text: "2014-08-10",
+                handler: "mailOpen('id10')"
+			}, {
+			    name_text: "1号店",
+			    content_text: "1号店订单1140853389物流详情",
+			    time_text: "2014-08-10",
+                handler: "mailOpen('id11')"
+			}, {
+			    name_text: "杨老师",
+			    content_text: "毕业设计开题通知",
+			    time_text: "2014-08-10",
+                handler: "mailOpen('id12')"
+			}, {
+			    name_text: "携程旅游网",
+			    content_text: "朱鹏，携程旅游网8月电子对账单",
+			    time_text: "2014-12-21",
+                handler: "mailOpen('id13')"
+			}, {
+			    name_text: "武科大何春芳",
+			    content_text: "2013年度班级综合考核",
+			    time_text: "2014-08-10",
+                handler: "mailOpen('id14')"
+			}, {
+			    name_text: "武科大何春芳",
+			    content_text: "2013年度班级综合考核",
+			    time_text: "2014-08-10",
+                handler: "mailOpen('id15')"
+			}, {
+			    name_text: "1号店",
+			    content_text: "1号店订单1140853389物流详情",
+			    time_text: "2014-08-10",
+                handler: "mailOpen('id16')"
+			}, {
+			    name_text: "杨老师",
+			    content_text: "毕业设计开题通知",
+			    time_text: "2014-08-10",
+                handler: "mailOpen('id17')"
+			}
+        ];
+        //协同消息列表
+        ListContent.listCollaboration_data = [
+			{
+                id: "Collaboration1",
+			    content_text: "职员公告",
+			    name_text: "管理员",
+			    time_text: "2014-12-21",
+			    type_text: "公告",
+                handler: "collaborationOpen('id1', event)"
+			}, {
+                id: "Collaboration2",
+			    content_text: "十月份工作计划",
+			    name_text: "朱鹏",
+			    time_text: "2014-12-21",
+			    type_text: "计划",
+                handler: "collaborationOpen('id2')"
+			}, {
+                id: "Collaboration3",
+			    content_text: "十月份工作计划十月份工作计划十月份工作计划十月份工作计划十月份工作计划十月份工作计划十月份工作计划十月份工作计划十月份工作计划十月份工作计划十月份工作计划十月份工作计划",
+			    name_text: "朱鹏",
+			    time_text: "2014-12-21",
+			    type_text: "计划",
+                handler: "collaborationOpen('id3')"
+			}, {
+                id: "Collaboration4",
+			    content_text: "十月份工作计划2",
+			    name_text: "朱鹏",
+			    time_text: "2014-12-21",
+			    type_text: "计划",
+                handler: "collaborationOpen('id4')"
+			}
+        ];
+        //邮件列表单击事件
+        function mailOpen (url) {
+            console.log("邮件列表打开_mailOpen()_" + url)
+        }
+        //协同列表单击事件
+        function collaborationOpen (url, e) {
+            //过滤图标按钮事件
+            if (event.target.nodeName.toUpperCase() == "EM") { return; };
+            console.log("协同列表打开_collaborationOpen()_" + url);
+        }
+        //协同列表单击事件
+        function collaborationPass (id, e, t) {
+            //删除当前行
+            $(t).parents("tr").fadeOut(function () {
+                $(this).remove();
+            });
+            console.log("忽略_collaborationPass()_" + id);
+        }
+
+
+        /*----------------------------------------------------------*/
+        //组件：邮箱列表
+        function listMail (json) {
+            this.p = {
+                listObj: $("#list_content").empty(),
+                data: ListContent.listMail_data
+            };
+            $.extend(this.p, json);
+
+            if (this.p.data == undefined) {
+                throw new Error("列表数据不能为空");
+            };
+        };
+        listMail.prototype.addData = function(data) {
+            var _html = "";
+            _html += '<table cellspacing="0" cellpadding="0" border="0" width="100%" height="100%" class="listMail">';
+            for (var i = 0; i < data.length; i++) {
+                _html += '<tr onclick="'+ data[i].handler +'">';
+                    _html += '<td class="name_text">' + data[i].name_text + '</td>';
+                    _html += '<td class="content_text">' + data[i].content_text + '</td>';
+                    _html += '<td class="time_text">' + data[i].time_text + '</td>';
+                _html += '</tr>';
+            };
+            _html += '</table>';
+            this.p.listObj.html(_html);
+        };
+
+        //协同消息列表初始化
+        function listCollaboration (json) {
+            this.p = {
+                listObj: $("#list_content").empty(),
+                data: ListContent.listCollaboration_data
+            };
+            $.extend(this.p, json);
+            if (this.p.data == undefined) {
+                throw new Error("列表数据不能为空");
+            };
+        };
+        listCollaboration.prototype.addData = function(data) {
+            var _html = "";
+            _html += '<table cellspacing="0" cellpadding="0" border="0" width="100%" height="100%" class="listCollaboration">';
+            for (var i = 0; i < data.length; i++) {
+                _html += '<tr onclick="'+ data[i].handler +'">';
+                    _html += '<td class="content_text">' + data[i].content_text + '</td>';
+                    _html += '<td class="content_btn"><em class="icon24 pass_24" onclick="collaborationPass(\''+ data[i].id +'\', event, this)"></em></td>';
+                    _html += '<td class="time_text">' + data[i].time_text + '</td>';
+                    _html += '<td class="name_text">' + data[i].name_text + '</td>';
+                    _html += '<td class="type_text">' + data[i].type_text + '</td>';
+                _html += '</tr>';
+            };
+            _html += '</table>';
+            this.p.listObj.html(_html);
+        };
+
+        //搜索查询初始化
+        function listSearch (json) {
+            var p = {
+                listObj: $("#list_search"),
+                data: ListContent.listMail_data
+            };
+            $.extend(p, json);
+
+            p.listObj.find(".list_search_textbox").click(function () {
+                p.listObj.addClass("search_icon_hidden");
+            }).blur(function () {
+                if ($.trim($(this).val()) == "") {
+                    $(this).val("");
+                    p.listObj.removeClass("search_icon_hidden");
+                };
+            }).keypress(function () {
+                p.fnSearch(p.listObj.find(".list_search_textbox").val());
+            });
+        }
+
+
+
+        $(function () {
+            
+            ListContent.listMail = new listMail();
+            ListContent.listMail.addData(ListContent.listMail_data);
+
+            ListContent.listCollaboration = new listCollaboration();
+            ListContent.listCollaboration.addData(ListContent.listCollaboration_data);
+            
+            ListContent.listSearch = new listSearch({
+                fnSearch: function(text){
+                    console.log("查询_listSearch()_" + text)
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+    <section class="list_area">
+        <div class="r_1">
+            <ul class="tab_area clearfix left">
+                <li class="current">全部</li>
+                <li>未读</li>
+            </ul>
+            <div id="list_search" class="search_area right">
+                <em class="icon24 search_gray_24"></em>
+                <input class="list_search_textbox" type="text">
+            </div>
+        </div>
+        <div id="list_content" class="r_2">
+			<!-- 列表区域 -->
+        </div>
+        <div class="r_3">
+            <a class="btn_gray left">进入QQ邮箱</a>
+            <div class="list_page right">
+                <span id="list_page_text" class="margin_r_5">2/40页</span><span id="list_btn_next" class="margin_r_5 hand">下一页</span><span id="list_btn_previous" class="margin_r_5 hand">上一页</span><span class="margin_r_5">跳转</span><input id="list_go_number" class="pageNumber margin_r_5" type="text"><em id="list_btn_go" class="icon16 jump_16 hand"></em>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

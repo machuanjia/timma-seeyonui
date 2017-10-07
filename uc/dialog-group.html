@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>uc</title>
+        <script src="jquery.js"></script>
+        <script src="js/uc.js"></script>
+		<script src="js/seeyon.ui.contextmenu-debug.js"></script>
+		<link rel="stylesheet" href="css/uc.css" />
+		<script>
+			UcObject.page = 'dialog';
+		</script>
+    </head>
+    <body>
+    	<!--外层框架-->
+        <section class="dialog_layout">
+        	<!--左侧导航-->
+			<nav class="dialog_left">
+				<div class="dialog_left_top">
+					<!--左侧搜索-->
+					<input id="dialog_nav_search" class="dialog_nav_search"/>
+					<em id="dialog_nav_search_close" class="icon16 search_close_16 dialog_nav_search_close"></em>
+				</div>
+					<!--左侧菜单-->
+					<ul id="nav_ul" class="nav_ul">
+						<li class="current">
+							<em class="icon16 dilaog_nav_close_16 remove"></em>
+							<span class="photo">
+								<img src="css/images/person_img.jpg" class="nav_photo_img"/>
+								<em class='icon16 mobile_16'></em>
+							</span>
+							<span class="name">习近平习近平</span>
+							<em class="read">3</em>
+						</li>
+						<li>
+							<em class="icon16 dilaog_nav_close_16 remove"></em>
+							<span class="photo">
+								<img src="css/images/person_img.jpg" class="nav_photo_img"/>
+								<em class='icon16 busy_16'></em>
+							</span>
+							<span class="name">习近平习近平</span>
+							<em class="read">3</em>
+						</li>
+						<li>
+							<em class="icon16 dilaog_nav_close_16 remove"></em>
+							<span class="photo">
+								<img src="css/images/email.png" class="nav_photo_img"/>
+							</span>
+							<span class="name no_num">QQ邮箱</span>
+						</li>
+						<li>
+							<em class="icon16 dilaog_nav_close_16 remove"></em>
+							<span class="photo">
+								<img src="css/images/coll.png" class="nav_photo_img"/>
+							</span>
+							<span class="name no_num">协同消息</span>
+						</li>
+						<li>
+							<em class="icon16 dilaog_nav_close_16 remove"></em>
+							<span class="photo">
+								<img src="css/images/ued.png" class="nav_photo_img"/>
+							</span>
+							<span class="name no_num">致远UED</span>
+						</li>
+					</ul>	
+					<!--左侧菜单搜索-->
+					<ul id="nav_ul_search" class="nav_ul_search">
+						<li class="group_title">个人</li>
+						<li><span class="text">张译丹</span><em class="icon32 history_32 margin_l_5"></em><em class="icon32 mail_go_32 margin_l_5"></em></li>
+						<li><span class="text">张译丹</span></li>
+						<li class="group_title">群组</li>
+						<li>致远UED(张译丹)</li>
+					</ul>			
+			</nav>
+			<!--中间内容层-->
+			<div class="dialog_center">
+				<!--中间banner-->
+				<header class="dialog_center_header">
+					<div class="dialog_banner">
+						<div class="dialog_banner_layout">
+							<div class="dialog_banner_l">
+								<div class="dialog_banner_photo"><img src="css/images/person_img.jpg" class="banner_photo_img"/><em class="icon16 mobile_16 other_attr"></em></div>
+							</div>
+							<div class="dialog_banner_c">
+								<div class="dialog_banner_name">习近平</div>
+								<div class="dialog_banner_sign">菩提本无树，明镜亦非台，时时勤拂拭，勿使惹尘埃菩提本无树，明镜亦非台，时时勤拂拭，勿使惹尘埃菩提本无树，明镜亦非台，时时勤拂拭，勿使惹尘埃菩提本无树，明镜亦非台，时时勤拂拭，勿使惹尘埃菩提本无树，明镜亦非台，时时勤拂拭，勿使惹尘埃菩提本无树，明镜亦非台，时时勤拂拭，勿使惹尘埃</div>
+							</div>
+							<div class="dialog_banner_r">
+								<em class="icon16 dialog_min_16 margin_l_5"></em>
+								<em class="icon16 dialog_max_16 margin_l_5"></em>
+								<em class="icon16 dialog_close_16 margin_l_5"></em>
+							</div>
+						</div>
+						<div class="dialog_banner_set">
+							<em class="icon24 camara_24"></em>
+							<em class="icon24 audio_24 margin_l_10"></em>
+							<em class="icon24 file_24 margin_l_10"></em>
+							<em class="icon24 folder_24 margin_l_10"></em>
+							<em class="icon24 group_24 margin_l_10"></em>
+						</div>
+					</div>
+				</header>
+				<!--中间左右弹性布局-->
+				<section class="dialog_center_layout">
+					<!--中间内容区域-->
+					<div class="dialog_center_content">
+						<div class="content_show">
+								<article class="l_article">
+									<div class="article_photo"><img src="css/images/person_img.jpg" class="article_photo_img"/></div>
+									<div class="article_detail"><span class="detail_content"><em class="arrow"></em>这里是内容区域</span></div>
+								</article>
+								
+								<article class="r_article">
+									<div class="article_detail"><span class="detail_content"><em class="arrow"></em>这里是内容区域</span></div>
+									<div class="article_photo"><img src="css/images/person_img.jpg" class="article_photo_img"/></div>
+								</article>
+								<article class="l_article">
+									<div class="article_photo"><img src="css/images/person_img.jpg" class="article_photo_img"/></div>
+									<div class="article_detail"><span class="detail_content"><em class="arrow"></em>这里是内容区域</span></div>
+								</article>
+								
+								<article class="r_article">
+									<div class="article_detail"><span class="detail_content"><em class="arrow"></em>这里是内容区域</span></div>
+									<div class="article_photo"><img src="css/images/person_img.jpg" class="article_photo_img"/></div>
+								</article>
+								<article class="l_article">
+									<div class="article_photo"><img src="css/images/person_img.jpg" class="article_photo_img"/></div>
+									<div class="article_detail"><span class="detail_content"><em class="arrow"></em>这里是内容区域</span></div>
+								</article>
+								
+								<article class="r_article">
+									<div class="article_detail"><span class="detail_content"><em class="arrow"></em>这里是内容区域</span></div>
+									<div class="article_photo"><img src="css/images/person_img.jpg" class="article_photo_img"/></div>
+								</article>
+						</div>
+						<div class="content_input">
+							<ul class="dialog_toolbar">
+								<li><em class="icon24 face_24"></em></li>
+								<li><em class="icon24 audio_24_2"></em></li>
+								<li><em class="icon24 img_24"></em></li>
+								<li><em class="icon24 export_24"></em></li>
+								<li><em class="icon24 shear_24"></em></li>
+								<li id="history_show_btn" class="right margin_r_10"><em class="icon24 history_24"></em>消息记录</li>
+							</ul>
+							<div class="dialog_input_div" contentEditable="true"></div>
+							<div class="dialog_action">
+								<a href="#" class="dialog_button">关闭</a>
+								<a href="#" class="dialog_button dialog_button_stg">发送</a>
+								<a id="dialog_button_set" href="#" class="dialog_button dialog_button_set"></a>
+								<ul id="dialog_button_set_ul" class="dialog_button_set_ul">
+									<li id="enter_select"><span class="select_send clearfix"></span><span class="text">按Enter键发送消息</span></li>
+									<li id="ctrl_enter_select"><span class="select_send clearfix"></span><span class="text">按Ctrl+Enter键发送消息</span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--右侧消息记录 -->
+					<aside id="dialog_history" class="dialog_history">
+							<div class="dialog_history_lay_top">
+								<span class="margin_l_10">群公告<em id="dialog_history_close_16" class="icon16 dialog_history_close_16 margin_l_5"></em></span>
+							</div>
+							<div class="dialog_history_lay_nav_group">
+								成都公测环境<br/>
+								web节点：http://10.5.6.152<br/>
+								主节点：http://10.5.6.152:9080<br/>
+								从：http://10.5.6.195:9080<br/>
+								北京公测环境：http://10.3.4.229:88<br/>
+							</div>
+							<div class="dialog_history_lay_search_group">
+								群成员12/200<em class="icon16 group_search_16"></em>
+							</div>
+							<div class="dialog_history_lay_cen">
+								<ul class="group_people_list">
+									<li><img src="css/images/person_img.jpg" class="group_img"/><span class="text">王海容</span></li>
+									<li><img src="css/images/person_img.jpg" class="group_img"/><span class="text">王海容</span></li>
+									<li><img src="css/images/person_img.jpg" class="group_img"/><span class="text">王海容</span></li>
+									<li><img src="css/images/person_img.jpg" class="group_img"/><span class="text">王海容</span></li>
+									<li><img src="css/images/person_img.jpg" class="group_img"/><span class="text">王海容</span></li>
+								</ul>
+							</div>
+							<div class="dialog_history_lay_btm">
+								<input class="history_search"/>
+								<em class="icon16 prev_end_dis_16"></em>
+								<em class="icon16 prev_dis_16 margin_l_5"></em>
+								<em class="icon16 next_16 margin_l_20"></em>
+								<em class="icon16 next_end_16 margin_l_5"></em>
+							</div>
+					</aside>
+				</section>		
+			</div>
+        </section>
+    </body>
+</html>
