@@ -1,0 +1,437 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>event</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+		function afterprint(){
+			alert('afterprint')
+		}
+		function beforeprint(){
+			alert('beforeprint')
+		}
+		function beforeonload(){
+			alert('beforeonload')
+		}
+		function load(){
+			alert("load ")
+		}
+		function error(){
+			alert('error')
+		}
+		function haschange(){
+			alert('haschange')
+		}
+		function offline(){
+			alert("offline")
+		}
+		function line(){
+			alert("online")
+		}
+		function pagehide(){
+			alert("pagehide")
+		}
+		function pageshow(){
+			alert('pageshow')
+		}
+		function popstate(){
+			alert('popstate')
+		}
+		function redo(){
+			alert("redo")
+		}
+		function storage(){
+			alert("storage")
+		}
+		function undo(){
+			alert("undo")
+		}
+		function mousewheel(){
+			alert("mousewheel")
+		}
+    </script>
+</head>
+<body class="demo" onmousewheel="mousewheel()" onundo="undo()" onstorage="storage()" onredo="redo()" onpopstate="popstate()" onpageshow="pageshow()" onpagehide="pagehide()" ononline="line()" onoffline="offline()" onafterprint="afterprint()" onbeforeprint="beforeprint()" onbeforeonload="beforeonload()" onload="load()" onerror="error()" onhaschange="haschange()">
+    <div id="status"></div>
+	<div class="padding_lr_20">
+        <h3>html5事件属性-Window 事件属性 - Window Event Attributes <a href="http://www.w3school.com.cn/html5/html5_ref_eventattributes.asp#Window_Event_Attributes">w3school实例</a></h3>
+		<table width="100%" border="1">
+			<thead>
+				<tr>
+					<th>事件属性</th>
+					<th>描述</th>
+					<th>实例</th>
+					<th width="100">iphone支持情况</th>
+					<th width="100">安卓支持情况</th>
+					<th width="100">pc支持情况</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>onafterprint</td>
+					<td>在打印文档之后运行脚本</td>
+					<td>
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>onbeforeprint</td>
+					<td>在文档打印之前运行脚本</td>
+					<td>
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>onbeforeonload</td>
+					<td>在文档加载之前运行脚本</td>
+					<td>
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>onerror</td>
+					<td>当错误发生时运行脚本</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>onhaschange</td>
+					<td>ajax无刷新页面提交的同时，可以很方便的记录每次更新的痕迹</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>onmessage</td>
+					<td>当触发消息时运行脚本</td>
+					<td>
+						<a href="api_WebWorkers.html">实例</a>
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>onoffline</td>
+					<td>当文档离线时运行脚本</td>
+					<td>
+						
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>ononline</td>
+					<td>当文档上线时运行脚本</td>
+					<td>
+						
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>onpagehide</td>
+					<td>当窗口隐藏时运行脚本</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>onpageshow</td>
+					<td>当窗口可见时运行脚本</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>onpopstate</td>
+					<td>当窗口历史记录改变时运行脚本</td>
+					<td></td>
+					<td>否</td>
+					<td>否</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>onredo</td>
+					<td>当文档执行再执行操作（redo）时运行脚本</td>
+					<td></td>
+					<td>否</td>
+					<td>否</td>
+					<td>否</td>
+				</tr>
+				<tr>
+					<td>onstorage</td>
+					<td>当文档加载加载时运行脚本</td>
+					<td></td>
+					<td>否</td>
+					<td>否</td>
+					<td>否</td>
+				</tr>
+				<tr>
+					<td>onundo</td>
+					<td>当 Web Storage 区域更新时（存储空间中的数据发生变化时）</td>
+					<td></td>
+					<td>否</td>
+					<td>否</td>
+					<td>否</td>
+				</tr>
+				
+				
+				
+			</tbody>
+		</table>
+		
+		
+		
+		
+		
+        <h3>表单事件</h3>
+        <p>由 HTML 表单内部的动作触发的事件</p>
+		<table width="100%" border="1">
+			<thead>
+				<tr>
+					<th>事件属性</th>
+					<th>描述</th>
+					<th>实例</th>
+					<th width="100">iphone支持情况</th>
+					<th width="100">安卓支持情况</th>
+					<th width="100">pc支持情况</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>oncontextmenu</td>
+					<td>当触发上下文菜单时运行脚本</td>
+					<td>
+						<script>
+							function contextmenu(){
+								alert("contextmenu")
+							}
+						</script>
+						<textarea oncontextmenu="contextmenu()"></textarea>
+					</td>
+					<td>否</td>
+					<td>否</td>
+					<td>移动端不支持</td>
+					
+				</tr>
+				<tr>
+					<td>onformchange</td>
+					<td>当表单改变时运行脚本</td>
+					<td>
+						
+					</td>
+					<td>否</td>
+					<td>否</td>
+					<td>否</td>
+				</tr>
+				<tr>
+					<td>onforminput</td>
+					<td>当表单获得用户输入时运行脚本</td>
+					<td>
+					</td>
+					<td>否</td>
+					<td>否</td>
+					<td>否</td>
+				</tr>
+				<tr>
+					<td>oninput</td>
+					<td>当元素获得用户输入时运行脚本</td>
+					<td>
+						<script>
+							function input(){
+								alert("input")
+							}
+						</script>
+						<input oninput="input()"/>
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>oninvalid</td>
+					<td>当元素无效时运行脚本</td>
+					<td>
+						<script>
+							function invalid(){
+								alert("invalid")
+							}
+						</script>
+						<input oninvalid="invalid()"/>
+						
+					</td>
+					<td>否</td>
+					<td>否</td>
+					<td>否</td>
+				</tr>
+			</tbody>
+		</table>
+        <h3>鼠标事件</h3>
+		<p>由鼠标或相似的用户动作触发的事件</p>
+		<table width="100%" border="1">
+			<thead>
+				<tr>
+					<th>事件属性</th>
+					<th>描述</th>
+					<th>实例</th>
+					<th width="100">iphone支持情况</th>
+					<th width="100">安卓支持情况</th>
+					<th width="100">pc支持情况</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>ondrag</td>
+					<td>当拖动元素时运行脚本</td>
+					<td><a href="event_drop.html">实例</a></td>
+					<td>否</td>
+					<td>否</td>
+					<td></td>
+				</tr>
+				
+				<tr>
+					<td>ondragend</td>
+					<td>当拖动操作结束时运行脚本</td>
+					<td>
+					</td>
+					<td>否</td>
+					<td>否</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>ondragenter</td>
+					<td>当元素被拖动至有效的拖放目标时运行脚本</td>
+					<td>
+					</td>
+					<td>否</td>
+					<td>否</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>ondragleave</td>
+					<td>当元素离开有效拖放目标时运行脚本</td>
+					<td>
+					</td>
+					<td>否</td>
+					<td>否</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>ondragover</td>
+					<td>当元素被拖动至有效拖放目标上方时运行脚本</td>
+					<td>
+					</td>
+					<td>否</td>
+					<td>否</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>ondragstart</td>
+					<td>当拖动操作开始时运行脚本</td>
+					<td>
+					</td>
+					<td>否</td>
+					<td>否</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>ondrop</td>
+					<td>当被拖动元素正在被拖放时运行脚本</td>
+					<td>
+					</td>
+					<td>否</td>
+					<td>否</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>onmousewheel</td>
+					<td>当转动鼠标滚轮时运行脚本</td>
+					<td>
+					</td>
+					<td>否</td>
+					<td>否</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>onscroll</td>
+					<td>当滚动元素滚动元素的滚动条时运行脚本</td>
+					<td>
+						<script>
+							function scroll(){
+								alert("scroll")
+							}
+						</script>
+						<textarea width="100" height="50" onscroll="scroll()"></textarea>
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+        <h3>媒介事件</h3>
+		<p><a href="http://www.w3school.com.cn/html5/html5_ref_eventattributes.asp#Window_Event_Attributes">媒介事件实例</a></p>
+		<!--
+        <table>
+            <tr>
+                <td class="fB">Canvas</td>
+                <td class="fB">SVG</td>
+            </tr>
+            <tr>
+                <td>1.依赖分辨率<br />
+                    2.不支持事件处理器<br />
+                    3.弱的文本渲染能力<br />
+                    4.能够以 .png 或 .jpg 格式保存结果图像<br />
+                    5.最适合图像密集型的游戏，其中的许多对象会被频繁重绘</td>
+                <td>1.不依赖分辨率<br />
+                    2.支持事件处理器<br />
+                    3.最适合带有大型渲染区域的应用程序（比如谷歌地图）<br />
+                    4.复杂度高会减慢渲染速度（任何过度使用 DOM 的应用都不快）<br />
+                    5.不适合游戏应用</td>
+            </tr>
+        </table>
+    </div>
+	-->
+</body>
+</html>

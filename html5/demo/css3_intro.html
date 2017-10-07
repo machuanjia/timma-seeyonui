@@ -1,0 +1,59 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>标签 - video</title>
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+    </script>
+</head>
+<body class="demo">
+    <div class="padding_lr_20">
+        <h3>CSS3 - 简介</h3>
+        <p>　　现如今，随着 Web2.0 技术的流行，之前的 CSS2 标准和相关技术似乎已经满足不了日益增长的开发需求：人们需要实现更加美观、用户体验更好的界面。CSS3，这个新一代的标准应运而生。为了满足现有的对于 Web UI 的开发需求，它提供了一系列强大的功能，如许多新的 CSS 属性（文字，布局，颜色等等），各种 CSS 特效，甚至还支持 CSS 动画、元素的变换。这些 CSS 新特性在现阶段可以说都是非常强大和完善的，您只需要加入几行简单的 CSS 代码便可以实现出一系列令人眼前一亮的效果，这比我们之前用 JavaScript 去模拟这样的效果要好得多，不仅降低了复杂度，变得易维护，在性能上也突飞猛进了。<br />
+        　　CSS 即层叠样式表（Cascading Stylesheet）。Web 开发中采用 CSS 技术，可以有效地控制页面的布局、字体、颜色、背景和其它效果。只需要一些简单的修改，就可以改变网页的外观和格式。CSS3 是 CSS 的升级版本，这套新标准提供了更加丰富且实用的规范，如：盒子模型、列表模块、超链接方式、语言模块、背景和边框、文字特效、多栏布局等等，目前有很多浏览器已经相继支持这项升级的规范，如：Firefox、Chrome、Safari、Opera 等等。在 Web 开发中采用 CSS3 技术将会显著的美化我们的应用程序，提高用户体验，同时也能极大的提高程序的性能。</p>
+        <h3>CSS3 模块</h3>
+        <p>CSS3 被划分为模块。<br /><br />
+                其中最重要的 CSS3 模块包括：<br />
+                　　1、选择器<br />
+                　　2、框模型<br />
+                　　3、背景和边框<br />
+                　　4、文本效果<br />
+                　　5、2D/3D 转换<br />
+                　　6、动画<br />
+                　　7、多列布局<br />               　　
+		</p>
+        <h3>CSS3 标准</h3>
+        <p>
+        	W3C 仍然在对 CSS3 规范进行开发。<br />
+不过，现代浏览器已经实现了相当多的 CSS3 属性。
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>标签 - video</title>
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+			$("#code_btn_1").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view_1').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+    </script>
+    <style>
+	p{white-space: pre-wrap;}
+	table{
+		border:1px solid #aaa;
+		
+		}
+	table tr{
+		background:#efefef;
+		height:25px;	
+	}
+	table tr:first-child{ 
+		background:#d5d5d5;
+		border:1px solid #aaa;
+		font-weight:bold;
+		text-align:center;
+    } 
+	.text_shadow{
+		text-shadow: 5px 5px 5px #FF0000;	
+	}
+	.word_wrap{
+		width:150px; 
+		border:1px solid #000000;
+		word-wrap:break-word;
+	}
+	.word_wrap_no{
+		width:150px; 
+		border:1px solid #000000;
+	}
+	</style>
+</head>
+<body class="demo">
+    <div class="padding_lr_20">
+        <h3>CSS3 - 文本效果</h3>
+        <p>通过 CSS3，能够创建圆角边框，向矩形添加阴影，使用图片来绘制边框。</p>
+        <h3>属性</h3>
+        
+        <table width="600">
+        	<tr>
+            	<td width="200">属性</td>
+                <td width="400">描述</td>
+            </tr>
+            <tr>
+            	<td>hanging-punctuation</td>
+                <td>规定标点字符是否位于线框之外。</td>
+            </tr>
+            <tr>
+            	<td>punctuation-trim</td>
+                <td>规定是否对标点字符进行修剪。</td>
+            </tr>
+            <tr>
+            	<td>text-align-last</td>
+                <td>设置如何对齐最后一行或紧挨着强制换行符之前的行。</td>
+            </tr>
+            <tr>
+            	<td>text-emphasis</td>
+                <td>向元素的文本应用重点标记以及重点标记的前景色。</td>
+            </tr>
+            <tr>
+            	<td>text-justify</td>
+                <td>规定当 text-align 设置为 "justify" 时所使用的对齐方法。</td>
+            </tr>
+            <tr>
+            	<td>text-outline</td>
+                <td>规定文本的轮廓。</td>
+            </tr>
+            <tr>
+            	<td>text-overflow</td>
+                <td>规定当文本溢出包含元素时发生的事情。</td>
+            </tr>
+            <tr>
+            	<td>text-shadow</td>
+                <td>向文本添加阴影。</td>
+            </tr>
+            <tr>
+            	<td>text-wrap</td>
+                <td>规定文本的换行规则。</td>
+            </tr>
+            <tr>
+            	<td>word-break</td>
+                <td>规定非中日韩文本的换行规则。</td>
+            </tr>
+            <tr>
+            	<td>word-wrap</td>
+                <td>允许对长的不可分割的单词进行分割并换行到下一行。</td>
+            </tr>
+        </table>
+        
+        <h3>示例1 - CSS3 文本阴影</h3>
+        <p>
+在 CSS3 中，text-shadow 可向文本应用阴影。
+
+您能够规定水平阴影、垂直阴影、模糊距离，以及阴影的颜色：
+        </p>
+        <h1 class="text_shadow">CSS3 文本阴影</h1>
+
+        <pre id="code_view" class="brush: js;">
+	.text_shadow{
+		text-shadow: 5px 5px 5px #FF0000;	
+	}
+</pre>
+        <div class="align_r">
+            <input id="code_btn" class="iBtn" type="button" value="一键复制code" />
+        </div>
+        
+        <h3>示例2 - CSS3 自动换行</h3>
+        <p>
+单词太长的话就可能无法超出某个区域：
+        </p>
+        <div class="word_wrap_no">This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.</div>
+		<p>
+在 CSS3 中，word-wrap 属性允许您允许文本强制文本进行换行 - 即使这意味着会对单词进行拆分：        
+        </p>
+        <div class="word_wrap">This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.</div>
+        <pre id="code_view_1" class="brush: js;">
+	.word_wrap{
+		width:150px; 
+		border:1px solid #000000;
+		word-wrap:break-word;
+	}
+</pre>
+        <div class="align_r">
+            <input id="code_btn_1" class="iBtn" type="button" value="一键复制code" />
+        </div>
+    </div>
+</body>
+</html>

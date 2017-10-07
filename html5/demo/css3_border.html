@@ -1,0 +1,215 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>标签 - video</title>
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+			$("#code_btn_1").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view_1').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+			$("#code_btn_2").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view_2').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+			$("#code_btn_3").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view_3').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+    </script>
+    <style>
+	p{white-space: pre-wrap;}
+	table{
+		border:1px solid #aaa;
+		
+		}
+	table tr{
+		background:#efefef;
+		height:25px;	
+	}
+	table tr:first-child{ 
+		background:#d5d5d5;
+		border:1px solid #aaa;
+		font-weight:bold;
+		text-align:center;
+    } 
+	.border_radius{
+		text-align:center;
+		border:2px solid #a1a1a1;
+		padding:10px 40px; 
+		background:#dddddd;
+		width:350px;
+		border-radius:25px;
+		-moz-border-radius:25px; /* 老的 Firefox */
+	}
+	.box_shadow{
+		width:300px;
+		height:100px;
+		background-color:#ff9900;
+		-moz-box-shadow: 10px 10px 5px #888888; /* 老的 Firefox */
+		box-shadow: 10px 10px 5px #888888;
+	}
+	.border_round{
+		border:15px solid transparent;
+		width:300px;
+		padding:10px 20px;
+		-moz-border-image:url(../images/css_border.png) 30 30 round;	/* Old Firefox */
+		-webkit-border-image:url(../images/css_border.png) 30 30 round;	/* Safari and Chrome */
+		-o-border-image:url(../images/css_border.png) 30 30 round;		/* Opera */
+		border-image:url(../images/css_border.png) 30 30 round;
+	}
+	.border_stretch{
+		border:15px solid transparent;
+		width:300px;
+		padding:10px 20px;
+		-moz-border-image:url(../images/css_border.png) 30 30 stretch;	/* Old Firefox */
+		-webkit-border-image:url(../images/css_border.png) 30 30 stretch;	/* Safari and Chrome */
+		-o-border-image:url(../images/css_border.png) 30 30 stretch;	/* Opera */
+		border-image:url(../images/css_border.png) 30 30 stretch;
+	}
+	</style>
+</head>
+<body class="demo">
+    <div class="padding_lr_20">
+        <h3>CSS3 - 边框</h3>
+        <p>通过 CSS3，能够创建圆角边框，向矩形添加阴影，使用图片来绘制边框。</p>
+        <h3>属性</h3>
+        
+        <table width="600">
+        	<tr>
+            	<td width="200">属性</td>
+                <td width="400">描述</td>
+            </tr>
+            <tr>
+            	<td>border-image</td>
+                <td>设置所有 border-image-* 属性的简写属性。</td>
+            </tr>
+            <tr>
+            	<td>border-radius</td>
+                <td>设置所有四个 border-*-radius 属性的简写属性。</td>
+            </tr>
+            <tr>
+            	<td>box-shadow</td>
+                <td>向方框添加一个或多个阴影。</td>
+            </tr>
+        </table>
+        
+        <h3>示例1 - CSS3 圆角边框</h3>
+        <p>
+在 CSS2 中添加圆角矩形需要技巧。我们必须为每个圆角使用不同的图片。
+在 CSS3 中，创建圆角是非常容易的。
+在 CSS3 中，border-radius 属性用于创建圆角：
+        </p>
+        <div class="border_radius">border-radius 属性允许您向元素添加圆角。</div>
+
+        <pre id="code_view" class="brush: js;">
+.border_radius{
+    text-align:center;
+    border:2px solid #a1a1a1;
+    padding:10px 40px; 
+    background:#dddddd;
+    width:350px;
+    border-radius:25px;
+    -moz-border-radius:25px; /* 老的 Firefox */
+}
+</pre>
+        <div class="align_r">
+            <input id="code_btn" class="iBtn" type="button" value="一键复制code" />
+        </div>
+        
+        <h3>示例2 - CSS3 边框阴影</h3>
+        <p>
+在 CSS3 中，box-shadow 用于向方框添加阴影：
+        </p>
+        <div class="box_shadow"></div>
+<br />
+        <pre id="code_view_1" class="brush: js;">
+.box_shadow{
+    width:300px;
+    height:100px;
+    background-color:#ff9900;
+    -moz-box-shadow: 10px 10px 5px #888888; /* 老的 Firefox */
+    box-shadow: 10px 10px 5px #888888;
+}
+</pre>
+        <div class="align_r">
+            <input id="code_btn_1" class="iBtn" type="button" value="一键复制code" />
+        </div>
+        
+        <h3>示例3 - CSS3 边框图片</h3>
+        <p>
+通过 CSS3 的 border-image 属性。
+
+Internet Explorer 不支持 border-image 属性。
+
+border-image 属性规定了用作边框的图片。
+
+您可以使用图片来创建边框：
+        </p>
+        <h4>round:</h4>
+        <br />
+        <div class="border_round">在这里，图片铺满整个边框。</div>
+<br />
+        <pre id="code_view_2" class="brush: js;">
+	.border_round{
+		border:15px solid transparent;
+		width:300px;
+		padding:10px 20px;
+		-moz-border-image:url(../images/css_border.png) 30 30 round;	/* Old Firefox */
+		-webkit-border-image:url(../images/css_border.png) 30 30 round;	/* Safari and Chrome */
+		-o-border-image:url(../images/css_border.png) 30 30 round;		/* Opera */
+		border-image:url(../images/css_border.png) 30 30 round;
+	}
+</pre>
+        <div class="align_r">
+            <input id="code_btn_2" class="iBtn" type="button" value="一键复制code" />
+        </div>
+        <br />
+        <h4>stretch:</h4>
+        <br />
+        <div class="border_stretch">在这里，图片被拉伸以填充该区域。</div>
+<br />
+        <pre id="code_view_3" class="brush: js;">
+	.border_stretch{
+		border:15px solid transparent;
+		width:300px;
+		padding:10px 20px;
+		-moz-border-image:url(../images/css_border.png) 30 30 stretch;	/* Old Firefox */
+		-webkit-border-image:url(../images/css_border.png) 30 30 stretch;	/* Safari and Chrome */
+		-o-border-image:url(../images/css_border.png) 30 30 stretch;	/* Opera */
+		border-image:url(../images/css_border.png) 30 30 stretch;
+	}
+</pre>
+        <div class="align_r">
+            <input id="code_btn_3" class="iBtn" type="button" value="一键复制code" />
+        </div>
+    </div>
+</body>
+</html>

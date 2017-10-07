@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>浏览器内容复制demo</title>
+    <script src="../jquery.min.js"></script>
+    <script src="jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            $('#btn').zclip({
+                path: 'ZeroClipboard.swf',
+                copy: $('#text').html()
+            });
+        })
+    </script>
+</head>
+<body>
+    <input id="btn" type="button" name="name" value="复制代码" />
+    <p id="text">code code code code code code</p>
+</body>
+</html>

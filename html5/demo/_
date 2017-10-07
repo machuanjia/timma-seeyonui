@@ -1,0 +1,139 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>标签 - video</title>
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+
+            var WrapTopBar_data_json = [
+                {
+                    name: "HTML5标签",
+                    data: [
+                        { name: "video", href: "tag_video.html" },
+                        { name: "video", href: "tag_video.html" },
+                        { name: "video", href: "tag_video.html" },
+                        { name: "video", href: "tag_video.html" },
+                        { name: "video", href: "tag_video.html" },
+                        { name: "video", href: "tag_video.html" },
+                        { name: "video", href: "tag_video.html" },
+                        { name: "video", href: "tag_video.html" },
+                        { name: "video", href: "tag_video.html" },
+                        { name: "1video", href: "tag_video.html" }
+                    ]
+                }, {
+                    name: "CSS3",
+                    data: [
+                        { name: "transition", href: "css_transition.html" },
+                        { name: "transition", href: "css_transition.html" },
+                        { name: "transition", href: "css_transition.html" },
+                        { name: "transition", href: "css_transition.html" },
+                        { name: "transition", href: "css_transition.html" },
+                        { name: "transition", href: "css_transition.html" },
+                        { name: "transition", href: "css_transition.html" }
+                    ]
+                }
+            ];
+            //顶部菜单生成 - start
+            var WrapTopBar_html="";
+            WrapTopBar_html += '<div class="WrapTopBar_area">';
+            WrapTopBar_html += '<div class="WrapTopBar_div_area">';
+            for (var i = 0; i < WrapTopBar_data_json.length; i++) {
+                WrapTopBar_html += '<ul>';
+                WrapTopBar_html += '<li class="title"><a href="javascript:;">' + WrapTopBar_data_json[i].name + '</a></li>';
+                for (var k = 0; k < WrapTopBar_data_json[i].data.length; k++) {
+                    WrapTopBar_html += '<li><a href="' + WrapTopBar_data_json[i].data[k].href + '">' + WrapTopBar_data_json[i].data[k].name + '</a></li>';
+                }
+                WrapTopBar_html += '</ul>';
+            }
+            WrapTopBar_html += '</div>';
+            WrapTopBar_html += '</div>';
+            $("body.demo").prepend(WrapTopBar_html);
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+            
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+    </script>
+</head>
+<body class="demo">
+    
+            <div class="WrapTopBar_area">
+                <div class="WrapTopBar_div_area">
+                    <ul>
+                        <li class="title"><a href="#">HTML5标签</a></li>
+                        <li><a href="tag_video.html">video</a></li>
+                        <li><a href="#">地理定位</a></li>
+                        <li><a href="#">Web Workers</a></li>
+                        <li><a href="#">应用缓存</a></li>
+                        <li><a href="#">Canvas</a></li>
+                        <li><a href="#">地理定位</a></li>
+                        <li><a href="#">Web Workers</a></li>
+                        <li><a href="#">应用缓存</a></li>
+                        <li><a href="#">Canvas</a></li>
+                        <li><a href="#">地理定位</a></li>
+                        <li><a href="#">Web Workers</a></li>
+                        <li><a href="#">应用缓存</a></li>
+                        <li><a href="#">Canvas</a></li>
+                    </ul>
+                    <ul>
+                        <li class="title"><a href="#">CSS3</a></li>
+                        <li><a href="#">border-radius</a></li>
+                        <li><a href="#">box-shadow</a></li>
+                        <li><a href="#">border-image</a></li>
+                        <li><a href="#">transition</a></li>
+                    </ul>
+                    <ul>
+                        <li class="title"><a href="#">jquery.moblie</a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+            </div>
+    <div class="padding_lr_20">
+        <h3>简介 - video</h3>
+        <p>标签定义视频，比如电影片段或其他视频流。</p>
+        <h3>特性</h3>
+        <p>无需flash等插件播放视频</p>
+        <h3>示例</h3>
+        <div class="padding_5">
+            <video width="320" height="240" controls="controls">
+                <source src="../images/mov_bbb.ogg" type="video/ogg">
+                <source src="../images/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <h3>Code</h3>
+        <p>1.demo</p>
+        <pre id="code_view" class="brush: js;">
+<video width="320" height="240" controls="controls">
+    <source src="../images/mov_bbb.ogg" type="video/ogg">
+    <source src="../images/mov_bbb.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+</pre>
+        <div class="align_r">
+            <input id="code_btn" class="iBtn" type="button" value="一键复制code" />
+        </div>
+    </div>
+</body>
+</html>

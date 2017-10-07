@@ -1,0 +1,49 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+    </script>
+</head>
+<body class="demo">
+    <div class="padding_lr_20">
+        <h3>简介 - WebRTC</h3>
+        <p>
+            Google 提供的 WebRTC 是一个免费的，开放的项目，使实时通信（RTC）功能的网络浏览器，通过简单的JavaScript API。
+        </p>
+        
+        <h3>应用场景</h3>
+        <p><a href="https://bistri.com/" target="_blank">https://bistri.com/</a></p>
+        <img src="../images/1004.jpg" width="1000" />
+        <img src="../images/1005.png" width="1000" />
+
+    </div>
+</body>
+</html>

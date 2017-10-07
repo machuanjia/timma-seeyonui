@@ -1,0 +1,342 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>标签 - video</title>
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+			$("#code_btn1").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view1').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+			$("#code_btn2").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view2').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+			$("#code_btn3").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view3').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+			$("#code_btn4").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view4').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+    </script>
+    <style>
+	p{white-space: pre-wrap;}
+	table{
+		border:1px solid #aaa;
+		
+		}
+	table tr{
+		background:#efefef;
+		height:25px;	
+	}
+	table tr:first-child{ 
+		background:#d5d5d5;
+		border:1px solid #aaa;
+		font-weight:bold;
+		text-align:center;
+    } 
+	.div
+	{
+		width:100px;
+		height:75px;
+		background-color:yellow;
+		border:1px solid black;
+	}
+	.transform
+	{
+		width:100px;
+		height:75px;
+		background-color:yellow;
+		border:1px solid black;
+		transform:translate(50px,100px);
+		-ms-transform:translate(50px,100px); /* IE 9 */
+		-moz-transform:translate(50px,100px); /* Firefox */
+		-webkit-transform:translate(50px,100px); /* Safari and Chrome */
+		-o-transform:translate(50px,100px); /* Opera */
+	}
+	.rotate{
+		width:100px;
+		height:75px;
+		background-color:yellow;
+		border:1px solid black;
+		margin:100px;
+		transform:rotate(30deg);
+		-ms-transform:rotate(30deg); /* IE 9 */
+		-moz-transform:rotate(30deg); /* Firefox */
+		-webkit-transform:rotate(30deg); /* Safari and Chrome */
+		-o-transform:rotate(30deg); /* Opera */
+	}
+	.scale{
+		width:100px;
+		height:75px;
+		background-color:yellow;
+		border:1px solid black;
+		margin:100px;
+		transform:scale(2,4);
+		-ms-transform:scale(2,4); /* IE 9 */
+		-moz-transform:scale(2,4); /* Firefox */
+		-webkit-transform:scale(1,4); /* Safari and Chrome */
+		-o-transform:scale(2,4); /* Opera */
+	}
+	.skew{
+		width:100px;
+		height:75px;
+		background-color:yellow;
+		border:1px solid black;
+		margin:100px;
+		transform:skew(30deg,20deg);
+		-ms-transform:skew(30deg,20deg); /* IE 9 */
+		-moz-transform:skew(30deg,20deg); /* Firefox */
+		-webkit-transform:skew(30deg,20deg); /* Safari and Chrome */
+		-o-transform:skew(30deg,20deg); /* Opera */
+	}
+	.matrix{
+		width:100px;
+		height:75px;
+		background-color:yellow;
+		border:1px solid black;
+		margin:100px;
+		transform:matrix(0.866,0.5,-0.5,0.866,0,0);
+		-ms-transform:matrix(0.866,0.5,-0.5,0.866,0,0); /* IE 9 */
+		-moz-transform:matrix(0.866,0.5,-0.5,0.866,0,0); /* Firefox */
+		-webkit-transform:matrix(0.866,0.5,-0.5,0.866,0,0); /* Safari and Chrome */
+		-o-transform:matrix(0.866,0.5,-0.5,0.866,0,0); /* Opera */		
+	}
+	</style>
+</head>
+<body class="demo">
+    <div class="padding_lr_20">
+        <h3>CSS3 - 2D 转换</h3>
+        <br />
+        <h4>CSS3 转换</h4>
+		<p>
+通过 CSS3 转换，我们能够对元素进行移动、缩放、转动、拉长或拉伸。
+		</p>
+
+
+        <h3>属性 - 2D Transform 方法</h3>
+        
+        <table width="600">
+        	<tr>
+            	<td width="200">函数</td>
+                <td width="400">描述</td>
+            </tr>
+            <tr>
+            	<td>matrix(n,n,n,n,n,n)</td>
+                <td>定义 2D 转换，使用六个值的矩阵。</td>
+            </tr>
+            <tr>
+            	<td>translate(x,y)</td>
+                <td>定义 2D 转换，沿着 X 和 Y 轴移动元素。</td>
+            </tr>
+            <tr>
+            	<td>translateX(n)</td>
+                <td>定义 2D 转换，沿着 X 轴移动元素。</td>
+            </tr>
+            <tr>
+            	<td>translateY(n)</td>
+                <td>定义 2D 转换，沿着 Y 轴移动元素。</td>
+            </tr>
+            <tr>
+            	<td>scale(x,y)</td>
+                <td>定义 2D 缩放转换，改变元素的宽度和高度。</td>
+            </tr>
+            <tr>
+            	<td>scaleX(n)</td>
+                <td>定义 2D 缩放转换，改变元素的宽度。</td>
+            </tr>
+            <tr>
+            	<td>scaleY(n)</td>
+                <td>定义 2D 缩放转换，改变元素的高度。</td>
+            </tr>
+            <tr>
+            	<td>rotate(angle)</td>
+                <td>定义 2D 旋转，在参数中规定角度。</td>
+            </tr>
+            <tr>
+            	<td>skew(x-angle,y-angle)</td>
+                <td>定义 2D 倾斜转换，沿着 X 和 Y 轴。</td>
+            </tr>
+            <tr>
+            	<td>skewX(angle)</td>
+                <td>定义 2D 倾斜转换，沿着 X 轴。</td>
+            </tr>
+            <tr>
+            	<td>skewY(angle)</td>
+                <td>定义 2D 倾斜转换，沿着 Y 轴。</td>
+            </tr>
+        </table>
+        
+        <h3>示例1 - translate() 方法</h3>
+        <p>
+通过 translate() 方法，元素从其当前位置移动，根据给定的 left（x 坐标） 和 top（y 坐标） 位置参数：
+        </p>
+        <div style="width:400px;height:300px; border:2px dotted #39F">
+            <div class="div">div 原型</div>
+            
+            <div class="transform">div 变型</div>
+		</div>
+        <pre id="code_view" class="brush: js;">
+	.transform
+	{
+		width:100px;
+		height:75px;
+		background-color:yellow;
+		border:1px solid black;
+		transform:translate(50px,100px);
+		-ms-transform:translate(50px,100px); /* IE 9 */
+		-moz-transform:translate(50px,100px); /* Firefox */
+		-webkit-transform:translate(50px,100px); /* Safari and Chrome */
+		-o-transform:translate(50px,100px); /* Opera */
+        
+        /* 值 translate(50px,100px) 把元素从左侧移动 50 像素，从顶端移动 100 像素。 */
+	}
+</pre>
+        <div class="align_r">
+            <input id="code_btn" class="iBtn" type="button" value="一键复制code" />
+        </div>
+        
+        
+        <h3>示例2 - rotate() 方法</h3>
+        <p>
+通过 rotate() 方法，元素顺时针旋转给定的角度。允许负值，元素将逆时针旋转。
+        </p>
+        <div style="width:400px;height:400px; border:2px dotted #39F">
+            <div class="div">div 原型</div>
+            
+            <div class="rotate">div 变型</div>
+		</div>
+        <pre id="code_view1" class="brush: js;">
+	.rotate{
+		width:100px;
+		height:75px;
+		background-color:yellow;
+		border:1px solid black;
+		margin:100px;
+		transform:rotate(30deg);
+		-ms-transform:rotate(30deg); /* IE 9 */
+		-moz-transform:rotate(30deg); /* Firefox */
+		-webkit-transform:rotate(30deg); /* Safari and Chrome */
+		-o-transform:rotate(30deg); /* Opera */
+	}
+</pre>
+        <div class="align_r">
+            <input id="code_btn1" class="iBtn" type="button" value="一键复制code" />
+        </div>
+                
+        
+        <h3>示例3 - scale() 方法</h3>
+        <p>
+通过 scale() 方法，元素的尺寸会增加或减少，根据给定的宽度（X 轴）和高度（Y 轴）参数：
+        </p>
+        <div style="width:400px;height:400px; border:2px dotted #39F">
+            <div class="div">div 原型</div>
+            
+            <div class="scale">div 变型</div>
+		</div>
+        <pre id="code_view2" class="brush: js;">
+	.scale{
+		width:100px;
+		height:75px;
+		background-color:yellow;
+		border:1px solid black;
+		margin:100px;
+		transform:scale(2,4);
+		-ms-transform:scale(2,4); /* IE 9 */
+		-moz-transform:scale(2,4); /* Firefox */
+		-webkit-transform:scale(2,4); /* Safari and Chrome */
+		-o-transform:scale(2,4); /* Opera */
+	}
+</pre>
+        <div class="align_r">
+            <input id="code_btn2" class="iBtn" type="button" value="一键复制code" />
+        </div>
+                        
+        
+        <h3>示例4 - skew() 方法</h3>
+        <p>
+通过 skew() 方法，元素转动给定的角度，根据给定的水平线（X 轴）和垂直线（Y 轴）参数：
+        </p>
+        <div style="width:400px;height:400px; border:2px dotted #39F">
+            <div class="div">div 原型</div>
+            
+            <div class="skew">div 变型</div>
+		</div>
+        <pre id="code_view3" class="brush: js;">
+	.skew{
+		width:100px;
+		height:75px;
+		background-color:yellow;
+		border:1px solid black;
+		margin:100px;
+		transform:skew(30deg,20deg);
+		-ms-transform:skew(30deg,20deg); /* IE 9 */
+		-moz-transform:skew(30deg,20deg); /* Firefox */
+		-webkit-transform:skew(30deg,20deg); /* Safari and Chrome */
+		-o-transform:skew(30deg,20deg); /* Opera */
+	}
+</pre>
+        <div class="align_r">
+            <input id="code_btn3" class="iBtn" type="button" value="一键复制code" />
+        </div>
+                                
+        
+        <h3>示例5 - matrix() 方法</h3>
+        <p>
+matrix() 方法把所有 2D 转换方法组合在一起。
+matrix() 方法需要六个参数，包含数学函数，允许您：旋转、缩放、移动以及倾斜元素。
+        </p>
+        <div style="width:400px;height:400px; border:2px dotted #39F">
+            <div class="div">div 原型</div>
+            
+            <div class="matrix">div 变型</div>
+		</div>
+        <pre id="code_view4" class="brush: js;">
+	.matrix{
+		width:100px;
+		height:75px;
+		background-color:yellow;
+		border:1px solid black;
+		margin:100px;
+		transform:matrix(0.866,0.5,-0.5,0.866,0,0);
+		-ms-transform:matrix(0.866,0.5,-0.5,0.866,0,0); /* IE 9 */
+		-moz-transform:matrix(0.866,0.5,-0.5,0.866,0,0); /* Firefox */
+		-webkit-transform:matrix(0.866,0.5,-0.5,0.866,0,0); /* Safari and Chrome */
+		-o-transform:matrix(0.866,0.5,-0.5,0.866,0,0); /* Opera */		
+	}
+</pre>
+        <div class="align_r">
+            <input id="code_btn4" class="iBtn" type="button" value="一键复制code" />
+        </div>
+    </div>
+</body>
+</html>

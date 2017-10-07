@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>tags</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+    </script>
+</head>
+<body class="demo">
+    <div class="padding_lr_20">
+        <h3>html5新增标签</h3>
+		<table width="100%" border="1">
+			<thead>
+				<tr>
+					<th>标签</th>
+					<th>描述</th>
+					<th>实例</th>
+					<th width="200">类型</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>article</td>
+					<td>标签定义外部的内容。比如来自一个外部的新闻提供者的一篇新的文章，或者来自 blog 的文本，或者是来自论坛的文本。亦或是来自其他外部源内容。</td>
+					<td>
+						<a href="http://www.w3school.com.cn/tiy/t.asp?f=html5_article">实例</a>
+<pre>
+<article>
+<h2>Netscape Is Dead</h2>
+AOL has now officially announced that they will end 
+the development and support of all Netscape browsers.
+</article>
+
+</pre>
+					</td>
+					<td>语义性标签</td>
+				</tr>
+				<tr>
+					<td>aside</td>
+					<td>标签定义 article 以外的内容。aside 的内容应该与 article 的内容相关。</td>
+					<td>
+<pre>
+<aside>Aside 的内容是独立的内容，但应与文档内容相关。</aside>
+</pre>
+					</td>
+					<td>语义性标签</td>
+				</tr>
+				<tr>
+					<td>audio</td>
+					<td>音频</td>
+					<td>
+<pre>
+<audio src="someaudio.wav">您的浏览器不支持 audio 标签。</audio>	
+</pre>
+					</td>
+					<td>功能标签</td>
+				</tr>
+				<tr>
+					<td>canvas</td>
+					<td></td>
+					<td></td>
+					<td>功能标签</td>
+				</tr>
+				<tr>
+					<td>command</td>
+					<td>标签定义命令按钮，比如单选按钮、复选框或按钮</td>
+					<td></td>
+					<td>功能标签</td>
+				</tr>
+				<tr>
+					<td>datalist</td>
+					<td>标签定义可选数据的列表。与 input 元素配合使用，就可以制作出输入值的下拉列表。</td>
+					<td>
+						<a href="http://www.w3school.com.cn/tiy/t.asp?f=html5_datalist">实例</a>
+<pre>
+<input id="myCar" list="cars" />
+<datalist id="cars">
+  <option value="BMW">
+  <option value="Ford">
+  <option value="Volvo">
+</datalist>
+</pre>
+					</td>
+					<td>功能标签</td>
+				</tr>
+				<tr>
+					<td>details</td>
+					<td>标签用于描述文档或文档某个部分的细节</td>
+					<td>
+						<a href="http://www.w3school.com.cn/tiy/t.asp?f=html5_details">实例</a>
+<pre>
+<details>
+<summary>Copyright 2011.</summary>
+<p>All pages and graphics on this web site are the property of W3School.</p>
+</details>
+
+</pre>
+					</td>
+					<td>语义性标签</td>
+				</tr>
+				<tr>
+					<td>embed</td>
+					<td>标签定义嵌入的内容，比如插件</td>
+					<td>
+						<a href="http://www.w3school.com.cn/html5/tag_embed.asp">实例</a>
+<pre>
+<embed src="helloworld.swf" />	
+</pre>
+					</td>
+					<td>功能标签</td>
+				</tr>
+				<tr>
+					<td>figure</td>
+					<td>标签规定独立的流内容（图像、图表、照片、代码等等）</td>
+					<td><a href="http://www.w3school.com.cn/html5/tag_figure.asp">实例</a></td>
+					<td>语义性标签</td>
+				</tr>
+				<tr>
+					<td>figcaption</td>
+					<td><figcaption> 标签定义figure 元素的标题（caption）。"figcaption" 元素应该被置于 "figure" 元素的第一个或最后一个子元素的位置</td>
+					<td><a href="http://www.w3school.com.cn/html5/tag_figcaption.asp">实例</a></td>
+					<td>语义性标签</td>
+				</tr>
+				<tr>
+					<td>footer</td>
+					<td><footer> 标签定义 section 或 document 的页脚。
+
+在典型情况下，该元素会包含创作者的姓名、文档的创作日期以及/或者联系信息。
+</td>
+					<td><a href="http://www.w3school.com.cn/html5/html5_footer.asp">实例</a></td>
+					<td>语义性标签</td>
+				</tr>
+				<tr>
+					<td>header</td>
+					<td>页眉</td>
+					<td><a href="http://www.w3school.com.cn/html5/html5_header.asp">实例</a></td>
+					<td>语义性标签</td>
+				</tr>
+				<tr>
+					<td>keygen</td>
+					<td>当提交表单时，私钥存储在本地，公钥发送到服务器</td>
+					<td><a href="http://www.w3school.com.cn/html5/tag_keygen.asp">实例</a></td>
+					<td>功能标签</td>
+				</tr>
+				<tr>
+					<td>meter</td>
+					<td>标签定义度量衡。仅用于已知最大和最小值的度量</td>
+					<td><a href="http://www.w3school.com.cn/html5/html5_meter.asp">实例</a></td>
+					<td>功能标签</td>
+				</tr>
+				<tr>
+					<td>nav</td>
+					<td>导航</td>
+					<td><a href="http://www.w3school.com.cn/html5/tag_nav.asp">实例</a></td>
+					<td>语义性标签</td>
+				</tr>
+				<tr>
+					<td>output</td>
+					<td>from输出</td>
+					<td><a href="http://www.w3school.com.cn/html5/html5_output.asp">实例</a></td>
+					<td>功能标签</td>
+				</tr>
+				<tr>
+					<td>progress</td>
+					<td>标签定义运行中的进度</td>
+					<td><a href="http://www.w3school.com.cn/html5/tag_progress.asp">实例</a></td>
+					<td>功能标签</td>
+				</tr>
+				<tr>
+					<td>rp</td>
+					<td></td>
+					<td><a href="http://www.w3school.com.cn/html5/tag_rp.asp">实例</a></td>
+				</tr>
+				<tr>
+					<td>rt</td>
+					<td>标签在 ruby 注释中使用，以定义不支持 ruby 元素的浏览器所显示的内容</td>
+					<td><a href="http://www.w3school.com.cn/html5/tag_rp.asp">实例</a></td>
+				</tr>
+				<tr>
+					<td>ruby</td>
+					<td>标注</td>
+					<td><a href="http://www.w3school.com.cn/html5/html5_ruby.asp">实例</a></td>
+				</tr>
+				<tr>
+					<td>summary</td>
+					<td>&lt;summary&gt; 标签包含 details 元素的标题，"details" 元素用于描述有关文档或文档片段的详细信息。</td>
+					<td><a href="http://www.w3school.com.cn/html5/tag_summary.asp">实例</a></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		
+		
+		
+		
+		<!--
+        <h3>应用场景</h3>
+        <p>如报表的饼状图、柱状图、折线图等。</p>
+        <h3>实例</h3>
+        <div class="padding_5">
+            <canvas id="myCanvas" width="200" height="100" style="border: 1px solid #c3c3c3;"></canvas>
+            <script type="text/javascript">
+                var c = document.getElementById("myCanvas");
+                var cxt = c.getContext("2d");
+                cxt.fillStyle = "#FF0000";
+                cxt.beginPath();
+                cxt.arc(70, 18, 15, 0, Math.PI * 2, true);
+                cxt.closePath();
+                cxt.fill();
+            </script>
+        </div>
+        <pre id="code_view" class="brush: js;">
+<canvas id="myCanvas" width="200" height="100" style="border: 1px solid #c3c3c3;"></canvas>
+<script type="text/javascript">
+    var c = document.getElementById("myCanvas");
+    var cxt = c.getContext("2d");
+    cxt.fillStyle = "#FF0000";
+    cxt.beginPath();
+    cxt.arc(70, 18, 15, 0, Math.PI * 2, true);
+    cxt.closePath();
+    cxt.fill();
+</script>
+</pre>
+        <div class="align_r">
+            <button id="code_btn" class="iBtn">一键复制code</button>
+        </div>
+        <h3>Canvas 与 SVG 的比较</h3>
+        <table>
+            <tr>
+                <td class="fB">Canvas</td>
+                <td class="fB">SVG</td>
+            </tr>
+            <tr>
+                <td>1.依赖分辨率<br />
+                    2.不支持事件处理器<br />
+                    3.弱的文本渲染能力<br />
+                    4.能够以 .png 或 .jpg 格式保存结果图像<br />
+                    5.最适合图像密集型的游戏，其中的许多对象会被频繁重绘</td>
+                <td>1.不依赖分辨率<br />
+                    2.支持事件处理器<br />
+                    3.最适合带有大型渲染区域的应用程序（比如谷歌地图）<br />
+                    4.复杂度高会减慢渲染速度（任何过度使用 DOM 的应用都不快）<br />
+                    5.不适合游戏应用</td>
+            </tr>
+        </table>
+    </div>
+	-->
+</body>
+</html>

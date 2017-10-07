@@ -1,0 +1,58 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+    </script>
+</head>
+<body class="demo">
+    <div class="padding_lr_20">
+        <h3>简介 - audio</h3>
+        <p>audio 元素能够播放声音文件或者音频流。</p>
+
+        <h3>实例</h3>
+        <div class="padding_5">
+            <audio controls>
+                <source src="../images/horse.ogg" type="audio/ogg">
+                <source src="../images/horse.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+        <pre id="code_view" class="brush: js;">
+<audio controls>
+  <source src="../images/horse.ogg" type="audio/ogg">
+  <source src="../images/horse.mp3" type="audio/mpeg">
+</audio>
+</pre>
+        <div class="align_r">
+            <button id="code_btn" class="iBtn">一键复制code</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>标签 - video</title>
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+            $("#code_btn2").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view2').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+    </script>
+</head>
+<body class="demo">
+    <div class="padding_lr_20">
+        <h3>简介 - video</h3>
+        <p>标签定义视频，比如电影片段或其他视频流。</p>
+        <p>无需flash等插件播放视频。</p>
+
+        <h3>应用场景</h3>
+        <p>播放视频、拍摄头像、视频通话等.</p>
+
+        <h3>示例</h3>
+        <div class="padding_5">
+            <video width="320" height="240" controls="controls">
+                <source src="../images/mov_bbb.ogg" type="video/ogg">
+                <source src="../images/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <pre id="code_view" class="brush: js;">
+<video width="320" height="240" controls="controls">
+    <source src="../images/mov_bbb.ogg" type="video/ogg">
+    <source src="../images/mov_bbb.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+</pre>
+        <div class="align_r">
+            <input id="code_btn" class="iBtn" type="button" value="一键复制code" />
+        </div>
+        <video id="video"></video>
+        <script>
+            // 设置事件监听器  
+            window.addEventListener("DOMContentLoaded", function () {
+                // 获取元素  
+                video = document.getElementById("video"),
+                videoObj = { "video": true },
+                errBack = function (error) {
+                    console.log("Video capture error: ", error.code);
+                };
+
+                // 设置video监听器  
+                if (navigator.getUserMedia) { // Standard  
+                    navigator.getUserMedia(videoObj, function (stream) {
+                        video.src = stream;
+                        video.play();
+                    }, errBack);
+                } else if (navigator.webkitGetUserMedia) { // WebKit-prefixed  
+                    navigator.webkitGetUserMedia(videoObj, function (stream) {
+                        video.src = window.webkitURL.createObjectURL(stream);
+                        video.play();
+                    }, errBack);
+                }
+            }, false);
+        </script>
+
+        <pre id="code_view2" class="brush: js;">
+&lt;video id="video">&lt;/video>
+&lt;script>
+    // 设置事件监听器  
+    window.addEventListener("DOMContentLoaded", function () {
+        // 获取元素  
+        var video = document.getElementById("video"),
+        videoObj = { "video": true },
+        errBack = function (error) {
+            console.log("Video capture error: ", error.code);
+        };
+
+        // 设置video监听器  
+        if (navigator.getUserMedia) { // Standard  
+            navigator.getUserMedia(videoObj, function (stream) {
+                video.src = stream;
+                video.play();
+            }, errBack);
+        } else if (navigator.webkitGetUserMedia) { // WebKit-prefixed  
+            navigator.webkitGetUserMedia(videoObj, function (stream) {
+                video.src = window.webkitURL.createObjectURL(stream);
+                video.play();
+            }, errBack);
+        }
+    }, false);
+&lt;/script>
+</pre>
+        <div class="align_r">
+            <button id="code_btn2" class="iBtn">一键复制code</button>
+        </div>
+    </div>
+</body>
+</html>

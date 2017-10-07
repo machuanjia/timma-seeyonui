@@ -1,0 +1,98 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+    </script>
+</head>
+<body class="demo">
+    <div class="padding_lr_20">
+        <h3>简介 - WebSQL</h3>
+        <p>本地sql数据库</p>
+
+        <h3>实例</h3>
+        <div class="padding_5">
+            <script type="text/javascript">
+                var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+                var msg;
+                db.transaction(function (tx) {
+                    tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)');
+                    tx.executeSql('INSERT INTO LOGS (id, log) VALUES (1, "foobar")');
+                    tx.executeSql('INSERT INTO LOGS (id, log) VALUES (2, "logmsg")');
+                    msg = '<p>Log message created and row inserted.</p>';
+                    document.querySelector('#status').innerHTML = msg;
+                });
+
+                db.transaction(function (tx) {
+                    tx.executeSql('SELECT * FROM LOGS', [], function (tx, results) {
+                        var len = results.rows.length, i;
+                        msg = "<p>Found rows: " + len + "</p>";
+                        document.querySelector('#status').innerHTML += msg;
+                        for (i = 0; i < len; i++) {
+                            msg = "<p><b>" + results.rows.item(i).log + "</b></p>";
+                            document.querySelector('#status').innerHTML += msg;
+                        }
+                    }, null);
+                });
+            </script>
+            <div id="status" name="status">Status Message</div>
+        </div>
+        <pre id="code_view" class="brush: js;">
+&lt;script type="text/javascript">
+    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+    var msg;
+    db.transaction(function (tx) {
+        tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)');
+        tx.executeSql('INSERT INTO LOGS (id, log) VALUES (1, "foobar")');
+        tx.executeSql('INSERT INTO LOGS (id, log) VALUES (2, "logmsg")');
+        msg = '<p>Log message created and row inserted.</p>';
+        document.querySelector('#status').innerHTML = msg;
+    });
+
+    db.transaction(function (tx) {
+        tx.executeSql('SELECT * FROM LOGS', [], function (tx, results) {
+            var len = results.rows.length, i;
+            msg = "<p>Found rows: " + len + "</p>";
+            document.querySelector('#status').innerHTML += msg;
+            for (i = 0; i < len; i++) {
+                msg = "<p><b>" + results.rows.item(i).log + "</b></p>";
+                document.querySelector('#status').innerHTML += msg;
+            }
+        }, null);
+    });
+&lt;/script>
+<div id="status" name="status">Status Message</div>
+</pre>
+        <div class="align_r">
+            <button id="code_btn" class="iBtn">一键复制code</button>
+        </div>
+    </div>
+</body>
+</html>

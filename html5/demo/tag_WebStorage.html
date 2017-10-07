@@ -1,0 +1,110 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+            $("#code_btn2").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view2').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+    </script>
+</head>
+<body class="demo">
+    <div class="padding_lr_20">
+        <h3>简介 - WebStorage</h3>
+        <p>
+            在客户端存储数据<br />
+            HTML5 提供了两种在客户端存储数据的新方法：<br />
+            1、localStorage - 没有时间限制的数据存储<br />
+            2、sessionStorage - 针对一个 session 的数据存储
+        </p>
+        <h3>实例 - localStorage</h3>
+        <div class="padding_5">
+            <script type="text/javascript">
+                if (localStorage.pagecount) {
+                    localStorage.pagecount = Number(localStorage.pagecount) + 1;
+                }
+                else {
+                    localStorage.pagecount = 1;
+                }
+                document.write("Visits: " + localStorage.pagecount + " time(s).");
+            </script>
+            <p>刷新页面会看到计数器在增长。</p>
+            <p>请关闭浏览器窗口，然后再试一次，计数器会继续计数。</p>
+        </div>
+        <pre id="code_view" class="brush: js;">
+&ltscript type="text/javascript">
+    if (localStorage.pagecount) {
+        localStorage.pagecount = Number(localStorage.pagecount) + 1;
+    }
+    else {
+        localStorage.pagecount = 1;
+    }
+    document.write("Visits: " + localStorage.pagecount + " time(s).");
+&lt/script>
+<p>刷新页面会看到计数器在增长。</p>
+<p>请关闭浏览器窗口，然后再试一次，计数器会继续计数。</p>
+</pre>
+        <div class="align_r">
+            <button id="code_btn" class="iBtn">一键复制code</button>
+        </div>
+        <h3>实例 - sessionStorage</h3>
+        <div class="padding_5">
+            <script type="text/javascript">
+                if (sessionStorage.pagecount) {
+                    sessionStorage.pagecount = Number(sessionStorage.pagecount) + 1;
+                }
+                else {
+                    sessionStorage.pagecount = 1;
+                }
+                document.write("Visits " + sessionStorage.pagecount + " time(s) this session.");
+            </script>
+            <p>刷新页面会看到计数器在增长。</p>
+            <p>请关闭浏览器窗口，然后再试一次，计数器已经重置了。</p>
+        </div>
+        <pre id="code_view2" class="brush: js;">
+&ltscript type="text/javascript">
+    if (sessionStorage.pagecount) {
+        sessionStorage.pagecount = Number(sessionStorage.pagecount) + 1;
+    }
+    else {
+        sessionStorage.pagecount = 1;
+    }
+    document.write("Visits " + sessionStorage.pagecount + " time(s) this session.");
+&lt/script>
+<p>刷新页面会看到计数器在增长。</p>
+<p>请关闭浏览器窗口，然后再试一次，计数器已经重置了。</p>
+</pre>
+        <div class="align_r">
+            <button id="code_btn2" class="iBtn">一键复制code</button>
+        </div>
+    </div>
+</body>
+</html>

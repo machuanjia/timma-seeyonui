@@ -1,0 +1,63 @@
+﻿<!DOCTYPE HTML>
+<html manifest="tag_AppCache.html.appcache">
+<head>
+    <title></title>
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+    </script>
+</head>
+<body class="demo">
+    <div class="padding_lr_20">
+        <h3>简介 - AppCache</h3>
+        <p>使用 HTML5，通过创建 cache manifest 文件，可以轻松地创建 web 应用的离线版本。</p>
+
+        <h3>特点</h3>
+        <p>
+            1、离线浏览 - 用户可在应用离线时使用它们<br />
+            2、速度 - 已缓存资源加载得更快<br />
+            3、减少服务器负载 - 浏览器将只从服务器下载更新过或更改过的资源。
+        </p>
+
+        <h3>实例</h3>
+        <div class="padding_5">
+            <p><img src="http://www.baidu.com/img/bdlogo.gif" /></p>
+            <p>请打开<a href="tag_AppCache.html" target="_blank">这个页面</a>，然后脱机浏览，重新加载页面。页面中的脚本和图像依然可用。</p>
+        </div>
+        <pre id="code_view" class="brush: js;">
+&lt;html manifest="tag_AppCache.html.appcache">
+
+<p><img src="http://www.baidu.com/img/bdlogo.gif" /></p>
+<p>请打开<a href="tag_AppCache.html" target="_blank">这个页面</a>，然后脱机浏览，重新加载页面。页面中的脚本和图像依然可用。</p>
+</pre>
+        <div class="align_r">
+            <button id="code_btn" class="iBtn">一键复制code</button>
+        </div>
+    </div>
+</body>
+</html>

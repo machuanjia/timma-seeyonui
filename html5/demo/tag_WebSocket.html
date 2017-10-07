@@ -1,0 +1,52 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+        })
+    </script>
+</head>
+<body class="demo">
+    <div class="padding_lr_20">
+        <h3>简介 - WebSocket</h3>
+        <p>WebSocket 规范的目标是在浏览器中实现和服务器端双向通信。</p>
+        <h3>特性</h3>
+        <p>建立连接后，服务器可以主动推送数据。</p>
+            <table border="1" align="center">
+                <tr>
+                    <td align="center" width="50%">传统</td>
+                    <td align="center">WebSocket</td>
+                </tr>
+                <tr>
+                    <td align="center"><img src="../images/1001.gif" /></td>
+                    <td align="center"><img src="../images/1002.gif" /></td>
+                </tr>
+            </table>
+        <h3>应用类型</h3>
+        <p>1、取代协同的消息提醒30秒轮询等，减少ajax请求，从而减少服务器压力。</p>
+        <p>2、例如实时的数据推送(股票行情)、游戏、聊天等。</p>
+    </div>
+</body>
+</html>

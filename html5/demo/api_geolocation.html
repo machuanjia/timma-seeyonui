@@ -1,0 +1,74 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+    </script>
+</head>
+<body class="demo">
+    <div class="padding_lr_20">
+        <h3>简介 - Geolocation</h3>
+        <p>HTML5 Geolocation API 用于获得用户的地理位置。</p>
+        <p>对于拥有 GPS 的设备，比如 iPhone，地理定位更加精确。</p>
+
+        <h3>应用场景</h3>
+        <p>地图导航</p>
+
+        <h3>实例</h3>
+        <div class="padding_5">
+            <div id="demo"></div>
+            <div id="mapholder"></div>
+            <script>
+                getLocation();
+                var xy = document.getElementById("demo");
+                var map_obj=document.getElementById("mapholder");
+                function getLocation() {
+                    navigator.geolocation.getCurrentPosition(showPosition, showError);
+                }
+                function showPosition(position) {
+                    var latlon = position.coords.latitude + "," + position.coords.longitude;
+                    var img_url = "http://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&zoom=14&size=400x300&sensor=false";
+                    xy.innerHTML = "经纬度：" + latlon;
+                    map_obj.innerHTML = "<img src='" + img_url + "'>";
+                }
+                function showError(error) {
+                    xy.innerHTML = "错误!!!"
+                }
+            </script>
+        </div>
+        <pre id="code_view" class="brush: js;">
+
+</pre>
+        <div class="align_r">
+            <button id="code_btn" class="iBtn">一键复制code</button>
+        </div>
+    </div>
+</body>
+</html>

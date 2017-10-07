@@ -1,0 +1,73 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+    </script>
+</head>
+<body class="demo">
+    <div class="padding_lr_20">
+        <h3>简介 - WebSocket</h3>
+        <p>WebSocket 在浏览器中实现和服务器端双向通信。</p>
+        
+        <h3>应用场景</h3>
+        <p>例如webQQ使用的Flash的socket进行实时通信，webSocket使实现更加简单。</p>
+
+        <h3>实例</h3>
+        <pre id="code_view" class="brush: js;">
+// 创建一个Socket实例
+var socket = new WebSocket('ws://localhost:8080'); 
+
+// 打开Socket 
+socket.onopen = function(event) { 
+
+  // 发送一个初始化消息
+  socket.send('I am the client and I\'m listening!'); 
+
+  // 监听消息
+  socket.onmessage = function(event) { 
+    console.log('Client received a message',event); 
+  }; 
+
+  // 监听Socket的关闭
+  socket.onclose = function(event) { 
+    console.log('Client notified socket has closed',event); 
+  }; 
+
+  // 关闭Socket.... 
+  //socket.close() 
+};
+</pre>
+        <div class="align_r">
+            <button id="code_btn" class="iBtn">一键复制code</button>
+        </div>
+    </div>
+</body>
+</html>

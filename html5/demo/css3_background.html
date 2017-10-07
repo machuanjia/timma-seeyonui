@@ -1,0 +1,270 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>标签 - video</title>
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+			$("#code_btn_1").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view_1').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+			$("#code_btn_2").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view_2').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+			$("#code_btn_r").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view_r').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+			$("#code_btn_c").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view_c').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+    </script>
+    <style>
+	p{white-space: pre-wrap;}
+	table{
+		border:1px solid #aaa;
+		
+		}
+	table tr{
+		background:#efefef;
+		height:25px;	
+	}
+	table tr:first-child{ 
+		background:#d5d5d5;
+		border:1px solid #aaa;
+		font-weight:bold;
+		text-align:center;
+    }
+	
+	.background_size
+	{
+		width:200px;
+		height:100px;
+		background:url(../images/css_bg_flower.gif);
+		background-size:63px 100px;
+		-moz-background-size:63px 100px; /* 老版本的 Firefox */
+		background-repeat:no-repeat;
+		padding-top:80px;
+	}
+	.background_size_stretch
+	{
+		background:url(../images/css_bg_flower.gif);
+		background-size:35% 100%;
+		-moz-background-size:35% 100%; /* 老版本的 Firefox */
+		background-repeat:no-repeat;
+	}
+	.border-box
+	{
+		background-origin:border-box;
+		border:1px solid black;
+		padding:35px;
+		background-image:url(../images/css_bg_flower.gif);
+		background-repeat:no-repeat;
+		background-position:left;
+	}
+	.content-box
+	{
+		background-origin:content-box;
+		border:1px solid black;
+		padding:35px;
+		background-image:url(../images/css_bg_flower.gif);
+		background-repeat:no-repeat;
+		background-position:left;
+	}
+	.background_image_d
+	{
+		width:120px;
+		height:160px;
+		background-image:url(../images/css_bg_flower.gif),url(../images/css_bg_flower2.gif);
+		background-repeat:no-repeat;
+	}
+	</style>
+</head>
+<body class="demo">
+    <div class="padding_lr_20">
+        <h3>CSS3 - 背景</h3>
+        <p>CSS3 包含多个新的背景属性，它们提供了对背景更强大的控制。</p>
+        <h3>属性</h3>
+        
+        <table width="600">
+        	<tr>
+            	<td width="200">属性</td>
+                <td width="400">描述</td>
+            </tr>
+            <tr>
+            	<td>background-clip</td>
+                <td>规定背景的绘制区域。</td>
+            </tr>
+            <tr>
+            	<td>background-origin</td>
+                <td>规定背景图片的定位区域。</td>
+            </tr>
+            <tr>
+            	<td>background-size</td>
+                <td>规定背景图片的尺寸。</td>
+            </tr>
+        </table>
+        
+        <h3>示例1 - background-size 属性</h3>
+        <p>
+background-size 属性规定背景图片的尺寸。
+
+在 CSS3 之前，背景图片的尺寸是由图片的实际尺寸决定的。在 CSS3 中，可以规定背景图片的尺寸，这就允许我们在不同的环境中重复使用背景图片。
+
+您能够以像素或百分比规定尺寸。如果以百分比规定尺寸，那么尺寸相对于父元素的宽度和高度。
+        </p>
+        
+        <h4>缩小背景图片</h4>
+        <br />
+        <div class="background_size" style="float:left;"></div>
+		<div style="float:left;"><img src="../images/css_bg_flower.gif"></div>
+        <div style="clear:both;"></div>
+        <p>★ 左边是缩小的背景图片，右边是原图。</p>
+        <br />
+        <pre id="code_view" class="brush: js;">
+	.background_size
+	{
+		background:url(../images/css_bg_flower.gif);
+		background-size:63px 100px;
+		-moz-background-size:63px 100px; /* 老版本的 Firefox */
+		background-repeat:no-repeat;
+		padding-top:80px;
+	}
+</pre>
+        <div class="align_r">
+            <input id="code_btn" class="iBtn" type="button" value="一键复制code" />
+        </div>
+        
+        <h4>拉伸背景图片</h4>
+        <br />
+        <div class="background_size_stretch">
+        	<p>文字文字文字文字文字文字文字文字文字</p>
+            <p>文字文字文字文字文字文字文字文字文字</p>
+            <p>文字文字文字文字文字文字文字文字文字</p>
+            <p>文字文字文字文字文字文字文字文字文字</p>
+            <p>文字文字文字文字文字文字文字文字文字</p>
+            <p>文字文字文字文字文字文字文字文字文字</p>
+            <p>文字文字文字文字文字文字文字文字文字</p>
+            <p>文字文字文字文字文字文字文字文字文字</p>
+            <p>文字文字文字文字文字文字文字文字文字</p>
+            <p>文字文字文字文字文字文字文字文字文字</p>
+            <p>文字文字文字文字文字文字文字文字文字</p>
+            <p>文字文字文字文字文字文字文字文字文字</p>
+            <p>文字文字文字文字文字文字文字文字文字</p>
+            <p>文字文字文字文字文字文字文字文字文字</p>
+            <p>文字文字文字文字文字文字文字文字文字</p>
+            <p>文字文字文字文字文字文字文字文字文字</p>
+            <p>文字文字文字文字文字文字文字文字文字</p>
+            <p>文字文字文字文字文字文字文字文字文字</p>
+        </div>
+        <br />
+        <pre id="code_view_r" class="brush: js;">
+	.background_size_stretch
+	{
+		background:url(../images/css_bg_flower.gif);
+		background-size:35% 100%;
+		-moz-background-size:35% 100%; /* 老版本的 Firefox */
+		background-repeat:no-repeat;
+	}
+</pre>
+        <div class="align_r">
+            <input id="code_btn_r" class="iBtn" type="button" value="一键复制code" />
+        </div>
+        
+        <h3>示例2 - CSS3 background-origin 属性</h3>
+        <p>
+background-origin 属性规定背景图片的定位区域。
+        </p>
+        
+        <h4>background-origin : border-box</h4>
+        <br />
+        
+        <div class="border-box">
+        	Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo 
+        </div>
+<br />
+        <pre id="code_view_1" class="brush: js;">
+	.border-box
+	{
+		background-origin:border-box;
+		border:1px solid black;
+		padding:35px;
+		background-image:url(../images/css_bg_flower.gif);
+		background-repeat:no-repeat;
+		background-position:left;
+	}
+</pre>
+        <div class="align_r">
+            <input id="code_btn_1" class="iBtn" type="button" value="一键复制code" />
+        </div>
+        
+        <h4>background-origin : content-box</h4>
+        <br />
+        
+        <div class="content-box">
+        	Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo Demo 
+        </div>
+<br />
+        <pre id="code_view_c" class="brush: js;">
+	.content-box
+	{
+		background-origin:content-box;
+		border:1px solid black;
+		padding:35px;
+		background-image:url(../images/css_bg_flower.gif);
+		background-repeat:no-repeat;
+		background-position:left;
+	}
+</pre>
+        <div class="align_r">
+            <input id="code_btn_c" class="iBtn" type="button" value="一键复制code" />
+        </div>
+        
+        <h3>示例3 - CSS3 多重背景图片</h3>
+        <p>
+CSS3 允许您为元素使用多个背景图像。
+		</p>
+
+        <div class="background_image_d"></div>
+<br />
+        <pre id="code_view_2" class="brush: js;">
+	.background_image_d
+	{
+		background-image:url(../images/css_bg_flower.gif),url(../images/css_bg_flower2.gif);
+	}
+</pre>
+        <div class="align_r">
+            <input id="code_btn_2" class="iBtn" type="button" value="一键复制code" />
+        </div>
+    </div>
+</body>
+</html>

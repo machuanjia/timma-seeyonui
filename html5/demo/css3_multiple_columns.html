@@ -1,0 +1,153 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>标签 - video</title>
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+    </script>
+    <style>
+	p{white-space: pre-wrap;}
+	table{
+		border:1px solid #aaa;
+		
+		}
+	table tr{
+		background:#efefef;
+		height:25px;	
+	}
+	table tr:first-child{ 
+		background:#d5d5d5;
+		border:1px solid #aaa;
+		font-weight:bold;
+		text-align:center;
+    } 
+	.newspaper
+	{
+		-moz-column-count:3; /* Firefox */
+		-webkit-column-count:3; /* Safari and Chrome */
+		column-count:3;
+		
+		-moz-column-gap:30px; /* Firefox */
+		-webkit-column-gap:30px; /* Safari and Chrome */
+		column-gap:30px;
+		
+		-moz-column-rule:4px outset #ff0000; /* Firefox */
+		-webkit-column-rule:4px outset #ff0000; /* Safari and Chrome */
+		column-rule:4px outset #ff0000;
+	}	
+	</style>
+</head>
+<body class="demo">
+    <div class="padding_lr_20">
+        <h3>CSS3 - 多列</h3>
+		<p>
+通过 CSS3，您能够创建多个列来对文本进行布局 - 就像报纸那样！
+		</p>
+
+		<h3>属性</h3>
+        
+        <table width="600">
+        	<tr>
+            	<td width="200">属性</td>
+                <td width="400">描述</td>
+            </tr>
+            <tr>
+            	<td>column-count</td>
+                <td>规定元素应该被分隔的列数。</td>
+            </tr>
+            <tr>
+            	<td>column-fill</td>
+                <td>规定如何填充列。</td>
+            </tr>
+            <tr>
+            	<td>column-gap</td>
+                <td>规定列之间的间隔。</td>
+            </tr>
+            <tr>
+            	<td>column-rule</td>
+                <td>设置所有 column-rule-* 属性的简写属性。</td>
+            </tr>
+            <tr>
+            	<td>column-rule-color</td>
+                <td>规定列之间规则的颜色。</td>
+            </tr>
+            <tr>
+            	<td>column-rule-style</td>
+                <td>规定列之间规则的样式。</td>
+            </tr>
+            <tr>
+            	<td>column-rule-width</td>
+                <td>规定列之间规则的宽度。</td>
+            </tr>
+            <tr>
+            	<td>column-span</td>
+                <td>规定元素应该横跨的列数。</td>
+            </tr>
+            <tr>
+            	<td>column-width</td>
+                <td>规定列的宽度。</td>
+            </tr>
+            <tr>
+            	<td>columns</td>
+                <td>规定设置 column-width 和 column-count 的简写属性。</td>
+            </tr>
+        </table>
+
+        <h3>示例</h3>
+        <p>
+column-gap 属性规定列之间的间隔或者列数：
+        </p>
+        
+        <div class="newspaper">
+        	Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! Hello Word ! 文字 ! 
+        </div>
+            
+        <pre id="code_view" class="brush: js;">
+	.newspaper
+	{
+		-moz-column-count:3; /* Firefox */
+		-webkit-column-count:3; /* Safari and Chrome */
+		column-count:3;
+		
+		-moz-column-gap:30px; /* Firefox */
+		-webkit-column-gap:30px; /* Safari and Chrome */
+		column-gap:30px;
+		
+		-moz-column-rule:4px outset #ff0000; /* Firefox */
+		-webkit-column-rule:4px outset #ff0000; /* Safari and Chrome */
+		column-rule:4px outset #ff0000;
+	}		
+</pre>
+        <div class="align_r">
+            <input id="code_btn" class="iBtn" type="button" value="一键复制code" />
+        </div>
+    </div>
+</body>
+</html>

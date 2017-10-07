@@ -1,0 +1,136 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <!--基本引用文件 start-->
+    <link href="../css/common.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
+    <script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../js/ZeroClipboard/jquery.zclip.min.js"></script>
+    <script>
+        $(function () {
+            goldFun();
+            SyntaxHighlighter.all();
+            $("pre").each(function (i) {
+                $("pre").eq(i).html(function () {
+                    return $("pre").eq(i).html().replace(/</g, "&lt;");
+                })
+            })
+            //顶部菜单生成 - end
+        })
+    </script>
+    <script src="../js/common.js"></script>
+    <!--基本引用文件 end-->
+    <script>
+        $(function () {
+            $("#code_btn").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+            $("#code_btn2").zclip({/*绑定复制code事件*/
+                path: '../js/ZeroClipboard/ZeroClipboard.swf',
+                copy: $('#code_view2').html().replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+            });
+        })
+    </script>
+</head>
+<body class="demo">
+    <div class="padding_lr_20">
+        <h3>简介 - Web Workers</h3>
+        <p>web worker 是运行在后台的 JavaScript，不会影响页面的性能。</p>
+
+        <h3>API</h3>
+        <p>
+            <table class="listTable" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td colspan="2" class="font_B align_c">类名Worker</td>
+                </tr>
+                <tr>
+                    <td>callback事件</td>
+                    <td>onmessage</td>
+                </tr>
+                <tr>
+                    <td>停止方法</td>
+                    <td>terminate</td>
+                </tr>
+            </table>
+        </p>
+
+        <h3>Web Workers 不能访问 DOM</h3>
+        <p>
+            为了安全，workers 不能直接对 HTML 进行操作。同一 DOM 上的多线程操作可能会引发线程安全问题。优势是您不再担忧 worker 实现中的多线程安全问题。<br />
+这在开发 worker 时有一些局限性，您不能在 worker 中调用 alert()，也不能调用 document.getElementById()，因为它只能检索和返回变量（可能是字符串、数组、JSON 对象，等等）。
+        </p>
+
+        <h3>实例</h3>
+        <div class="padding_5">
+            <p>Count numbers:
+                <output id="result"></output>
+            </p>
+            <button onclick="startWorker()">Start Worker</button>
+            <button onclick="stopWorker()">Stop Worker</button>
+            <br>
+            <br>
+            <script>
+                var w;
+                function startWorker() {
+                    if (typeof (w) == "undefined") {
+                        w = new Worker("api_WebWorkers.html.js");
+                    }
+                    w.onmessage = function (event) {
+                        document.getElementById("result").innerHTML = event.data;
+                    };
+                }
+                function stopWorker() {
+                    w.terminate();
+                }
+            </script>
+        </div>
+
+        <pre id="code_view" class="brush: js;">
+<p>Count numbers:
+    <output id="result"></output>
+</p>
+<button onclick="startWorker()">Start Worker</button>
+<button onclick="stopWorker()">Stop Worker</button>
+<br>
+<br>
+&lt;script>
+    var w;
+    function startWorker() {
+        if (typeof (w) == "undefined") {
+            w = new Worker("api_WebWorkers.html.js");
+        }
+        w.onmessage = function (event) {
+            document.getElementById("result").innerHTML = event.data;
+        };
+    }
+    function stopWorker() {
+        w.terminate();
+    }
+&lt;/script>
+</pre>
+        <div class="align_r">
+            <button id="code_btn" class="iBtn">一键复制code</button>
+        </div>
+
+        <p>api_WebWorkers.html.js</p>
+        <pre id="code_view2" class="brush: js;">
+var i = 0;
+
+function timedCount() {
+    i = i + 1;
+    postMessage(i);
+    setTimeout("timedCount()", 200);
+}
+
+timedCount();
+</pre>
+        <div class="align_r">
+            <button id="code_btn2" class="iBtn">一键复制code</button>
+        </div>
+    </div>
+</body>
+</html>
