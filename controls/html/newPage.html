@@ -1,0 +1,186 @@
+﻿<html class="h100b over_hidden">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>新建页面</title>
+<script src="../../scriptes/jquery.js"></script>
+<script src="../../docs/resource/doc.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="../../css/common-debug.css"> 
+<link rel="stylesheet" type="text/css" href="../../skin/default/skin-debug.css">
+<link rel="stylesheet" type="text/css" href="../../docs/resource/doc.css"> 
+<script src="../seeyon.ui.toolbar-debug.js"></script>
+<style>
+	/*固定宽度的样式*/
+	.fixed_width{width:180px;}
+	/*自适应宽度的样式*/
+	.adapt_width{overflow:hidden;margin:auto;}
+</style>
+    <script type="text/javascript">
+        $(function () {
+            $("#newinfo_more").click(function () {
+                $(this).children("span").toggleClass("arrow_2_t");
+                $(this).children("span").toggleClass("arrow_2_b");
+                $(".newinfo_more").toggle();
+            });
+        })
+    </script>
+</head>
+<body class="h100b over_hidden page_color">
+	<table width="100%" height="100%" cellpadding="0" cellspacing="0" border="1">
+		<tr>
+			<!--头部区域-->
+			<td height="50" valign="top">
+				<!--当前位置-->
+				<div class="common_crumbs">
+					<span class="margin_r_10">当前位置:</span><span>协同工作</span><span class="common_crumbs_next margin_lr_5">-</span><a href="#">新建协同</a>					
+				</div>
+				<!--toolbar-->
+				<div>
+				    <script>
+				        var myBar = new WebFXMenuBar({'contextPath':'','searchHtml':'sss','borderTop':true,'borderBottom':true,'borderLeft':true,'borderRight':true});
+				        
+				        var insert = new WebFXMenu;
+				        insert.add(new WebFXMenuItem({'id':'localfile','name':'本地文件','className':'ico16 refresh'}));
+				        insert.add(new WebFXMenuItem({'id':'relative','name':'关联文档','className':'ico16 refresh'}));
+				        
+				        var conotentType = new WebFXMenu;
+				        conotentType.add(new WebFXMenuItem({'id':'localfile1','name':'标准正文','className':'ico16 refresh'}));
+				        conotentType.add(new WebFXMenuItem({'id':'relative1','name':'office文档','className':'ico16 refresh'}));
+				        
+						myBar.add(new WebFXMenuButton({'id':'transmit','name':'保存待发','className':'ico16'}));
+						myBar.add(new WebFXMenuButton({'id':'delete','name':'存为草稿','className':'ico16'}));
+						myBar.add(new WebFXMenuButton({'id':'refresh1','name':'存为模板','className':'ico16'}));
+						myBar.add(new WebFXMenuButton({'id':'refresh2','name':'调用模板','className':'ico16'}));
+						myBar.add(new WebFXMenuButton({'id':'insert','name':'插入','className':'ico16','subMenu':insert}));
+						myBar.add(new WebFXMenuButton({'id':'conotentType','name':'正文类型','className':'ico16','subMenu':conotentType}));
+						myBar.add(new WebFXMenuButton({'id':'refresh5','name':'打印','className':'ico16'}));
+				        myBar.show();
+				        myBar.disabled('delete');
+						myBar.enabled('delete');
+				    </script>
+				</div>
+				<!--toolbar结束-->
+				<div class="form_area">
+					<div>
+				        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+				          <tr>
+				          	<td rowspan="2" width="1%" nowrap="nowrap"><a href="javascript:void(0)" class="margin_5 display_inline-block padding_t_10 align_center new_btn"> 发送</a>&nbsp;</td>
+				            <th nowrap="nowrap" width="1%"><label >&nbsp;标题:&nbsp;</label></th>
+				            <td><div class="common_txtbox_wrap"><input class="w100b" type="text" id="text" title="点击此处填写标题"/></div></td>
+				            <td width="10%" class="">
+				            	<div class="common_txtbox_wrap margin_l_5">
+				            		<select class="w100b">
+				            			<option>普通</option>
+				            			<option>重要</option>
+				            			<option>非常重要</option>
+				            		</select>
+				            	</div>
+				            </td>
+				          	<th nowrap="nowrap" width="1%">&nbsp;<label class="margin_l_10">关联项目:&nbsp;</label></th>
+				          	<td width="20%"><div class="common_txtbox_wrap"><select class="w100b"><option>无</option></select></div></td>
+				          	<th nowrap="nowrap" width="1%"><label >流程期限:&nbsp;</label></th>
+				          	<td width="20%"><div class="common_txtbox_wrap"><select class="w100b"><option>无</option></select></div></td>
+				          </tr>
+				          
+				          <tr>
+				            <th nowrap="nowrap" width="1%"><label>流程:&nbsp;</label></th>
+				            <td><div class="common_txtbox_wrap"><input class="w100b" type="text" id="text" title="点击此处填写标题"/></div></td>
+				            <td width="10%" class="">
+				            	<div class="common_txtbox_wrap margin_l_5">
+				            		<a class="common_button common_button_icon" href="javascript:void(0)"><em> </em>编辑流程</a>
+				
+				            	</div>
+				            </td>
+				          	<th nowrap="nowrap" width="1%">&nbsp;<label class="margin_l_10">预归档到:&nbsp;</label></th>
+				          	<td width="20%"><div class="common_txtbox_wrap"><select class="w100b"><option>无</option></select></div></td>
+				          	<th nowrap="nowrap" width="1%"><label class="margin_l_10">提醒:&nbsp;</label></th>
+				          	<td width="20%"><div class="common_txtbox_wrap"><select class="w100b"><option>无</option></select></div></td>
+				          	<td width="5%" nowrap="nowrap" align="center"><a id="newinfo_more" href="javascript:void(0)" class="display_inline-block margin_t_5">更多<span class="ico16 arrow_2_b"></span></a></td>
+			          	</tr>
+			          <!--更多-->
+                            <tr class="newinfo_more hidden">
+                                <th nowrap="nowrap" width="1%" colspan="2">
+                                    <div class="common_checkbox_box clearfix ">
+                                        <input id="checkbox1" name="option" value="0" type="checkbox">
+                                        <label class="hand" for="checkbox1">跟踪:&nbsp;</label>
+                                    </div>
+                                </th>
+                                <td colspan="2">
+                                    <div class="common_checkbox_box clearfix ">
+                                        <label class="margin_r_10 hand" for="radio1">
+                                            <input id="radio1" name="option" value="0" type="radio">全部人员</label>
+                                        <label class="margin_r_10 hand" for="radio1">
+                                            <input id="radio2" name="option" value="0" type="radio">指定人员</label>
+                                </td>
+                                <th nowrap="nowrap" width="1%">&nbsp;<label class="margin_l_10">督办人员:&nbsp;</label></th>
+                                <td width="20%">
+                                    <div class="common_txtbox_wrap">
+                                        <input class="w100b" type="text"></div>
+                                </td>
+                                <th nowrap="nowrap" rowspan="2" width="1%" valign="top">&nbsp;<label class="margin_l_10 margin_t_5">督办主题:&nbsp;</label></th>
+                                <td width="20%" rowspan="2">
+                                    <div class="common_txtbox_wrap">
+                                        <textarea rows="4" class="w100b"></textarea>
+                                </td>
+                                <td width="5%" rowspan="2" colspan="2"></td>
+                            </tr>
+                            <tr class="newinfo_more hidden">
+                                <td nowrap="nowrap" colspan="2" align="right">
+                                    允许操作:&nbsp;
+                                </td>
+                                <td colspan="2">
+                                    <div class="common_checkbox_box clearfix ">
+                                        <input id="checkbox11" value="0" type="checkbox">
+                                        <label class="margin_r_10 hand" for="checkbox11">转发</label>
+                                        <input id="checkbox2" value="0" type="checkbox">
+                                        <label class="margin_r_10 hand" for="checkbox2">改变流程</label>
+                                        <input id="checkbox3" value="0" type="checkbox">
+                                        <label class="margin_r_10 hand" for="checkbox3">修改正文</label>
+                                        <input id="checkbox4" value="0" type="checkbox">
+                                        <label class="margin_r_10 hand" for="checkbox4">修改附件</label>
+                                        <input id="checkbox5" value="0" type="checkbox">
+                                        <label class="margin_r_10 hand" for="checkbox5">归档</label>
+                                    </div>
+                                </td>
+                                <th nowrap="nowrap" width="1%">&nbsp;<label class="margin_l_10">督办期限:</label></th>
+                                <td width="20%">
+                                    <div class="common_txtbox_wrap">
+                                        <input class="w100b" type="text"></div>
+                                </td>
+                            </tr>
+			         </table>
+				    </div>
+				</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<!--编辑器-->
+			<td valign="top">
+			<div class="stadic_layout h100b w100b">
+				<div class="fixed_width right h100b border_all">
+					<table width="100%" height="100%">
+						<tr>
+							<td height="5">
+								<div><em class="hidden_side"></em>附言</div>
+								<div>附言(500字以内)</div>
+								</td>
+						</tr>
+						<tr>
+							<td valign="top"><textarea class="h100b w100b"></textarea></td>
+						</tr>
+					</table>
+					
+				</div>
+				<div class="adapt_width h100b" style="background:#fff;">
+					编辑器区域
+				</div>
+				
+			</div>	
+			</td>
+		</tr>
+	</table>
+	
+	
+	
+</body>
+</html>

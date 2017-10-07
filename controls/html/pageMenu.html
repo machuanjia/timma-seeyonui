@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pageMenu</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css" />
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css" />
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+
+    <script src="../seeyon.ui.progress-debug.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../calendar/calendar-debug.js"></script>
+    <script type="text/javascript" src="../calendar/calendar-zh-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/misc/Moo-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/jquery.json-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/jquery.fillform-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/jquery.code-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/common-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/i18n-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/v3x-debug.js"></script>
+    <script type="text/javascript" src="../searchBox-debug.js"></script>
+    <script type="text/javascript" src="../seeyon.ui.checkform-debug.js"></script>
+    <script type="text/javascript" src="../seeyon.ui.dialog-debug.js"></script>
+    <script type="text/javascript" src="../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../seeyon.ui.menu-debug.js"></script>
+    <script type="text/javascript" src="../seeyon.ui.progress-debug.js"></script>
+    <script type="text/javascript" src="../seeyon.ui.scroll-debug.js"></script>
+    <script type="text/javascript" src="../seeyon.ui.tab-debug.js"></script>
+    <script type="text/javascript" src="../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../seeyon.ui.tree-debug.js"></script>
+    <script type="text/javascript" src="../seeyon.ui.calendar-debug.js"></script>
+    <script type="text/javascript" src="../seeyon.ui.arraylist-debug.js"></script>
+    <script type="text/javascript" src="../seeyon.ui.tooltip-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/jquery.comp-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/jquery.tree-debug.js"></script>
+    <script type="text/javascript" src="../seeyon.ui.pageMenu-debug.js"></script>
+</head>
+
+<body>
+    <h3>[1.pagemenu示例]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td">定义</td>
+            <td class="td"></td>
+        </tr>
+        <tr>
+            <td class="td" width="200" rowspan="2">示例</td>
+            <td class="td ">
+
+                <script type="text/javascript">
+                    $(function() {
+                        var a = [
+            { "id": "10000000000000000000", "frName": "1一级菜单" },
+            { "id": "3174229432277681481", "frName": "3一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "20000000000000000000", "frName": "2一级菜单" },
+            { "id": "5173422943477641481", "frName": "###一级菜单" }];
+                        var b = {
+                            "ONE_10000000000000000000": [
+                                { "id": "1111111111111", "frName": "1二级菜单1" },
+                                { "id": "12222222222", "frName": "1二级菜单1" },
+                                { "id": "133333333333333", "frName": "1二级菜单1" },
+                                { "id": "14444444444", "frName": "1二级菜单1" },
+                                { "id": "1555555555", "frName": "1二级菜单1" },
+                                { "id": "166666666", "frName": "1二级菜单1" },
+                                { "id": "1777777777", "frName": "1二级菜单1" },
+                                { "id": "1888888888", "frName": "###二级菜单2" }
+                            ], "ONE_20000000000000000000": [
+                                { "id": "21111111111111111111", "frName": "2二级菜单1" },
+                                { "id": "2222222222222222222", "frName": "2二级菜单1" },
+                                { "id": "233333333333", "frName": "2二级菜单1" },
+                                { "id": "2444444444444", "frName": "2二级菜单1" },
+                                { "id": "255555555555", "frName": "2二级菜单1" },
+                                { "id": "26666666666666", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "22二级菜单1" },
+                                { "id": "1620962714275667", "frName": "222二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2222二级菜单1" },
+                                { "id": "1620962714275667", "frName": "22222二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "2二级菜单1" },
+                                { "id": "1620962714275667", "frName": "###二级菜单1" }
+                            ]
+                        };
+                        $("#menu").pagemenu({
+                            all_number: 400,
+                            data: [a, b],
+                            handler: function (id) {
+                                alert(id);
+                            }
+                        });
+                    })
+                </script>
+                <div style="width:131px">
+                    <div id="menu"></div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <h3 class="dev_hide design_hide">[2.使用实例]</h3>
+    <table class="docsShowTable dev_hide design_hide">
+        <tr>
+            <td class="td" width="200"></td>
+            <td class="td code"></td>
+        </tr>
+    </table>
+
+    <h3 class="dev_hide">[3.UE]</h3>
+    <table class="docsShowTable dev_hide">
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide">[4.属性]</h3>
+    <table class="docsShowTable design_hide">
+        <tr class="head">
+            <td class="td" width="200">属性</td>
+            <td class="td" width="200">类型</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class="dev_hide design_hide">[5.事件]</h3>
+    <table class="docsShowTable dev_hide design_hide">
+        <tr class="head">
+            <td class="td" width="200">事件</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide">[6.方法]</h3>
+    <table class="docsShowTable design_hide">
+        <tr class="head">
+            <td class="td" width="200">方法</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+</body>
+</html>

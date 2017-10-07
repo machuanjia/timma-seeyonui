@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>选择表单流程</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css" />
+    <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+
+	<script src="../../seeyon.ui.common-debug.js"> </script>
+	<script type="text/javascript">
+		 $(function(){
+		 	new inputChange($("#newflow"),"选择表单流程");	
+		 	//添加项
+		 	$(".add").click(function(){
+		 		var newItem=$(".newItem").eq(0).clone(true).removeClass("hidden");
+		 		$(".fieldset_edit").eq(0).before(newItem);
+		 	});
+		 	//删除项
+		 	$(".remove").click(function(){
+		 		var removeItem=$(".newItem").length;
+		 		if(removeItem!=1) $(".newItem").eq(removeItem-1).remove();	  
+		 	});
+		 	
+		 })
+	</script>
+
+</head>
+<body>
+<fieldset class="margin_5 margin_l_20">
+    <legend>新流程</legend>
+    <div class="form_area align_center relative">
+    	<table border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
+	        <tr>
+	            <th nowrap="nowrap"><label class="margin_r_5" for="text"><span class="required">*</span>选择表单流程:</label></th>
+	            <td width="100%"><div class="common_txtbox_wrap">
+	            	<input id="newflow" type="text" name="newflow" />
+	            </div></td>
+	        </tr>
+	        <tr>
+	            <th nowrap="nowrap"><label class="margin_r_5" for="text">选择表单流程:</label></th>
+	            <td width="100%" align="left">
+	            	<div class="common_radio_box clearfix">
+                    	<label class="margin_r_10 hand" for="radio1">
+                    		<input id="radio1" class="radio_com" name="option" value="0" type="radio">当前节点
+                    	</label>
+                    	<label class="margin_r_10 hand" for="radio2">
+                        	<input id="radio2" class="radio_com" name="option" value="0" type="radio">当前流程发起人
+                        </label>
+                    	<label class=" hand" >
+                        	<input id="radio3" class="radio_com" name="option" value="0" type="radio">	
+                        </label>
+                        <input type="text" name="newflow" />
+                        
+                        
+                </div>
+            </td>
+	        </tr>
+	     </table>	     
+    </div>
+</fieldset>
+<fieldset class="margin_5 hidden newItem margin_l_20">
+    <legend>新流程</legend>
+    <div class="form_area align_center">
+    	<table border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
+	        <tr>
+	            <th nowrap="nowrap"><label class="margin_r_5" for="text"><span class="required">*</span>选择表单流程:</label></th>
+	            <td width="100%"><div class="common_txtbox_wrap">
+	            	<input id="newflow" type="text" name="newflow" />
+	            </div></td>
+	        </tr>
+	        <tr>
+	            <th nowrap="nowrap"><label class="margin_r_5" for="text">选择表单流程:</label></th>
+	            <td width="100%"><div class="common_txtbox_wrap">
+	            	<input id="newflow" type="text" name="newflow" />
+	            </div></td>
+	        </tr>
+	     </table>
+	     
+    </div>
+</fieldset>
+<div class="fieldset_edit fixed" style="position:fixed">
+	<span class="ico16 repeater_plus_16 add" ></span><br>
+	<span class="ico16 repeater_reduce_16 remove"></span>
+</div>
+</body>
+</html>

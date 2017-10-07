@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html class="h100b over_hidden">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>内容区示例</title>
+<script src="../../../scriptes/jquery.js"> </script>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css" />
+<script type="text/javascript" src="../../../scriptes/jquery.js"> </script>
+    <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js"> </script>
+    <script type="text/javascript">
+        function showMessageBox() {
+            var h = parseInt(window.parent.document.body.clientHeight);
+            var w = parseInt(window.parent.document.body.clientWidth);
+            var dialog = new MxtDialog({
+                id: 'url2',
+                url: '../controls/html/portal/type_chart.html',
+                min: false,
+                max: false,
+                title: 'html',
+                targetWindow: window.parent,
+                width: w - 40,
+                height: h - 100,
+                title: '待办事项',
+                top: 20,
+                left: 20
+            });
+        }
+        $(document).ready(function () {
+            $('#resizeMax').click(function () {
+                showMessageBox();
+            });
+
+            if ($.browser.msie) {
+                if ($.browser.version == '6.0') {
+                        if ($(document).width() < 1070) {
+                            $('.body_min_w').css({ width: 1070 });
+                        } else {
+                            $('.body_min_w').css({ width: "" });
+                        }
+                }
+            }
+        });
+    </script>
+    <style type="text/css">
+        .body_min_w {
+            min-width:1070px;
+        }
+        html {
+            _overflow-y:hidden;
+        }
+    </style>
+</head>
+<body class="h100b padding_l_10 over_auto">
+	<div class="body_min_w">
+    <div class="adapt_w" style="_float:left;">
+		<div class="common_content_area clearfix">
+			<div class="content_area_head clearfix">
+				<div class="common_tabs index_tabs">
+				    <ul>
+				    	<li><a href="#" class="show"><span class=" left margin_5"> </span></a></li>
+						<li class="current"><a href="#">待办事项</a></li>
+						<li><a href="#">待办会议</a></li>
+						<li><a href="#">待阅事项</a></li>
+						<li><a href="#">跟踪事项</a></li>
+				    </ul>
+				</div>
+				<span class="max right hand margin_r_10 hidden"></span>
+				<span class="edit right hand"> </span>
+			</div>
+			<div class="content_area_body common_tabs_body pend_table">
+						<div class="border_l right type_chart padding_5 align_center">
+                            <img src="../images/图表.png" />
+						</div>
+				<div class="type_list h100b">
+					<table class="w100b h100b">
+						<tr>
+							<td>
+								<img src="../../../css/images/portal/creator.jpg" class="left margin_r_10"/>
+								<p class="file_name pend_name">5.0讨论会及结果汇总及讨论会及结果汇总</p>
+								<span class="file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+							 </td>
+							<td><img src="../../../css/images/portal/worked.jpg" class="left margin_r_10"/>张晓明</td>
+							<td><em class="time_limit_ico margin_r_5"> </em><strong>8-10</strong></td>
+							<td><a href="javascript:void(0)">协同</a></td>
+						</tr>
+						<tr>
+							<td>
+								<img src="../../../css/images/portal/creator.jpg" class="left margin_r_10"/>
+								<p class="file_name pend_name">5.0讨论会及结果汇总及讨论会及结果汇总</p>
+								<span class="file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+							 </td>
+							<td><img src="../../../css/images/portal/worked.jpg" class="left margin_r_10"/>张晓明</td>
+							<td><em class="time_limit_ico margin_r_5"> </em><strong>8-10</strong></td>
+							<td><a href="javascript:void(0)">协同</a></td>
+						</tr>
+						<tr>
+							<td>
+								<img src="../../../css/images/portal/creator.jpg" class="left margin_r_10"/>
+								<p class="file_name pend_name">5.0讨论会及结果汇总及讨论会及结果汇总</p>
+								<span class="file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+							 </td>
+							<td><img src="../../../css/images/portal/worked.jpg" class="left margin_r_10"/>张晓明</td>
+							<td><em class="time_limit_ico margin_r_5"> </em><strong>8-10</strong></td>
+							<td><a href="javascript:void(0)">协同</a></td>
+						</tr>
+						<tr>
+							<td>
+								<img src="../../../css/images/portal/creator.jpg" class="left margin_r_10"/>
+								<p class="file_name pend_name">5.0讨论会及结果汇总及讨论会及结果汇总</p>
+								<span class="file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+							 </td>
+							<td><img src="../../../css/images/portal/worked.jpg" class="left margin_r_10"/>张晓明</td>
+							<td><em class="time_limit_ico margin_r_5"> </em><strong>8-10</strong></td>
+							<td><a href="javascript:void(0)">协同</a></td>
+						</tr>
+						<tr>
+							<td>
+								<img src="../../../css/images/portal/creator.jpg" class="left margin_r_10"/>
+								<p class="file_name pend_name">5.0讨论会及结果汇总及讨论会及结果汇总</p>
+								<span class="file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+							 </td>
+							<td><img src="../../../css/images/portal/worked.jpg" class="left margin_r_10"/>张晓明</td>
+							<td><em class="time_limit_ico margin_r_5"> </em><strong>8-10</strong></td>
+							<td><a href="javascript:void(0)">协同</a></td>
+						</tr>
+					</table>
+				</div>
+				
+			</div>
+			<div class="content_area_footer padding_lr_5 clearfix">					
+				<a href="#" class="right"><em class="ico16 portal_more " id="resizeMax"> </em> </a>
+				<a href="#" class="right margin_r_10"><em class="ico16 portal_new margin_r_5"> </em>新 建</a>
+			</div>
+		</div>
+		<div class="col2 left">
+	    	<div class="common_content_area">
+				<div class="content_area_head clearfix">
+					<div class="common_tabs index_tabs">
+					    <ul>
+					    	<li><a href="#" class="show"><span class=" left margin_5"> </span></a></li>
+							<li class="current"><a href="#" >我的任务</a></li>
+							<li><a href="#" >我的项目</a></li>
+					    </ul>
+					</div>
+					<span class="max right"> </span>
+					<span class="edit right"> </span>
+				</div>
+				<div class="content_area_body common_tabs_body my_task">
+					<table width="100%" cellpadding="0" cellspacing="0">
+							<tr>
+								<td class="title">E-Learning学习平台账户维 </td>
+								<td>张明明</td>
+								<td class="color_gray">2012-08-12</td>
+								<td><em class="ico16"> </em></td>
+							</tr>
+							<tr>
+								<td class="title">E-Learning学习平台账户维 </td>
+								<td>张明明</td>
+								<td class="color_gray">2012-08-12</td>
+								<td><em class="ico16"> </em></td>
+							</tr>
+							<tr>
+								<td class="title">E-Learning学习平台账户维 </td>
+								<td>张明明</td>
+								<td class="color_gray">2012-08-12</td>
+								<td><em class="ico16"> </em></td>
+							</tr>
+							<tr>
+								<td class="title">E-Learning学习平台账户维 </td>
+								<td>张明明</td>
+								<td class="color_gray">2012-08-12</td>
+								<td><em class="ico16"> </em></td>
+							</tr>
+							<tr>
+								<td class="title">E-Learning学习平台账户维 </td>
+								<td>张明明</td>
+								<td class="color_gray">2012-08-12</td>
+								<td><em class="ico16"> </em></td>
+							</tr>
+							<tr>
+								<td class="title">E-Learning学习平台账户维 </td>
+								<td>张明明</td>
+								<td class="color_gray">2012-08-12</td>
+								<td><em class="ico16"> </em></td>
+							</tr>
+							<tr>
+								<td class="title">E-Learning学习平台账户维 </td>
+								<td>张明明</td>
+								<td class="color_gray">2012-08-12</td>
+								<td><em class="ico16"> </em></td>
+							</tr>
+							<tr>
+								<td class="title">E-Learning学习平台账户维 </td>
+								<td>张明明</td>
+								<td class="color_gray">2012-08-12</td>
+								<td><em class="ico16"> </em></td>
+							</tr>
+							<tr>
+								<td class="title">E-Learning学习平台账户维 </td>
+								<td>张明明</td>
+								<td class="color_gray">2012-08-12</td>
+								<td><em class="ico16"> </em></td>
+							</tr>
+							<tr>
+								<td class="title">E-Learning学习平台账户维 </td>
+								<td>张明明</td>
+								<td class="color_gray">2012-08-12</td>
+								<td><em class="ico16"> </em></td>
+							</tr>
+						</table>
+						
+					</div>
+					<div class="content_area_footer padding_lr_5 clearfix">					
+						<a href="#" class="right"><em class="ico16 portal_more "> </em> </a>
+						<a href="#" class="right margin_r_10"><em class="ico16 portal_new margin_r_5"> </em>新 建</a>
+					</div>
+				</div>
+	    </div>
+	    <div class="col2 right">
+    		<div class="common_content_area">
+					<div class="content_area_head clearfix">
+						<div class="common_tabs index_tabs">
+						    <ul>
+						    	<li><a href="#" class="show"><span class=" left margin_5"> </span></a></li>
+								<li class="current"><a href="#">员工自助</a></li>
+						    </ul>
+						</div>
+						<span class="max right"> </span>
+						<span class="edit right"> </span>
+					</div>
+					<div class="content_area_body common_tabs_body">
+						<ul class="file_list">
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class="file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+						</ul>	
+					</div>
+					<div class="content_area_footer padding_lr_5 clearfix">					
+						<a href="#" class="right"><em class="ico16 portal_more "> </em> </a>
+						<a href="#" class="right">组织</a>
+						<a href="#" class="right">个人</a>
+						<a href="#" class="right">全部</a>
+					</div>
+				</div>
+    </div>
+		<div class="col2 left">
+	    	<div class="common_content_area">
+					<div class="content_area_head clearfix">
+						<div class="common_tabs index_tabs">
+						    <ul>
+						    	<li><a href="#" class="show"><span class=" left margin_5"> </span></a></li>
+								<li class="current"><a href="#">我的学习</a></li>
+								<li><a href="#" class="hover">我的收藏</a></li>
+						    </ul>
+						</div>
+						<span class="max right"> </span>
+						<span class="edit right"> </span>
+					</div>
+					<div class="content_area_body common_tabs_body">
+						<ul class="file_list">
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class="file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+						</ul>	
+					</div>
+					<div class="content_area_footer padding_lr_5 clearfix">					
+						<a href="#" class="right"><em class="ico16 portal_more "> </em> </a>
+						<a href="#" class="right">组织</a>
+						<a href="#" class="right">个人</a>
+						<a href="#" class="right">全部</a>
+					</div>
+				</div>
+    		</div>
+	   <div class="col2 right">
+    		<div class="common_content_area">
+					<div class="content_area_head clearfix">
+						<div class="common_tabs index_tabs">
+						    <ul>
+						    	<li><a href="#" class="show"><span class=" left margin_5"> </span></a></li>
+								<li class="current"><a href="#">我的学习</a></li>
+								<li><a href="#" class="hover">我的收藏</a></li>
+						    </ul>
+						</div>
+						<span class="max right"> </span>
+						<span class="edit right"> </span>
+					</div>
+					<div class="content_area_body common_tabs_body">
+						<ul class="file_list">
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class="file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+							<li>
+								<em class="ico32 affix_16 left margin_r_5"> </em>
+								<div>
+									<p class=" file_name">A8 5.0测试文档.ppt</p>
+									<span class="color_gray file_creator">文成军</span> <span class="color_gray">2012-08-16</span>
+								</div>	
+							</li>
+						</ul>	
+					</div>
+					<div class="content_area_footer padding_lr_5 clearfix">					
+						<a href="#" class="right"><em class="ico16 portal_more "> </em> </a>
+						<a href="#" class="right">组织</a>
+						<a href="#" class="right">个人</a>
+						<a href="#" class="right">全部</a>
+					</div>
+				</div>
+    		</div>
+	</div>
+	</div>
+</body>
+</html>

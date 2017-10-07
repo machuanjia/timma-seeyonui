@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>form</title>
+        <script src="../../../scriptes/jquery.js"></script>
+        <script src="../../seeyon.ui.layout-debug.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../../css/common-debug.css">
+		<link rel="stylesheet" type="text/css" href="../../../skin/default/skin-debug.css">
+        <script>
+            $(document).ready(function(){
+                new MxtLayout({
+                    'id': 'layout',
+                    'northArea': {
+                        'id': 'north',
+                        'height':29,
+                        'sprit': false,
+						'border': true
+                    },
+                    'southArea': {
+                        'id': 'south',
+                        'height': 30,
+                        'sprit': true,
+						'border': false,
+						'maxHeight': 30,
+                        'minHeight': 30
+                    },
+                    'centerArea': {
+                        'id': 'center',
+                        'border': true
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+    	<div id='layout'>
+	        <div class="layout_north over_auto" id="north">
+	        	<!--向导菜单-->
+				<div class="step_menu clearfix border_b">
+					<ul>
+						<li class="first_step current">
+							<b> </b>
+							<span>基础操作</span>	
+						</li>
+						<li >
+							<b> </b>
+							<span>操作设置</span>	
+						</li>
+						<li>
+							<b> </b>
+							<span>查询统计设置</span>	
+						</li>	
+						<li>
+							<b> </b>
+							<span>应用绑定</span>	
+						</li>	
+						<li class="last_step">
+							<span>触发设置</span>	
+						</li>		
+					</ul>
+				</div>
+				<!--向导菜单-->
+	        </div>
+	        <div class="layout_center" id="center">
+				 <div class="form_area padding_5">
+	                <table border="0" cellspacing="0" cellpadding="0">
+	                  <tr>
+	                    <th nowrap="nowrap"><label class="margin_r_10" for="text">表单名称:</label></th>
+	                    <td width="200"><input type="text" id="text" class="w100b"/></td>
+						<th nowrap="nowrap"><label class="margin_l_10 margin_r_10" for="text">视图名称:</label></th>
+	                    <td width="200"><select class="w100b"><option>选择</option></select></td>
+	                  </tr>
+	                </table>
+	             </div>
+	             <!--左右布局-->
+				 <div class="layout clearfix code_list padding_5">
+	            	<div class="col2 left">
+	                	<div class="common_txtbox clearfix margin_b_5">
+							<label class="margin_r_10 left" for="text">操作权限:</label>
+							<a class="common_button common_button_gray" href="javascript:void(0)">增加</a>
+						</div>
+						<fieldset class="form_area padding_10">
+							<legend>权限设置</legend>
+							<div>
+								<table border="0" cellspacing="0" cellpadding="0" width="100%">
+				                  <tr>
+				                    <th nowrap="nowrap" align="right"><label class="margin_r_10" for="text">操作权限名称:</label></th>
+				                    <td width="100%" colspan="6"><div class="common_txtbox_wrap w200" ><input type="text" id="text"/></div></td>
+				                  </tr>
+				                  <tr>
+									<th nowrap="nowrap" align="right"><label class="margin_l_10 margin_r_10" for="text">操作类型:</label></th>
+				                    <td width="100%" colspan="6"><div class="common_txtbox_wrap w200"><input type="text" id="text"/></div></td>
+				                  </tr>
+								  <tr>
+								  	<th  noWrap><LABEL for=name>&nbsp;</LABEL></th>
+									<td  width="11%"align="left">[<A name="chobrowse">浏览</A>]</TD>
+									<td width="11%" align="left">[<A name="choedit">编辑</A>]</TD>
+									<td width="11%" align="left">[<A name="chohide">隐藏</A>]</TD>
+									<td width="11%"	align="left">[<A name="choappand">追加</A>]</TD>
+										<td width="11%"	align="left">[<A name="">必填</A>]</TD>
+									<td width="40%" align="left">[<A name="initvalue">初始值设置</A>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </TD>
+								</tr>
+								<tr>
+									<th align="right"><label class="margin_l_10 margin_r_10">信息标题:</LABEL> </th>
+									<td align="left"><INPUT disabled type="radio"></td>
+									<td align="left"><INPUT disabled type="radio"></td>
+									<td align="left"><INPUT disabled type="radio"></td>
+									<td align="left"> </td>
+									<td align="left"><input type="checkbox" checked="true"/> </td>
+									<td align="left"><input readOnly/></td>
+								</tr>
+				                </table>
+				           	</div>
+							<div align="center">
+							<a class="common_button common_button_gray margin_l_5" href="javascript:void(0)">重复表操作</a>
+							<a class="common_button common_button_gray margin_l_5" href="javascript:void(0)">开发高级</a>
+							<a class="common_button common_button_gray margin_l_5" href="javascript:void(0)">保存</a>
+							</div>
+							
+						</fieldset>
+	                </div>
+	                <div class="col2 right margin_l_5">
+	                	<div class="common_txtbox clearfix margin_b_5">
+							<label class="margin_r_10 left" for="text">操作权限:</label>
+							<a class="common_button common_button_gray margin_l_5" href="javascript:void(0)">修改</a>
+							<a class="common_button common_button_gray margin_l_5" href="javascript:void(0)">删除</a>
+						</div>
+						<table width="100%" border="0" cellspacing="0" cellpadding="0" class="only_table">
+		                    <thead>
+		                        <tr>
+		                            <th><input type="checkbox"/></th>
+		                            <th>操作权限名称</th>
+		                            <th>操作类型</th>
+									<th>类别</th>
+		                        </tr>
+		                    </thead>
+		                    <tbody>
+		                        <tr>
+		                            <td><input type="checkbox"/></td>
+		                            <td>&nbsp</td>
+		                            <td>&nbsp </td>
+		                            <td>&nbsp </td>
+		                        </tr>
+		                    </tbody>
+		                 </table>
+	                </div>
+				</div>
+	        </div>
+	        <!--左右布局-->
+	       	<div class="layout_south over_hidden" id="south">
+		       	<div class="stadic_layout_footer page_color">
+					<table height="100%" class="common_right">
+						<tr>
+							<td class="clearfix" height="20">
+							<a  href="javascript:void(0)" class="common_button common_button_gray margin_r_5">下一步</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+    </body>
+</html>
+<!--
+
+-->

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>项目任务－任务查看页</title>
+  <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+  <link rel="stylesheet" type="text/css" href="../../../skin/default/skin-debug.css">
+  <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+  <script type="text/javascript" src="../../calendar/calendar-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/jquery.json-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/jquery.code-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/common-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/i18n-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/v3x-debug.js"></script>
+  <script type="text/javascript" src="../../searchBox-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.menu-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.progress-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.tab-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.tree-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.common-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js"></script>
+ 
+  <script>
+
+  </script>
+</head>
+<body>
+  <table width="504" border="0" cellspacing="0" cellpadding="0" align="center" class="ellipsis_table color_414141 font_size14">
+    <tr>
+      <td colspan="2" class="padding_t_15 padding_b_3"><span class="color_red">*</span>标题</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div class="common_txtbox_wrap">
+            <input type="text" id="text14">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="padding_t_15 padding_b_3">描述</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div class="projectTask_reply">
+            <div class="common_txtbox left clearfix">
+                <textarea cols="" rows="" class="w100b"></textarea>
+            </div>
+            <div class="left clearfix w100b font_size12 hidden">
+                <div class="clearfix">附件</div>
+                <div class="clearfix">关联</div>
+            </div>
+            <div class="left clearfix w100b">
+                <div class="projectTask_reply_affix border_r"><em class="ico16 affix_16"></em></div>
+                <div class="projectTask_reply_affix"><em class="ico16 associated_document_16"></em></div>
+            </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="padding_t_15 padding_b_3"><span class="color_red">*</span>计划时间</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ellipsis_table">
+          <tr>
+            <td width="44%">
+              <div class="common_txtbox_wrap">
+                  <input type="text" id="text14">
+              </div>
+            </td>
+            <td width="16" class="padding_l_3"><em class="ico16"></em></td>
+            <td align="center">至</td>
+            <td width="44%">
+              <div class="common_txtbox_wrap">
+                  <input type="text" id="text14">
+              </div>
+            </td>
+            <td width="16" class="padding_l_3"><em class="ico16"></em></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td class="padding_r_15 padding_t_15 padding_b_3" width="50%"><span class="color_red">*</span>负责人</td>
+      <td class="padding_l_15 padding_t_15 padding_b_3">参与人</td>
+    </tr>
+    <tr>
+      <td class="padding_r_15">
+        <div class="common_txtbox_wrap">
+            <input type="text" id="text14">
+        </div>
+      </td>
+      <td class="padding_l_15">
+        <div class="common_txtbox_wrap">
+            <input type="text" id="text14">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="padding_tb_5">更多<em class="ico16 arrow_2_t"></em><em class="ico16 arrow_2_b"></em></td>
+    </tr>
+    <tr>
+      <td class="padding_r_15 padding_t_5 padding_b_3">告知</td>
+      <td class="padding_l_15 padding_t_5 padding_b_3">重要程度</td>
+    </tr>
+    <tr>
+      <td class="padding_r_15">
+        <div class="common_txtbox_wrap">
+            <input type="text" id="text14">
+        </div>
+      </td>
+      <td class="padding_l_15">
+        <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+              <div class="common_txtbox_wrap">
+                  <input type="text" id="text14">
+              </div>
+            </td>
+            <td class="padding_l_10">
+              <label for="Checkbox1" class="margin_r_10 hand"><input type="checkbox" value="0" id="Checkbox1" name="option" class="radio_com">标为里程碑</label>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td class="padding_r_15 padding_t_15 padding_b_3">所属项目</td>
+      <td class="padding_l_15 padding_t_15 padding_b_3">上级任务</td>
+    </tr>
+    <tr>
+      <td class="padding_r_15">
+        <div class="common_selectbox_wrap">
+            <select>
+                <option>aaaaaaaaaaaaa</option>
+            </select>
+        </div>
+      </td>
+      <td class="padding_l_15">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" class="ellipsis_table">
+          <tr>
+            <td>
+              <div class="common_txtbox_wrap">
+                  <input type="text" id="text14">
+              </div>
+            </td>
+            <td width="30" class="padding_l_2 padding_r_2">权重</td>
+            <td width="35">
+              <div class="common_txtbox_wrap">
+                  <input type="text" id="text14" class="align_center">
+              </div>
+            </td>
+            <td width="15">％</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="padding_tb_10">来源：计划［曾静良12月工作计划］</td>
+    </tr>
+  </table>
+
+
+
+</body>
+</html>

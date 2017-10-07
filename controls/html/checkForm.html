@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>form校验</title>
+        <link rel="stylesheet" type="text/css" href="../../css/common-debug.css">
+        <link rel="stylesheet" type="text/css" href="../../skin/default/skin-debug.css">
+        <link rel="stylesheet" type="text/css" href="../../docs/resource/doc.css">
+		<link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+        <script type="text/javascript" src="../../scriptes/jquery.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.checkform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../scriptes/jquery.js">
+        </script>
+        <script type="text/javascript" src="../../docs/resource/demo.js">
+        </script>
+        <script type="text/javascript" src="../../scriptes/jquery.js">
+        </script>
+        <script type="text/javascript" src="../../docs/resource/demo.js">
+        </script>
+        <script type="text/javascript" src="../calendar/calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../calendar/calendar-zh-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/Moo-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.json-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.fillform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.code-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/i18n-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/v3x-debug.js">
+        </script>
+        <script type="text/javascript" src="../searchBox-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.checkform-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.dialog-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.grid-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.layout-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.menu-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.progress-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.scroll-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tab-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.toolbar-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.arraylist-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tooltip-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.comp-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.tree-debug.js">
+        </script>
+        <script type="text/javascript">
+            function formSubmit(){
+                $("#tableForm").validate();
+            }
+            
+            
+            function testCustomFunc(input){
+                if (input.value == "aaa") {
+                    return true;
+                }
+                return false;
+            }
+        </script>
+        <script src="../../docs/resource/doc.js" type="text/javascript">
+        </script>
+    </head>
+    <body class="body-pading">
+        <div class="classification">
+            <div class="title">
+                实例
+            </div>
+            <div class="list">
+                <div class="form_area">
+                    <div class="one_row">
+                        <form id="tableForm" action="list.htm">
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <th nowrap="nowrap">
+                                        <label class="margin_r_10" for="text">
+                                            姓名:
+                                        </label>
+                                    </th>
+                                    <td width="100%">
+                                        <div class="common_txtbox_wrap">
+                                            <input id="name" type="text" name="username" class="validate" validate="type:'string',name:'姓名',notNull:true,minLength:4,maxLength:20,character:'-!@#$%{}^&*()_+'" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th nowrap="nowrap">
+                                        <label class="margin_r_10" for="text">
+                                            密码:
+                                        </label>
+                                    </th>
+                                    <td>
+                                        <div class="common_txtbox_wrap">
+                                            <input type="password" name="password" class="validate" validate="fieldName:'密码',notNullWithoutTrim:true" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th nowrap="nowrap">
+                                        <label class="margin_r_10" for="text">
+                                            电子邮件:
+                                        </label>
+                                    </th>
+                                    <td>
+                                        <div class="common_txtbox_wrap">
+                                            <input type="text" name="email" class="validate" validate="type:'email',name:'电子邮件'" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th nowrap="nowrap">
+                                        <label class="margin_r_10" for="text">
+                                            电话号码:
+                                        </label>
+                                    </th>
+                                    <td>
+                                        <div class="common_txtbox_wrap">
+                                            <input type="text" name="telephone" class="validate" validate="name:'电话号码',type:'telephone'" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th nowrap="nowrap">
+                                        <label class="margin_r_10" for="text">
+                                            手机号码:
+                                        </label>
+                                    </th>
+                                    <td>
+                                        <div class="common_txtbox_wrap">
+                                            <input type="text" name="mobilePhone" class="validate" validate="name:'手机号码',type:'mobilePhone'" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th nowrap="nowrap">
+                                        <label class="margin_r_10" for="text">
+                                            年龄:
+                                        </label>
+                                    </th>
+                                    <td>
+                                        <div class="common_txtbox_wrap">
+                                            <input type="text" name="age" class="validate" validate="name:'年龄',isInteger:true, maxValue:150,minValue:0" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th nowrap="nowrap">
+                                        <label class="margin_r_10" for="text">
+                                            出生日期:
+                                        </label>
+                                    </th>
+                                    <td>
+                                        <div class="common_txtbox_wrap">
+                                            <input type="text" name="age1" class="validate" validate="name:'出生日期',type:'3'" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th nowrap="nowrap">
+                                        <label class="margin_r_10" for="text">
+                                            出生时间:
+                                        </label>
+                                    </th>
+                                    <td>
+                                        <div class="common_txtbox_wrap">
+                                            <input type="text" name="age2" class="validate" validate="name:'出生日期+时间',type:'4'" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th nowrap="nowrap">
+                                        <label class="margin_r_10" for="text">
+                                            携带现金:
+                                        </label>
+                                    </th>
+                                    <td>
+                                        <div class="common_txtbox_wrap">
+                                            <input type="text" name="xianjin" class="validate" validate="name:'携带现金', type:'number', dotNumber:2, integerDigits:4, notNull:true" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th nowrap="nowrap">
+                                        <label class="margin_r_10" for="text">
+                                            其他:
+                                        </label>
+                                    </th>
+                                    <td>
+                                        <div class="common_txtbox_wrap">
+                                            <input type="text" name="qita" class="validate" validate="name:'其他',isDeaultValue:true,deaultValue:'不能是默认值'" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th nowrap="nowrap">
+                                        <label class="margin_r_10" for="text">
+                                            goodText:
+                                        </label>
+                                    </th>
+                                    <td>
+                                        <div class="common_txtbox_wrap">
+                                            <input type="text" name="goodText" id="goodText1" class="validate" validate="name:'goodTextGoogText',regExp:/\d+/,errorMsg:'goodTextGoogText必须输入数字！'" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th nowrap="nowrap">
+                                        <label class="margin_r_10" for="text">
+                                            自定义:
+                                        </label>
+                                    </th>
+                                    <td>
+                                        <div class="common_txtbox_wrap">
+                                            <input type="text" name="goodText" id="goodText2" class="validate" validate="name:'goodTextGoogText',func:testCustomFunc,errorMsg:'自定义函数校验必须等于aaa！'" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <div class="align_center">
+                        <a href="javascript:void(0)" class="common_button common_button_gray" id="tableSubmit" onclick="formSubmit();">提交</a>
+                        <a href="javascript:void(0)" class="common_button common_button_gray">取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="classification">
+            <div class="title">
+                实例:在调用jquery扩展插件的formobj、jsonSubmit或validate方法时，会执行校验过程
+            </div>
+		<div class="sorce_code">
+		<pre>
+$("#formId").jsonSubmit(); 
+$("#formId").formobj();
+$("#formId").validate();
+		</pre>
+		</div>
+</div><br/>
+        <div class="classification">
+            <div class="title">
+                属性
+            </div>
+            <div class="list">
+                <div class="ue">
+                    &nbsp;&nbsp;&nbsp;&nbsp;如要校验某种类型，要求input存在validate属性，并且
+                    <font color="red">
+                        validate属性
+                    </font>的值要求是一个合法的
+                    <font color="red">
+                        json字符串
+                    </font>。
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;例如：
+                    <br/>
+                    &lt;input name="username" type="text" 
+                    <font color="red">
+                        validate="{type:'string',maxLength:20,minLength:6}"
+                    </font>/&gt;
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;以下所说的属性，全部都是json字符串的属性。
+                    <br/>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;主属性是验证某一个类型必须存在的属性，副属性可选，不是必须存在的属性。
+                    <br/>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;目前一共可以验证13种类型，再加上最后一种给定自定义正则表达式的自定义验证类型。
+                    <br/>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;name属性或displayName在显示错误信息的时候要用到，但是也可以选择不给出（此时作为输入框的name属性必须存在）
+                </div>
+                <table width="100%" cellpadding="0" cellspacing="0" class="showList">
+                    <thead class="head">
+                        <th width="200">
+                            类型
+                        </th>
+                        <th>
+                            主属性和可选值
+                        </th>
+                        <th>
+                            副属性和可选值（空白表示无）
+                        </th>
+                    </thead>
+                    <tbody class="body">
+                        <tr>
+                            <td>
+                                1、非空
+                            </td>
+                            <td>
+                                notNull=true或nullable=true
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                2、包含空格的非空
+                            </td>
+                            <td>
+                                notNullWithoutTrim=true
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                3、数字（小数）
+                            </td>
+                            <td>
+                                isNumber=true或type=number或type=1或type=2
+                            </td>
+                            <td>
+                                max或maxValue（必须是数字，如果两个都给出，只使用前者）
+                                <br/>
+                                min或minValue（必须是数字，如果两个都给出，只使用前者）
+                                <br/>
+                                integerDigits整数位数（必须是数字）
+                                <br/>
+                                decimalDigits或dotNumber小数位数（必须是数字，如果两个都给出，只使用前者）
+                                <br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                4、数字（整形）
+                            </td>
+                            <td>
+                                isInteger=true
+                            </td>
+                            <td>
+                                max或maxValue（必须是数字，如果两个都给出，只使用前者）
+                                <br/>
+                                min或minValue（必须是数字，如果两个都给出，只使用前者）
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                5、电子邮件
+                            </td>
+                            <td>
+                                isEmail=true或type=email
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                6、字符串
+                            </td>
+                            <td>
+                                isWord=true或type=string或type=8或type=9
+                            </td>
+                            <td>
+                                character=""，将所有你认为是特殊字符的字符放进去，例如character="!@#$%^&*()"。
+                                <br/>
+                                （如果特殊字符中存在中划线
+                                <font color="red">
+                                    -
+                                </font>的话，必须放在第一个）
+                                <br/>
+                                （如果特殊字符中存在脱字符
+                                <font color="red">
+                                    ^
+                                </font>的话，必须不能放在第一个）
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                7、不允许为默认值
+                            </td>
+                            <td>
+                                isDeaultValue=true、deaultValue=一个给定的值
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                8、固定电话号码
+                            </td>
+                            <td>
+                                type=telephone
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                9、手机号码
+                            </td>
+                            <td>
+                                type=mobilePhone
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                10、日期类型（要求格式：yyyy-MM-dd）
+                            </td>
+                            <td>
+                                type=3
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                11、日期时间类型（要求各市：yyyy-MM-dd HH:mm:ss）
+                            </td>
+                            <td>
+                                type=4
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                12、最大长度
+                            </td>
+                            <td>
+                                maxLength=一个数字
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                13、最小长度
+                            </td>
+                            <td>
+                                minLength=一个数字
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                14、自定义正则表达式
+                            </td>
+                            <td>
+                                regExp=一个自定义的正则表达式，例如/[\d+]/
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                15、自定义校验函数
+                            </td>
+                            <td>
+                                主属性：func=一个自己定义的函数（必须是全局函数，可以是匿名函数）
+                                <br/>
+                                <br/>
+                                （该函数可以没有返回值（js中没有返回值的话默认为null），返回null或false表示校验未通过）
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                16、自定义错误提示
+                            </td>
+                            <td>
+                                主属性：errorMsg=一个字符串，例如:请输入数字！
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                17、js设置校验规则
+                                <br/>
+                                请看下方的MxtCheckMsg方法
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+						
+						 <tr>
+                            <td>
+                                18、errorIcon
+                            </td>
+                            <td>
+                            	错误信息后方是否有图标(默认true，显示)
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+						 <tr>
+                            <td>
+                                19、errorAlert
+                            </td>
+                            <td>
+                            	是否alert提示错误信息(默认false，不提示)
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="classification">
+            <div class="title">
+                方法
+            </div>
+            <div class="list">
+                <table width="100%" cellpadding="0" cellspacing="0" class="showList">
+                    <thead class="head">
+                        <th width="200">
+                            方法名
+                        </th>
+                        <th>
+                            描述
+                        </th>
+                    </thead>
+                    <tbody class="body">
+                        <tr>
+                            <td>
+                                MxtCheckForm
+                            </td>
+                            <td>
+                                校验一个form所有的输入框，校验规则由输入框的validate属性指定
+                                <br/>
+                                最多允许两个参数
+                                <br/>
+                                第一个参数可以是一个容器(Dom对象,例如一个form)的ID，也可以是一个容器（Dom对象）
+                                <br/>
+                                第二个参数是一个jquery选择器，表示校验容器内的哪些输入框元素。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                MxtCheckInput
+                            </td>
+                            <td>
+                                校验单个输入框，校验规则由输入框的validate属性指定
+                                <br/>
+                                只允许一个参数
+                                <br/>
+                                可以是一个输入框的Id，也可以是一个输入框Dom对象。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                MxtCheckMsg
+                            </td>
+                            <td>
+                                <pre>
+使用js添加校验信息<br/>
+允许两个参数，第一个是校验信息，必须；第二个参数可选，表示容器Id<br/>
+例子如下：
+MxtCheckMsg(
+{
+    "input[name=telephone]" : {
+        type:'string',name:'电话',notNull:true,errorMsg:'动态修改的电话校验，不能为空！'
+    }
+}
+, "tableForm");<br/>
+第一个参数应该是一个js对象，key表示一个jQuery选择器，value是校验信息（与validate属性类似）
+第二个参数应该是一个容器Id，或者也可以是一个jQuery对象或Dom对象。
+                            </pre>
+                            </td>
+                        </tr>
+						
+						
+						<tr>
+							<td>
+								RemoveCheckMsg
+							</td>
+							<td>
+								清楚单个元素错误信息(参数为jquery对象)。实例RemoveCheckMsg($('#name'))
+							</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+            </body>
+        </html>

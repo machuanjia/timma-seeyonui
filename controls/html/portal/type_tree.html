@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>树结构</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../../docs/resource/doc.css">
+    <script src="../../../scriptes/jquery.js"> </script>
+    <script type="text/javascript" src="../../seeyon.ui.projectList-debug.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#project_list").projectList();
+        })
+    </script>
+</head>
+<body class="body-pading">
+    <div class="classification">
+        <div class="title">树结构</div>
+        <div class="list">
+            <div class="common_content_area">
+                <div class="content_area_head clearfix">
+                    <div class="common_tabs index_tabs">
+                        <ul>
+                            <li><a href="#" class="show"><span class=" left margin_5"></span></a></li>
+                            <li class="current"><a href="#">页签</a></li>
+                        </ul>
+                    </div>
+                    <span class="max right"></span>
+                    <span class="edit right"></span>
+                </div>
+                <div class="content_area_body common_tabs_body">
+                    <table id="project_list" cellpadding="0" cellspacing="0" border="0" class="project_list">
+                        <thead>
+                            <tr>
+                                <th width="50%">名称</th>
+                                <th>进度条</th>
+                                <th>责任人</th>
+                                <th>日志</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="project_list_tree" lv="1">
+                                <td><em class="ico16 btn_ico"></em>一级</td>
+                                <td>
+                                    <div class="common_progress_strip_blue">
+                                        <div class="common_progress_strip_per"><em class="ico16"></em></div>
+                                        <div class="common_progress_strip_per">50%</div>
+                                        <div class="common_progress_strip_content">
+                                            <div class="common_progress_strip_bg" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>0王小玮</td>
+                                <td><a href="#" target="_blank"><em class="ico16"></em></a></td>
+                            </tr>
+                            <tr class="project_list_tree_cell hidden" lv="2">
+                                <td><em class="ico16 btn_ico"></em>二级</td>
+                                <td>
+                                    <div class="common_progress_strip_green">
+                                        <div class="common_progress_strip_per"><em class="ico16"></em></div>
+                                        <div class="common_progress_strip_per">50%</div>
+                                        <div class="common_progress_strip_content">
+                                            <div class="common_progress_strip_bg" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>1王小玮</td>
+                                <td><a href="#" target="_blank"><em class="ico16"></em></a></td>
+                            </tr>
+                            <tr class="project_list_tree_cell hidden" lv="2">
+                                <td><em class="ico16 btn_ico"></em>二级</td>
+                                <td>
+                                    <div class="common_progress_strip_green">
+                                        <div class="common_progress_strip_per"><em class="ico16"></em></div>
+                                        <div class="common_progress_strip_per">50%</div>
+                                        <div class="common_progress_strip_content">
+                                            <div class="common_progress_strip_bg" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>2王小玮</td>
+                                <td><a href="#" target="_blank"><em class="ico16"></em></a></td>
+                            </tr>
+                            <tr class="project_list_tree_cell_cell hidden" lv="3">
+                                <td><em class="ico16 btn_ico"></em>三级</td>
+                                <td>
+                                    <div class="common_progress_strip_green">
+                                        <div class="common_progress_strip_per"><em class="ico16"></em></div>
+                                        <div class="common_progress_strip_per">50%</div>
+                                        <div class="common_progress_strip_content">
+                                            <div class="common_progress_strip_bg" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>3王小玮</td>
+                                <td><a href="#" target="_blank"><em class="ico16"></em></a></td>
+                            </tr>
+                            <tr class="project_list_tree_cell_cell hidden" lv="3">
+                                <td><em class="ico16 btn_ico"></em>三级</td>
+                                <td>
+                                    <div class="common_progress_strip_green">
+                                        <div class="common_progress_strip_per"><em class="ico16"></em></div>
+                                        <div class="common_progress_strip_per">50%</div>
+                                        <div class="common_progress_strip_content">
+                                            <div class="common_progress_strip_bg" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>3王小玮</td>
+                                <td><a href="#" target="_blank"><em class="ico16"></em></a></td>
+                            </tr>
+                            <tr class="project_list_tree_cell_cell_cell hidden" lv="4">
+                                <td><em class="ico16 btn_ico"></em>四级</td>
+                                <td>
+                                    <div class="common_progress_strip_green">
+                                        <div class="common_progress_strip_per"><em class="ico16"></em></div>
+                                        <div class="common_progress_strip_per">50%</div>
+                                        <div class="common_progress_strip_content">
+                                            <div class="common_progress_strip_bg" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>3王小玮</td>
+                                <td><a href="#" target="_blank"><em class="ico16"></em></a></td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="project_list_tree" lv="1">
+                                <td><em class="ico16 btn_ico"></em>一级</td>
+                                <td>
+                                    <div class="common_progress_strip_red">
+                                        <div class="common_progress_strip_per"><em class="ico16"></em></div>
+                                        <div class="common_progress_strip_per">50%</div>
+                                        <div class="common_progress_strip_content">
+                                            <div class="common_progress_strip_bg" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>0王小玮</td>
+                                <td><a href="#" target="_blank"><em class="ico16"></em></a></td>
+                            </tr>
+                            <tr class="project_list_tree_cell hidden" lv="2">
+                                <td><em class="ico16 btn_ico"></em>二级</td>
+                                <td>
+                                    <div class="common_progress_strip_green">
+                                        <div class="common_progress_strip_per"><em class="ico16"></em></div>
+                                        <div class="common_progress_strip_per">50%</div>
+                                        <div class="common_progress_strip_content">
+                                            <div class="common_progress_strip_bg" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>1王小玮</td>
+                                <td><a href="#" target="_blank"><em class="ico16"></em></a></td>
+                            </tr>
+                            <tr class="project_list_tree_cell hidden" lv="2">
+                                <td><em class="ico16 btn_ico"></em>二级</td>
+                                <td>
+                                    <div class="common_progress_strip_green">
+                                        <div class="common_progress_strip_per"><em class="ico16"></em></div>
+                                        <div class="common_progress_strip_per">50%</div>
+                                        <div class="common_progress_strip_content">
+                                            <div class="common_progress_strip_bg" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>2王小玮</td>
+                                <td><a href="#" target="_blank"><em class="ico16"></em></a></td>
+                            </tr>
+                            <tr class="project_list_tree_cell_cell hidden" lv="3">
+                                <td><em class="ico16 btn_ico"></em>三级</td>
+                                <td>
+                                    <div class="common_progress_strip_green">
+                                        <div class="common_progress_strip_per"><em class="ico16"></em></div>
+                                        <div class="common_progress_strip_per">50%</div>
+                                        <div class="common_progress_strip_content">
+                                            <div class="common_progress_strip_bg" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>3王小玮</td>
+                                <td><a href="#" target="_blank"><em class="ico16"></em></a></td>
+                            </tr>
+                            <tr class="project_list_tree_cell_cell hidden" lv="3">
+                                <td><em class="ico16 btn_ico"></em>三级</td>
+                                <td>
+                                    <div class="common_progress_strip_green">
+                                        <div class="common_progress_strip_per"><em class="ico16"></em></div>
+                                        <div class="common_progress_strip_per">50%</div>
+                                        <div class="common_progress_strip_content">
+                                            <div class="common_progress_strip_bg" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>3王小玮</td>
+                                <td><a href="#" target="_blank"><em class="ico16"></em></a></td>
+                            </tr>
+                            <tr class="project_list_tree_cell_cell_cell hidden" lv="4">
+                                <td><em class="ico16 btn_ico"></em>四级</td>
+                                <td>
+                                    <div class="common_progress_strip_green">
+                                        <div class="common_progress_strip_per"><em class="ico16"></em></div>
+                                        <div class="common_progress_strip_per">50%</div>
+                                        <div class="common_progress_strip_content">
+                                            <div class="common_progress_strip_bg" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>3王小玮</td>
+                                <td><a href="#" target="_blank"><em class="ico16"></em></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="content_area_footer padding_lr_5 clearfix">
+                    <a href="#" class="right"><em class="ico16 portal_more "></em></a>
+                    <a href="#" class="right margin_r_10"><em class="ico16 portal_new margin_r_5"></em>操作</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="classification">
+        <div class="title">示例</div>
+        <div class="ue">
+            <pre>
+$(function () {
+    $("#project_list").projectList();
+})
+            </pre>
+        </div>
+    </div>
+
+	<div class="classification">
+		<div class="title">UE</div>
+		<div class="list">
+			<div class="button_box clearfix">
+			</div>
+			<div class="ue">普通按钮</div>
+		</div>
+	</div>
+
+	<div class="classification">
+		<div class="title">属性</div>
+		<div class="list">
+			<table width="100%" cellpadding="0" cellspacing="0" class="showList">
+				<thead class="head">
+                    <tr>
+                        <th width="200">属性</th>
+                        <th>描述</th>
+                    </tr>
+				</thead>
+				<tbody class="body">
+				</tbody>
+			</table>
+		</div>	
+	</div>
+	
+	
+	<div class="classification">
+		<div class="title">事件</div>
+		<div class="list">
+			<table width="100%" cellpadding="0" cellspacing="0" class="showList">
+				<thead class="head">
+                    <tr>
+                        <th width="200">事件</th>
+                        <th>描述</th>
+                    </tr>
+				</thead>
+				<tbody class="body">
+				</tbody>
+			</table>
+		</div>	
+	</div>
+	
+	<div class="classification">
+		<div class="title">方法</div>
+		<div class="list">
+            <table width="100%" cellpadding="0" cellspacing="0" class="showList">
+                <thead class="head">
+                    <tr>
+                        <th width="200">方法</th>
+                        <th>描述</th>
+                    </tr>
+				</thead>
+				<tbody class="body">
+				</tbody>
+			</table>
+		</div>	
+	</div>
+
+</body>
+</html>

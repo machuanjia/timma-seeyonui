@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>个人知识中心-评价</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+    <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../searchBox-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.menu-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.progress-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tab-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tree-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.json-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.code-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/i18n-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/v3x-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.pageMenu-debug.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(document).ready(function () {
+                var searchobj = $('#searchDiv').searchCondition({
+                    searchHandler: function () {
+                        var ssss = searchobj.g.getReturnValue();
+                        alert($.toJSON(ssss))
+                    },
+                    conditions: [{
+                        id: 'title',
+                        name: 'title',
+                        type: 'input',
+                        text: '标题',
+                        value: 'subject'
+                    }, {
+                        id: 'importent',
+                        name: 'importent',
+                        type: 'select',
+                        text: '重要程度',
+                        value: 'importantLevel',
+                        codecfg: "codeType:'java',codeId:'com.seeyon.apps.samples.test.enums.MyEnums'",
+                        items: [{
+                            text: '普通',
+                            value: '0'
+                        }, {
+                            text: '重要',
+                            value: '1'
+                        }, {
+                            text: '非常重要',
+                            value: '2'
+                        }]
+                    }, {
+                        id: 'spender',
+                        name: 'spender',
+                        type: 'input',
+                        text: '发起人',
+                        value: 'startMemberName'
+                    }, {
+                        id: 'datetime',
+                        name: 'datetime',
+                        type: 'datemulti',
+                        text: '发起时间',
+                        value: 'createDate',
+                        dateTime: true
+                    }]
+                });
+            });
+        })
+    </script>
+</head>
+<body class="page_color">
+    <div class="area_page">
+        <div class="area_main">
+            <div class="clearFlow">
+                <img class="left padding_r_10" width="72" height="72" src="http://list.image.baidu.com/t/image/w_meinv.jpg" />
+                <p class="clearFlow font_size14 margin_t_5"><strong class="left margin_r_5 margin_t_5">张小一</strong><span class="ico24 medals_10 left"></span></p>
+                <p class="margin_t_5">用户体验部 交互设计师</p>
+                <div class="clearFlow line_height200">
+                    <p class="left color_blue">今天天气不错啊啊~~~~</p>
+                    <a href="javascript:void(0)" class="common_button right margin_l_5">去文档库</a>
+                    <a href="javascript:void(0)" class="common_button right margin_l_5">去知识中心</a>
+                    <a href="javascript:void(0)" class="common_button common_button_emphasize right margin_l_5">我要分享</a>
+                    <span class="right color_gray">我分享了<strong class="color_black">2300</strong>份文档</span>
+                </div>
+            </div>
+            <div class="area_menu margin_t_10">
+                <span class="line_ico left"></span>
+                <a href="zszx-index.html">我读</a>
+                <span class="line_ico left"></span>
+                <a href="zszx-index2.html">动态</a>
+                <span class="line_ico left"></span>
+                <a class="current" href="zszx-index3.html">评价</a>
+                <span class="line_ico left"></span>
+                <a href="zszx-index4.html">我的知识库</a>
+                <span class="line_ico left"></span>
+            </div>
+            <div class="border_b_gray margin_t_10 padding_b_5 clearFlow">
+                <div class="display_inline-block padding_lr_10 padding_tb_5 bg_color hand">他人评价</div>
+                <div class="display_inline-block padding_lr_10 padding_tb_5 hand">我的评价</div>
+                <div id="searchDiv" class="right"></div>
+            </div>
+            <ul class="bg_color_white clearfix margin_t_10">
+                <li class="padding_10 border_b_gray">
+                    <img class="left margin_l_10 margin_b_10 margin_r_20 hand" src="http://list.image.baidu.com/t/image/w_meinv.jpg" width="42" height="42" onclick="alert('弹出人员卡片')" /><div class="over_hidden">
+                        <div class="clearfix">
+                            <span class="left"><a href="#" class="left margin_r_5">曾静亮</a><span class="left margin_r_5">新增文档</span><span class="left ico16 xls_16 margin_r_5"></span><a href="#" class="left margin_r_5">《1942》</a><span class="left stars4_5"></span></span>
+                            <span class="color_gray right">3个小时前</span>
+                        </div>
+                        <div class="margin_t_5">冯小刚年度力作《一九四二》全国特价促销 最低33元 提前选座购票</div>
+                        <div class="clearfix margin_t_20">
+                            <span class="left margin_r_10 color_gray">推送人:刘磊</span>
+                            <span class="left color_gray">还推送人:</span>
+                            <span class="left margin_r_10 color_gray">产品经理</span>
+                            <span class="left margin_r_10 color_gray">刘磊</span>
+                            <span class="right margin_l_10"><a href="#">推荐(12)</a></span>
+                            <span class="right margin_l_10 color_gray">评价(12)</span>
+                            <span class="right margin_l_10 color_gray">下载(12)</span>
+                            <span class="right margin_l_10 color_gray">收藏(12)</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="padding_10 border_b_gray">
+                    <img class="left margin_l_10 margin_b_10 margin_r_20 hand" src="http://list.image.baidu.com/t/image/w_meinv.jpg" width="42" height="42" onclick="alert('弹出人员卡片')" /><div class="over_hidden">
+                        <div class="clearfix">
+                            <span class="left"><a href="#" class="left margin_r_5">曾静亮</a><span class="left margin_r_5">新增文档</span><span class="left ico16 xls_16 margin_r_5"></span><a href="#" class="left margin_r_5">《知识管理概要设计V1.2》</a><span class="left stars4_5"></span></span>
+                            <span class="color_gray right">3个小时前</span>
+                        </div>
+                        <div class="margin_t_5">文档路径:<a href="#">内容管理部/销售工具/应用宣传</a></div>
+                        <div class="clearfix margin_t_20">
+                            <span class="left margin_r_10 color_gray">推送人:刘磊</span>
+                            <span class="left color_gray">还推送人:</span>
+                            <span class="left margin_r_10 color_gray">产品经理</span>
+                            <span class="left margin_r_10 color_gray">刘磊</span>
+                            <span class="right margin_l_10"><a href="#">推荐(12)</a></span>
+                            <span class="right margin_l_10 color_gray">评价(12)</span>
+                            <span class="right margin_l_10 color_gray">下载(12)</span>
+                            <span class="right margin_l_10 color_gray">收藏(12)</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="common_over_page align_right margin_t_10 margin_r_10">
+                每页显示<input type="text" class="common_over_page_txtbox"><span class="margin_r_20">条/共6条</span>
+                <a href="#" class="common_over_page_btn" title="首页"><em class="pageFirst"></em></a>
+                <a href="#" class="common_over_page_btn" title="上一页"><em class="pagePrev"></em></a>
+                <span class="margin_l_10">第</span><input type="text" class="common_over_page_txtbox">页/13页
+    <a href="#" class="common_over_page_btn" title="下一页"><em class="pageNext"></em></a>
+                <a href="#" class="common_over_page_btn" title="尾页"><em class="pageLast"></em></a>
+            </div>
+        </div>
+        <div class="area_sub">
+            <div class="clearFlow margin_t_5 border_all">
+                <div class="bg_color_white padding_lr_10 padding_tb_5 border_b_gray2"><strong>我的学习区:</strong></div>
+                <div class="color_gray align_center padding_10">
+                    暂时还没有内容
+                </div>
+            </div>
+            <div class="clearFlow margin_t_5 border_all">
+                <div class="bg_color_white padding_lr_10 padding_tb_5 border_b_gray2"><strong>我的学习区:</strong></div>
+                <ul class="clearFlow area_learn line_height160 padding_lr_5 padding_b_5">
+                    <li class="margin_t_5"><a href="#" class="color_black"><span class="ico16 doc_16 margin_r_5"></span>1致远协安装1致远协安装1致远协安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                    <li class="margin_t_5"><a href="#" class="color_black"><span class="ico16 doc_16 margin_r_5"></span>1致远协安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                    <li class="margin_t_5"><a href="#" class="color_black"><span class="ico16 doc_16 margin_r_5"></span>1致远协安装1</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                </ul>
+                <div class="border_t_gray2 align_right padding_tb_5">
+                    <a href="#" class="margin_r_10">更多</a>
+                </div>
+            </div>
+            <div class="clearFlow margin_t_5 border_all">
+                <div class="bg_color_white padding_lr_10 padding_tb_5 border_b_gray2"><strong>他人借阅:</strong></div>
+                <ul class="clearFlow line_height180 padding_5">
+                    <li class="clearFlow margin_t_5">
+                        <img class="left margin_r_5" width="20" height="20" src="http://list.image.baidu.com/t/image/w_meinv.jpg" />
+                        <div class="clearFlow">
+                            <p>任虎阳：请求借阅<a href="#">《1942，那一年的春天》.doc</a></p>
+                            <p class="align_right color_gray padding_r_5">
+                                06-12 12:50
+                            </p>
+                        </div>
+                    </li>
+                    <li class="clearFlow margin_t_5">
+                        <img class="left margin_r_5" width="20" height="20" src="http://list.image.baidu.com/t/image/w_meinv.jpg" />
+                        <div class="clearFlow">
+                            <p>任虎阳：请求借阅<a href="#">《1942，那一年的春天》.doc</a></p>
+                            <p class="align_right color_gray padding_r_5">
+                                06-12 12:50
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="border_t_gray2 align_right padding_tb_5">
+                    <a href="#" class="margin_r_10">去处理</a>
+                </div>
+            </div>
+            <div class="clearFlow margin_t_5 border_all">
+                <div class="bg_color_white padding_lr_10 padding_tb_5 border_b_gray2"><strong>我的知识链接:</strong></div>
+                <div class="line_height200 clearfix padding_tb_5">
+                    <a href="#" class="left margin_l_5 text_overflow color_black w100 display_block"><img src="http://list.image.baidu.com/t/image/w_meinv.jpg" class="valign_m margin_r_5" width="16" height="16" />网易网易网易网易网易</a>
+                    <a href="#" class="left margin_l_5 text_overflow color_black w100 display_block"><img src="http://list.image.baidu.com/t/image/w_meinv.jpg" class="valign_m margin_r_5" width="16" height="16" />网易</a>
+                    <a href="#" class="left margin_l_5 text_overflow color_black w100 display_block"><img src="http://list.image.baidu.com/t/image/w_meinv.jpg" class="valign_m margin_r_5" width="16" height="16" />网易</a>
+                    <a href="#" class="left margin_l_5 text_overflow color_black w100 display_block"><img src="http://list.image.baidu.com/t/image/w_meinv.jpg" class="valign_m margin_r_5" width="16" height="16" />网易</a>
+                    <a href="#" class="left margin_l_5 text_overflow color_black w100 display_block"><img src="http://list.image.baidu.com/t/image/w_meinv.jpg" class="valign_m margin_r_5" width="16" height="16" />网易网易网易网易网易</a>
+                </div>
+                <div class="border_t_gray2 align_right padding_tb_5">
+                    <a href="#" class="margin_r_10">配置</a><a href="#" class="margin_r_10">更多</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

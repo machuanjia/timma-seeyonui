@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html class="h100b over_hidden">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>项目任务－任务查看页</title>
+  <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+  <link rel="stylesheet" type="text/css" href="../../../skin/default/skin-debug.css">
+  <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+  <script type="text/javascript" src="../../calendar/calendar-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/jquery.json-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/jquery.code-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/common-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/i18n-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/v3x-debug.js"></script>
+  <script type="text/javascript" src="../../searchBox-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.menu-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.progress-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.tab-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.tree-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js"></script>
+  <script type="text/javascript" src="../../seeyon.ui.common-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js"></script>
+  <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js"></script>
+  
+    <script type="text/javascript" src="../../seeyon.ui.projectTaskDetailDialog-debug.js"></script>
+</head>
+<body class="h100b over_hidden">
+    <input type="button" value="关闭－任务详情页" onclick="projectTaskDetailDialog_close()" style="float:left;margin:10px;" />
+    <iframe src="mbgl_task_detail_iframe2.html" frameborder="1" width="150" height="50"></iframe>
+    <div>
+    <pre>
+［参数］
+        url1: "about:blank",
+        url2: "about:blank",
+        url3: "about:blank",
+        openB: false,           //默认打开B
+        openC: false,           //默认打开C
+        hideBtnB: false,        //隐藏按钮B
+        hideBtnC: false,        //隐藏按钮C
+        toggleBC: false,        //BC交替显示
+        animate: true,          //动画
+［方法］
+projectTaskDetailDialog_close() //关闭方法
+projectTaskDetailDialog_reload(null,null,null); //三个参数分别对应abciframe。字符串为打开新地址。true为reload刷新。
+    </pre>
+    </div>
+</body>
+</html>

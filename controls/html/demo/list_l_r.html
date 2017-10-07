@@ -1,0 +1,514 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>list</title>
+        <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+        <script src="../../../scriptes/jquery.js">
+        </script>
+        <script src="../../seeyon.ui.layout-debug.js">
+        </script>
+        <script src="../../seeyon.ui.toolbar-debug.js">
+        </script>
+        <script src="../../seeyon.ui.grid-debug.js">
+        </script>
+        <script type="text/javascript" src="../../calendar/calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../calendar/calendar-zh-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.json-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.code-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/i18n-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/v3x-debug.js">
+        </script>
+        <script type="text/javascript" src="../../searchBox-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.grid-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.layout-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.menu-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.progress-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.scroll-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.tab-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js">
+        </script>
+		<script type="text/javascript" src="../../seeyon.ui.common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js">
+        </script>
+        <script>
+        $(document).ready(function(){
+            $("#toolbar2").toolbar({
+                toolbar: [{
+                    id: "transmit",
+                    name: "转发",
+                    className: "ico16 forwarding_16 ",
+                    
+                    subMenu: [{
+                        name: "协同",
+                        click: function(){
+                            //alert(111);
+                        }
+                    }, {
+                        name: "邮件",
+                        click: function(){
+                            //alert(222);
+                        }
+                    }]
+                }, {
+                    id: "new",
+                    name: "新建",
+                    className: "ico16",
+					click:function(){
+						ss.grid.resizeGridUpDown('middle');
+						$("#checkForm")[0].contentWindow.check("new");
+						
+					}
+                }]
+            });
+            
+            
+                var ss = $("#flexme3").ajaxgrid({
+                    click: testCellAction,
+                    dblclick: testCellActionDB,
+                    render: render,
+                    datas: testData,
+					isHaveIframe:true,
+                    colModel: [{
+                        display: 'id',
+                        name: 'id',
+                        width: '5%',
+                        sortable: false,
+                        align: 'center',
+                        type: 'checkbox',
+						isToggleHideShow:true
+                    }, {
+                        display: 'username',
+                        name: 'username',
+                        width: '10%',
+                        sortable: true,
+                        align: 'left',
+						isToggleHideShow:false
+                    }, {
+                        display: 'truename',
+                        name: 'truename',
+                        width: '10%',
+                        sortable: true,
+                        align: 'left'
+                    }],
+                    sortname: "id",
+                    sortorder: "asc",
+                    usepager: true,
+                    heightSubtract:30,
+                    parentId: $('.layout_west').eq(0).attr('id'),
+                    resizable:false
+                });
+            
+        });
+        </script>
+    </head>
+    <body>
+        <div id='layout' class="comp page_color" comp="type:'layout'">
+            <div class="layout_west" layout="height:30,sprit:true,border:true,minWidth:200,maxWidth:1000" style="overflow: hidden">
+				<div id="toolbar2"></div>
+				<table id="flexme3" class="flexme3" style="display: none;">
+                </table>
+            </div>
+            <div class="layout_center page_color over_hidden" layout="border:false">
+            	 <iframe src="../_TEST.html" id="checkForm" width="100%" height="100%" frameborder="0"></iframe>
+            </div>
+        </div>
+    </body>
+</html>
+                <script>
+                    var testData = {
+                        "rows": [{
+                            "id": 10001,
+                            "username": "zhujl",
+                            "truename": "朱家玲",
+                            "handphone": "13808000661",
+                            "officephone": "028-85243926",
+                            "email": "",
+                            "birthday": "1965-02-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10001\"/>",
+                            "jiaqi": '4.1'
+                        }, {
+                            "id": 10002,
+                            "username": "yuq",
+                            "truename": "余强",
+                            "handphone": "13901206080",
+                            "officephone": "",
+                            "email": "yuqiang@seeyon.com",
+                            "birthday": "1965-12-21",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10002\"/>",
+                            "jiaqi": 35.2
+                        }, {
+                            "id": 10003,
+                            "username": "lq",
+                            "truename": "刘清",
+                            "handphone": "13910976992",
+                            "officephone": "108",
+                            "email": "liuq@seeyon.com",
+                            "birthday": "1910-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10003\"/>",
+                            "jiaqi": '234'
+                        }, {
+                            "id": 10004,
+                            "username": "xus",
+                            "truename": "徐石",
+                            "handphone": "13911116021",
+                            "officephone": "101",
+                            "email": "Rock_xu@seeyon.com",
+                            "birthday": "1910-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10004\"/>",
+                            "jiaqi": 111
+                        }, {
+                            "id": 10005,
+                            "username": "张宇红",
+                            "truename": "张宇红",
+                            "handphone": "13301009835",
+                            "officephone": "010-82602233-130",
+                            "email": "zhangyh@seeyon.com",
+                            "birthday": "1976-12-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10005\"/>",
+                            "jiaqi": 2345
+                        }, {
+                            "id": 10006,
+                            "username": "zhangy",
+                            "truename": "张屹",
+                            "handphone": "13701136073",
+                            "officephone": "102",
+                            "email": "zhangy@seeyon.com",
+                            "birthday": "1968-06-25",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10006\"/>",
+                            "jiaqi": 321
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "1150",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10007,
+                            "username": "qiuwj",
+                            "truename": "邱文娟",
+                            "handphone": "13426220457",
+                            "officephone": "125",
+                            "email": "",
+                            "birthday": "1970-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                            "jiaqi": 2
+                        }],
+                        "page": 1,
+                        "pages": 18,
+                        "startAt": 0,
+                        "dataCount": 10,
+                        "sortField": null,
+                        "sortOrder": null
+                    };
+                    
+                    function render(text, row, rowIndex, colIndex,col){
+                    	return text
+                    	//if(col.name=="username")
+                    	//return "<a class='card' memberId='"+row.id+"' id='panle"+rowIndex+"'> " + text + "</a>";                  	
+                    }
+                    function testCellAction(row, rowIndex, colIndex) {
+                    	//$("#checkForm")[0].contentWindow.check("disable",row)
+                        //ss.grid.resizeGrid(200);
+                        //$('#s').val('click----' + row.id + '---' + colIndex + '---' + rowIndex)
+                    }
+                    
+                    function testCellActionDB(row, rowIndex, colIndex){
+                        //window.open("http://www.baidu.com");
+                        //$('#s').val('DBclick----' + row.id + '---' + colIndex + '---' + rowIndex)
+                    }
+                </script>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="h100b over_hidden">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>关联文档</title>
+        <script src="../../../scriptes/jquery.js">
+        </script>
+        <script src="../../../docs/resource/doc.js" type="text/javascript">
+        </script>
+        <link rel="stylesheet" type="text/css" href="../../../css/common-debug.css">
+        <link rel="stylesheet" type="text/css" href="../../../skin/default/skin-debug.css">
+        <link rel="stylesheet" type="text/css" href="../../../docs/resource/doc.css">
+        <script src="../../seeyon.ui.arraylist-debug.js">
+        </script>
+        <script src="../../seeyon.ui.grid-debug.js">
+        </script>
+        <script>
+            $(document).ready(function(){
+                $.fn.codetext = function(options){
+                };
+                
+                var testData = {
+                    "size": 20,
+                    "total": 349,
+                    "rows": [{
+                        "id": 10001,
+                        "title": "关联文档",
+                        "truename": "谢小萍",
+                        "sendtime": "2012-08-14 13:38"
+                    }, {
+                        "id": 10002,
+                        "title": "关联文档",
+                        "truename": "谢小萍",
+                        "sendtime": "2012-08-14 13:38"
+                    }, {
+                        "id": 10003,
+                        "title": "关联文档",
+                        "truename": "谢小萍",
+                        "sendtime": "2012-08-14 13:38"
+                    }, {
+                        "id": 10004,
+                        "title": "关联文档",
+                        "truename": "谢小萍",
+                        "sendtime": "2012-08-14 13:38"
+                    }, {
+                        "id": 10005,
+                        "title": "关联文档",
+                        "truename": "谢小萍",
+                        "sendtime": "2012-08-14 13:38"
+                    }, {
+                        "id": 10006,
+                        "title": "关联文档",
+                        "truename": "谢小萍",
+                        "sendtime": "2012-08-14 13:38"
+                    }, {
+                        "id": 10007,
+                        "title": "关联文档",
+                        "truename": "谢小萍",
+                        "sendtime": "2012-08-14 13:38"
+                    }, {
+                        "id": 10007,
+                        "title": "关联文档",
+                        "truename": "谢小萍",
+                        "sendtime": "2012-08-14 13:38"
+                    }, {
+                        "id": 10007,
+                        "title": "关联文档",
+                        "truename": "谢小萍",
+                        "sendtime": "2012-08-14 13:38"
+                    }, {
+                        "id": 10007,
+                        "title": "关联文档",
+                        "truename": "谢小萍",
+                        "sendtime": "2012-08-14 13:38"
+                    }, {
+                        "id": 10007,
+                        "title": "关联文档",
+                        "truename": "谢小萍",
+                        "sendtime": "2012-08-14 13:38"
+                    }, {
+                        "id": 10007,
+                        "title": "关联文档",
+                        "truename": "谢小萍",
+                        "sendtime": "2012-08-14 13:38"
+                    }, {
+                        "id": 10007,
+                        "title": "关联文档",
+                        "truename": "谢小萍",
+                        "sendtime": "2012-08-14 13:38"
+                    }, {
+                        "id": 10007,
+                        "title": "关联文档",
+                        "truename": "谢小萍",
+                        "sendtime": "2012-08-14 13:38"
+                    }, {
+                        "id": 10007,
+                        "title": "关联文档",
+                        "truename": "谢小萍",
+                        "sendtime": "2012-08-14 13:38"
+                    }, {
+                        "id": 10007,
+                        "title": "关联文档",
+                        "truename": "谢小萍",
+                        "sendtime": "2012-08-14 13:38"
+                    }, {
+                        "id": 10007,
+                        "title": "关联文档",
+                        "truename": "谢小萍",
+                        "sendtime": "2012-08-14 13:38"
+                    }],
+                    "page": 1,
+                    "pages": 18,
+                    "startAt": 0,
+                    "dataCount": 20,
+                    "sortField": null,
+                    "sortOrder": null
+                };
+                function render(text, row, rowIndex, colIndex){
+                    if (rowIndex == 2 && colIndex == 2) {
+                        return "<a href='#'>" + text + "</a>";
+                    }
+                    else {
+                        return text;
+                    }
+                }
+                $("table.flexme3").ajaxgrid({
+                    render: render,
+                    datas: testData,
+                    colModel: [{
+                        display: 'id',
+                        name: 'id',
+                        width: '40',
+                        sortable: false,
+                        align: 'center',
+                        type: 'checkbox'
+                    }, {
+                        display: '标题',
+                        name: 'title',
+                        width: '300',
+                        sortable: true,
+                        align: 'left'
+                    }, {
+                        display: '发起人',
+                        name: 'truename',
+                        width: '100',
+                        sortable: true,
+                        align: 'left'
+                    }, {
+                        display: '发起时间',
+                        name: 'sendtime',
+                        width: '100',
+                        sortable: true,
+                        align: 'center'
+                    }],
+                    usepager: true,
+                    resizable: false,
+                    height: 200,
+                    parentId: 'sdsd',
+                    vChange: true,
+                    hChange: true
+                });
+                
+            });
+        </script>
+        <style>
+            .stadic_head_height {
+                height: 110px;
+            }
+            
+            .stadic_body_top_bottom {
+                top: 110px;
+                bottom: 100px;
+            }
+            
+            .stadic_footer_height {
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body class="h100b over_hidden page_color">
+        <div class="stadic_layout">
+            <div class="stadic_layout_head stadic_head_height">
+                <div class="popup_title">
+                    插入 - 关联文档
+                </div>
+                <div class="common_tabs clearfix">
+                    <ul class="left">
+                        <li class="current">
+                            <a href="javascript:void(0)"class="border_b">协同</a>
+                        </li>
+                        <li>
+                            <a class="last_tab" href="javascript:void(0)">文档中心</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="padding_5 border_all common_tabs_body">
+                    <div class="common_search_box right clearfix padding_tb_5 margin_r_5">
+                        <ul class="common_search">
+                            <li>
+                                <select style="height:24px;">
+                                    <option>标 题</option>
+                                    <option>发起人</option>
+                                    <option>发起时间</option>
+                                    <option>重要程度</option>
+                                </select>
+                                &nbsp;
+                            </li>
+                            <li id="inputBorder" class="common_search_input">
+                                <input class="search_input" type="text">
+                            </li>
+                            <li>
+                                <a class="common_button common_button_gray search_buttonHand" href="javascript:void(0)"><em></em></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="common_radio_box clearfix margin_t_5">
+                        <label class="margin_r_10 hand" for="radio1">
+                            <input id="radio1" class="radio_com" name="option" value="0" type="radio">已发
+                        </label>
+                        <label class="margin_r_10 hand" for="radio2">
+                            <input id="radio2" class="radio_com" name="option" value="0" type="radio">待办
+                        </label>
+                        <label class="margin_r_10 hand" for="radio3">
+                            <input id="radio3" class="radio_com" name="option" value="0" type="radio">已办
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="stadic_layout_body stadic_body_top_bottom" id="sdsd">
+                <table class="flexme3" style="display: none" width="100%">
+                </table>
+            </div>
+            <div class="stadic_layout_footer stadic_footer_height">
+                已选择：
+                <div class="border_all over_auto margin_t_5 newinfo_area"style="height:75px;">
+                    <div class="content_area">
+                        <span><em class="ico16 associated_document_16"></em><a href="javascript:void(0)">测测测</a><em class="ico16 revoked_process"></em></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

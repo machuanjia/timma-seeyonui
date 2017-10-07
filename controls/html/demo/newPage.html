@@ -1,0 +1,417 @@
+﻿<!DOCTYPE html>
+<html class="h100b over_hidden">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>新建页面</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+    <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../searchBox-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.menu-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.progress-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tab-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tree-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.json-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.code-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/i18n-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/v3x-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.pageMenu-debug.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            //toolbar
+            var toolbar = $("#toolbar").toolbar({
+                toolbar: [{
+                    name: "存为草稿",
+                    className: "ico16 save_traft_16",
+                    click: function () {
+                        alert("转发");
+                    }
+                }, {
+                    name: "调用模板",
+                    className: "ico16 call_template_16"
+                }, {
+                    name: "插入",
+                    className: "ico16 affix_16",
+                    subMenu: [{
+                        name: "本地文件",
+                        click: function () {
+                            alert("本地文件");
+                        }
+                    }, {
+                        name: "关联文档",
+                        click: function () {
+                            alert("关联文档");
+                        }
+                    }, {
+                        name: "测试附件区域0",
+                        click: function () {
+                            fj_glwd_fn(0);
+                        }
+                    }, {
+                        name: "测试附件区域1",
+                        click: function () {
+                            fj_glwd_fn(1);
+                        }
+                    }, {
+                        name: "测试附件区域2",
+                        click: function () {
+                            fj_glwd_fn(2);
+                        }
+                    }]
+                }, {
+                    name: "正文类型",
+                    className: "ico16 text_type_16",
+                    subMenu: [{
+                        name: "本地文件",
+                        click: function () {
+                            alert("本地文件");
+                        }
+                    }, {
+                        name: "关联文档",
+                        click: function () {
+                            alert("关联文档");
+                        }
+                    }]
+                }, {
+                    name: "存为模板",
+                    className: "ico16 save_template_16"
+                }, {
+                    name: "打印",
+                    className: "ico16 print_16"
+                }]
+            });
+            new inputChange($("#title"), "点击此处填写标题");
+            new inputChange($("#process"), "点击新建流程");
+            //更多按钮操作
+            var shh_st = 0;
+            var shh_h = 95;
+            $("#show_more").click(function () {
+                switch (shh_st) {
+                    case 0:
+                        $(".newinfo_more").show();
+                        $(".stadic_head_height").height($(".stadic_head_height").height() + shh_h);
+                        $(".stadic_body_top_bottom").css("top", ($(".stadic_body_top_bottom").css("top").replace("px", "") * 1 + shh_h) + "px");
+                        break;
+                    case 1:
+                        $(".newinfo_more").hide();
+                        $(".stadic_head_height").height($(".stadic_head_height").height() - shh_h);
+                        $(".stadic_body_top_bottom").css("top", ($(".stadic_body_top_bottom").css("top").replace("px", "") * 1 - shh_h) + "px");
+                        break;
+                }
+                IE67compatible(true);
+                shh_st == 0 ? shh_st = 1 : shh_st = 0;
+            });
+            //附言按钮操作
+            var adtional_ico_hide = true;
+            $("#adtional_ico").click(function () {
+                if (adtional_ico_hide) {
+                    $(".stadic_left .stadic_content").css("margin-right", "175px");
+                    $(".stadic_right").width(170);
+                } else {
+                    $(".stadic_left .stadic_content").css("margin-right", "35px");
+                    $(".stadic_right").width(30);
+                }
+                $(".editadt_title,.editadt_box").toggleClass("hidden");
+                $(".adtional_text").toggleClass("display_block margin_t_5");
+                $(this).toggleClass("arrow_2_l arrow_2_r");
+                $(this).parent("td").toggleClass("align_center");
+                adtional_ico_hide ? adtional_ico_hide = false : adtional_ico_hide = true;
+            })
+            $('.common_drop_down').dropdown();
+            //IE6,IE7兼容设置
+            IE67compatible();
+            function IE67compatible(b) {
+                var _h = 0;
+                if ($.browser.msie) {
+                    if ($.browser.version < 8) {
+                        if (b) {
+                            $.browser.version < 7 ? _h = 70 : _h = 0;
+                        } else {
+                            _h = 10;
+                        }
+                        $(".stadic_body_top_bottom").height($(".stadic_layout").height() - $(".stadic_head_height").height() + _h);
+                        $(".absolute textarea").height($("body").height() - 55 - $(".stadic_head_height").height() + _h);
+                    }
+                }
+            }
+        })
+        var fj_glwd = 0;
+        ///显示隐藏 附件&关联文档 区域
+        function fj_glwd_fn(n) {
+            console.error("测试：附件区域" + n);
+            var _h = 21;
+            $("#fj_glwd").height(44);
+            switch (n) {
+                case 0:
+                    $("#fj_glwd").hide();
+                    if (fj_glwd == 1) {
+                        $(".stadic_head_height").height($(".stadic_head_height").height() - _h);
+                        $(".stadic_body_top_bottom").css("top", ($(".stadic_body_top_bottom").css("top").replace("px", "") * 1 - _h) + "px");
+                    }
+                    if (fj_glwd == 2) {
+                        $(".stadic_head_height").height($(".stadic_head_height").height() - _h * 2);
+                        $(".stadic_body_top_bottom").css("top", ($(".stadic_body_top_bottom").css("top").replace("px", "") * 1 - _h * 2) + "px");
+                    }
+                    fj_glwd = 0;
+                    break;
+                case 1:
+                    $("#fj_glwd").show();
+                    if (fj_glwd == 0) {
+                        $(".stadic_head_height").height($(".stadic_head_height").height() + _h);
+                        $(".stadic_body_top_bottom").css("top", ($(".stadic_body_top_bottom").css("top").replace("px", "") * 1 + _h) + "px");
+                    }
+                    if (fj_glwd == 2) {
+                        $(".stadic_head_height").height($(".stadic_head_height").height() - _h);
+                        $(".stadic_body_top_bottom").css("top", ($(".stadic_body_top_bottom").css("top").replace("px", "") * 1 - _h) + "px");
+                    }
+                    fj_glwd = 1;
+                    break;
+                case 2:
+                    $("#fj_glwd").show();
+                    if (fj_glwd == 0) {
+                        $(".stadic_head_height").height($(".stadic_head_height").height() + _h * 2);
+                        $(".stadic_body_top_bottom").css("top", ($(".stadic_body_top_bottom").css("top").replace("px", "") * 1 + _h * 2) + "px");
+                    }
+                    if (fj_glwd == 1) {
+                        $(".stadic_head_height").height($(".stadic_head_height").height() + _h);
+                        $(".stadic_body_top_bottom").css("top", ($(".stadic_body_top_bottom").css("top").replace("px", "") * 1 + _h) + "px");
+                    }
+                    fj_glwd = 2;
+                    break;
+            }
+        }
+    </script>
+    <style type="text/css">
+        /*上下布局*/
+        .stadic_head_height { height: 105px; }
+        .stadic_body_top_bottom { bottom: 0px; top: 105px; overflow: hidden; }
+        /*左右布局*/
+        .stadic_left { width: 100%; height: 100%; position: absolute; z-index: 100; }
+        .stadic_left .stadic_content { margin-right: 35px; height: 100%; }
+        .stadic_right { overflow: hidden; width: 30px; height: 100%; position: absolute; right: 0; z-index: 300; }
+    </style>
+</head>
+<body class="h100b page_color border_l border_r">
+    <div class="stadic_layout">
+        <div class="stadic_layout_head stadic_head_height">
+            <!--toolbar-->
+            <div class="border_b">
+                <div id="toolbar"></div>
+            </div>
+            <!--toolbar结束-->
+            <div class="form_area new_page border_t_white">
+                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                    <tr>
+                        <td rowspan="2" valign="middle" width="1%" nowrap="nowrap"><a href="javascript:void(0)" class="margin_lr_10 display_inline-block align_center new_btn">发送</a></td>
+                        <th nowrap="nowrap" width="1%">
+                            <span class="padding_r_5">标题:</span></th>
+                        <td>
+                            <div class="common_txtbox_wrap">
+                                <input class="w100b" type="text" id="title" />
+                            </div>
+                        </td>
+                        <td width="5%">
+                            <div class="common_selectbox_wrap padding_l_10">
+                                <select class="w100b">
+                                    <option>普通</option>
+                                    <option>重要</option>
+                                    <option>非常重要</option>
+                                </select>
+                            </div>
+                        </td>
+                        <th nowrap="nowrap" width="1%">
+                            <div class="padding_l_30 padding_r_5">关联项目:</div>
+                        </th>
+                        <td width="">
+                            <div class="common_selectbox_wrap">
+                                <select class="w100b ">
+                                    <option>无</option>
+                                </select>
+                            </div>
+                        </td>
+                        <th nowrap="nowrap" width="1%">
+                            <div class="padding_l_30 padding_r_5">流程期限:</div>
+                        </th>
+                        <td width="">
+                            <div class="common_selectbox_wrap">
+                                <select class="w100b ">
+                                    <option>无</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th nowrap="nowrap"><span class="padding_r_5">流程:</span></th>
+                        <td>
+                            <div class="common_txtbox_wrap">
+                                <input class="w100b" type="text" id="process" />
+                            </div>
+                        </td>
+                        <td>
+                            <div class="padding_l_10">
+                                <a class="common_button common_button_icon edit_flow" href="javascript:void(0)"><em class="ico16 process_16"></em>编辑流程</a>
+                            </div>
+                        </td>
+                        <th nowrap="nowrap"><span class="padding_r_5">预归档到:</span></th>
+                        <td>
+                            <div class="common_selectbox_wrap">
+                                <select class="w100b ">
+                                    <option>无</option>
+                                </select>
+                            </div>
+                        </td>
+                        <th nowrap="nowrap"><span class="margin_l_10 padding_r_5">提醒:</span></th>
+                        <td>
+                            <div class="common_selectbox_wrap">
+                                <select class="w100b ">
+                                    <option>无</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td width="42" valign="middle" nowrap="nowrap" align="right"><a href="javascript:void(0);" id="show_more" class="margin_r_5 font_size12">更多</a></td>
+                    </tr>
+                    <!--更多-->
+                    <tr class="newinfo_more hidden">
+                        <th nowrap="nowrap" colspan="2">
+                            <div class="common_checkbox_box clearfix ">
+                                <label class="hand padding_r_5" for="chec1kbox1">
+                                    <input id="chec1kbox1" name="option" value="0" class="radio_com" type="checkbox">跟踪:</label>
+                            </div>
+                        </th>
+                        <td colspan="2">
+                            <div class="common_checkbox_box clearfix ">
+                                <label class="margin_r_10 hand" for="radio1">
+                                    <input id="radio1" name="option" value="0" type="radio" class="radio_com">全部人员</label>
+                                <label class="margin_r_10 hand" for="radio2">
+                                    <input id="radio2" name="option" value="0" type="radio" class="radio_com">指定人员</label>
+                            </div>
+                        </td>
+                        <th nowrap="nowrap">&nbsp;<span class="margin_l_10 padding_r_5">督办人员:</span></th>
+                        <td>
+                            <div class="common_txtbox_wrap">
+                                <input class="w100b" type="text">
+                            </div>
+                        </td>
+                        <th nowrap="nowrap" rowspan="2" valign="top"><span class="padding_r_5">督办主题:</span></th>
+                        <td rowspan="2">
+                            <textarea class="w100b font_size12" style="height: 56px;"></textarea>
+                        </td>
+                        <td rowspan="2" colspan="2"></td>
+                    </tr>
+                    <tr class="newinfo_more hidden">
+                        <th nowrap="nowrap" align="right" colspan="2"><span class="padding_r_5">允许操作:</span></th>
+                        <td colspan="2">
+                            <div class="common_checkbox_box clearfix ">
+                                <label class="margin_r_10 hand display_block left" for="canForward">
+                                    <input id="canForward" value="0" class="radio_com" type="checkbox">转发</label>
+                                <label class="margin_r_10 hand display_block left" for="changeFlow">
+                                    <input id="changeFlow" value="0" class="radio_com" type="checkbox">改变流程</label>
+                                <label class="margin_r_10 hand display_block left" for="canEdit">
+                                    <input id="canEdit" value="0" class="radio_com" type="checkbox">修改正文</label>
+                                <label class="margin_r_10 hand display_block left" for="changeDetach">
+                                    <input id="changeDetach" value="0" class="radio_com" type="checkbox">修改附件</label>
+                                <label class="margin_r_10 hand display_block left" for="canArchive">
+                                    <input id="canArchive" value="0" class="radio_com" type="checkbox">归档</label>
+                            </div>
+                        </td>
+                        <th nowrap="nowrap"><span class="padding_r_5">督办期限:</span></th>
+                        <td>
+                            <div class="common_txtbox_wrap">
+                                <input id="awakeDate" class="comp" value="" type="text" comp="type:'calendar',ifFormat:'%Y-%m-%d %H:%M',showsTime:true">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="newinfo_more hidden">
+                        <th nowrap="nowrap" colspan="2"></th>
+                        <td colspan="2">
+                            <div class="common_checkbox_box clearfix ">
+                                <label class="hand padding_r_5" for="Checkbox22">
+                                    <input id="Checkbox22" name="option" value="0" class="radio_com" type="checkbox">流程期限到时自动终止:</label>
+                            </div>
+                        </td>
+                        <th nowrap="nowrap">&nbsp;<span class="margin_l_10 padding_r_5">基准时长:</span></th>
+                        <td colspan="4">
+                            无
+                        </td>
+                    </tr>
+                </table>
+                <!--附件&关联文档-->
+                <div id="fj_glwd" class="over_auto hidden">
+                    <table border="0" cellspacing="0" cellpadding="0" width="100%" class="line_height180">
+                        <tr>
+                            <td class="align_right" width="98">附件:</td>
+                            <td class="align_left">&nbsp;(9)
+                                <span class="margin_r_10"><em class="ico16 affix_16"></em>附件<em class="ico16 affix_del_16"></em></span>
+                                <span class="margin_r_10"><em class="ico16 affix_16"></em>附件<em class="ico16 affix_del_16"></em></span>
+                                <span class="margin_r_10"><em class="ico16 affix_16"></em>附件<em class="ico16 affix_del_16"></em></span>
+                                <span class="margin_r_10"><em class="ico16 affix_16"></em>附件<em class="ico16 affix_del_16"></em></span>
+                                <span class="margin_r_10"><em class="ico16 affix_16"></em>附件<em class="ico16 affix_del_16"></em></span>
+                                <span class="margin_r_10"><em class="ico16 affix_16"></em>附件<em class="ico16 affix_del_16"></em></span>
+                                <span class="margin_r_10"><em class="ico16 affix_16"></em>附件<em class="ico16 affix_del_16"></em></span>
+                                <span class="margin_r_10"><em class="ico16 affix_16"></em>附件<em class="ico16 affix_del_16"></em></span>
+                                <span class="margin_r_10"><em class="ico16 affix_16"></em>附件<em class="ico16 affix_del_16"></em></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="align_right" width="98">关联文档:</td>
+                            <td class="align_left">&nbsp;(9)
+                                <span class="margin_r_10"><em class="ico16 affix_16"></em>关联文档<em class="ico16 affix_del_16"></em></span>
+                                <span class="margin_r_10"><em class="ico16 affix_16"></em>关联文档<em class="ico16 affix_del_16"></em></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="stadic_layout_body stadic_body_top_bottom">
+            <div class="stadic_layout">
+                <div class="stadic_left">
+                    <div class="stadic_content">
+                        <iframe width="100%" height="100%" frameborder="0" src="http://www.baidu.com"></iframe>
+                    </div>
+                </div>
+                <div class="stadic_right">
+                    <table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" class="border_all">
+                        <tr>
+                            <td valign="top" height="20" class="padding_t_5 align_center font_size12">
+                                <em id="adtional_ico" class="ico16 arrow_2_l"></em>
+                                <span class="adtional_text display_block margin_t_5">附</span>
+                                <span class="adtional_text display_block margin_t_5">言</span>
+                                <div class="color_gray editadt_title margin_lr_5 padding_tb_5 hidden font_size12">附言(500字以内)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" class="editadt_box hidden">
+                                <div class="absolute">
+                                    <textarea style="height: 99%; width: 145px; margin-left: 5px; padding: 0 5px;"></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

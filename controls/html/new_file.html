@@ -1,0 +1,23 @@
+<html>
+ <head>
+  <title>光标操作例子</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ </head>
+ <body>
+<script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
+ <script type="text/javascript" src="./js/cursor.js">
+ </script>
+<textarea rows="7" cols="49" id="box" >我怕来不及我要抱着你，直到感觉你的绉纹有了岁月的痕迹，直到视线变得模糊直到不能呼吸 
+为了你我愿意 
+动也不能动也要看着你，直到感觉你的发线有了白雪的痕迹，直到肯定你是真的直到失去力气让我们形影不离 
+如果全世界我也可以放弃，至少还有你值得我去珍惜而你在这里就是生命的奇迹 
+也许全世界我也可以忘记，就是不愿意失去你的消息你掌心的痣我总记得在哪里 
+我们好不容易我们身不由已，我怕时间太快不够将你看仔细，我怕时间太慢日夜担心失去你恨不得一夜之间白头永不分离 
+</textarea>
+<input type="button" value="当前光标的位置" onclick="alert($('#box').getpos())" />
+<input type="button" value="设置光标位置为3" onclick="$('#box').setpos(3);"/>
+<input type="button" value="从第三个开始选择五个字" onclick="$('#box').selecttext(3,5);"/>
+<input type="button" value="在光标处插入‘123’" onclick="$('#box').insertforpos('123')" />
+ 
+ </body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="h100b over_hidden">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>项目任务－列表</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin-debug.css">
+    <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../calendar/calendar-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.json-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.code-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/i18n-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/v3x-debug.js"></script>
+    <script type="text/javascript" src="../../searchBox-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.menu-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.progress-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tab-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tree-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js"></script>
+	<script type="text/javascript" src="../../seeyon.ui.common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js"></script>
+    <style>
+        .stadic_head_height{
+            height:40px;
+        }
+        .stadic_body_top_bottom{
+            top: 40px;
+            bottom: 0px;
+        }
+    </style>
+    <script>
+        $(function () {
+            init_otherPeopleTaskList();
+        })
+        //他人任务列表
+        function init_otherPeopleTaskList () {
+            a();
+            $(window).resize(a);
+            function a () {
+                var _area_w = $(".projectTask_taskOtherList").parent().width() - 20;
+                var _item_w = 196;
+                var _oneColShow_num = Math.floor(_area_w / (_item_w + 20));
+                var _marginLeft_num = Math.floor((_area_w - _item_w * _oneColShow_num) / (_oneColShow_num - 1));
+                $(".projectTask_taskOtherList").css({
+                    "width": _area_w + _marginLeft_num,
+                    "margin-left": -1 * _marginLeft_num
+                });
+                $(".projectTask_taskOtherList li").css("margin-left", _marginLeft_num);
+            }
+        }
+    </script>
+</head>
+<body class="h100b over_hidden">
+    <div class="stadic_layout">
+        <div class="stadic_layout_head stadic_head_height">
+        </div>
+        <div class="stadic_layout_body stadic_body_top_bottom clearfix">
+           <div class="projectTask_taskOtherList">
+               <ul class="list clearfix">
+                   <li class="cardHoverAnimate">
+                       <div>
+                           <img class="pic" src="http://www.onegreen.net/QQ/UploadFiles/201304/2013040223241113.jpg" alt="">
+                       </div>
+                       <div class="name">康雪</div>
+                       <div class="taskNumArea">
+                           <span class="font_size14">未完成</span><span class="unfinished_num">888</span>已超期<span class="overdue_num">999</span>
+                       </div>
+                   </li>
+                   <li class="cardHoverAnimate">
+                       <div>
+                           <img class="pic" src="http://www.onegreen.net/QQ/UploadFiles/201304/2013040223241113.jpg" alt="">
+                       </div>
+                       <div class="name">康雪</div>
+                       <div class="taskNumArea">
+                           <span class="font_size14">未完成</span><span class="unfinished_num">100</span>
+                       </div>
+                   </li>
+                   <li class="cardHoverAnimate">
+                       <div>
+                           <img class="pic" src="http://www.onegreen.net/QQ/UploadFiles/201304/2013040223241113.jpg" alt="">
+                       </div>
+                       <div class="name">康雪</div>
+                       <div class="taskNumArea">
+                           <span class="font_size14">未完成</span><span class="unfinished_num">33</span>已超期<span class="overdue_num">24</span>
+                       </div>
+                   </li>
+                   <li class="cardHoverAnimate">
+                       <div>
+                           <img class="pic" src="http://www.onegreen.net/QQ/UploadFiles/201304/2013040223241113.jpg" alt="">
+                       </div>
+                       <div class="name">康雪</div>
+                       <div class="taskNumArea">
+                           <span class="font_size14">未完成</span><span class="unfinished_num">1</span>已超期<span class="overdue_num">10</span>
+                       </div>
+                   </li>
+                   <li class="cardHoverAnimate">
+                       <div>
+                           <img class="pic" src="http://www.onegreen.net/QQ/UploadFiles/201304/2013040223241113.jpg" alt="">
+                       </div>
+                       <div class="name">康雪</div>
+                       <div class="taskNumArea">
+                           <span class="font_size14">未完成</span><span class="unfinished_num">3</span>已超期<span class="overdue_num">10</span>
+                       </div>
+                   </li>
+                   <li class="cardHoverAnimate">
+                       <div>
+                           <img class="pic" src="http://www.onegreen.net/QQ/UploadFiles/201304/2013040223241113.jpg" alt="">
+                       </div>
+                       <div class="name">康雪</div>
+                       <div class="taskNumArea">
+                           <span class="font_size14">未完成</span><span class="unfinished_num">5</span>已超期<span class="overdue_num">22</span>
+                       </div>
+                   </li>
+                   <li class="cardHoverAnimate">1</li>
+                   <li class="cardHoverAnimate">2</li>
+                   <li class="cardHoverAnimate">3</li>
+                   <li class="cardHoverAnimate">4</li>
+                   <li class="cardHoverAnimate">5</li>
+                   <li class="cardHoverAnimate">6</li>
+                   <li class="cardHoverAnimate">7</li>
+                   <li class="cardHoverAnimate">8</li>
+                   <li class="cardHoverAnimate">9</li>
+               </ul>
+           </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html class="h100b over_hidden">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>组织推送</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+    <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../searchBox-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.menu-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.progress-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tab-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tree-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.json-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.code-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/i18n-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/v3x-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js"></script>
+    <style type="text/css">
+        .stadic_head_height { height: 56px; }
+        .stadic_body_top_bottom { bottom: 0px; top: 56px; }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $(".tab_iframe li:odd").css({ background: "#F7F7F7" });
+            //==========平分式页签================
+            $(".common_tabs2").each(function (index) {
+                var _this = $(this);
+                _this.find(".common_tabs_head a").click(function () {
+                    _this.find(".common_tabs_head a").removeClass("current");
+                    $(this).addClass("current");
+                    _this.find(".tab_iframe").hide();
+                    _this.find("." + $(this).attr("tgt")).show();
+                });
+            });
+            //=====搜索=========
+            var searchobj = $('#searchDiv').searchCondition({
+                searchHandler: function () {
+                    var ssss = searchobj.g.getReturnValue();
+                    alert($.toJSON(ssss))
+                },
+                conditions: [{
+                    id: 'title',
+                    name: 'title',
+                    type: 'input',
+                    text: '标题',
+                    value: 'subject'
+                }, {
+                    id: 'importent',
+                    name: 'importent',
+                    type: 'select',
+                    text: '重要程度',
+                    value: 'importantLevel',
+                    codecfg: "codeType:'java',codeId:'com.seeyon.apps.samples.test.enums.MyEnums'",
+                    items: [{
+                        text: '普通',
+                        value: '0'
+                    }, {
+                        text: '重要',
+                        value: '1'
+                    }, {
+                        text: '非常重要',
+                        value: '2'
+                    }]
+                }, {
+                    id: 'spender',
+                    name: 'spender',
+                    type: 'input',
+                    text: '发起人',
+                    value: 'startMemberName'
+                }, {
+                    id: 'datetime',
+                    name: 'datetime',
+                    type: 'datemulti',
+                    text: '发起时间',
+                    value: 'createDate',
+                    dateTime: true
+                }]
+            });
+        });
+    </script>
+</head>
+<body class="h100b over_hidden">
+    <div class="page_color stadic_layout">
+        <div class="stadic_layout_head stadic_head_height">
+            <div class="font_size12 clearfix padding_lr_10 padding_tb_5">
+                <span class="left"><strong>个人知识中心</strong></span>
+                <span class="right"><a href="#">去知识广场</a></span>
+            </div>
+            <div class="hr_heng"></div>
+            <div class="common_tabs clearfix margin_t_5 margin_l_10">
+                <ul class="left">
+                    <li class="current"><a hidefocus="true" href="javascript:void(0)" class="border_b">我的知识库</a></li>
+                    <li><a hidefocus="true" href="javascript:void(0)">组织推送</a></li>
+                    <li><a hidefocus="true" href="javascript:void(0)">他人推荐</a></li>
+                    <li><a hidefocus="true" href="javascript:void(0)">他人评价</a></li>
+                    <li><a hidefocus="true" href="javascript:void(0)">我的订阅</a></li>
+                    <li><a hidefocus="true" href="javascript:void(0)" class="last_tab">我的收藏</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="stadic_layout_body stadic_body_top_bottom">
+            <div class="knowledge font_size12 padding_l_10 padding_r_5 right">
+                <div class="border_all bg_color_white clearFlow">
+                    <div class="clearFlow font_size14 padding_l_10 margin_t_20 line_height160"><strong class="left margin_r_5">张小一</strong><a class="common_level left">11</a></div>
+                    <div class="color_gray padding_l_10 margin_t_10">用户体验部 交互设计师</div>
+                    <div class="clearfix padding_lr_10 margin_t_20">
+                        <a href="javascript:void(0)" class="common_button common_button_emphasize left">我要分享</a>
+                        <span class="line_height200 right">我分享了2300份文档</span>
+                    </div>
+                    <div class="border_t margin_t_20 align_right padding_tb_5">
+                        <a href="#" class="margin_r_10">我的共享</a><a href="#" class="margin_r_10">我的博客</a>
+                    </div>
+                </div>
+                <div class="margin_t_5 bg_color_yellow">
+                    <div class="padding_lr_10 padding_tb_10 border_all"><strong>借阅请求:</strong>&nbsp;有<a class="color_blue" href="#">20个借阅请求</a>,需要您处理</div>
+                </div>
+                <div class="margin_t_5">
+                    <div class="bg_color_white padding_lr_10 padding_tb_5 border_lr border_t"><strong>我的学习区:</strong></div>
+                    <div class="common_tabs2">
+                        <table width="100%" class="common_tabs_head" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td width="50%"><a href="javascript:void(0)" hidefocus="true" class="current" tgt="tab_iframe1"><span>他人推荐</span></a></td>
+                                <td><a href="javascript:void(0)" hidefocus="true" tgt="tab_iframe2"><span>个人安排</span></a></td>
+                            </tr>
+                        </table>
+                        <div class="tab_iframe tab_iframe1">
+                            <ul class="line_height200 margin_l_10">
+                                <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>他人推荐</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                            </ul>
+                            <div class="border_t align_right padding_tb_5">
+                                <a href="#" class="valign_m">更多</a><span class="valign_m ico16 arrow_2_r margin_r_5"></span>
+                            </div>
+                        </div>
+                        <div class="tab_iframe tab_iframe2 hidden">
+                        </div>
+                    </div>
+                    <div class="margin_t_5">
+                        <div class="bg_color_white padding_lr_10 padding_tb_5 border_lr border_t"><strong>我的知识链接:</strong></div>
+                        <div class="common_tabs2">
+                            <table width="100%" class="common_tabs_head" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td width="50%"><a href="javascript:void(0)" hidefocus="true" class="current" tgt="tab_iframe1"><span>个人常用链接</span></a></td>
+                                    <td><a href="javascript:void(0)" hidefocus="true" tgt="tab_iframe2"><span>系统常用链接</span></a></td>
+                                </tr>
+                            </table>
+                            <div class="tab_iframe tab_iframe1">
+                                <ul class="line_height200 clearfix">
+                                    <li class="clearfix">
+                                        <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>个人常用链接</a>
+                                        <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a>
+                                    </li>
+                                    <li class="clearfix">
+                                        <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                        <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                    </li>
+                                    <li class="clearfix">
+                                        <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                        <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                    </li>
+                                    <li class="clearfix">
+                                        <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                        <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                    </li>
+                                    <li class="clearfix">
+                                        <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                        <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                    </li>
+                                    <li class="clearfix">
+                                        <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                        <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                    </li>
+                                    <li class="clearfix">
+                                        <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                        <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                    </li>
+                                    <li class="clearfix">
+                                        <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                        <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                    </li>
+                                </ul>
+                                <div class="border_t align_right padding_tb_5">
+                                    <a href="#" class="valign_m margin_r_10">配置</a><a href="#" class="valign_m">更多</a><span class="valign_m ico16 arrow_2_r margin_r_5"></span>
+                                </div>
+                            </div>
+                            <div class="tab_iframe tab_iframe2 hidden">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="over_auto padding_b_10">
+                <div class="clearfix padding_lr_10 padding_tb_5 border_t border_r bg_color_gray">
+                    <div class="left color_gray margin_t_5">排序:<span class="color_black margin_l_5">推送时间</span><span class="ico16 arrow_4_b"></span></div>
+                    <div id="searchDiv" class="right"></div>
+                </div>
+                <ul class="bg_color_white border_r border_b clearfix">
+                    <li class="padding_10 border_t_gray">
+                        <img class="left margin_l_10 margin_b_10 margin_r_20 hand" src="http://list.image.baidu.com/t/image/w_mengchong.jpg" width="42" height="42" onclick="alert('弹出人员卡片')" /><div class="over_hidden">
+                            <div class="clearfix">
+                                <span class="left"><a href="#" class="left margin_r_5">曾静亮</a><span class="left margin_r_5">新增文档</span><span class="left ico16 xls_16 margin_r_5"></span><a href="#" class="left margin_r_5">《知识管理概要设计V1.2》</a><span class="left stars4_5"></span></span>
+                                <span class="color_gray right">3个小时前</span>
+                            </div>
+                            <div class="margin_t_5">文档路径:<a href="#">内容管理部/销售工具/应用宣传</a></div>
+                            <div class="clearfix margin_t_10">
+                                <span class="left margin_r_10 color_gray">推送人:刘磊</span>
+                                <span class="left color_gray">还推送人:</span>
+                                <span class="left margin_r_10 color_gray">产品经理</span>
+                                <span class="left margin_r_10 color_gray">刘磊</span>
+                                <span class="right margin_l_10"><a href="#">推荐(12)</a></span>
+                                <span class="right margin_l_10 color_gray">评价(12)</span>
+                                <span class="right margin_l_10 color_gray">下载(12)</span>
+                                <span class="right margin_l_10 color_gray">收藏(12)</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="common_over_page align_right margin_t_10 margin_r_10">
+                    每页显示<input type="text" class="common_over_page_txtbox"><span class="margin_r_20">条/共6条</span>
+                    <a href="#" class="common_over_page_btn" title="首页"><em class="pageFirst"></em></a>
+                    <a href="#" class="common_over_page_btn" title="上一页"><em class="pagePrev"></em></a>
+                    <span class="margin_l_10">第</span><input type="text" class="common_over_page_txtbox">页/13页
+    <a href="#" class="common_over_page_btn" title="下一页"><em class="pageNext"></em></a>
+                    <a href="#" class="common_over_page_btn" title="尾页"><em class="pageLast"></em></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

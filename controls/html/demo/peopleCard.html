@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html class="w100b h100b">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>form校验</title>
+        <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+        <script type="text/javascript" src="../../../scriptes/jquery.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../scriptes/jquery.js">
+        </script>
+        <script type="text/javascript" src="../../../docs/resource/demo.js">
+        </script>
+        <script type="text/javascript" src="../../../scriptes/jquery.js">
+        </script>
+        <script type="text/javascript" src="../../calendar/calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../calendar/calendar-zh-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.json-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.code-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/i18n-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/v3x-debug.js">
+        </script>
+     
+        <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.grid-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.layout-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.menu-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.progress-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.scroll-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.tab-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.common-debug.js"> </script>
+        
+    </head>
+    <body class="h100b">
+    	<div class="left border_r h100b page_color" style="width:100px;">
+    		<div class=" align_center">
+	            <span class="vst relative display_inline-block  over_hidden margin_t_5">
+	            	<img src="../../../skin/default/images/people.jpg" width="60" height="60">
+	                <div class="absolute current_state online"> </div>
+	            </span>
+	        </div>
+	        <div class=" align_center">
+	        	<a class="common_button common_button_gray" href="javascript:void(0)">加为关联</a>	
+	        </div>
+	        <ul class="font_size12 align_center card_operate">
+	        	
+	        	<li class="margin_t_5"><a class="img-button" href="javascript:void(0)"><em class="ico16 collaboration_16"> </em>发协同</a></li>
+	        	<li class="margin_t_5"><a class="img-button" href="javascript:void(0)"><em class="ico16 communication_16"> </em>发消息</a></li>
+	        	<li class="margin_t_5"><a class="img-button" href="javascript:void(0)"><em class="ico16 email_16"> </em>发邮件</a></li>
+	        	<li class="margin_t_5"><a class="img-button" href="javascript:void(0)"><em class="ico16 info_16"> </em>发短信</a></li>
+	        </ul>
+    	</div>
+    	<div class="adapt_w font_size12 form_area people_msg  h100b" style="background:#fff;_width:370px;">
+    		<table cellpadding="0" cellspacing="0" width="100%" class="padding_5 margin_l_10">
+    			<caption class="align_left font_bold margin_t_5">乔立</caption>
+    			<tr>
+    				<td width="50%">人员编号：<span>001</span></td>
+    				<td width="50%">部门：<span>用户体验部</span></td>
+    			</tr>
+    			<tr>
+    				<td>主岗：<span>UE总监</span></td>
+    				<td>副岗：<span>UE总监</span></td>
+    			</tr>
+    			<tr>
+    				<td>职务级别：<span>高级总监</span></td>
+    				<td>兼职岗位：<span>UE设计师</span></td>
+    			</tr>
+    		</table>
+    		<table cellpadding="0" cellspacing="0" width="100%" class="padding_5 margin_l_10">
+    			<caption class="align_left font_bold border_t margin_t_10 padding_t_10">基本信息</caption>
+    			<tr>
+    				<td width="100%" colspan="2" >办公电话：<span>010-82602233-456</span></td>
+    			</tr>
+    			<tr>
+    				<td width="50%">手机号码：<span>18610011355</span></td>
+    				<td width="50%">座机号码：<span>010-82602233-456</span></td>
+    			</tr>
+    			<tr>
+    				<td colspan="2" width="100%">电子邮件：<span>www.dajiawork@dajia.com</span></td>
+    			</tr>
+    			<tr>
+    				<td colspan="2" width="100%">邮政编码：<span>100065</span></td>
+    			</tr>
+    			<tr>
+    				<td colspan="2" width="100%">个人主页：<span> </span></td>
+    			</tr>
+    			<tr>
+    				<td colspan="2" width="100%">博客地址：<span>www.dajiawork.com</span></td>
+    			</tr>
+    			<tr>
+    				<td colspan="2" width="100%">备注：<span> </span></td>
+    			</tr>
+    			
+    		</table>
+    	</div>
+    </body>
+</html>

@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>slider</title>
+        <link rel="stylesheet" type="text/css" href="../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+        <link rel="stylesheet" type="text/css" href="../../skin/default/cube.css">
+        <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+        <script type="text/javascript" src="../../scriptes/jquery.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/seeyon.ui.core-debug.js">
+        </script>
+        <script type="text/javascript" src="../../docs/resource/demo.js">
+        </script>
+        <script type="text/javascript" src="../../docs/resource/demo.js">
+        </script>
+        <script type="text/javascript" src="../calendar/calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../calendar/calendar-zh-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/Moo-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.json-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.fillform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.code-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/i18n-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/v3x-debug.js">
+        </script>
+        <script type="text/javascript" src="../searchBox-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.checkform-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.dialog-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.grid-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.layout-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.menu-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.progress-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.scroll-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tab-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.toolbar-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.arraylist-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tooltip-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.comp-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.peopleSquare-debug.js">
+        </script>
+       
+        	
+    </head>
+    <body>
+         <div  id="Text1" > </div>
+        <div class="sorce_code over_auto" style="margin-top: 30px;"><pre>
+        	&lt;div  id="Text1" &gt;&lt;/div&gt;
+        	
+        	$("#Text1").slider({					
+			  range: "min",
+			  min: 1,
+			  max: 10,
+			  slide: update,
+			  value:1,
+			  text: [ "", "不重要", "", "", "", "", "", "", "","", "重要"]
+			});
+        </pre></div>
+        <div>
+         <input type="text" id="Text2" class="comp" comp="type:'slider',range:'min',min:0,max:4,slide:update,text:text"/>
+         </div>
+         <div class="sorce_code over_auto" style="margin-top: 30px;"><pre>
+        	 &lt;input type="text" id="Text2" class="comp" comp="type:'slider',range:'min',min:0,max:4,slide:update,text:text"/&gt;	
+        </pre></div>
+		<script>
+        	    var text = ["0", "1", "2", "3","4","5","6","7","8","9", "10"];
+        	        function test(value){
+        	        	
+        	        }
+					$(function(){
+						$("#Text1").slider({					
+						  range: "max",
+						  min: 1,
+						  max: 10,
+						  slide: update,
+						  value:1,
+						  text: [ "0", "1", "2", "3", "4", "5", "6", "7", "8","9", "10"]
+						  });
+					})
+					  function update(event, ui){
+						  ui.handle.title = ui.value; //update title
+						}  
+        	</script>
+        	<h3>注意：控件升级需要修改 seeyon.ui.core-debug.js 添加刻度  o.pointer</h3>
+        <h3>[4.属性]</h3>
+        <table class="docsShowTable">
+            <tr class="head">
+                <td class="td" width="200">
+                    属性
+                </td>
+                <td class="td" width="200">
+                    类型
+                </td>
+                <td class="td">
+                    描述
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    max
+                </td>
+                <td class="td">
+                    Number:100
+                </td>
+                <td class="td">
+                    <pre>
+设置滑动条的最大值。    
+初始：$('.selector').slider({ max: 7 });    
+获取：var max = $('.selector').slider('option', 'max');    
+设置：$('.selector').slider('option', 'max', 7);    
+             		</pre>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    min 
+                </td>
+                <td class="td">
+                    Number : 0
+                </td>
+                <td class="td">
+                    <pre>
+设置滑动条的最小值。    
+初始：$('.selector').slider({ min: -7 });    
+获取：var min = $('.selector').slider('option', 'min');    
+设置：$('.selector').slider('option', 'min', -7);   
+					</pre>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    orientation 
+                </td>
+                <td class="td">
+                    String : 'auto' 
+                </td>
+                <td class="td">
+                    <pre>
+通常不需要设置此选项，程序会自动识别，如果未正确识别，则可以设置为：'horizontal' 或 'vertical'。    
+初始：$('.selector').slider({ orientation: 'vertical' });    
+获取：var orientation = $('.selector').slider('option', 'orientation');    
+设置：$('.selector').slider('option', 'orientation', 'vertical');    
+					</pre>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    range 
+                </td>
+                <td class="td">
+                    Boolean, String : false 
+                </td>
+                <td class="td">
+                    <pre>
+如果设置为true，滑动条会自动创建两个滑块，一个最大、一个最小，用于设置一个范围内值。    
+初始：$('.selector').slider({ range: 'min' });    
+获取：var range = $('.selector').slider('option', 'range');    
+设置：$('.selector').slider('option', 'range', 'min');    
+					</pre>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    step 
+                </td>
+                <td class="td">
+                    Number : 1 
+                </td>
+                <td class="td">
+                    <pre>
+在最大值和最小值中间设置滑块步进大小，此值必须能被(max-min)平分。    
+初始：$('.selector').slider({ step: 5 });    
+获取：var step = $('.selector').slider('option', 'step');    
+设置：$('.selector').slider('option', 'step', 5);  
+					</pre>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    value 
+                </td>
+                <td class="td">
+                    Number : 0 
+                </td>
+                <td class="td">
+                    <pre>
+设置初始时滑块的值，如果有多个滑块，则设置第一个滑块。    
+初始：$('.selector').slider({ value: 37 });    
+获取：var value = $('.selector').slider('option', 'value');    
+设置：$('.selector').slider('option', 'value', 37);    
+					</pre>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    values 
+                </td>
+                <td class="td">
+                    Array : null 
+                </td>
+                <td class="td">
+                    <pre>
+此属性用于设置滑块的初始值，并且只当range设置为true时有效。（至少两个滑块值）    
+初始：$('.selector').slider({ values: [1,5,9] });    
+获取：var values = $('.selector').slider('option', 'values');    
+设置：$('.selector').slider('option', 'values', [1,5,9]);    
+					</pre>
+                </td>
+            </tr>
+        </table>
+        <h3>[事件]</h3>
+        <table class="docsShowTable">
+            <tr>
+                <td class="td">
+                    start : slidestart 
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    <pre>
+当滑块开始滑动时，触发此事件。 
+初始：$('.selector').slider({ start: function(event, ui) { ... } });    
+绑定：$('.selector').bind('slidestart', function(event, ui) { ... });   
+					</pre>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    slide : slide 
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    <pre>
+当滑块滑动时，触发此事件。使用ui.value获取当前值，或$(..).slider('value', index)获取其它滑块的值。    
+初始：$('.selector').slider({ slide: function(event, ui) { ... } });    
+绑定：$('.selector').bind('slide', function(event, ui) { ... });    
+					</pre>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    change : slidechange 
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    <pre>
+当滑块滑动且值发生改变时，触发此事件。事件带两个参数event and ui，使用event.orginalEvent来判断是键盘或鼠标或其它触发，用ui.value获取当前值，用$(this).slider('values', index)获取其它滑块的值。    
+初始：$('.selector').slider({ change: function(event, ui) { ... } });    
+绑定：$('.selector').bind('slidechange', function(event, ui) { ... });    
+					</pre>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    stop : slidestop 
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    <pre>
+当滑块停止滑动时，触发此事件。    
+初始：$('.selector').slider({ stop: function(event, ui) { ... } });    
+绑定：$('.selector').bind('slidestop', function(event, ui) { ... });    
+					</pre>
+                </td>
+            </tr>
+        </table>
+        <h3>[方法]</h3>
+        <table class="docsShowTable">
+            <tr>
+                <td class="td">
+                    destroy
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    <pre>
+销毁当前滑动条对象。    
+用法：.slider( 'destroy' )    
+
+					</pre>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    disable 
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    <pre>
+禁用当前滑动条。    
+用法：.slider( 'disable' )    
+					</pre>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    enable 
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    <pre>
+启用当前滑动条。    
+用法：.slider( 'enable' )   
+					</pre>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    option 
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    <pre>
+获取或设置当前滑动条的参数。    
+用法：.slider( 'option' , optionName , [value] )    
+					</pre>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    value 
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    <pre>
+获取或设置当前滑动条的值。    
+用法：.slider( 'value' , [value] )    
+					</pre>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    values 
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    <pre>
+获取或设置当前滑动条的所有滑块的值。    
+用法：.slider( 'values' , index , [value] )  
+					</pre>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

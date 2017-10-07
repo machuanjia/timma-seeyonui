@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>jquery培训</title>
+		<script src="../../scriptes/jquery.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../css/common-debug.css"> 
+		<link rel="stylesheet" type="text/css" href="../../skin/default/skin-debug.css">
+		<link rel="stylesheet" type="text/css" href="../../docs/resource/doc.css"> 
+	</head>
+	<body class="body-pading">
+		<div class="classification">
+			<div class="title">基础选择器</div>
+			<div class="list">
+				<table width="100%" cellpadding="0" cellspacing="0" class="showList">
+					<thead class="head">
+						<th width="200">
+							类型
+						</th>
+						<th>
+							实例
+						</th>
+					</thead>
+					<tbody class="body">
+						<tr>
+							<td>
+								ID选择器
+							</td>
+							<td>
+								<a id="id_selecter" href="javascript:void(0)" class="common_button common_button_gray">testID选择器</a>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								class选择器
+							</td>
+							<td>
+								<a id="class_selecter" href="javascript:void(0)" class="common_button common_button_gray test_class">class选择器</a>
+								
+								<a href="javascript:void(0)" class="common_button common_button_gray more_class">多重class</a>
+								
+								<a id="more_selecter" href="javascript:void(0)" class="common_button common_button_gray">多个class</a>
+								
+							</td>
+						</tr>
+						<tr>
+							<td>
+								element选择器
+							</td>
+							<td>
+								<a id="element_selecter" href="javascript:void(0)" class="common_button common_button_gray">element选择器</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>	
+		</div>
+		<script>
+			//js代码写在这里面
+			$(document).ready(function(){
+				console.log('页面加载完毕，开始执行js!');
+			  //id选择器--所有事件页面加载完成后绑定,选择器规定用单引号'',页面中不允许id重复
+			  $('#id_selecter').click(function(){
+			  	alert("testID选择器--#id_selecter");
+			  });
+			  
+			  //class选择器
+			  $('.test_class').click(function(){
+			  	alert('class选择器--.test_class');
+			  });
+			  
+			  //多重class--中间不能有空格
+			  $('.common_button.common_button_gray.more_class').click(function(){
+			  	alert('.common_button.common_button_gray.more_class');
+			  });
+			  //多个class
+			  $('#more_selecter').click(function(){
+			  	var aArray = $('#id_selecter,#element_selecter,#href1_selecter');
+				alert(aArray.length);
+			  });
+			  
+			  //element选择器
+			  $('#element_selecter').click(function(){
+			  	var aArray = $('a');
+				alert(aArray.length+'----获取页面中所有a标签!');
+			  });
+			});
+		</script>
+		
+		<div class="classification">
+			<div class="title">层次选择器</div>
+			<div class="list">
+				<table width="100%" cellpadding="0" cellspacing="0" class="showList">
+					<thead class="head">
+						<th width="200">
+							类型
+						</th>
+						<th>
+							实例
+						</th>
+					</thead>
+					<tbody class="body">
+						<tr>
+							<td>
+								$('.test a')[中间是空格,在所以字节中查找]
+							</td>
+							<td class="test">
+								<a id="parent_child_selecter" href="javascript:void(0)" class="common_button common_button_gray">$('.test a')</a>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								$('ulclass>li')[中间是>,在第一级子节点中查找]
+							</td>
+							<td class="test">
+								<a id="parent_child2_selecter" href="javascript:void(0)" class="common_button common_button_gray">$('ulclass>li')</a>
+								<ul class="ulclass">
+									<li>
+										li1
+									</li>
+									<li>
+										<ul>
+											<li>
+												li1
+											</li>
+											<li>
+												
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								$('#prev_next_selecter+div')[同级别元素]
+							</td>
+							<td>
+								<a id="prev_next_selecter" href="javascript:void(0)" class="common_button common_button_gray">$('#prev_next_selecter+div')</a>
+								<div>div1</div>
+								<div>div2</div>
+								<div>div3</div>
+								<div>div4</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								$('#spliding_selecter+div')[同级别元素]
+							</td>
+							<td>
+								<a id="spliding_selecter" href="javascript:void(0)" class="common_button common_button_gray">$('#spliding_selecter~[href=#]')</a>
+								<a href="#">a1</a>
+								<a href="#">a2</a>
+								<a href="#">a3</a>
+								<a href="#">a4</a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>	
+		</div>
+		<script>
+			//js代码写在这里面
+			$(document).ready(function(){
+			  //层次选择器
+			  $('#parent_child_selecter').click(function(){
+			  	alert($('.test a').length);
+			  });
+			  $('#parent_child2_selecter').click(function(){
+			  	alert($('.ulclass>li').length);
+				alert($('.ulclass li').length);
+			  });
+			  $('#prev_next_selecter').click(function(){
+			  	alert($('#prev_next_selecter+div').html());
+			  });
+			  $('#spliding_selecter').click(function(){
+			  	alert($('#spliding_selecter~[href=#]').length);
+			  });
+			 }); 
+		</script>
+		
+		<div class="classification">
+			<div class="title">基本过滤器</div>
+			<div class="list">
+				<table width="100%" cellpadding="0" cellspacing="0" class="showList">
+					<thead class="head">
+						<th width="200">
+							类型
+						</th>
+						<th>
+							实例
+						</th>
+					</thead>
+					<tbody class="body">
+						<tr>
+							<td>
+								:first
+							</td>
+							<td class="class_first">
+								匹配找到第一个元素
+								<a id="first_selecter" href="javascript:void(0)" class="common_button common_button_gray">:first</a>
+								<p>p1</p>
+								<p>p2</p>
+								<p  class='tttt'>p3--class='tttt'</p>
+								<script>
+									$(document).ready(function(){
+										$('#first_selecter').click(function(){
+											alert($('.class_first p:first').html());
+											$('.class_first:first').append("<pre>$('.class_first p:first').html();</pre>");
+										});
+									});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:last
+							</td>
+							<td>
+								匹配找到最后一个元素
+								<a id="last_selecter" href="javascript:void(0)" class="common_button common_button_gray">:last</a>
+								<script>
+									$(document).ready(function(){
+										$('#last_selecter').click(function(){
+											alert($('.class_first p:last').html());
+											$('.class_first:first').append("<pre>$('.class_first p:last').html();</pre>");
+										});
+									});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:not(selector)
+							</td>
+							<td>
+								去除所有与给定选择器匹配的元素
+								<a id="not_selecter" href="javascript:void(0)" class="common_button common_button_gray">:not(selector)</a>
+								<script>
+									$(document).ready(function(){
+										$('#not_selecter').click(function(){
+											alert($('.class_first p:not(.tttt)').length);
+											$('.class_first:first').append("<pre>$('.class_first p:not(.tttt)').html();</pre>");
+										});
+									});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:even
+							</td>
+							<td class="class_even">
+								匹配所有索引值为奇数的元素
+								<a id="even_selecter" href="javascript:void(0)" class="common_button common_button_gray">:even</a>
+								<span>span1</span>-<span>span2</span>-<span>span3</span>-<span>span4</span>-<span>span5</span>
+								<script>
+									$(document).ready(function(){
+										$('#even_selecter').click(function(){
+											alert($('.class_even span:even').length);
+											$('.class_even:first').append("<pre>$('.class_even span:even').length;</pre>");
+										});
+									});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:odd
+							</td>
+							<td class="">
+								匹配所有索引值为奇数的元素
+								<a id="odd_selecter" href="javascript:void(0)" class="common_button common_button_gray">:odd</a>
+								<table width="100%" class="odd_table">
+									<tr>
+										<td>
+											123
+										</td>
+									</tr>
+									<tr>
+										<td>
+											123
+										</td>
+									</tr>
+									<tr>
+										<td>
+											123
+										</td>
+									</tr>
+									<tr>
+										<td>
+											123
+										</td>
+									</tr>
+									<tr>
+										<td>
+											123
+										</td>
+									</tr>
+								</table>
+								<script>
+									$(document).ready(function(){
+										$('#odd_selecter').click(function(){
+											alert($('.class_even span:odd').length);
+											$('.class_even:first').append("<pre>$('.class_even span:odd').length;</pre>");
+										});
+										
+										$('.odd_table tr:odd').css('background','#fa2d2d');
+										$('.odd_table tr:even').css('background','orange');
+									});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:eq(index)
+							</td>
+							<td class="">
+								) 匹配一个给定索引值的元素
+								<a id="eq_selecter" href="javascript:void(0)" class="common_button common_button_gray">:eq(index)</a>
+								<script>
+									$(document).ready(function(){
+										$('#eq_selecter').click(function(){
+											alert($('.class_even span:eq(2)').html());
+											//alert($('.class_even span').eq(2).html());
+											$('.class_even:first').append("<pre>$('.class_even span:eq(2)').html();</pre>");
+										});
+									});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:gt(index)
+							</td>
+							<td>
+								匹配所有大于给定索引值的元素
+								<a id="gt_selecter" href="javascript:void(0)" class="common_button common_button_gray">:gt(index)</a>
+								<script>
+									$(document).ready(function(){
+										$('#gt_selecter').click(function(){
+											alert($('.class_even span:gt(2)').length);
+											$('.class_even:first').append("<pre>$('.class_even span:gt(2)').length;</pre>");
+										});
+									});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:lt(index)
+							</td>
+							<td>
+								匹配所有小于给定索引值的元素
+								<a id="lt_selecter" href="javascript:void(0)" class="common_button common_button_gray">:lt(index)</a>
+								<script>
+									$(document).ready(function(){
+										$('#lt_selecter').click(function(){
+											alert($('.class_even span:lt(2)').length);
+											$('.class_even:first').append("<pre>$('.class_even span:lt(2)').length;</pre>");
+										});
+									});
+								</script>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>	
+		</div>
+		
+		<div class="classification">
+			<div class="title">内容过滤器</div>
+			<div class="list">
+				<table width="100%" cellpadding="0" cellspacing="0" class="showList">
+					<thead class="head">
+						<th width="200">
+							类型
+						</th>
+						<th>
+							实例
+						</th>
+					</thead>
+					<tbody class="body">
+						<tr>
+							<td>
+								:contains(text)
+							</td>
+							<td class="class_contains">
+								<a id="contains_selecter" href="javascript:void(0)" class="common_button common_button_gray">:contains(text)</a>
+								
+								<span>span1</span>-<span>span2</span>-<span id="ddd">span3</span>-<span>span4</span>-<span style="display:none">span5</span>-<span></span>
+								
+								<script>
+									$(document).ready(function(){
+										$('#contains_selecter').click(function(){
+											alert($('.class_contains span:contains(3)').html());
+											$('.class_contains:first').append("<pre>$('.class_contains span:contains(span)').html();</pre>");
+										});
+									});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:empty
+							</td>
+							<td class="">
+								<a id="empty_selecter" href="javascript:void(0)" class="common_button common_button_gray">:empty</a>
+								<script>
+									$(document).ready(function(){
+										$('#empty_selecter').click(function(){
+											alert($('.class_contains span:empty').length);
+											$('.class_contains:first').append("<pre>$('.class_contains span:empty').length;</pre>");
+										});
+									});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:has(selector)
+							</td>
+							<td>
+								包含有选择器匹配元素的元素
+								<a id="has_selecter" href="javascript:void(0)" class="common_button common_button_gray">:has(selector)</a>
+								<script>
+									$(document).ready(function(){
+										$('#has_selecter').click(function(){
+											alert($('.class_contains span:has(#ddd)').html());
+											$('.class_contains:first').append("<pre>$('.class_contains span:has(#ddd)).html();</pre>");
+										});
+									});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:parent
+							</td>
+							<td>
+								含有子元素或者文本的元素
+								<a id="parent_selecter" href="javascript:void(0)" class="common_button common_button_gray">:parent</a>
+								<script>
+									$(document).ready(function(){
+										$('#parent_selecter').click(function(){
+											alert($('.class_contains span:parent').length);
+											$('.class_contains:first').append("<pre>$('.class_contains span:parent').length;</pre>");
+										});
+									});
+								</script>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>	
+		</div>
+		
+
+		<div class="classification">
+			<div class="title">可见性过滤器</div>
+			<div class="list">
+				<table width="100%" cellpadding="0" cellspacing="0" class="showList">
+					<thead class="head">
+						<th width="200">
+							类型
+						</th>
+						<th>
+							实例
+						</th>
+					</thead>
+					<tbody class="body">
+						<tr>
+							<td>
+								:hidden
+							</td>
+							<td>
+								所有不可见元素
+								<a id="hidden_selecter"  href="javascript:void(0)" class="common_button common_button_gray ">:hidden</a>
+								<script>
+									$(document).ready(function(){
+										$('#hidden_selecter').click(function(){
+											alert($('.class_contains span:hidden').length);
+											$('.class_contains:first').append("<pre>$('.class_contains span:hidden').length;</pre>");
+										});
+									});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:visible
+							</td>
+							<td>
+								所有不可见元素
+								<a id="visible_selecter"  href="javascript:void(0)" class="common_button common_button_gray ">:visible</a>
+								<script>
+									$(document).ready(function(){
+										$('#visible_selecter').click(function(){
+											alert($('.class_contains span:visible').length);
+											$('.class_contains:first').append("<pre>$('.class_contains span:visible').length;</pre>");
+										});
+									});
+								</script>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>	
+		</div>
+		
+		<div class="classification">
+			<div class="title">属性过滤器</div>
+			<div class="list">
+				<table width="100%" cellpadding="0" cellspacing="0" class="showList">
+					<thead class="head">
+						<th width="200">
+							类型
+						</th>
+						<th>
+							实例
+						</th>
+					</thead>
+					<tbody class="body">
+						<tr>
+							<td>
+								[attr]
+							</td>
+							<td>
+								包含给定属性的元素
+								<a id="href1_selecter" href="#" class="common_button common_button_gray">$('[href]') </a>&nbsp;
+								<a id="href6_selecter" normal="macj"  href="#" class="common_button common_button_gray ">自定义属性</a>
+								<script>
+								//js代码写在这里面
+								$(document).ready(function(){
+									  //属性选择器 --id选择器是效率最高的
+									  $('#href1_selecter').click(function(){
+									  	var aArray = $("[href]");
+									  	alert(aArray.length+'----选取所有带有 href (包括link标签)属性的元素!')
+									  });
+									  //自定义属性
+									  $('#href6_selecter').click(function(){
+									  	var aArray = $("a:[normal='macj']");
+									  	alert(aArray.length+'----选取所有 normal 值以为macj的元素!!')
+									  });
+								});
+								</script>
+							</td>
+						</tr>	
+						<tr>
+							<td>
+								[attr=value]
+							</td>
+							<td>
+								给定属性是某个值的元素
+								<a id="href2_selecter" href="#" class="common_button common_button_gray ">$("[href='#']") </a>&nbsp;
+								<script>
+								//js代码写在这里面
+								$(document).ready(function(){
+									$('#href2_selecter').click(function(){
+									  	var aArray = $("a:[href=#]");
+									  	alert(aArray.length+'----选取所有属性 href=# 的元素!')
+									 });
+								});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								[attr!=value]
+							</td>
+							<td>
+								给定属性不是某个值的元素
+								<a id="href3_selecter" href="#" class="common_button common_button_gray ">$("[href!='#']") </a>&nbsp;
+								<script>
+								//js代码写在这里面
+								$(document).ready(function(){
+								  $('#href3_selecter').click(function(){
+								  	var aArray = $("a:[href!=#]");
+								  	alert(aArray.length+'----选取所有属性 href=!# 的元素!')
+								  });
+								});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								[attr^=value]
+							</td>
+							<td>
+								属性以给定值开头的元素
+								<a id="href4_selecter" href="#" class="common_button common_button_gray ">$("[href^='j']") </a>&nbsp;
+								<script>
+								//js代码写在这里面
+								$(document).ready(function(){
+									  $('#href4_selecter').click(function(){
+									  	var aArray = $("a:[href^='j']");
+									  	alert(aArray.length+'----选取所有 href 值以 "j" 开头的元素!!')
+									  });
+								});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								[attr$=value]
+							</td>
+							<td>
+								属性以给定值结尾的元素
+								<a id="href5_selecter" href="#" class="common_button common_button_gray ">$("[href$='void(0)']") </a>&nbsp;
+								<script>
+								//js代码写在这里面
+								$(document).ready(function(){
+									  $('#href5_selecter').click(function(){
+									  	var aArray = $("a:[href$='void(0)']");
+									  	alert(aArray.length+'----选取所有 href 值以 "void(0)" 结尾的元素!!')
+									  });
+								});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								[attr*=value]
+							</td>
+							<td>
+								属性包含某些值的元素
+								<a id="href7_selecter" href="#" dddd="ggggssssdddd" class="common_button common_button_gray ">$("[dddd*='sd']")</a>&nbsp;
+								<span  dddd="ggggssssdddd" >这是个包含dddd属性的span</span>&nbsp;
+								<script>
+								//js代码写在这里面
+								$(document).ready(function(){
+									  $('#href7_selecter').click(function(){
+									  	var aArray = $("a:[dddd*='sd']");
+									  	alert(aArray.length+'----选取所有 dddd 包含"sd"的元素!!')
+									  });
+								});
+								</script>
+							</td>
+						</tr>	
+						<tr>
+							<td>
+								[attrFilter] [attrFilter] [attrFilter]
+							</td>
+							<td>
+								多个属性符合选择器
+								<a id="href8_selecter" href="#" dddd="ggggssssdddd" aaaa="sdfdsfdsfd" class="common_button common_button_gray ">[attrFilter] [attrFilter] [attrFilter]</a>&nbsp;
+								<script>
+								//js代码写在这里面
+								$(document).ready(function(){
+									  $('#href8_selecter').click(function(){
+									  	var aArray = $("a:[dddd*='sd'][aaaa*='ds']");
+									  	alert(aArray.html()+'----选取所有 dddd 包含"sd"的元素!!')
+									  });
+								});
+								</script>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>	
+		</div>
+		<div class="classification">
+			<div class="title">表单选择器</div>
+			<div class="list">
+				<table width="100%" cellpadding="0" cellspacing="0" class="showList">
+					<thead class="head">
+						<th width="200">
+							类型
+						</th>
+						<th>
+							实例
+						</th>
+					</thead>
+					<tbody class="body">
+						<tr>
+							<td>
+								:input
+							</td>
+							<td>
+								匹配所有input元素
+								<a id="input_selecter" href="javascript:void(0)" class="common_button common_button_gray">:input</a>
+								<form id="form1">
+									<input type="button"/>
+									<input type="text"/>
+									<input type="password"/>
+									<input type="checkbox"/>
+									<input type="radio"/>
+									<input type="submit"/>
+									<input type="reset"/>
+									<input type="file"/>
+									<input type="text" readonly="readonly"/>
+									<input type="text" disabled="disabled"/>
+									<select>
+										<option>1111111</option>
+										<option>2222222</option>
+									</select>
+								</form>
+								<form id="form2">
+									<input type="button"/>
+									<input type="text"/>
+									<input type="password"/>
+									<input type="checkbox"/>
+									<input type="radio"/>
+									<input type="submit"/>
+									<input type="reset"/>
+									<input type="file"/>
+									<input type="text" readonly="readonly"/>
+									<input type="text" disabled="disabled"/>
+									<select>
+										<option>1111111</option>
+										<option>2222222</option>
+									</select>
+								</form>
+								<script>
+								$(document).ready(function(){
+									  $('#input_selecter').click(function(){
+									  	var aArray = $(":input");
+									  	alert(aArray.length)
+									  });
+								});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:text 
+							</td>
+							<td>
+								选择 type="text" 的 input 元素：
+								<a id="text_selecter" href="javascript:void(0)" class="common_button common_button_gray">:text</a>
+								<script>
+								$(document).ready(function(){
+									  $('#text_selecter').click(function(){
+									  	var aArray = $(":text");
+									  	alert(aArray.length)
+									  });
+								});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:password 
+							</td>
+							<td>
+								选择 type="password" 的 input 元素：
+								<a id="password_selecter" href="javascript:void(0)" class="common_button common_button_gray">:password</a>
+								<script>
+								$(document).ready(function(){
+									  $('#password_selecter').click(function(){
+									  	var aArray = $("#form2 :password");
+									  	alert(aArray.length)
+									  });
+								});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:radio 
+							</td>
+							<td>
+								选择 type="radio" 的 input 元素：
+								<a id="radio_selecter" href="javascript:void(0)" class="common_button common_button_gray">:radio</a>
+								<script>
+								$(document).ready(function(){
+									  $('#radio_selecter').click(function(){
+									  	var aArray = $(":radio");
+									  	alert(aArray.length)
+									  });
+								});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:checkbox
+							</td>
+							<td>
+								选择 type="checkbox" 的 input 元素：
+								<a id="checkbox_selecter" href="javascript:void(0)" class="common_button common_button_gray">:checkbox</a>
+								<script>
+								$(document).ready(function(){
+									  $('#checkbox_selecter').click(function(){
+									  	var aArray = $(":checkbox");
+									  	alert(aArray.length)
+									  });
+								});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:submit
+							</td>
+							<td>
+								选择 type="submit" 的 input 元素：
+								<a id="submit_selecter" href="javascript:void(0)" class="common_button common_button_gray">:submit</a>
+								<script>
+								$(document).ready(function(){
+									  $('#submit_selecter').click(function(){
+									  	var aArray = $(":submit");
+									  	alert(aArray.length)
+									  });
+								});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:reset
+							</td>
+							<td>
+								选择 type="reset" 的 input 元素：
+								<a id="reset_selecter" href="javascript:void(0)" class="common_button common_button_gray">:reset</a>
+								<script>
+								$(document).ready(function(){
+									  $('#reset_selecter').click(function(){
+									  	var aArray = $(":reset");
+									  	alert(aArray.length)
+									  });
+								});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:button
+							</td>
+							<td>
+								选择 type="button" 的 button 元素和 input 元素：
+								<a id="button_selecter" href="javascript:void(0)" class="common_button common_button_gray">:button</a>
+								<script>
+								$(document).ready(function(){
+									  $('#button_selecter').click(function(){
+									  	var aArray = $(":button");
+									  	alert(aArray.length)
+									  });
+								});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:file
+							</td>
+							<td>
+								选择 type="file"  input 元素
+								<a id="file_selecter" href="javascript:void(0)" class="common_button common_button_gray">:file</a>
+								<script>
+								$(document).ready(function(){
+									  $('#file_selecter').click(function(){
+									  	var aArray = $(":file");
+									  	alert(aArray.length)
+									  });
+								});
+								</script>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>	
+		
+		<div class="classification">
+			<div class="title">表单过滤选择器</div>
+			<div class="list">
+				<table width="100%" cellpadding="0" cellspacing="0" class="showList">
+					<thead class="head">
+						<th width="200">
+							类型
+						</th>
+						<th>
+							实例
+						</th>
+					</thead>
+					<tbody class="body">
+						<tr>
+							<td>
+								:enabled
+							</td>
+							<td class="test">
+								<a id="enabled_selecter" href="javascript:void(0)" class="common_button common_button_gray">:enabled</a>
+								<script>
+								$(document).ready(function(){
+									  $('#enabled_selecter').click(function(){
+									  	var aArray = $("#form1 :enabled");
+									  	alert(aArray.length)
+									  });
+								});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:disabled
+							</td>
+							<td class="test">
+								<a id="disabled_selecter" href="javascript:void(0)" class="common_button common_button_gray">:disabled</a>
+								<script>
+								$(document).ready(function(){
+									  $('#disabled_selecter').click(function(){
+									  	var aArray = $("#form1 :disabled");
+									  	alert(aArray.length)
+									  });
+								});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:checked
+							</td>
+							<td class="test">
+								被选中的checkbox
+								<a id="checked_selecter" href="javascript:void(0)" class="common_button common_button_gray">:checked</a>
+								<script>
+								$(document).ready(function(){
+									  $('#checked_selecter').click(function(){
+									  	var aArray = $("#form1 :checked");
+									  	alert(aArray.length)
+									  });
+								});
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								:selected
+							</td>
+							<td class="test">
+								被选中的option
+								<a id="selected_selecter" href="javascript:void(0)" class="common_button common_button_gray">:selected</a>
+								<script>
+								$(document).ready(function(){
+									  $('#selected_selecter').click(function(){
+									  	var aArray = $("#form1 :selected");
+									  	alert(aArray.html())
+									  });
+								});
+								</script>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>	
+		</div>
+		
+		<div class="classification">
+			<div class="title">事件</div>
+			<div class="list">
+				<table width="100%" cellpadding="0" cellspacing="0" class="showList">
+					<thead class="head">
+						<th width="200">
+							类型
+						</th>
+						<th>
+							实例
+						</th>
+					</thead>
+					<tbody class="body">
+						<tr>
+							<td>
+								全部小写，去掉on，直接用’.’链接即可
+							</td>
+							<td class="test">
+								$("#demo").click()
+							</td>
+						</tr>
+						<tr>
+							<td>
+								bind
+							</td>
+							<td class="test">
+								$(selector).bind(event,function)
+								$(selector).bind({event:function, event:function, ...})
+								<a id="bind_selecter" href="javascript:void(0)" class="common_button common_button_gray">:bind</a>
+								<a id="bind2_selecter" href="javascript:void(0)" class="common_button common_button_gray">:bind2</a>
+								<a id="click_selecter" href="javascript:void(0)" class="common_button common_button_gray">:click</a>
+								<script>
+								$(document).ready(function(){
+									  $('#bind_selecter').bind({
+									  	'click': function(){
+									  		alert('click')
+									  	},
+										'mouseover':function(){
+											$(this).parent().append("这是mouseover事件!<br/>");
+										},
+										'mouseout':function(){
+											$(this).parent().append("这是mouseout事件!<br/>");
+										}
+									  });
+									  $('#bind2_selecter').bind(
+									  	'click', {'f':'ddddddddddddd'},function(eve){
+									  		alert(eve.data.f)
+									  	}
+									  );
+									  function dddddddd(param){
+									  	alert(param.data.f)
+									  }
+									  $('#click_selecter').bind('click',{'f':'fffffffffffff'},dddddddd);
+								});
+								</script>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>	
+		</div>
+		<div class="classification">
+			<div class="title">常用方法</div>
+			<div class="list">
+				<table width="100%" cellpadding="0" cellspacing="0" class="showList">
+					<thead class="head">
+						<th width="200">
+							类型
+						</th>
+						<th>
+							实例
+						</th>
+					</thead>
+					<tbody class="body">
+						<tr>
+							<td>
+								
+								<a id="demo" href="javascript:void(0)" class="common_button common_button_gray">函数实例</a>
+							</td>
+							<td class="test">
+								<style>
+									.screen{
+										position:absolute;
+										background:#888;
+										z-index:100;
+										filter: alpha(opacity=50);
+										-moz-opacity: 0.5;
+										-khtml-opacity: 0.5;
+										opacity: 0.5;
+										border:1px #000 solid;
+										
+									}
+									.model{
+										position:absolute;
+										width:100px;
+										height:100px;
+										background:#ccc;
+										top:100px;
+										left:100px;
+										z-index:200;
+										border:1px #000 solid;
+										display:none;
+									}
+								</style>
+								<script>
+								$(document).ready(function(){
+										var topnum = 2206;
+										var leftnum = 76;
+										var widthnum = 1206;
+										var heightnum = 506;
+									  $('#demo').click(function(){
+									  	$('<div id="screen"></div>').addClass('screen').css({
+											'top':topnum,
+											'left':leftnum,
+											'width':widthnum,
+											'height':heightnum
+										}).appendTo($('body'));
+										setTimeout(function(){
+											$('<div id="model"></div>').addClass('model').css({
+												'top':(heightnum-100)/2,
+												'left':(widthnum-100)/2
+											}).appendTo($('#screen')).show('normal');//("slow", "normal", or "fast)
+										},200);
+										setTimeout(function(){
+											$('#model').clone().attr('id','model1').appendTo($('#screen'))
+											$('#model1').css({
+												'width':100,
+												'height':100,
+												'opacity': 1
+											}).show('normal').animate({'left':20,'top':20},'slow');
+										},800);
+										
+										setTimeout(function(){
+											$('#model').clone().attr('id','model2').appendTo($('#screen'))
+											$('#model2').css({
+												'width':100,
+												'height':100,
+												'opacity': 1
+											}).show('normal').animate({'left':(widthnum-120),'top':20},'slow');
+										},1400);
+										setTimeout(function(){
+											$('#model').clone().attr('id','model3').appendTo($('#screen'))
+											$('#model3').css({
+												'width':100,
+												'height':100,
+												'opacity': 1
+											}).show('normal').animate({'left':20,'top':(heightnum - 120)},'slow');
+										},2000);
+										setTimeout(function(){
+											$('#model').clone().attr('id','model4').appendTo($('#screen'))
+											$('#model4').css({
+												'width':100,
+												'height':100,
+												'opacity': 1
+											}).show('normal').animate({'left':(widthnum-120),'top':(heightnum - 120)},'slow');
+										},2600);
+										setTimeout(function(){
+											$('.model').each(function(i){
+												$(this).hide('slow');
+											});
+										},3600);
+										setTimeout(function(){
+											$('#screen').remove();
+										},4600);
+									  });
+								});
+								</script>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>	
+		</div>
+		
+		<div class="classification">
+			<div class="title">实用函数及操作</div>
+			<div class="list">
+				<table width="100%" cellpadding="0" cellspacing="0" class="showList">
+					<thead class="head">
+						<th width="200">
+							描述
+						</th>
+						<th>
+							实例
+						</th>
+					</thead>
+					<tbody class="body">
+						<tr>
+							<td>
+								select
+							</td>
+							<td class="test">
+								1.获取select选中option值
+								<form class="formc">
+									<select id="testSelect" name="country">
+										<option>中国</option>
+										<option>美国</option>
+										<option>日本</option>
+									</select>
+								</form>
+								<a id="testSelecta" href="javascript:void(0)" class="common_button common_button_gray">获取选中option值</a>
+								<script>
+									$(document).ready(function(){
+										$('#testSelecta').click(function(){
+											//alert($("#testSelect option:selected").text());
+											//alert($("#testSelect").find('option:selected').text());
+											alert($("#testSelect").val());
+											//alert($(".formc select[name='country'] option:selected").text());
+											//alert($(".formc select[name='country'] option:selected").val());
+											//alert($(".formc select[name='country']").attr('id'));
+											
+											
+											
+											//$("#testSelect").empty();
+											//$("#testSelect").html('');
+											//$("<option value='1'>1111</option>").appendTo("#testSelect");
+										});
+									});
+								</script>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>	
+		</div>
+
+	</body>
+</html>

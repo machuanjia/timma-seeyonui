@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Dialog-Box</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../../docs/resource/demo.css">
+	<script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tree-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js"></script> 
+	<script type="text/javascript" src="../../../ctp/misc/Moo-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/jquery.json-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/jquery.code-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/common-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/i18n-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/v3x-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/jquery.comp-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/jquery.tree-debug.js"></script>
+</head>
+<body>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td"><a  href="javascript:showMessageBox1()" class="common_button common_button_gray">选择表单流程</a> &nbsp;<a href="rar/dialog_formflow.rar">下载</a>
+                <script type="text/javascript">
+                    function showMessageBox1() {
+                       dialog = $.dialog({
+                            id: 'url',
+                            url: 'dialog_formflow.html',
+                            width: 400,
+                            height:300,
+                            title: '选择表单流程',
+                            buttons: [{
+                                text: "确定",
+                                handler: function () {
+                                   dialog.close();
+                                }
+                            }, {
+                                text: "取消",
+                                handler: function () {
+                                    dialog.close();
+                                }
+                            }]
+                        });
+                    }
+                </script>
+            </td>
+        </tr>
+       <tr>
+            <td class="td"><a  href="javascript:showMessageBox()" class="common_button common_button_gray">节点权限说明</a>&nbsp;<a href="rar/dialog_nodeexplain.rar">下载</a>
+                <script type="text/javascript">
+                    function showMessageBox() {
+                       dialog = $.dialog({
+                            id: 'url',
+                            url: 'dialog_nodeexplain.html',
+                            width: 400,
+                            height:300,
+                            title: '节点权限说明',
+                            buttons: [{
+                                text: "确定",
+                                handler: function () {
+                                   dialog.close();
+                                }
+                            }, {
+                                text: "取消",
+                                handler: function () {
+                                    dialog.close();
+                                }
+                            }]
+                        });
+                    }
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td class="td"><a  href="javascript:showMessageBox2()" class="common_button common_button_gray">加签</a>&nbsp;<a href="rar/dialog_insertpeople.rar">下载</a>
+                <script type="text/javascript">
+                    function showMessageBox2() {
+                       dialog = $.dialog({
+                            id: 'url',
+                            url: 'dialog_insertpeople.html',
+                            width: 400,
+                            height:300,
+                            title: '加签',
+                            buttons: [{
+                                text: "确定",
+                                handler: function () {
+                                   dialog.close();
+                                }
+                            }, {
+                                text: "取消",
+                                handler: function () {
+                                    dialog.close();
+                                }
+                            }]
+                        });
+                    }
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td class="td"><a  href="javascript:showMessageBox3()" class="common_button common_button_gray">减签</a>&nbsp;<a href="rar/dialog_deletepeople.rar">下载</a>
+                <script type="text/javascript">
+                    function showMessageBox3() {
+                       dialog = $.dialog({
+                            id: 'url',
+                            url: 'dialog_deletepeople.html',
+                            width: 400,
+                            height:300,
+                            title: '减签',
+                            buttons: [{
+                                text: "确定",
+                                handler: function () {
+                                   dialog.close();
+                                }
+                            }, {
+                                text: "取消",
+                                handler: function () {
+                                    dialog.close();
+                                }
+                            }]
+                        });
+                    }
+                </script>
+            </td>
+        </tr>
+         <tr>
+            <td class="td"><a  href="javascript:showMessageBox4()" class="common_button common_button_gray">流程设置</a>&nbsp;<a href="rar/dialog_flow.rar">下载</a>
+                <script type="text/javascript">
+                    function showMessageBox4() {
+                       dialog = $.dialog({
+                            id: 'url',
+                            url: 'dialog_flow.html',
+                            width: 400,
+                            height:300,
+                            title: '流程设置',
+                            buttons: [{
+                                text: "确定",
+                                handler: function () {
+                                   dialog.close();
+                                }
+                            }, {
+                                text: "取消",
+                                handler: function () {
+                                    dialog.close();
+                                }
+                            }]
+                        });
+                    }
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td class="td"><a  href="javascript:showMessageBox7()" class="common_button common_button_gray">设置新流程</a>&nbsp;<a href="rar/dialog_set_newflow.rar">下载</a>
+                <script type="text/javascript">
+                    function showMessageBox7() {
+                       dialog = $.dialog({
+                            id: 'url',
+                            url: 'dialog_set_newflow.html',
+                            width: 500,
+                            height:300,
+                            title: '设置新流程',
+                            buttons: [{
+                                text: "确定",
+                                handler: function () {
+                                   dialog.close();
+                                }
+                            }, {
+                                text: "取消",
+                                handler: function () {
+                                    dialog.close();
+                                }
+                            }]
+                        });
+                    }
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td class="td"><a  href="javascript:showMessageBox5()" class="common_button common_button_gray">催办</a>&nbsp;<a href="rar/dialog_urge.rar">下载</a>
+                <script type="text/javascript">
+                    function showMessageBox5() {
+                       dialog = $.dialog({
+                            id: 'url',
+                            url: 'dialog_urge.html',
+                            width: 400,
+                            height:300,
+                            title: '催办',
+                            buttons: [{
+                                text: "确定",
+                                handler: function () {
+                                   dialog.close();
+                                }
+                            }, {
+                                text: "取消",
+                                handler: function () {
+                                    dialog.close();
+                                }
+                            }]
+                        });
+                    }
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td class="td"><a  href="javascript:showMessageBox6()" class="common_button common_button_gray">新增个人事件</a>&nbsp;<a href="rar/dialog_newEvent.rar">下载</a>
+                <script type="text/javascript">
+                    function showMessageBox6() {
+                       dialog = $.dialog({
+                            id: 'url',
+                            url: 'dialog_newEvent.html',
+                            width: 420,
+                            height:350,
+                            title: '新增个人事件',
+                            buttons: [{
+                                text: "确定",
+                                handler: function () {
+                                   dialog.close();
+                                }
+                            }, {
+                                text: "取消",
+                                handler: function () {
+                                    dialog.close();
+                                }
+                            }]
+                        });
+                    }
+                </script>
+            </td>
+        </tr>
+         <tr>
+            <td class="td"><a  href="javascript:showMessageBox8()" class="common_button common_button_gray">时间设置</a>&nbsp;<a href="rar/dialog_calendar.rar">下载</a>
+                <script type="text/javascript">
+                    function showMessageBox8() {
+                       dialog = $.dialog({
+                            id: 'url',
+                            url: 'dialog_calendar.html',
+                            width: 450,
+                            height:320,
+                            title: '时间设置',
+                            buttons: [{
+                                text: "确定",
+                                handler: function () {
+                                   dialog.close();
+                                }
+                            }, {
+                                text: "取消",
+                                handler: function () {
+                                    dialog.close();
+                                }
+                            }]
+                        });
+                    }
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td class="td"><a  href="javascript:showMessageBox9()" class="common_button common_button_gray">人员详细信息</a>&nbsp;<a href="rar/peopleCard.rar">下载</a>
+                <script type="text/javascript">
+                    function showMessageBox9() {
+                       dialog = $.dialog({
+                            url: 'peopleCard.html',
+                            width: 500,
+                            height:350,
+                            title: '人员详细信息',
+                            buttons: [{
+                                text: "关闭",
+                                handler: function () {
+                                    dialog.close();
+                                }
+                            }]
+                        });
+                    }
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td class="td"><a id="cardmini"  href="javascript:showMessageBox10()" class="common_button common_button_gray">人员基本信息</a>&nbsp;<a href="rar/peopleCardMini.rar">下载</a>
+                <script type="text/javascript">
+                    function showMessageBox10() {
+                       var panel = $.dialog({
+						id:'ssss',
+					    width:340,
+					    height:185,
+					    type: 'panel',
+					    htmlId: 'searchId',
+					    targetId: 'cardmini',
+						shadow:false,
+						panelParam:{
+							'show':true,
+							'margins': false,
+                            'inside':true
+						}
+					});
+
+                    }
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td class="td"><a  href="javascript:showMessageBox11()" class="common_button common_button_gray">统计设置</a>&nbsp;<a href="rar/dialog_staticSet.rar">下载</a>
+                <script type="text/javascript">
+                    function showMessageBox11() {
+                       dialog = $.dialog({
+                            url: 'dialog_staticSet.html',
+                            width: 700,
+                            height:410,
+                            title: '统计设置',
+                            buttons: [{
+                                text: "重置",
+                                handler: function () {
+                                    dialog.close();
+                                }
+                            },{
+                                text: "确定",
+                                handler: function () {
+                                    dialog.close();
+                                }
+                            },{
+                                text: "取消",
+                                handler: function () {
+                                    dialog.close();
+                                }
+                            }]
+                        });
+                    }
+                </script>
+            </td>
+        </tr>
+    </table>
+	<div id="searchId" class="hidden h100b border_all">
+		<iframe frameborder="0" src="peopleCardMini.html" class="h100b w100b"></iframe>
+	</div>
+</body>
+</html>

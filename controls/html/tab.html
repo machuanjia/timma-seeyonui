@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>二级页签</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+	<script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+	
+	<script type="text/javascript" src="../calendar/calendar-debug.js"></script>
+	<script type="text/javascript" src="../calendar/calendar-zh-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/misc/Moo-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.json-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.fillform-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.code-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/common-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/i18n-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/v3x-debug.js"></script>
+	<script type="text/javascript" src="../searchBox-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.checkform-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.dialog-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.grid-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.layout-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.menu-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.progress-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.scroll-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tab-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.toolbar-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tree-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.calendar-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.arraylist-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tooltip-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.comp-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.tree-debug.js"></script>
+	
+</head>
+
+<body class="body-pading">
+    <h3>[1.二级页签]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td">定义</td>
+            <td class="td">提供了一种将相关信息显示在单独的带标签页的方法。</td>
+        </tr>
+        <tr>
+            <td class="td" width="200" rowspan="6">tab示例</td>
+            
+        </tr>
+        <tr>
+            <td class="td code">
+                <div class="common_tabs clearfix">
+                    <ul class="left">
+                        <li class="current"><a href="javascript:void(0)">页签</a></li>
+                        <li><a hidefocus="true" href="javascript:void(0)"  class="disable">页签</a></li>
+                        <li><a hidefocus="true" href="javascript:void(0)">页签</a></li>
+                        <li><a hidefocus="true" href="javascript:void(0)">页签</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td code">
+                <div class="common_tabs clearfix">
+                    <ul class="left">
+                        <li class="current"><a hidefocus="true" href="javascript:void(0)">页签</a></li>
+                        <li><a hidefocus="true" href="javascript:void(0)">页签</a></li>
+                        <li><a hidefocus="true" href="javascript:void(0)">页签</a></li>
+                        <li><a hidefocus="true" href="javascript:void(0)">页签</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td code">
+                <div class="common_tabs clearfix">
+                    <ul class="left">
+                        <li class="current"><a hidefocus="true" href="javascript:void(0)">页签</a></li>
+                        <li><a hidefocus="true" href="javascript:void(0)">页签</a></li>
+                        <li><a hidefocus="true" href="javascript:void(0)">页签</a></li>
+                        <li><a hidefocus="true" href="javascript:void(0)">页签</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td id="testTD" class="td code">
+                <div id="tabs" class="comp" comp="type:'tab',width:600,height:200,parentId:'testTD'">
+                    <div id="tabs_head" class="common_tabs clearfix">
+                        <ul class="left">
+                            <li class="current"><a hidefocus="true" href="javascript:void(0)" tgt="tab1_iframe"><span>baidu</span></a></li>
+                            <li><a hidefocus="true" href="javascript:void(0)" tgt="tab2_iframe"><span>google</span></a></li>
+                            <li><a hidefocus="true" href="javascript:void(0)" tgt="tab3_iframe"><span>baidu</span></a></li>
+                            <li><a hidefocus="true"  href="javascript:void(0)" tgt="tab4_iframe"><span>google</span></a></li>
+                        </ul>
+                    </div>
+                    <div id='tabs_body' class="common_tabs_body ">
+                        <iframe id="tab1_iframe" width="100%" src="http://www.baidu.com" frameborder="no" border="0"></iframe>
+                        <iframe id="tab2_iframe" width="100%" src="http://www.google.com.cn" frameborder="no" border="0" class="hidden"></iframe>
+                        <iframe id="tab3_iframe" width="100%" src="http://www.baidu.com" frameborder="no" border="0" class="hidden"></iframe>
+                        <iframe id="tab4_iframe" width="100%" src="http://www.google.com.cn" frameborder="no" border="0" class="hidden"></iframe>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td code">
+                <div id="tabs2" class="comp" comp="type:'tab',width:600,height:200">
+                    <div id="tabs2_head" class="common_tabs clearfix">
+                        <ul class="left">
+                            <li class="current"><a href="javascript:void(0)" tgt="tab1_div"><span>div1</span></a></li>
+                            <li><a href="javascript:void(0)" tgt="tab2_div"><span>div2</span></a></li>
+                            <li><a href="javascript:void(0)" tgt="tab3_div"><span>div3</span></a></li>
+                            <li><a href="javascript:void(0)" tgt="tab4_div"><span>div4</span></a></li>
+                        </ul>
+                    </div>
+                    <div id='tabs2_body' class="common_tabs_body ">
+                        <div id="tab1_div">1</div>
+                        <div id="tab2_div" class="hidden">2</div>
+                        <div id="tab3_div" class="hidden">3</div>
+                        <div id="tab4_div" class="hidden">4</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+    <h3 class="dev_hide design_hide">[2.使用实例]</h3>
+    <table class="docsShowTable dev_hide design_hide">
+        <tr>
+            <td class="td" width="200"></td>
+            <td class="td code"></td>
+        </tr>
+    </table>
+
+    <h3 class="dev_hide">[3.UE]</h3>
+    <table class="docsShowTable dev_hide">
+        <tr>
+            <td class="td" width="200">动态窗口界面:与滚动条类似，选项卡可以用于增大窗口界面尺寸以显示相关的信息。</td>
+            <td class="td">
+                <div class="common_tabs  space_tab clearfix">
+                    <ul class="left">
+                        <li class="current"><a href="javascript:void(0)">页签</a></li>
+                        <li><a href="javascript:void(0)">页签</a></li>
+                        <li><a href="javascript:void(0)">页签</a></li>
+                        <li><a href="javascript:void(0)">页签</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td">多视图:选项卡可用于为相关或相关信息显示不同的视图。</td>
+            <td class="td">
+                <div class="common_tabs clearfix">
+                    <ul class="left">
+                        <li class="current"><a href="javascript:void(0)">页签</a></li>
+                        <li><a href="javascript:void(0)">页签</a></li>
+                        <li><a href="javascript:void(0)">页签</a></li>
+                        <li><a href="javascript:void(0)">页签</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+    <h3 class="design_hide">[4.属性]</h3>
+    <table class="docsShowTable design_hide">
+        <tr class="head">
+            <td class="td" width="200">属性</td>
+            <td class="td">类型</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td">id</td>
+            <td class="td">字符</td>
+            <td class="td">tab id[必须]</td>
+        </tr>
+        <tr>
+            <td class="td">width</td>
+            <td class="td">数字</td>
+            <td class="td">宽度</td>
+        </tr>
+        <tr>
+            <td class="td">height</td>
+            <td class="td">数字</td>
+            <td class="td">高度</td>
+        </tr>
+        <tr>
+            <td class="td">parentId</td>
+            <td class="td">字符</td>
+            <td class="td">获取设置tab的宽高</td>
+        </tr>
+        <tr>
+            <td class="td">showTabIndex</td>
+            <td class="td">number</td>
+            <td class="td">设置第index的tab为默认显示</td>
+        </tr>
+        <tr>
+            <td class="td">refreashTab</td>
+            <td class="td">bool</td>
+            <td class="td">是否刷新iframe</td>
+        </tr>
+</table>
+
+    <h3 class="dev_hide design_hide">[5.事件]</h3>
+    <table class="docsShowTable dev_hide design_hide">
+        <tr class="head">
+            <td class="td" width="200">事件</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide">[6.方法]</h3>
+    <table class="docsShowTable design_hide">
+        <tr class="head">
+            <td class="td" width="200">方法</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td">disabled(id)</td>
+            <td class="td">禁用某个页签</td>
+        </tr>
+        <tr>
+            <td class="td">enable(id)</td>
+            <td class="td">可用某个页签</td>
+        </tr>
+        <tr>
+            <td class="td">setCurrent(id)</td>
+            <td class="td">设置某个页签可用</td>
+        </tr>
+        <tr>
+            <td class="td">setMouseOver(id)</td>
+            <td class="td">设置鼠标滑过触发选中效果</td>
+        </tr>
+        <tr>
+            <td class="td">setClick(id)</td>
+            <td class="td">设置鼠标点击触发选中效果</td>
+        </tr>
+        <tr>
+            <td class="td">resetSize()</td>
+            <td class="td">重新整体宽高</td>
+        </tr>
+    </table>
+</body>
+</html>

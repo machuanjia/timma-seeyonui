@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>新建个人事件</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css" />
+    <script type="text/javascript" src="../../../scriptes/jquery.js"> </script>
+    <script type="text/javascript" src="../../calendar/calendar-debug.js"> </script>
+    <script type="text/javascript" src="../../calendar/calendar-zh-debug.js"> </script>
+    <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js"> </script>
+    <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js"> </script>
+    <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js"> </script>
+    <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js"> </script>
+    <script type="text/javascript" src="../../../ctp/jquery.json-debug.js"> </script>
+    <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js"> </script>
+    <script type="text/javascript" src="../../../ctp/jquery.code-debug.js"> </script>
+    <script type="text/javascript" src="../../../ctp/common-debug.js"> </script>
+    <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js"> </script>
+    <script type="text/javascript" src="../../seeyon.ui.common-debug.js"> </script>
+	<script type="text/javascript">
+		 $(function(){
+		 	new inputChange($("#newflow"),"输入标题");		
+		 })
+	</script>
+
+</head>
+<body>
+    <div class="form_area  margin_5">
+    	<table border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
+	        <tr>
+	            <th nowrap="nowrap"><label class="margin_r_5" for="text">标题:</label></th>
+	            <td width="100%" colspan="3"><div class="common_txtbox_wrap">
+	            	<input id="newflow" type="text" name="newflow" />
+	            </div></td>
+	        </tr>
+	         <tr>
+	            <th nowrap="nowrap" class="border_b"><label class="margin_r_5" for="text">事件类型:</label></th>
+	            <td width="100%" colspan="3" class="border_b"><div class="common_selectbox_wrap">
+                        <select><option> </option></select>
+                </div></td>
+	        </tr>
+	        
+	        <tr>
+	            <th nowrap="nowrap"><label class="margin_r_5" for="text">开始时间:</label></th>
+	            <td width="50%"><input id="mycal2" type="text" class="comp" comp="type:'calendar',ifFormat:'%Y-%m-%d'"></td>
+	            <th nowrap="nowrap"><label class="margin_r_5" for="text">重要程度:</label></th>
+	            <td width="50%"><div class="common_selectbox_wrap">
+                        <select><option> </option></select>
+                </div></td>
+                
+	        </tr>
+	        
+	        <tr>
+	            <th nowrap="nowrap"><label class="margin_r_5" for="text">提前提醒:</label></th>
+	            <td width="50%"><div class="common_selectbox_wrap">
+                        <select><option> </option></select>
+                </div></td>
+	            <th nowrap="nowrap"><label class="margin_r_5" for="text">已完成:</label></th>
+	            <td width="50%"><label class="right valign_m margin_t_5 margin_l_5">%</label><div class="common_txtbox_wrap">
+	            	<input id="newflow" type="text" name="newflow" />
+	            </div></td>
+	        </tr>
+	        <tr>
+	        	<th nowrap="nowrap" class="border_t padding_t_5"><label class="margin_r_5" for="text">事件内容:</label></th>
+	        	<td colspan="3" class="border_t padding_t_5" align="left"><div class="common_txtbox">
+	        		<textarea class="w100b" rows="8"></textarea>
+	        		<a class="common_button common_button_icon margin_t_5" href="javascript:void(0)"><em class="ico16 affix_16"></em>上传附件</a></div>
+	        		
+	        	</td>
+	        </tr>
+	     </table>
+    </div>
+
+
+
+</body>
+</html>

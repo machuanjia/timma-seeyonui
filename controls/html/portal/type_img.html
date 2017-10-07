@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>图片类</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../../docs/resource/doc.css">
+    <script type="text/javascript" src="../../../scriptes/jquery.js"> </script>
+    <script type="text/javascript" src="../../../docs/resource/doc.js"> </script>
+    <script type="text/javascript" src="../../seeyon.ui.focusImage-debug.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#focusImage2").focusImage({
+                time: 5000,
+                action: "mouseover",
+                data: [
+                    { img_url: "http://www.baidu.com/img/8.23_8f122c7ed334993295f48d5962f2f6f9.gif", img_w: 356, img_h: 170, img_href: "javascript:alert(1);" },
+                    { img_url: "http://images.enet.com.cn/esoft/groupimages/20050105110003/004.jpg", img_w: 640, img_h: 480, img_href: "javascript:alert(2);" },
+                    { img_url: "http://list.image.baidu.com/t/image_category/galleryimg/face/katong/sheng_ds.gif", img_w: 100, img_h: 300, img_href: "javascript:alert(3);" },
+                    { img_url: "http://list.image.baidu.com/t/image_category/galleryimg/face/katong/moli_mm.gif", img_w: 100, img_h: 200, img_href: "javascript:alert(4);" },
+                    { img_url: "", img_w: 100, img_h: 200, img_href: "javascript:alert(9);" },
+                    { img_url: "", img_w: 100, img_h: 200, img_href: "javascript:alert(9);" },
+                    { img_url: "", img_w: 100, img_h: 200, img_href: "javascript:alert(9);" },
+                    { img_url: "", img_w: 100, img_h: 200, img_href: "javascript:alert(9);" },
+                    { img_url: "", img_w: 100, img_h: 200, img_href: "javascript:alert(9);" }
+                ]
+            });
+        })
+    </script>
+</head>
+<body class="body-pading">
+    <div class="classification">
+        <div class="title">图片类</div>
+        <div class="list">
+            <div class="common_content_area">
+                <div class="content_area_head clearfix">
+                    <div class="common_tabs index_tabs">
+                        <ul>
+                            <li><a href="#" class="show"><span class=" left margin_5"></span></a></li>
+                            <li class="current"><a href="#">页签1</a></li>
+                            <li><a href="#">页签2</a></li>
+                        </ul>
+                    </div>
+                    <span class="max right"></span>
+                    <span class="edit right"></span>
+                </div>
+                <div class="content_area_body common_tabs_body">
+                    <div class="area_news">
+                        <div id="focusImage2" class="focusImage left margin_r_10">
+                            <div class="imgList">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <div class="btnLeft"></div>
+                            <div class="btnRight"></div>
+                            <div class="imgBtn">
+                                <ul>
+                                    <li class="imgBtn_over"></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="new_list">
+                            <ul>
+                                <li>
+                                    <div class="title">上海自来水有限公司</div>
+                                    <div class="info"><span class="left">只愿公司</span><span class="right">2012-12-12</span></div>
+                                    <div class="content">上海自来水有限公司上海自来水有限公司上海自来水有限公司上海自来水有限公司上海自来水有限公司...<a href="#" target="_blank">更多</a></div>
+                                </li>
+                                <li>
+                                    <div class="title">京东商城0元赠送图书10000本</div>
+                                    <div class="info"><span class="left">京东</span><span class="right">2012-12-12</span></div>
+                                </li>
+                                <li>
+                                    <div class="title">易迅网大抢购</div>
+                                    <div class="info"><span class="left">易迅</span><span class="right">2012-12-12</span></div>
+                                </li>
+                                <li>
+                                    <div class="title">北京市发改委，关于第3次，全国人口现金发放情况的回报</div>
+                                    <div class="info"><span class="left">发改委</span><span class="right">2012-12-12</span></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="content_area_footer padding_lr_5 clearfix">
+                    <a href="#" class="right"><em class="ico16 portal_more "></em></a>
+                    <a href="#" class="right margin_r_10"><em class="ico16 portal_new margin_r_5"></em>操作</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="classification">
+        <div class="title">示例</div>
+        <div class="ue">
+            <pre>
+$("#focusImage2").focusImage({
+    time: 5000,
+    ation: "mouseover",
+    data: [
+        { img_url: "http://www.baidu.com/img/8.23_8f122c7ed334993295f48d5962f2f6f9.gif", img_w: 356, img_h: 170, img_href: "javascript:alert(1);" },
+        { img_url: "http://images.enet.com.cn/esoft/groupimages/20050105110003/004.jpg", img_w: 640, img_h: 480, img_href: "javascript:alert(2);" },
+        { img_url: "http://list.image.baidu.com/t/image_category/galleryimg/face/katong/sheng_ds.gif", img_w: 100, img_h: 300, img_href: "javascript:alert(3);" },
+        { img_url: "http://list.image.baidu.com/t/image_category/galleryimg/face/katong/moli_mm.gif", img_w: 100, img_h: 200, img_href: "javascript:alert(4);" },
+        { img_url: "", img_w: 100, img_h: 200, img_href: "javascript:alert(5);" },
+        { img_url: "", img_w: 100, img_h: 200, img_href: "javascript:alert(6);" },
+        { img_url: "", img_w: 100, img_h: 200, img_href: "javascript:alert(7);" },
+        { img_url: "", img_w: 100, img_h: 200, img_href: "javascript:alert(8);" },
+        { img_url: "", img_w: 100, img_h: 200, img_href: "javascript:alert(9);" }
+    ]
+});
+            </pre>
+        </div>
+    </div>
+
+    <div class="classification">
+        <div class="title">属性</div>
+        <div class="list">
+            <table width="100%" cellpadding="0" cellspacing="0" class="showList">
+                <thead class="head">
+                    <tr>
+                        <th width="200">属性</th>
+                        <th>类型</th>
+                        <th>描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>time</td>
+                        <td>number</td>
+                        <td>默认5000,设置自动切换间隔时间</td>
+                    </tr>
+                    <tr>
+                        <td>ation</td>
+                        <td>string</td>
+                        <td>默认click,设置鼠标切换事件</td>
+                    </tr>
+                    <tr>
+                        <td>data</td>
+                        <td>json</td>
+                        <td>数据源9条,不足补充空位图片</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="classification">
+        <div class="title">事件</div>
+        <div class="list">
+            <table width="100%" cellpadding="0" cellspacing="0" class="showList">
+                <thead class="head">
+                    <th width="200">事件
+                    </th>
+                    <th>描述
+                    </th>
+                </thead>
+                <tbody class="body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="classification">
+        <div class="title">方法</div>
+        <div class="list">
+            <table width="100%" cellpadding="0" cellspacing="0" class="showList">
+                <thead class="head">
+                    <th width="200">方法
+                    </th>
+                    <th>描述
+                    </th>
+                </thead>
+                <tbody class="body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

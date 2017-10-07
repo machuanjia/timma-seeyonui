@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>统计设置</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css" />
+    <script type="text/javascript" src="../../../scriptes/jquery.js"> </script>
+    <script type="text/javascript" src="../../calendar/calendar-debug.js"> </script>
+    <script type="text/javascript" src="../../calendar/calendar-zh-debug.js"> </script>
+    <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js"> </script>
+    <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js"> </script>
+    <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js"> </script>
+    <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js"> </script>
+    <script type="text/javascript" src="../../../ctp/jquery.json-debug.js"> </script>
+    <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js"> </script>
+    <script type="text/javascript" src="../../../ctp/jquery.code-debug.js"> </script>
+    <script type="text/javascript" src="../../../ctp/common-debug.js"> </script>
+    <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js"> </script>
+    <script type="text/javascript" src="../../seeyon.ui.common-debug.js"> </script>
+    <style>
+    	.fixed_width{width:50%;}
+    </style>
+</head>
+<body>
+	<div class="right fixed_width margin_lr_5">
+		<p class="border_b padding_tb_5 margin_b_5">
+			<a class="form_btn" href="javascript:void(0)"><span class="plus_16"> </span> </a>&nbsp;   		
+	    	<a class="form_btn" href="javascript:void(0)"><span class="minus_16"> </span> </a>&nbsp;   	
+	    	<a class="form_btn" href="javascript:void(0)"><span class="multiply_16"> </span> </a>&nbsp;
+	    	<a class="form_btn" href="javascript:void(0)"><span class="divide_16"> </span> </a>&nbsp;
+	    	<a class="form_btn" href="javascript:void(0)"><span class="brackl_16"> </span> </a>&nbsp;
+    		<a class="form_btn" href="javascript:void(0)"><span class="brackr_16"> </span> </a>&nbsp;
+	    	
+    	</p>
+    	<p class="margin_b_5">
+	    	<a class="form_btn" href="javascript:void(0)"><span class="gt_16"> </span> </a>&nbsp;
+	    	<a class="form_btn" href="javascript:void(0)"><span class="gt_eq_16 w32 "> </span> </a>&nbsp;
+		    <a class="form_btn" href="javascript:void(0)"><span class="lt_16"> </span> </a>&nbsp;
+		    <a class="form_btn" href="javascript:void(0)"><span class="lt_eq_16 w32"> </span> </a>&nbsp;
+	    	<a class="form_btn" href="javascript:void(0)"><span class="equal_16"> </span> </a>&nbsp;
+	    	<a class="form_btn" href="javascript:void(0)"><span class="brack_angle_16 w32"> </span> </a>	&nbsp;
+	    	<a class="form_btn" href="javascript:void(0)">date</a>
+		</p>
+		<p class="border_b padding_b_5 margin_b_5">
+			<a class="form_btn" href="javascript:void(0)">and</a>	
+    		<a class="form_btn" href="javascript:void(0)">or</a>
+    		<a class="form_btn" href="javascript:void(0)">xor</a>
+    		<a class="form_btn" href="javascript:void(0)">date</a>
+    		<a class="form_btn w89" href="javascript:void(0)">包含</a>
+           	<a class="form_btn w89" href="javascript:void(0)">不包含</a>
+		</p>
+    	<p class="margin_b_5">
+    		<a class="form_btn w89" href="javascript:void(0)">extend</a>
+    	</p>
+    	<div class="common_tabs clearfix">
+            <ul class="left">
+                <li class="current"><a hideFocus="true" class="border_b" href="javascript:void(0)">表单数据域</a></li>
+                <li><a hideFocus="true" href="javascript:void(0)">系统数据域</a></li>
+                <li><a hideFocus="true" class="last_tab" href="javascript:void(0)">系统变量</a></li>
+            </ul>
+        </div>
+		<div class="margin_t_5 font_size12">
+			<select style="width:120px;"><option> 表单1</option></select>
+			<label for="name" class="margin_l_10">查询: </label><input class="comp" name="name" value="" type="text" comp="type:'search',fun:'testFunction',title:'查询'">
+			<br>
+			<select multiple="true" class="w100b margin_t_5" size="10">
+				<option>姓名</option>
+				<option>费用</option>
+				<option>批准人</option>
+				<option>批准人</option>
+			</select>
+		</div>
+    	
+  </div>
+  <div class="adapt_w padding_5">
+  	<p class="font_size12 margin_b_5">用户输入条件</p>
+  	<textarea class="w100b" rows="10"> </textarea>
+  	<div class="margin_tb_5">
+  		<a class="common_button common_button_gray" href="javascript:void(0)">增加</a>
+  		<a class="common_button common_button_gray" href="javascript:void(0)">修改</a>
+  		<a class="common_button common_button_gray" href="javascript:void(0)">删除</a>
+  	</div>
+  	<table class="only_table" border="0" cellSpacing="0" cellPadding="0" width="100%">
+		<thead>
+		    <tr>
+		        <th>条件名称</th>
+		        <th>标题</th>
+		        <th>缺省值</th>
+		        <th>输入</th>
+		    </tr>
+		</thead>
+		<tbody>
+		    <tr class="erow">
+		        <td>1</td>
+		        <td>2</td>
+		        <td>3</td>
+		        <td>4</td>
+		    </tr>
+		</tbody>
+	</table>
+  </div>
+</body>
+</html>

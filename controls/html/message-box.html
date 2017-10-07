@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Message-Box</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+	<script type="text/javascript" src="../../scriptes/jquery.js"></script>
+	<script type="text/javascript" src="../../scriptes/seeyon.ui.all.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+	
+	<script type="text/javascript" src="../calendar/calendar-debug.js"></script>
+	<script type="text/javascript" src="../calendar/calendar-zh-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/misc/Moo-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.json-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.fillform-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.code-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/common-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/i18n-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/v3x-debug.js"></script>
+	<script type="text/javascript" src="../searchBox-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.checkform-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.dialog-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.grid-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.layout-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.menu-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.progress-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.scroll-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tab-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.toolbar-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tree-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.calendar-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.arraylist-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tooltip-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.comp-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.tree-debug.js"></script>
+	<script>
+        function OK(json) {
+            return window.dialogArguments+"----ddddddddddddd";
+        }
+		function MIN(json){
+			alert(1)
+			return json.name
+		}
+		function MAX(json){
+			alert(2)
+			return json.name
+		}
+		function CLOSE(json){
+			alert(3)
+			return json.name
+		}
+	</script>
+</head>
+<body>
+    <h3 class="dev_hide design_hide">[1.示例]</h3>
+    <table class="docsShowTable dev_hide design_hide">
+        <tr>
+            <td class="td" width="200">示例</td>
+            <td class="td"><a href="javascript:showMessageBox(0)" class="common_button common_button_gray">确定</a>
+                <br />
+                <br />
+                <a href="javascript:showMessageBox(1)" class="common_button common_button_gray">确定 + 取消</a>
+                <br />
+                <br />
+                <a href="javascript:showMessageBox(2)" class="common_button common_button_gray">是 + 否 + 取消</a>
+                <br />
+                <br />
+                <a href="javascript:showMessageBox(3)" class="common_button common_button_gray">是 + 否</a>
+                <br />
+                <br />
+                <a href="javascript:showMessageBox(4)" class="common_button common_button_gray">重试 + 取消</a>
+                <br />
+                <br />
+                <a href="javascript:showMessageBox(5)" class="common_button common_button_gray">确定 + 详细</a>
+                <br />
+                <br />
+                <a href="javascript:showMessageBox(100)" class="common_button common_button_gray">自定义</a>
+                <br />
+                <br />
+                <script type="text/ecmascript">
+                    function showMessageBox(flag) {
+                        if (flag == 0) {
+                            $.messageBox({
+                                'type': 0,
+                                'msg': 'this is msg content!',
+                                ok_fn: function () { alert('确定后执行，自定义方法test()!'); }
+                            });
+                        } else if (flag == 1) {
+                            $.messageBox({
+                                'type': 1,
+                                'msg': 'this is msg content!',
+                                ok_fn: function () { alert('确定后执行，自定义方法test()!'); }
+                            });
+                        } else if (flag == 2) {
+                            $.messageBox({
+                                'type': 2,
+                                'msg': 'this is msg content!',
+                                ok_fn: function () { alert('确定后执行，自定义方法test()!'); }
+                            });
+                        } else if (flag == 3) {
+                            $.messageBox({
+                                'type': 3,
+                                'msg': 'this is msg content!',
+                                ok_fn: function () { alert('确定后执行，自定义方法test()!'); }
+                            });
+                        } else if (flag == 4) {
+                            $.messageBox({
+                                'type': 4,
+                                'msg': 'this is msg content!',
+                                ok_fn: function () { alert('确定后执行，自定义方法test()!'); }
+                            });
+                        } else if (flag == 5) {
+                            $.messageBox({
+                                'type': 5,
+                                'msg': 'this is msg content!',
+                                imgType: 4,
+                                ok_fn: function () { alert('确定后执行，自定义方法test()!'); }
+                            });
+                        } else if (flag == 100) {
+                            $.messageBox({
+                                'type': 100,
+                                'msg': 'this is msg content!',
+                                buttons: [{
+									id:'btn1',
+                                    text: "button1",
+                                    handler: function () { alert('handler') }
+                                }, {
+									id:'btn2',
+                                    text: "button2",
+                                    handler: function () { alert('handler') }
+                                }]
+                            });
+                        }
+                    }
+                </script>
+            </td>
+        </tr>
+    </table>
+	
+	<h3>[1.示例]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="200">示例</td>
+            <td class="td">
+            	<a id="alert" href="javascript:void(0)" class="common_button common_button_gray">alert</a>
+				<script>
+					$(document).ready(function(){
+						$('#alert').click(function(){
+							var alertObj = $.alert("这个是alert窗口!");
+						});						
+					});
+				</script>						
+                <br />
+                <br />
+				<div style="display: block;" class="sorce_code">
+				<pre>
+var alertObj = $.alert("这个是alert窗口!");
+				</pre>
+				</div>
+				<br />
+                <a id="infor" href="javascript:void(0)" class="common_button common_button_gray">infor</a>
+				<script>
+					$(document).ready(function(){
+						$('#infor').click(function(){
+							var infor = $.infor("这个是提示信息!");
+						});						
+					});
+				</script>
+                <br />
+                <br />
+				<div style="display: block;" class="sorce_code">
+				<pre>
+var infor = $.infor("这个是提示信息!");
+				</pre>
+				</div>
+				<br />
+                <a id="confirm" href="javascript:void(0)" class="common_button common_button_gray">confirm</a>
+				<script>
+					$(document).ready(function(){
+						$('#confirm').click(function(){
+							var confirm = $.confirm({
+                                bottomHTML:'<label for="Checkbox5" class="margin_t_5 hand"><input type="checkbox" value="0" id="Checkbox5" name="option" class="radio_com">选项1</label><span class="color_blue hand" title="啊啊啊啊啊啊啊啊啊啊啊a啊啊">[说明]</span>',
+                                'msg': '点击按钮后执行某个方法!',
+                                ok_fn: function () { alert('确定后执行，自定义方法!'); },
+								cancel_fn:function(){alert('取消后执行，自定义方法!');}
+							});
+						});						
+					});
+				</script>
+                <br />
+                <br />
+				<div style="display: block;" class="sorce_code">
+				<pre>
+var confirm = $.confirm({
+    'msg': '点击按钮后执行某个方法!',
+    ok_fn: function () { alert('确定后执行，自定义方法!'); },
+	cancel_fn:function(){alert('取消后执行，自定义方法!');}
+});
+				</pre>
+				</div>
+				<br />
+				<!--
+                <a id="success" href="javascript:void(0)" class="common_button common_button_gray">success</a>
+				<script>
+					$(document).ready(function(){
+						$('#success').click(function(){
+							var success = $.success("这个是成功对话框!");
+						});						
+					});
+				</script>
+                <br />
+                <br />
+				<div style="display: block;" class="sorce_code">
+				<pre>
+var success = $.success("这个是成功对话框!");
+				</pre>
+				</div>
+				<br />
+                <a id="warning" href="javascript:void(0)" class="common_button common_button_gray">warning</a>
+				<script>
+					$(document).ready(function(){
+						$('#warning').click(function(){
+							var warning = $.warning("这个是警告对话框!");
+						});						
+					});
+				</script>
+                <br />
+                <br />
+				<div style="display: block;" class="sorce_code">
+				<pre>
+var warning = $.warning("这个是警告对话框!");
+				</pre>
+				</div>
+				-->
+				<br />
+                <a id="error" href="javascript:void(0)" class="common_button common_button_gray">error</a>
+				<script>
+					$(document).ready(function(){
+						$('#error').click(function(){
+							var error = $.error("这个是错误对话框!");
+						});						
+					});
+				</script>
+                <br />
+                <br />
+				<div style="display: block;" class="sorce_code">
+				<pre>
+var error = $.error("这个是错误对话框!");
+				</pre>
+				</div>
+				
+                <br />
+                <br />
+                <a id="random" href="javascript:void(0)" class="common_button common_button_gray">自定义</a>
+				<script>
+					$(document).ready(function(){
+						$('#random').click(function(){
+                            var random = $.messageBox({
+                                'type': 100,
+                                'msg': 'this is msg content!',
+                                buttons: [{
+                                    text: "button1",
+                                    handler: function () { alert('handler') }
+                                }, {
+                                    text: "button2",
+                                    handler: function () { alert('handler') }
+                                }]
+                            });
+						});
+					});
+				</script>
+                <br />
+                <br />
+				<div style="display: block;" class="sorce_code">
+				<pre>
+var random = $.messageBox({
+    'type': 100,
+    'msg': 'this is msg content!',
+    buttons: [{
+    id:'btn1',
+        text: "button1",
+        handler: function () { alert('handler') }
+    }, {
+    id:'btn2',
+        text: "button2",
+        handler: function () { alert('handler') }
+    }]
+});
+				</pre>
+				</div>
+            </td>
+        </tr>
+    </table>	
+
+    <h3 class="design_hide dev_hide">[2.使用实例]</h3>
+    <table class="docsShowTable design_hide dev_hide">
+        <tr>
+            <td class="td" width="200"></td>
+            <td class="td code"></td>
+        </tr>
+    </table>
+    <h3 class="design_hide">[4.属性]</h3>
+    <table class="docsShowTable design_hide">
+        <tr class="head">
+            <td class="td" width="200">属性</td>
+            <td class="td" width="200">类型</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td">type
+            </td>
+            <td class="td"></td>
+            <td class="td">消息窗口类型
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="td">
+                <table>
+                    <tr>
+                        <td>type值(类型)
+                        </td>
+                        <td>Button
+                        </td>
+                        <td>返回值
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>0
+                        </td>
+                        <td>确定
+                        </td>
+                        <td>ok
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1
+                        </td>
+                        <td>确定 + 取消
+                        </td>
+                        <td>ok + cancel
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2
+                        </td>
+                        <td>是 + 否 + 取消	
+                        </td>
+                        <td>yes + no + cancel
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3
+                        </td>
+                        <td>是 + 否	
+                        </td>
+                        <td>yes + no
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4
+                        </td>
+                        <td>重试 + 取消	
+                        </td>
+                        <td>retry + cancel
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5
+                        </td>
+                        <td>确定 + 详细	
+                        </td>
+                        <td>ok + detail
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>100
+                        </td>
+                        <td colspan="2">自定义按钮及事件	
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="td">title
+            </td>
+            <td class="td"></td>
+            <td class="td">消息窗口名称
+            </td>
+        </tr>
+        <tr>
+            <td class="td">imgType
+            </td>
+            <td class="td"></td>
+            <td class="td">消息窗口图片类型(0:成功)--(1:操作失败)--(2:警告)--(3:询问)
+            </td>
+        </tr>
+        <tr>
+            <td class="td">msg
+            </td>
+            <td class="td"></td>
+            <td class="td">提示信息内容
+            </td>
+        </tr>
+        <tr>
+            <td class="td">ok_fn
+            </td>
+            <td class="td"></td>
+            <td class="td">点击确定后执行的函数
+            </td>
+        </tr>
+        <tr>
+            <td class="td">cancel_fn
+            </td>
+            <td class="td"></td>
+            <td class="td">点击取消后执行的函数
+            </td>
+        </tr>
+        <tr>
+            <td class="td">yes_fn
+            </td>
+            <td class="td"></td>
+            <td class="td">点击是后执行的函数
+            </td>
+        </tr>
+        <tr>
+            <td class="td">no_fn
+            </td>
+            <td class="td"></td>
+            <td class="td">点击否后执行的函数
+            </td>
+        </tr>
+        <tr>
+            <td class="td">retry_fn
+            </td>
+            <td class="td"></td>
+            <td class="td">点击重试后执行的函数
+            </td>
+        </tr>
+        <tr>
+            <td class="td">detail_fn
+            </td>
+            <td class="td"></td>
+            <td class="td">点击详情后执行的函数
+            </td>
+        </tr>
+		<tr>
+            <td class="td">close_fn
+            </td>
+            <td class="td"></td>
+            <td class="td">点击右上角 X 调用的方法
+            </td>
+        </tr>
+        <tr>
+            <td class="td">buttons
+            </td>
+            <td class="td"></td>
+            <td class="td">自定义按钮及事件
+            </td>
+        </tr>
+        <tr>
+            <td class="td">isFrountEvent
+            </td>
+            <td class="td"></td>
+            <td class="td">点击按钮后是否先执行自定义事件[默认先关闭窗口再执行自定义事件]
+            </td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide dev_hide">[5.事件]</h3>
+    <table class="docsShowTable design_hide dev_hide">
+        <tr class="head">
+            <td class="td" width="200">事件</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide">[6.方法]</h3>
+    <table class="docsShowTable design_hide">
+        <tr class="head">
+            <td class="td" width="200">方法</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td">close()
+            </td>
+            <td class="td">关闭窗口
+            </td>
+        </tr>
+        <tr>
+            <td class="td" colspan="2">
+                <div class="sorce_code">
+                    <pre>
+var win = new MxtMsgBox({
+    'type': 0,
+    'msg': 'this is msg content!',
+ok_fn:function(){alert('确定后执行，自定义方法test()!');}
+});
+//win.close();
+</pre>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <h3>[3.UE]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="">提示信息框</td>
+            <td class="td"></td>
+        </tr>
+    </table>
+</body>
+</html>

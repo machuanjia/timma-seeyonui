@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>项目任务－列表</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin-debug.css">
+    <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../calendar/calendar-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.json-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.code-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/i18n-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/v3x-debug.js"></script>
+    <script type="text/javascript" src="../../searchBox-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.menu-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.progress-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tab-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tree-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.zsTree-debug.js"></script>
+    <script>
+        var treeData = [
+            { id:"a1", level:0, name:'<div class="list_item clearfix"><span class="projectName"><span class="ico16 margin_l_5 important2_16"></span>一级分类</span><span class="projectType"><a class="noClick">全产品一致性清理</a></span><span class="state">进行中</span><span class="rate"><div class="rateProgress_box"><div class="rateProgress_green" style="width:20%;"></div></div></span><span class="rateNumber">20%</span><span class="rateNumber_input rateNumber_input_error"><div class="rateNumber_error"><div><em class="rateNumber_error_arrow"></em><em class="ico16"></em>请输入0～100的整数</div></div><input class="noClick" type="text" value="20">%</span><span class="people">于荒津</span><span class="right"><span class="time_start_2">2014-11-04<br>09:00</span><span class="line">-</span><span class="time_end_2">2014-11-04<br>09:00</span></span><span class="operateBtn"><a class="noClick">完成</a><a class="noClick">编辑</a><a class="noClick">删除</a></span></div>', hasChild:true},
+            { id:"b1", pId:"a1", level:1, name:'<div class="list_item clearfix"><span class="projectName"><span class="ico16 margin_l_5 important2_16"></span>二级分类</span><span class="projectType"><a class="noClick">港澳游只要998</a></span><span class="state">进行中</span><span class="rate"><div class="rateProgress_box"><div class="rateProgress_green" style="width:20%;"></div></div></span><span class="rateNumber">20%</span><span class="rateNumber_input rateNumber_input_error"><div class="rateNumber_error"><div><em class="rateNumber_error_arrow"></em><em class="ico16"></em>请输入0～100的整数</div></div><input class="noClick" type="text" value="20">%</span><span class="people">于荒津</span><span class="right"><span class="time_start_1">2014-11-04</span><span class="line">-</span><span class="time_end_1">2014-11-04</span></span><span class="operateBtn"><a class="noClick">完成</a><a class="noClick">编辑</a><a class="noClick">删除</a></span></div>', hasChild:true},
+            { id:"b2", pId:"a1", level:1, name:'<div class="list_item clearfix"><span class="projectName"><span class="ico16 margin_l_5 important2_16"></span>二级分类</span><span class="projectType"><a class="noClick">全产品一致性清理</a></span><span class="state">进行中</span><span class="rate"><div class="rateProgress_box"><div class="rateProgress_green" style="width:20%;"></div></div></span><span class="rateNumber">20%</span><span class="rateNumber_input rateNumber_input_error"><div class="rateNumber_error"><div><em class="rateNumber_error_arrow"></em><em class="ico16"></em>请输入0～100的整数</div></div><input class="noClick" type="text" value="20">%</span><span class="people">于荒津</span><span class="right"><span class="time_start_1">2014-11-04</span><span class="line">-</span><span class="time_end_1">2014-11-04</span></span><span class="operateBtn"><a class="noClick">完成</a><a class="noClick">编辑</a><a class="noClick">删除</a></span></div>'},
+            { id:"b3", pId:"a1", level:1, name:'<div class="list_item clearfix"><span class="projectName"><span class="ico16 margin_l_5 important2_16"></span>二级分类</span><span class="projectType"><a class="noClick">国际化</a></span><span class="state">进行中</span><span class="rate"><div class="rateProgress_box"><div class="rateProgress_green" style="width:20%;"></div></div></span><span class="rateNumber">20%</span><span class="rateNumber_input rateNumber_input_error"><div class="rateNumber_error"><div><em class="rateNumber_error_arrow"></em><em class="ico16"></em>请输入0～100的整数</div></div><input class="noClick" type="text" value="20">%</span><span class="people">于荒津</span><span class="right"><span class="time_start_1">2014-11-04</span><span class="line">-</span><span class="time_end_1">2014-11-04</span></span><span class="operateBtn"><a class="noClick">完成</a><a class="noClick">编辑</a><a class="noClick">删除</a></span></div>'},
+            { id:"b4", pId:"a1", level:1, name:'<div class="list_item clearfix"><span class="projectName"><span class="ico16 margin_l_5 important2_16"></span>二级分类二级分类二级分类二级分类二级分类二级分类二级分类二级分类二级分类二级分类二级分类二级分类二级分类二级分类</span><span class="projectType"><a class="noClick">全产品一致性清理全产品一致性清理</a></span><span class="state">进行中</span><span class="rate"><div class="rateProgress_box"><div class="rateProgress_green" style="width:20%;"></div></div></span><span class="rateNumber">20%</span><span class="rateNumber_input rateNumber_input_error"><div class="rateNumber_error"><div><em class="rateNumber_error_arrow"></em><em class="ico16"></em>请输入0～100的整数</div></div><input class="noClick" type="text" value="20">%</span><span class="people">于荒津</span><span class="right"><span class="time_start_1">2014-11-04</span><span class="line">-</span><span class="time_end_1">2014-11-04</span></span><span class="operateBtn"><a class="noClick">完成</a><a class="noClick">编辑</a><a class="noClick">删除</a></span></div>'},
+            { id:"c1", pId:"b1", level:2, name:'<div class="list_item clearfix"><span class="projectName"><span class="ico16 margin_l_5 important2_16"></span>三级分类</span><span class="projectType"><a class="noClick">港澳游只要998</a></span><span class="state">进行中</span><span class="rate"><div class="rateProgress_box"><div class="rateProgress_green" style="width:20%;"></div></div></span><span class="rateNumber">20%</span><span class="rateNumber_input rateNumber_input_error"><div class="rateNumber_error"><div><em class="rateNumber_error_arrow"></em><em class="ico16"></em>请输入0～100的整数</div></div><input class="noClick" type="text" value="20">%</span><span class="people">于荒津</span><span class="right"><span class="time_start_1">2014-11-04</span><span class="line">-</span><span class="time_end_1">2014-11-04</span></span><span class="operateBtn"><a class="noClick">完成</a><a class="noClick">编辑</a><a class="noClick">删除</a></span></div>'},
+            { id:"c2", pId:"b1", level:2, name:'<div class="list_item clearfix"><span class="projectName"><span class="ico16 margin_l_5 important2_16"></span>三级分类</span><span class="projectType"><a class="noClick">全产品一致性清理</a></span><span class="state">进行中</span><span class="rate"><div class="rateProgress_box"><div class="rateProgress_green" style="width:20%;"></div></div></span><span class="rateNumber">20%</span><span class="rateNumber_input rateNumber_input_error"><div class="rateNumber_error"><div><em class="rateNumber_error_arrow"></em><em class="ico16"></em>请输入0～100的整数</div></div><input class="noClick" type="text" value="20">%</span><span class="people">于荒津</span><span class="right"><span class="time_start_1">2014-11-04</span><span class="line">-</span><span class="time_end_1">2014-11-04</span></span><span class="operateBtn"><a class="noClick">完成</a><a class="noClick">编辑</a><a class="noClick">删除</a></span></div>', hasChild:true},
+            { id:"c3", pId:"b1", level:2, name:'<div class="list_item clearfix"><span class="projectName"><span class="ico16 margin_l_5 important2_16"></span>三级分类</span><span class="projectType"><a class="noClick">港澳游只要998</a></span><span class="state">进行中</span><span class="rate"><div class="rateProgress_box"><div class="rateProgress_green" style="width:100%;"></div></div></span><span class="rateNumber">100%</span><span class="rateNumber_input rateNumber_input_error"><div class="rateNumber_error"><div><em class="rateNumber_error_arrow"></em><em class="ico16"></em>请输入0～100的整数</div></div><input class="noClick" type="text" value="100">%</span><span class="people">于荒津、于荒津、于荒津、于荒津、于荒津、</span><span class="right"><span class="time_start_1">2014-11-04</span><span class="line">-</span><span class="time_end_1">2014-11-04</span></span><span class="operateBtn"><a class="noClick">完成</a><a class="noClick">编辑</a><a class="noClick">删除</a></span></div>'}
+        ];
+        var addTreeData = [
+            { id:"d1", pId:"c2", level:3, name:'<div class="list_item clearfix"><span class="projectName"><span class="ico16 margin_l_5 important2_16"></span>四级分类</span><span class="projectType"><a class="noClick">港澳游只要998</a></span><span class="state">进行中</span><span class="rate"><div class="rateProgress_box"><div class="rateProgress_green" style="width:100%;"></div></div></span><span class="rateNumber">100%</span><span class="rateNumber_input rateNumber_input_error"><div class="rateNumber_error"><div><em class="rateNumber_error_arrow"></em><em class="ico16"></em>请输入0～100的整数</div></div><input class="noClick" type="text" value="100">%</span><span class="people">于荒津、于荒津、于荒津、于荒津、于荒津、</span><span class="right"><span class="time_start_1">2014-11-04</span><span class="line">-</span><span class="time_end_1">2014-11-04</span></span><span class="operateBtn"><a class="noClick">完成</a><a class="noClick">编辑</a><a class="noClick">删除</a></span></div>'},
+            { id:"d2", pId:"c2", level:3, name:'<div class="list_item clearfix"><span class="projectName"><span class="ico16 margin_l_5 important2_16"></span>四级分类</span><span class="projectType"><a class="noClick">港澳游只要998</a></span><span class="state">进行中</span><span class="rate"><div class="rateProgress_box"><div class="rateProgress_green" style="width:100%;"></div></div></span><span class="rateNumber">100%</span><span class="rateNumber_input rateNumber_input_error"><div class="rateNumber_error"><div><em class="rateNumber_error_arrow"></em><em class="ico16"></em>请输入0～100的整数</div></div><input class="noClick" type="text" value="100">%</span><span class="people">于荒津、于荒津、于荒津、于荒津、于荒津、</span><span class="right"><span class="time_start_1">2014-11-04</span><span class="line">-</span><span class="time_end_1">2014-11-04</span></span><span class="operateBtn"><a class="noClick">完成</a><a class="noClick">编辑</a><a class="noClick">删除</a></span></div>'},
+            { id:"d3", pId:"c2", level:3, name:'<div class="list_item clearfix"><span class="projectName"><span class="ico16 margin_l_5 important2_16"></span>四级分类</span><span class="projectType"><a class="noClick">港澳游只要998</a></span><span class="state">进行中</span><span class="rate"><div class="rateProgress_box"><div class="rateProgress_green" style="width:100%;"></div></div></span><span class="rateNumber">100%</span><span class="rateNumber_input rateNumber_input_error"><div class="rateNumber_error"><div><em class="rateNumber_error_arrow"></em><em class="ico16"></em>请输入0～100的整数</div></div><input class="noClick" type="text" value="100">%</span><span class="people">于荒津、于荒津、于荒津、于荒津、于荒津、</span><span class="right"><span class="time_start_1">2014-11-04</span><span class="line">-</span><span class="time_end_1">2014-11-04</span></span><span class="operateBtn"><a class="noClick">完成</a><a class="noClick">编辑</a><a class="noClick">删除</a></span></div>'}
+        ];
+
+        $(function () {
+            var tt = new zsTree({
+                targetId: "zsTreeList",
+                data: treeData,
+                onlyText: false,
+                computeWidth: true,
+                asynAddData: function(pId){
+                    if (pId == "c2") {
+                        tt.addData(addTreeData);
+                        //判断?异步加载成功，防止二次加载数据
+                        return true;
+                    };
+                },
+                onAddCallback:function(data){
+                    for (var i = 0; i < data.length; i++) {
+                        var row_obj = $("#"+ data[i].id + " .nodeTextArea:eq(0)");
+                        var row_width = row_obj.width();
+                        row_obj.find(".projectName:eq(0)").width(row_width - 681);
+                    };
+                }
+            });
+
+            var onlyTreeData = [
+                { id:"x1", level:0, name:'中国'},
+                { id:"y1", pId:"x1", level:1, name:'北京'},
+                { id:"y2", pId:"x1", level:1, name:'深圳'},
+                { id:"z1", pId:"y1", level:2, name:'海淀'},
+                { id:"z2", pId:"y1", level:2, name:'西城'},
+                { id:"z3", pId:"y1", level:2, name:'朝阳朝阳朝阳朝阳朝阳朝阳朝阳朝阳朝阳朝阳朝阳朝阳朝阳朝阳朝阳'}
+            ];
+            var tt2 = new zsTree({
+                targetId: "onlyTree",
+                data: onlyTreeData,
+                nodeWidth: 280,
+                onNodeSelected: function(id){
+                    console.log(id);
+                }
+            });
+        })
+
+    </script>
+</head>
+<body>
+    <div class="projectTask_listArea">
+        <div id="zsTreeList" class="list list_tree"></div>
+    </div>
+    <br><br><br>
+    <div id="onlyTree" class="clearfix" style="overflow:auto;width:300px;height:300px;"></div>
+</body>
+</html>

@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>内容区示例</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../../docs/resource/demo.css">
+    <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../../docs/resource/demo.js"></script>
+</head>
+
+<body>
+	
+    <h3>[1.内容区示例]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="200">内容区示例</td>
+            <td class="td code">
+                <div class="common_content_area">
+					<div class="content_area_head clearfix">
+						<div class="common_tabs index_tabs">
+						    <ul>
+						    	<li><a href="#" class="show"><span class=" left margin_5"> </span></a></li>
+								<li class="current"><a href="#">页签1</a></li>
+								<li><a href="#">页签2</a></li>
+								<li><a href="#">页签3</a></li>
+								<li><a href="#">页签4</a></li>
+						    </ul>
+						</div>
+						<span class="max right"> </span>
+						<span class="edit right"> </span>
+					</div>
+					<div class="content_area_body common_tabs_body">
+					</div>
+					<div class="content_area_footer padding_lr_5 clearfix">					
+						<a href="#" class="right"><em class="ico16 portal_more "> </em> </a>
+						<a href="#" class="right margin_r_10"><em class="ico16 portal_new margin_r_5"> </em>操作</a>
+					</div>
+				</div>
+
+            </td>
+        </tr>
+    </table>
+
+    <h3>[2.使用实例]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="200"></td>
+            <td class="td code"></td>
+        </tr>
+    </table>
+
+    <h3>[3.UE]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="" colspan="2">1.栏目框架结构：<br />
+                &nbsp;&nbsp;① 栏目收起、展开<br />
+                &nbsp;&nbsp;② 栏目高低自适应<br />
+                &nbsp;&nbsp;③ 栏目设置：栏目删除、编辑
+                <br />
+                &nbsp;&nbsp;④ 栏目支持多页签 ，页签个数: >1 , <4<br />
+                &nbsp;&nbsp;⑤ 栏目拖拽排序，栏目拖拽按栏目网格定位<br />
+                &nbsp;&nbsp;⑥ 栏目支持最大化显示，既：模态对话框模式浮动显示，同时该页面等同于该栏目的更多页面内容
+                <br />
+                &nbsp;&nbsp;⑦ 栏目中的页签支持拖拽排序<br />
+                &nbsp;&nbsp;⑧ 栏目页签可拖拽，既：支持多页签合并或拆分成为栏目
+                <br />
+                &nbsp;&nbsp;⑨ 栏目条换肤 </td>
+            </tr>
+        <tr>
+            <td class="td" colspan="2">2.栏目通用布局样式<br />
+                &nbsp;&nbsp;① 列表模式<br />
+                &nbsp;&nbsp;② 图片模式<br />
+                &nbsp;&nbsp;③ BI图标模式<br />
+                &nbsp;&nbsp;④ 图标显示模式<br />
+                <br />
+                &nbsp;&nbsp;适用范围：空间、功能首页内容区呈现<br />
+                &nbsp;&nbsp;栏目样式构成<br />
+                &nbsp;&nbsp;① 列表模式<br />
+                &nbsp;&nbsp;② 图片模式<br />
+                &nbsp;&nbsp;③ BI图标模式<br />
+                &nbsp;&nbsp;④ 图标显示模式<br />
+            </td>
+        </tr>
+        <tr>
+            <td class="td" colspan="2">♦首页所有栏目根据空间布局提供三种通用模式，分别为：<br />
+                &nbsp;&nbsp;- 标准栏目布局模式（作为基础模式）<br />
+                &nbsp;&nbsp;- 通栏栏目布局模式<br />
+                &nbsp;&nbsp;- 窄栏目布局模式<br />
+                <br />
+                ♦栏目信息数量配置模式<br />
+                &nbsp;&nbsp;- 栏目显示条数按显示项数配置（非行数显示）</td>
+        </tr>
+        <tr>
+            <td class="td" rowspan="3">标准栏目布局（基础布局）</td>
+            <td class="td">标准栏目布局规则：<br />
+                1.适用于空间布局模版定义中的所有标准栏目布局模式</td>
+        </tr>
+        <tr>
+            <td class="td">可扩展为通栏布局<br />
+                通栏栏目布局规则：<br />
+                通栏布局支持一列或多列信息显示，列表类栏目分别支持1列、多列布局模式<br />
+                1.一列规则：标题为基准最优化自适应显示，属性数据项整体以栏目右边距为准居右显示，如：适用于列表类栏目展现<br />
+                3.多列显示：以栏目宽度为基准，信息按列均匀分配，适用于：棋盘类栏目（如：关注人员栏目、文档图标样式栏目、关联项目栏目）</td>
+        </tr>
+        <tr>
+            <td class="td">可扩展为窄栏目布局<br />
+                窄栏目布局规则：<br />
+                1.支持信息折行显示：<br />
+                2.列表类栏目：标题区单行显示，属性数据项单行显示，超出栏目宽度时，允许出现水平滚动条<br />
+                3.棋盘类栏目：以栏目宽度为基准，信息按列布局，均匀分配<br />
+                4.图、表类栏目：同“标准栏目布局”规则，在窄栏目中允许出现水平滚动条</td>
+        </tr>
+        <tr>
+            <td class="font_bold td" colspan="2">通栏栏目布局模式：</td>
+        </tr>
+        <tr>
+            <td class="td">
+                布局模版：<br />
+                <img src="../images/通栏 - 模版1.png" />
+            </td>
+            <td class="td">
+                栏目样式：<br />
+                <img src="../images/通栏 - 样式1.png" /></td>
+        </tr>
+        <tr>
+            <td class="font_bold td" colspan="2">标准栏目布局模式：</td>
+        </tr>
+        <tr>
+            <td class="td">
+                布局模版：<br />
+                <img src="../images/标准栏 - 模版2.png" /></td>
+            <td class="td">
+                栏目样式：<br />
+                <img src="../images/标准栏 - 样式2.png" /></td>
+        </tr>
+        <tr>
+            <td class="font_bold td" colspan="2">标准栏目布局模式：</td>
+        </tr>
+        <tr>
+            <td class="td">
+                布局模版：<br />
+                <img src="../images/窄栏 - 模版4.png" /></td>
+            <td class="td">
+                栏目样式：<br />
+                <img src="../images/窄栏 - 样式4.png" /></td>
+        </tr>
+    </table>
+
+    <h3>[4.属性]</h3>
+    <table class="docsShowTable">
+        <tr class="head">
+            <td class="td" width="200">属性</td>
+            <td class="td" width="200">类型</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3>[5.事件]</h3>
+    <table class="docsShowTable">
+        <tr class="head">
+            <td class="td" width="200">事件</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3>[6.方法]</h3>
+    <table class="docsShowTable">
+        <tr class="head">
+            <td class="td" width="200">方法</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+</body>
+</html>

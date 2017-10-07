@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>layout</title>
+        <script src="../../scriptes/jquery.js">
+        </script>
+		<script>
+			$(document).ready(function(){
+				var CROOPARRAY = window.opener.CROOPOBJ.CROOPARRAY;
+				//alert(CROOPARRAY.length)
+				for (var i=0; i<CROOPARRAY.length; i++) {
+					var _temp = CROOPARRAY[i];
+					//alert(_temp.openType)
+					//alert((_temp.openType == 0?'target="_blank"':""))
+					$('#Map').append(' <area shape="rect" coords="'+_temp.x1+','+_temp.y1+','+_temp.x2+','+_temp.y2+'" href="'+_temp.url+'" '+(_temp.openType == 0?'target="_blank"':"")+'/>');
+				};
+			});
+		</script>
+    </head>
+    <body style="padding:30px;">
+        <img src="Koala.jpg" id="target" alt="[Jcrop Example]" border="0" usemap="#Map"/>
+        <map name="Map" id="Map">
+            <!--<area shape="rect" coords="0,0,100,100" href="http://www.baidu.com" target="_blank"/>-->
+        </map>
+    </body>
+</html>

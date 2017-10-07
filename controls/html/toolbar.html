@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>toolbar</title>
+        <link rel="stylesheet" type="text/css" href="../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+        <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+        <script type="text/javascript" src="../../scriptes/jquery.js">
+        </script>
+        <script type="text/javascript" src="../../docs/resource/demo.js">
+        </script>
+        <script type="text/javascript" src="../../scriptes/jquery.js">
+        </script>
+        <script type="text/javascript" src="../../docs/resource/demo.js">
+        </script>
+        <script type="text/javascript" src="../calendar/calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../calendar/calendar-zh-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/Moo-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.json-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.fillform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.code-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/i18n-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/v3x-debug.js">
+        </script>
+        <script type="text/javascript" src="../searchBox-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.checkform-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.dialog-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.grid-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.layout-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.menu-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.progress-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.scroll-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tab-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.toolbar-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.arraylist-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tooltip-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.comp-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.tree-debug.js">
+        </script>
+    </head>
+    <body>
+        <h3>[1.toolbar示例]</h3>
+        <table class="docsShowTable">
+            <tr>
+                <td class="td" width="200">
+                    toolbar示例
+                </td>
+                <td class="td">
+                    <div id="toolbar2">
+                    </div>
+                    <script type="text/javascript">
+                     function getValue(){
+                     	var index=$("#select")[0].selectedIndex;
+                     	alert($("#select")[0][index].innerHTML);
+                     }
+
+                        $().ready(function(){
+                            var tt = $("#toolbar2").toolbar({
+                            	//searchHtml:"search",
+                                toolbar: [{
+                                	
+                                    id: "transmit",
+                                    name: "转发",
+                                    className: "ico16",
+                                    click:function(){
+                                            alert("转发");
+                                        },
+                                    subMenu: [{
+										id:'sssssssssss',
+                                        name: "协同",
+                                        click: function(){
+                                            alert(111);
+                                        }
+                                    }, {
+										id:'dfdfdfd1',
+                                        name: "邮件",
+                                        click: function(){
+                                            alert(222);
+                                        }
+                                    }, {
+										id:'dfdfdfd2',
+                                        name: "邮件",
+                                        click: function(){
+                                            alert(222);
+                                        }
+                                    }, {
+										id:'dfdfdfd3',
+                                        name: "邮件",
+                                        click: function(){
+                                            alert(222);
+                                        }
+                                    }, {
+										id:'dfdfdfd4',
+                                        name: "邮件",
+                                        click: function(){
+                                            alert(222);
+                                        }
+                                    }]
+                                }, {
+                                    id: "delete",
+                                    name: "删除",
+                                    className: "ico16 del_16",
+									selected:true
+                                }, {
+                                    id: "refresh",
+                                    name: "刷新",
+                                    className: "ico16 refresh_16"
+                                },{
+                                    id: "select",
+                                    type: "select",
+                                    value:"-1",
+                                    text:"重要程度",
+                                    //className:"hidden",
+                                    onchange:getValue,
+                                   // disabled:true,
+                                    items: [{
+			                            text: '普通',
+			                            value: '0'
+			                        }, {
+			                            text: '重要',
+			                            value: '1'
+			                        }, {
+			                            text: '非常重要',
+			                            value: '2'
+			                        }]
+
+                                   // className: "ico16 del_16",
+                                },{
+                                    id: "checkb2222ox",
+                                    type: "checkbox",
+                                    text:"同一流程只显示最后一条",
+                                    value:"1",
+                                    checked:true,
+                                    click:function(){
+                                        alert(21111122)
+                                    }
+                                }]
+                            });
+						   tt.hideBtn('sssssssssss');
+						   tt.hideBtn('dfdfdfd1');
+						   tt.hideBtn('dfdfdfd2');
+						   tt.addMenu({
+                                    id: "deldddddete",
+                                    name: "删dddd除",
+                                    className: "ico16 del_16"
+                                });
+						   //tt.disabled("transmit");
+						   //tt.showBtn('sssssssssss');
+                        });
+                        
+                    </script>
+                    <div style="display: block;" class="sorce_code">
+					<pre>
+&lt;div id="toolbar"&gt;&lt;/div&gt;	
+<br/>					
+var toolbar = $("#toolbar").toolbar({
+    toolbar: [{
+        id: "transmit",
+        name: "转发",
+        className: "ico16",
+        click:function(){
+        	alert("转发");
+        },
+        subMenu: [{
+            name: "协同",
+            click: function(){
+                alert(111);
+            }
+        }, {
+            name: "邮件",
+            click: function(){
+                alert(222);
+            }
+        }]
+    }, {
+        id: "delete",
+        name: "删除",
+        className: "ico16 del_16"
+    }, {
+        id: "refresh",
+        name: "刷新",
+        className: "ico16 refresh_16"
+    } {
+        id: "select",
+        type: "select",
+        value:"-1",
+        text:"重要程度",
+        //className:"hidden",
+        onchange:getValue,
+       // disabled:true,
+        items: [{
+            text: '普通',
+            value: '0'
+        }, {
+            text: '重要',
+            value: '1'
+        }, {
+            text: '非常重要',
+            value: '2'
+        }]
+
+       // className: "ico16 del_16",
+    }]
+});
+						   </pre>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <h3 class="dev_hide design_hide">[2.使用实例]</h3>
+        <table class="docsShowTable dev_hide design_hide">
+            <tr>
+                <td class="td" width="200">
+                </td>
+                <td class="td">
+                </td>
+            </tr>
+        </table>
+        <h3>[3.UE]</h3>
+        <table class="docsShowTable">
+            <tr>
+                <td class="td" width="">
+                    当需要为一组少量相关的命令使用菜单时，可使用菜单按钮。
+                </td>
+                <td class="td">
+                </td>
+            </tr>
+        </table>
+        <h3>[4.属性]</h3>
+        <table class="docsShowTable">
+            <tr class="head">
+                <td class="td" width="200">
+                    属性
+                </td>
+                <td class="td" width="200">
+                    类型
+                </td>
+                <td class="td">
+                    描述
+                </td>
+            </tr>
+			<!--
+            <tr>
+                <td class="td">
+                    searchHtml
+                </td>
+                <td class="td">
+                	string
+                </td>
+                <td class="td">
+                   	查询区域的id
+                </td>
+            </tr>
+			-->
+            <!--<tr>
+                <td colspan="3" bgcolor="#d2d2d2" class="td">
+                    toolbar参数
+                </td>
+            </tr>
+			
+            <tr>
+                <td class="td">
+                    contextPath
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    根路径[暂时未启用]
+                </td>
+            </tr>
+			
+			
+			
+			<tr>
+                <td class="td">
+                    selected
+                </td>
+                <td class="td">
+                	boolean
+                </td>
+                <td class="td">
+                    按钮默认是否高亮
+                </td>
+            </tr>
+			-->
+			<!--
+            <tr>
+                <td class="td">
+                    searchHtml
+                </td>
+                <td class="td">
+                	&nbsp;
+                </td>
+                <td class="td">
+                    查询div的id[会吧这个div中的内容潜入toolbar右侧的查询区域]
+                </td>
+            </tr>
+			-->
+			<!--
+            <tr>
+                <td class="td">
+                    borderTop
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    顶部边框[默认显示]
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    borderBottom
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    下部边框[默认显示]
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    borderLeft
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    左部边框[默认显示]
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    borderRight
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    右部边框[默认显示]
+                </td>
+            </tr>
+			-->
+            <tr>
+                <td class="td" colspan="3" bgcolor="#d2d2d2">
+                    toolbar中按钮参数 例[删除]
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    id
+                </td>
+                <td class="td">
+                	&nbsp;
+                </td>
+                <td class="td">
+                    id
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    name
+                </td>
+                <td class="td">&nbsp;
+                </td>
+                <td class="td">
+                    名称
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    click
+                </td>
+                <td class="td">&nbsp;
+                </td>
+                <td class="td">
+                    点击事件
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    className
+                </td>
+                <td class="td">&nbsp;
+                </td>
+                <td class="td">
+                    样式名称[按钮图标--从通用class中查询]
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    subMenu
+                </td>
+                <td class="td">&nbsp;
+                </td>
+                <td class="td">
+                    下拉菜单 
+					<table>
+						<tr>
+							<td class="td">
+								id
+							</td>
+							<td class="td">
+								下拉子菜单id
+							</td>
+						</tr>
+						<tr>
+							<td class="td">
+								name
+							</td>
+							<td class="td">
+								下拉子菜单名称
+							</td>
+						</tr>
+						<tr>
+							<td class="td">
+								click
+							</td>
+							<td class="td">
+								下拉子菜单点击事件
+							</td>
+						</tr>
+					</table>
+                </td>
+            </tr>
+            <tr><td class="td" colspan="3" bgcolor="#d2d2d2">
+                    toolbar中添加select
+                </td></tr>
+             <tr>
+             	<td class="td">type</td>
+             	<td class="td">type：select</td>
+             	<td class="td">string</td>
+             </tr>
+             <tr>
+             	<td class="td">text</td>
+             	<td class="td"> string</td>
+             	<td class="td">默认select的值</td>
+             </tr>
+              <tr>
+             	<td class="td">value</td>
+             	<td class="td"> string</td>
+             	<td class="td">默认select的value</td>
+             </tr>
+             <tr>
+             	<td class="td">disable</td>
+             	<td class="td">boolean</td>
+             	<td class="td">设置select置灰</td>
+             </tr>
+              <tr>
+             	<td class="td">onchange</td>
+             	<td class="td">function</td>
+             	<td class="td">select的onchange方法</td>
+             </tr>
+              <tr>
+             	<td class="td">items</td>
+             	<td class="td">数组</td>
+             	<td class="td">select的option选项</td>
+             </tr>
+             <tr>
+             	<td class="td">className:"hidden"</td>
+             	<td class="td"> </td>
+             	<td class="td">设置class:hidden时隐藏select</td>
+             </tr>
+			<!--
+            <tr>
+                <td class="td" colspan="3" bgcolor="#d2d2d2">
+                    WebFXMenu ： 直接创建 var transmit = new WebFXMenu;
+                </td>
+            </tr>
+            <tr>
+                <td class="td" colspan="3" bgcolor="#d2d2d2">
+                    WebFXMenuItem
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    id
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    id
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    text
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    名称
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    click
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    点击事件
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    className
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    样式名称[后续确认设计后我们会制作图标库文档供开发使用]
+                </td>
+            </tr>
+			-->
+        </table>
+        <h3 class="design_hide dev_hide">[5.事件]</h3>
+        <table class="docsShowTable design_hide dev_hide">
+            <tr class="head">
+                <td class="td" width="200">
+                    事件
+                </td>
+                <td class="td">
+                    描述
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                </td>
+                <td class="td">
+                </td>
+            </tr>
+        </table>
+        <h3>[6.方法]</h3>
+        <table class="docsShowTable">
+            <tr class="head">
+                <td class="td" width="200">
+                    方法
+                </td>
+                <td class="td">
+                    描述
+                </td>
+            </tr>
+			
+			 <tr>
+                <td class="td">
+                	selected()
+                </td>
+                <td class="td">
+                	设置某一个toolbar按钮高亮显示用 toolbar.selected(id)
+                </td>
+            </tr>
+			 <tr>
+                <td class="td">
+                	unselected()
+                </td>
+                <td class="td">
+                	1、设置某一个toolbar按钮不高亮显示: toolbar.unselected(id)<br/>
+                	2、unselected(),不添加参数，所有按钮取消高亮显示
+                </td>
+            </tr>
+			
+			
+             <tr>
+                <td class="td">
+                	disabled()
+                </td>
+                <td class="td">
+                	设置某一个toolbar按钮不可用 toolbar.disabled(id)
+                </td>
+            </tr>
+             <tr>
+                <td class="td">
+                	enabled() 
+                </td>
+                <td class="td">
+                	设置某一个toolbar可用 toolbar.enabled(id)
+                </td>
+            </tr>
+            <tr>            	
+                <td class="td">
+                	disabledAll()
+                </td>
+                <td class="td">
+                	所有toolbar按钮不可用  toolbar.disabledAll()
+                </td>
+            </tr>
+            <tr>            	
+                <td class="td">
+                	enabledAll()
+                </td>
+                <td class="td">
+                	所有toolbar按钮可用  toolbar.enabledAll()
+                </td>
+            </tr>
+			<tr>            	
+                <td class="td">
+                	hideBtn(id)
+                </td>
+                <td class="td">
+                	toolbar隐藏按钮[参数为按钮id]: toolbar.hideBtn(id)
+                </td>
+            </tr>
+			<tr>            	
+                <td class="td">
+                	showBtn(id)
+                </td>
+                <td class="td">
+                	toolbar显示按钮[参数为按钮id]  toolbar.showBtn()
+                </td>
+            </tr>
+           
+        </table>
+        <div id="search">
+        	<input class="comp" name="name" value="" type="text" comp="type:'search',fun:'testFunction',title:'查询控件交换引擎任务'">
+	</div>
+    </body>
+</html>

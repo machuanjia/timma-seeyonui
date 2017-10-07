@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>input</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+
+    
+        <script type="text/javascript" src="../calendar/calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../calendar/calendar-zh-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/Moo-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.json-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.fillform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.code-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/i18n-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/v3x-debug.js">
+        </script>
+        <script type="text/javascript" src="../searchBox-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.checkform-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.dialog-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.grid-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.layout-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.menu-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.progress-debug.js"></script>
+        <script type="text/javascript" src="../seeyon.ui.tab-debug.js"></script>
+        <script type="text/javascript" src="../seeyon.ui.toolbar-debug.js"></script>
+        <script type="text/javascript" src="../seeyon.ui.tree-debug.js"></script>
+        <script type="text/javascript" src="../seeyon.ui.calendar-debug.js"></script>
+        <script type="text/javascript" src="../seeyon.ui.arraylist-debug.js"></script>
+        <script type="text/javascript" src="../seeyon.ui.tooltip-debug.js"></script>
+        <script type="text/javascript" src="../../ctp/jquery.comp-debug.js"></script>
+        <script type="text/javascript" src="../../ctp/jquery.tree-debug.js"></script>
+        <script type="text/javascript" src="../calendar/calendar-zh-debug.js"></script>
+    <script type="text/javascript">
+        function testFunction() {
+            alert(111);
+        }
+    </script>
+</head>
+
+<body>
+    <h3>[1.文本框示例]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="25%">定义</td>
+            <td class="td">用于显示、输入或编辑文本或数值。</td>
+        </tr>
+        <tr>
+            <td class="td" width="200">选择关联表单</td>
+            <td class="td code">
+<input type="text" name="name" value="" class="comp" comp="type:'correlation_form',fun:'testFunction',title:'选择关联表单'" />
+            </td>
+        </tr>
+        <tr>
+            <td class="td" width="200">插入附件</td>
+            <td class="td code">
+<input type="text" name="name" value="" class="comp" comp="type:'affix',fun:'testFunction',title:'插入附件'" />
+            </td>
+        </tr>
+        <tr>
+            <td class="td" width="200">关联文档</td>
+            <td class="td code">
+<input type="text" name="name" value="" class="comp" comp="type:'associated_document',fun:'testFunction',title:'关联文档'" />
+            </td>
+        </tr>
+        <tr>
+            <td class="td" width="200">插入图片</td>
+            <td class="td code">
+<input type="text" name="name" value="" class="comp" comp="type:'insert_pic',fun:'testFunction',title:'插入图片'" />
+            </td>
+        </tr>
+        <tr>
+            <td class="td" width="200">选择关联项目</td>
+            <td class="td code">
+<input type="text" name="name" value="" class="comp" comp="type:'correlation_project',fun:'testFunction',title:'选择关联项目'" />
+            </td>
+        </tr>
+        <tr>
+            <td class="td" width="200">选择数据交换任务</td>
+            <td class="td code">
+<input type="text" name="name" value="" class="comp" comp="type:'data_task',fun:'testFunction',title:'选择数据交换任务'" />
+            </td>
+        </tr>
+        <tr>
+            <td class="td" width="200">查询控件交换引擎任务</td>
+            <td class="td code">
+<input type="text" name="name" value="" class="comp" comp="type:'search',fun:'testFunction',title:'查询控件交换引擎任务'" />
+            </td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide">[2.使用实例]</h3>
+    <table class="docsShowTable design_hide">
+        <tr>
+            <td class="td"></td>
+            <td class="td code">
+            </td>
+        </tr>
+    </table>
+
+    <h3>[3.UE]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide dev_hide">[4.属性]</h3>
+    <table class="docsShowTable design_hide dev_hide">
+        <tr class="head">
+            <td class="td" width="200">属性</td>
+            <td class="td">类型</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td">type</td>
+            <td class="td">string</td>
+            <td class="td">input类型</td>
+        </tr>
+        <tr>
+            <td class="td">fun</td>
+            <td class="td">string</td>
+            <td class="td">图标click执行的方法名称</td>
+        </tr>
+        <tr>
+            <td class="td">title</td>
+            <td class="td">string</td>
+            <td class="td">图标提示信息</td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide dev_hide">[5.事件]</h3>
+    <table class="docsShowTable design_hide dev_hide">
+        <tr class="head">
+            <td class="td" width="200">事件</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide dev_hide">[6.方法]</h3>
+    <table class="docsShowTable design_hide dev_hide">
+        <tr class="head">
+            <td class="td" width="200">方法</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+</body>
+</html>

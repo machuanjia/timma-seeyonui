@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>搜索框</title>
+        <link rel="stylesheet" type="text/css" href="../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+        <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+        <script type="text/javascript" src="../../scriptes/jquery.js">
+        </script>
+        <script type="text/javascript" src="../../docs/resource/demo.js">
+        </script>
+        <script type="text/javascript" src="../calendar/calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../calendar/calendar-zh-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/Moo-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.json-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.fillform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.code-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/i18n-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/v3x-debug.js">
+        </script>
+        <script type="text/javascript" src="../searchBox-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.checkform-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.dialog-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.grid-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.layout-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.menu-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.progress-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tab-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.toolbar-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.arraylist-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tooltip-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.comp-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.common-debug.js">
+        </script>
+        <script>
+            $(function(){
+                var searchobj = $.searchCondition({
+					top:20,
+					right:10,
+					isExpand:true,
+					expandValue:"importantLevel",
+                    searchHandler: function(){
+						//{'type':type,'condition':_condition,'value':_result}
+						var ssss = searchobj.g.getReturnValue();
+						alert($.toJSON(ssss))
+						//$('#title').val($.toJSON(ssss));
+                    },
+                    conditions: [{
+                        id: 'selectPeopleid',
+                        name: 'selectPeople',
+                        type: 'selectPeople',
+                        text: '发起人',
+                        value: 'selectPeople',
+						comp:"type:'selectPeople',mode:'open',value:'Department | -884316703172445_1,Member | 1730833917365171641',text:'开发中心、人员2'"
+                    },{
+                        id: 'title',
+                        name: 'title',
+                        type: 'input',
+                        text: '标题',
+                        value: 'subject',
+                        maxLength:3
+                    }, {
+                        id: 'importent',
+                        name: 'importent',
+                        type: 'select',
+                        text: '重要程度',
+                        value: 'importantLevel',
+                        items: [{
+                            text: '<a href="#">sadsadsad</a>',
+                            value: '0'
+                        }, {
+                            text: '<a href="#">sadsadsad</a>*******',
+                            value: '1'
+                        }, {
+                            text: '非常重要',
+                            value: '2'
+                        }]
+                    }, {
+                        id: 'spender',
+                        name: 'spender',
+                        type: 'input',
+                        text: '发起人',
+                        value: 'startMemberName',
+                        maxLength: 3
+                       
+                    }, {
+                        id: 'datetime',
+                        name: 'datetime',
+                        type: 'datemulti',
+                        text: '发起时间',
+                        value: 'createDate',
+                        dateTime: true
+                    }, {
+                        id: 'customPanel',
+                        name: 'customPanel',
+						value: 'customPanelSubject',
+                        type: 'customPanel',
+                        text: 'customPanel',
+                        customHtml: 'custom',
+						readonly:'readonly',
+						panelWidth:200,
+						panelHeight:200,
+						customLoadHandler:function(){
+							alert('customLoadHandler')
+						},
+                        customHandler: function(){
+							alert(111)
+						}
+                    }]
+                });
+                searchobj.g.setCondition('datetime', '2012-10-25 17:49', '2012-10-25 17:49');
+				searchobj.g.clearCondition();
+                //searchobj.g.hideItem('importent');//隐藏项
+            })
+        </script>
+    </head>
+    <body>
+        <h3>[1.搜索框示例]</h3>
+        <table class="docsShowTable">
+        	 <tr>
+            <td class="td" width="200">搜索框示例:静态</td>
+            <td class="td">
+                <ul class="common_search">
+                    <li id="inputBorder" class="common_search_input">
+                        <input class="search_input" type="text">
+                    </li>
+                    <li><a class="common_button common_button_gray search_buttonHand" href="javascript:void(0)"><em></em></a></li>
+                </ul>
+
+            </td>
+        </tr>
+		<tr>
+			<td class="td" >&nbsp;</td>	
+			<td class="td" colspan="2">
+				<div>
+&lt;ul class="common_search"&gt;
+    &lt;li id="inputBorder" class="common_search_input"&gt;
+        &lt;input class="search_input" type="text"&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a class="common_button common_button_gray search_buttonHand" href="javascript:void(0)"&gt;&lt;em&gt;&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+				</div>
+			</td>
+		</tr>
+            <tr>
+                <td class="td">
+                    条件搜索定义
+                </td>
+                <td class="td">
+                    用于在大量数据中通过筛选或高亮匹配项的方式快速定位至特定的对象或文本。
+                </td>
+            </tr>
+            <tr>
+                <td class="td" width="200" rowspan="6">
+                    搜索框示例
+                </td>
+                <td class="td">
+                    <div id="searchDiv">
+                    </div>
+					<br/><br/>
+					<div style="display: block;" class="sorce_code">
+					<b style="color:red">
+						实现方案一：在一个元素中添加查询条件,适用于流式布局<br/>
+						实例中的方法参数均为必输项目*: 发起时间为时间段，两个input的id分别为'from_'+id和'to_+id'</b>
+					<pre>
+						
+&lt;div id="searchDiv"&gt;&lt;/div&gt;
+
+$(document).ready(function(){
+    var searchobj = $('#searchDiv').searchCondition({
+        searchHandler: function(){
+	var ssss = searchobj.g.getReturnValue();
+	alert($.toJSON(ssss))
+        },
+        conditions: [{
+            id: 'title',
+            name: 'title',
+            type: 'input',
+            text: '标题',
+            value: 'subject'
+        }, {
+            id: 'importent',
+            name: 'importent',
+            type: 'select',
+            text: '重要程度',
+            value: 'importantLevel',
+			codecfg : "codeType:'java',codeId:'com.seeyon.apps.samples.test.enums.MyEnums'",
+            items: [{
+                text: '普通',
+                value: '0'
+            }, {
+                text: '重要',
+                value: '1'
+            }, {
+                text: '非常重要',
+                value: '2'
+            }]
+        }, {
+            id: 'spender',
+            name: 'spender',
+            type: 'input',
+            text: '发起人',
+            value: 'startMemberName'
+        }, {
+            id: 'datetime',
+            name: 'datetime',
+            type: 'datemulti',
+            text: '发起时间',
+            value: 'createDate',
+            dateTime: true
+        }]
+    });
+});
+
+
+					</pre>
+					
+					
+<b style="color:red">
+实现方案二：在固定位置显示查询条件,适用于绝对布局,[如:我们的列表关键页面查询条件]</b>
+					<pre>
+						
+
+$(document).ready(function(){
+    var searchobj = $.searchCondition({
+        top:33,
+        right:10,
+		//left:10,
+		//bottom:10,
+        searchHandler: function(){
+	var ssss = searchobj.g.getReturnValue();
+	alert($.toJSON(ssss))
+        },
+        conditions: [{
+            id: 'title',
+            name: 'title',
+            type: 'input',
+            text: '标题',
+            value: 'subject'
+        }, {
+            id: 'importent',
+            name: 'importent',
+            type: 'select',
+            text: '重要程度',
+            value: 'importantLevel',
+			codecfg : "codeType:'java',codeId:'com.seeyon.apps.samples.test.enums.MyEnums'",
+            items: [{
+                text: '普通',
+                value: '0'
+            }, {
+                text: '重要',
+                value: '1'
+            }, {
+                text: '非常重要',
+                value: '2'
+            }]
+        }, {
+            id: 'spender',
+            name: 'spender',
+            type: 'input',
+            text: '发起人',
+            value: 'startMemberName'
+        }, {
+            id: 'datetime',
+            name: 'datetime',
+            type: 'datemulti',
+            text: '发起时间',
+            value: 'createDate',
+            dateTime: true
+        }]
+    });
+});
+
+
+					</pre>
+					
+					</div>
+	            	<br/><br/>
+					
+					
+					
+					
+					
+                </td>
+            </tr>
+        </table>
+        <h3 class="design_hide dev_hide">[2.使用实例]</h3>
+        <table class="docsShowTable design_hide dev_hide">
+            <tr>
+                <td class="td" width="200">
+                </td>
+                <td class="td code">
+                </td>
+            </tr>
+        </table>
+        <h3>[3.UE]</h3>
+        <table class="docsShowTable">
+            <tr>
+                <td class="td" width="200">
+                	<font style="color:red">仅限于列表页面右上角搜索</font><br/>
+                    常规搜索:当用户单击搜索按钮时进行搜索。放大镜搜索符号显示为按钮。
+                </td>
+                <td class="td">
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    选条件搜索:当用户筛选条件后，单击搜索按钮时进行搜索。放大镜搜索符号显示为按钮。
+                </td>
+                <td class="td">
+                </td>
+            </tr>
+        </table>
+        <h3 class="design_hide dev_hide">[4.属性]</h3>
+        <table class="docsShowTable design_hide ">
+            <tr class="head">
+                <td class="td" width="200">
+                    属性
+                </td>
+                <td class="td">
+                    类型
+                </td>
+                <td class="td">
+                    描述
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                	searchHandler
+                </td>
+                <td class="td">
+                	function
+                </td>
+                <td class="td">
+                	点击查询按钮执行的操作
+                </td>
+            </tr>
+			<!--
+			<tr>
+                <td class="td">
+                	conditions
+                </td>
+                <td class="td">
+                	数组
+                </td>
+                <td class="td">
+                	查询条件
+                </td>
+            </tr>
+			-->
+			<tr>
+                <td class="td">
+                	id
+                </td>
+                <td class="td">
+                	&nbsp;
+                </td>
+                <td class="td">
+                	查询条件生成input/select/data的id
+                </td>
+            </tr>
+			
+			<tr>
+                <td class="td">
+                	name
+                </td>
+                <td class="td">
+                	&nbsp;
+                </td>
+                <td class="td">
+                	查询条件生成input/select/data的name
+                </td>
+            </tr>
+			
+			<tr>
+                <td class="td">
+                	type
+                </td>
+                <td class="td">
+                	&nbsp;
+                </td>
+                <td class="td">
+                	类型: [input:输入框] [select:下拉选择] [datemulti:时间段]
+                </td>
+            </tr>
+			
+			<tr>
+                <td class="td">
+                	text
+                </td>
+                <td class="td">
+                	&nbsp;
+                </td>
+                <td class="td">
+                	查询条件名称
+                </td>
+            </tr>
+			
+			<tr>
+                <td class="td">
+                	value
+                </td>
+                <td class="td">
+                	&nbsp;
+                </td>
+                <td class="td">
+                	查询条件value
+                </td>
+            </tr>
+			<tr>
+                <td class="td">
+                	validate
+                </td>
+                <td class="td">
+                	false
+                </td>
+                <td class="td">
+                	输入框不验证特殊
+                </td>
+            </tr>
+			<tr>
+                <td class="td">
+                	items
+                </td>
+                <td class="td">
+                	&nbsp;
+                </td>
+                <td class="td">
+                	查询类型为select的时候子查询select
+                </td>
+            </tr>
+			<tr>
+                <td class="td">
+                	codecfg
+                </td>
+                <td class="td">
+                	&nbsp;
+                </td>
+                <td class="td">
+                	select增加codecfg以支持框架级动态枚举配置[codecfg : "codeType:'java',codeId:'com.seeyon.apps.samples.test.enums.MyEnums'"]
+                </td>
+            </tr>
+			
+        </table>
+        <h3 class="design_hide dev_hide">[6.方法]</h3>
+        <table class="docsShowTable design_hide ">
+            <tr class="head">
+                <td class="td" width="200">
+                    方法
+                </td>
+                <td class="td">
+                    描述
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                	searchobj.p
+                </td>
+                <td class="td">
+                	通过searchobj.p获取查询组件变量
+                </td>
+            </tr>
+			<tr>
+                <td class="td">
+                	searchobj.p.id
+                </td>
+                <td class="td">
+                	通过searchobj.p.id获取查询条件select id[查询条件最终操作的还是一个select，通过id可以获取这个select对象]
+                </td>
+            </tr>
+			<tr>
+                <td class="td">
+                	searchobj.g.getReturnValue()
+                </td>
+                <td class="td">
+                	获取查询条件结果[返回null表示查询调价没有]任何变化，查询条件变化则返回json数组]<br/>
+					例如:<br/>
+					input：{'type':'input','condition':'name','value':_result}<br/>
+					select：{'type':'select','condition':'importent','value':_result}<br/>
+					datemulti：{'type':'datemulti','condition':'datetime','value':['2012-12-12 12:00',''2012-12-12 18:00'']}<br/>
+                </td>
+            </tr>
+			<tr>
+                <td class="td">
+                	searchobj.g.hideItem(id)<br />
+                    或者<br />
+                	searchobj.g.hideItem(id,bool)
+                </td>
+                <td class="td">
+                	隐藏select下拉项<br />参数1：选项的id<br />参数2：是否初始化为默认项
+                </td>
+            </tr>
+			<tr>
+                <td class="td">
+                	searchobj.g.showItem(id)
+                </td>
+                <td class="td">
+                	显示select下拉项，参数为：选项的id
+                </td>
+            </tr>
+			<tr>
+                <td class="td">
+                	searchobj.g.setCondition('datetime', '2012-10-25 17:49', '2012-10-25 17:49');
+                </td>
+                <td class="td">
+                	设置条件默认值
+                </td>
+            </tr>
+			<tr>
+                <td class="td">
+                	searchobj.g.clearCondition();
+                </td>
+                <td class="td">
+                	清空条件值
+                </td>
+            </tr>
+			 
+				
+        </table>
+    </body>
+</html>

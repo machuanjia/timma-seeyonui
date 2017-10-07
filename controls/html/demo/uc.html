@@ -1,0 +1,753 @@
+﻿<!DOCTYPE html>
+<html class="over_y_scroll">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>UC中心</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css" />
+    <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.common-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.menu-debug.js"></script>
+    
+    <script type="text/javascript">
+        $(function () {
+            /**********列表/树 切换***********/
+            $("#toggleListTreeBtn").click(function () {
+                toggle_ListTree($(this).attr("value"));
+                if ($(this).attr("value") == 0) {
+                    $(this).attr("value", 1);
+                    $(this).find("span:last").html("列表显示");
+                    $(this).find(".ico16").removeClass("list_show_16 tree_show_16").addClass("list_show_16");
+                } else {
+                    $(this).attr("value", 0);
+                    $(this).find("span:last").html("树形显示");
+                    $(this).find(".ico16").removeClass("list_show_16 tree_show_16").addClass("tree_show_16");
+                }
+            });
+
+            ///列表/树 切换
+            function toggle_ListTree(n) {
+                //0为列表  1为树
+                if (n == 0) {
+                    var _wTree = [110, 110, 110, ""];
+                    $(".only_table thead th").each(function (i) {
+                        $(this).width(_wTree[i]);
+                    });
+                    $(".ucFaceImage .name").show();
+                    $(".uc_tree_list").hide();
+                } else {
+                    var _wTree = [60, 100, 100, ""];
+                    $(".only_table thead th").each(function (i) {
+                        $(this).width(_wTree[i]);
+                    });
+                    $(".ucFaceImage .name").hide();
+                    $(".uc_tree_list").show();
+                }
+            }
+            /*************个性签名*****************/
+            $("#uc_dasd").focus(function() {
+                $(this).css({border:"solid 1px #B6B6B6",padding:"5px"});
+            }).focusout(function () {
+                $(this).css({ border: "", padding: "" });
+                alert("保存个性签名");
+            });
+            /************导航菜单******************/
+            $(".uc_menu a").click(function () {
+                $(".uc_menu a").removeClass("current");
+                $(this).addClass("current");
+            });
+            /*************返回顶部****************/
+            GoTo_Top({ btnClass: "GoTo_Top2" });
+            /************消息输入框*************/
+            var common_send_toggle = false;
+            $(".common_send .common_send_show").click(function () { $(this).hide(); $(this).parents(".common_send").find(".common_send_box").show().find(".common_send_textarea").focus(); });
+            $(".common_send").mouseenter(function () {
+                common_send_toggle = false;
+            }).mouseleave(function () {
+                common_send_toggle = true;
+            });
+            $(document).click(function () {
+                if (common_send_toggle) {
+                    $(".common_send .common_send_box").hide().find(".common_send_textarea").html("");
+                    $(".common_send .common_send_show").show();
+                }
+            });
+            $(".common_send .common_send_textarea").keyup(function () {
+                var n = 140 - isOverBytes($(this).text()) / 2;
+                $(".common_send .common_send_textarea_length").html(Math.ceil(n));
+                if (n < 0) {
+                    $(".common_send .common_send_textarea_length").css("color", "red");
+                    $(".common_send .common_send_box_btnSubmit").removeClass("common_button_emphasize common_button_disable").addClass("common_button_disable");
+                } else {
+                    $(".common_send .common_send_textarea_length").css("color", "");
+                    $(".common_send .common_send_box_btnSubmit").removeClass("common_button_emphasize common_button_disable").addClass("common_button_emphasize");
+                }
+                if ($(this).text().length == 0) {
+                    $(".common_send .common_send_box_btnSubmit").removeClass("common_button_emphasize common_button_disable").addClass("common_button_disable");
+                }
+            });
+            $(".common_send .common_send_people .common_send_people_box").click(function () { $(this).remove(); });
+
+            /*************列表关闭按钮********/
+            $(".pageChatList li").mouseenter(function() {
+                $(this).find(".pageChatList_Del").show();
+            }).mouseleave(function() {
+                $($(this).selector + " .pageChatList_Del").hide();
+            });
+
+            /*************单人聊天关闭按钮********/
+            $(".pageChatArea li").live("mouseenter",function () {
+                $(this).find(".pageChatAreaListClose").show();
+            }).live("mouseleave",function() {
+                $(this).find(".pageChatAreaListClose").hide();
+            }).find(".pageChatAreaListClose").live("click",function () {
+                $(this).parents("li").remove();
+                alert("删除聊天");
+            });
+            /************单人聊天-回复消息输入框*************/
+            $(".pageChatArea .pageChatArea_textarea").keyup(function () {
+                var n = 140 - isOverBytes($(this).text()) / 2;
+                if (n < 0) {
+                    $(".pageChatArea .pageChatArea_textarea_length").parent().html("已经超过<span class='pageChatArea_textarea_length'>" + Math.ceil(n) * -1 + "</span>个字！").css("color", "red");
+                    $(".pageChatArea .pageChatArea_btnSubmit").removeClass("common_button_emphasize common_button_disable").addClass("common_button_disable");
+                } else {
+                    $(".pageChatArea .pageChatArea_textarea_length").parent().html("您还可以输入<span class='pageChatArea_textarea_length'>" + Math.ceil(n) + "</span>个字").css("color", "");
+                    $(".pageChatArea .pageChatArea_btnSubmit").removeClass("common_button_emphasize common_button_disable").addClass("common_button_emphasize");
+                }
+                if ($(this).text().length == 0) {
+                    $(".pageChatArea .pageChatArea_btnSubmit").removeClass("common_button_emphasize common_button_disable").addClass("common_button_disable");
+                }
+            });
+            /*************列表-单人聊天页签***********/
+            //点击添加聊天页签
+            $(".pageChatList .pageChatOpen").click(function () {
+                var _id = $(this).attr("tid");
+                var _name = $(this).attr("name");
+                var _length = $("#pageChatTabs li").length;
+                //判断是否已经打开页签，如果打开激活页签
+                for (var i = 0; i < $("#pageChatTabs li").length; i++) {
+                    if ($("#pageChatTabs li").eq(i).attr("id") == _id) {
+                        var _this = $("#pageChatTabs li").eq(i);
+                        $("#pageChatTabs li").removeClass("current").removeClass("border_b");
+                        _this.addClass("current").find("a").addClass("border_b");
+                        ajaxChatOne(_this.attr("id"));
+                        return;
+                    }
+                }
+                for (var i = 0; i < pageChatMoreData.length; i++) {
+                    if (pageChatMoreData[i].id == _id) {
+                        $("#pageChatTabsMoreMenuList a[id='" + _id + "']").trigger("click");
+                        return;
+                    }
+                }
+                //插入页签
+                if (_length == 0) {
+                    $("#pageChatTabs ul").html("<li id=\"" + _id + "\" class=\"current display_block left\"><a hidefocus=\"true\" href=\"javascript:void(0)\" class=\"border_b last_tab\" title=\"" + _name + "\"><span class=\"ico16 chat_16 margin_r_5\"></span>" + _name + "</a><span class='pageChatTabsClose_box'><span class='pageChatTabsClose'><span class=\"ico16 for_close_16\"></span></span></span></li>");
+                } else if (1 <= _length && _length <= 2) {
+                    $("#pageChatTabs li").removeClass("current");
+                    $("#pageChatTabs li:first").before("<li id=\"" + _id + "\" class=\"current display_block left\"><a hidefocus=\"true\" href=\"javascript:void(0)\" class=\"border_b\" title=\"" + _name + "\"><span class=\"ico16 chat_16 margin_r_5\"></span>" + _name + "</a><span class='pageChatTabsClose_box'><span class='pageChatTabsClose'><span class=\"ico16 for_close_16\"></span></span></span></li>");
+                } else {
+                    if ($("#pageChatTabs li:last a").attr("id") != "pageChatTabsMore") {
+                        $("#pageChatTabs li a").removeClass("last_tab");
+                        $("#pageChatTabs li:last").after("<li><a id=\"pageChatTabsMore\" hidefocus=\"true\" href=\"javascript:void(0)\" class=\"last_tab\">更多<span class=\"ico16 arrow_1_b\"></span></a></li>");
+                    }
+                    //下拉列表
+                    pageChatMoreData.push({
+                        id: _id,
+                        name: "<span class=\"ico16 chat_16 margin_r_5\"></span>" + _name
+                    });
+                    pageChatMore(pageChatMoreData);
+                    
+                }
+                ///绑定页签切换事件
+                $("#pageChatTabs li").unbind().click(function () {
+                    if ($(this).attr("id")) {
+                        $("#pageChatTabs li").removeClass("current").removeClass("border_b");
+                        $(this).addClass("current").find("a").addClass("border_b");
+                        ajaxChatOne($(this).attr("id"));
+                    }
+                }).mouseenter(function () {
+                    $(this).find(".pageChatTabsClose").show();
+                }).mouseleave(function () {
+                    $(this).find(".pageChatTabsClose").hide();
+                });
+                //页签关闭操作
+                $("#pageChatTabs li .pageChatTabsClose").unbind().click(function () {
+                    if (pageChatMoreData.length == 0) {
+                        $(this).parents("li").remove();
+                        $("#pageChatTabs li:last a").addClass("last_tab");
+                        $("#pageChatTabs li:first").trigger("click");
+                        return;
+                    }
+                    if (pageChatMoreData.length == 1) {
+                        var obj = $("#pageChatTabs li:eq(2)");
+                        obj.attr("id", pageChatMoreData[0].id);
+                        obj.find("a").html(pageChatMoreData[0].name);
+                        $("#pageChatTabs li:last").remove();
+                        $("#pageChatTabs li:last a").addClass("last_tab");
+                        pageChatMoreData.shift();
+                        pageChatMore(pageChatMoreData);
+                    }
+                    if (pageChatMoreData.length > 1) {
+                        var obj = $("#pageChatTabs li:eq(2)");
+                        obj.attr("id", pageChatMoreData[0].id);
+                        obj.find("a").html(pageChatMoreData[0].name);
+                        pageChatMoreData.shift();
+                        pageChatMore(pageChatMoreData);
+                    }
+                }).mouseenter(function() {
+                    $(this).find(".ico16").removeClass("for_close_16 hover_close_16").addClass("hover_close_16");
+                }).mouseleave(function() {
+                    $(this).find(".ico16").removeClass("for_close_16 hover_close_16").addClass("for_close_16");
+                });
+                if (pageChatMoreData.length>0) {
+                    $("#pageChatTabsMoreMenuList a[id='" + _id + "']").trigger("click");
+                } else {
+                    ajaxChatOne(_id);
+                }
+            });
+            var pageChatMoreData = [];
+            ///生成或更新，更多下拉列表
+            function pageChatMore(d) {
+                $("#pageChatTabsMore").menuSimple({
+                    id: "pageChatTabsMoreMenuList",
+                    width: 100,
+                    offsetTop: -4,
+                    data: d
+                });
+            }
+            //绑定下拉列表click
+            $("#pageChatTabsMoreMenuList a").live("click", function () {
+                var _id = $(this).attr("id");
+                var _name = $(this).html();
+                var _title = $(this).text();
+                pageChatMoreData.push({
+                    id: $("#pageChatTabs li:eq(2)").attr("id"),
+                    name: $("#pageChatTabs li:eq(2) a").html()
+                });
+                for (var i = 0; i < pageChatMoreData.length; i++) {
+                    if (pageChatMoreData[i].id == _id) {
+                        pageChatMoreData.splice(i, 1);
+                    }
+                }
+                pageChatMore(pageChatMoreData);
+                //修改tab第3个li的id和name，并放到第一位
+                $("#pageChatTabs li").eq(2).attr("id", _id).find("a").html(_name).attr("title", _title);
+                $("#pageChatTabs ul").prepend($("#pageChatTabs li").eq(2));
+                //修改tab边线
+                $("#pageChatTabs li").removeClass("current").removeClass("border_b");
+                $("#pageChatTabs li").eq(0).addClass("current").find("a").addClass("border_b");
+                ajaxChatOne(_id);
+            });
+        })
+        ///字节计算器-区分全角半角
+        function isOverBytes(s, maxbytes) {
+            var i = 0;
+            var bytes = 0;
+            var uFF61 = parseInt("FF61", 16);
+            var uFF9F = parseInt("FF9F", 16);
+            var uFFE8 = parseInt("FFE8", 16);
+            var uFFEE = parseInt("FFEE", 16);
+            while (i < s.length) {
+                var c = parseInt(s.charCodeAt(i));
+                if (c < 256) {
+                    bytes = bytes + 1;
+                }
+                else {
+                    if ((uFF61 <= c) && (c <= uFF9F)) {
+                        bytes = bytes + 1;
+                    } else if ((uFFE8 <= c) && (c <= uFFEE)) {
+                        bytes = bytes + 1;
+                    }
+                    else {
+                        bytes = bytes + 2;
+                    }
+                }
+                i = i + 1;
+            }
+            return bytes;
+        }
+        ///会话聊天ajax
+        function ajaxChatOne(id) {
+            alert("会话聊天ajax___ID:" + id);
+        }
+		
+		$(document).ready(function(){
+			$('#uc_online').click(function(){
+				$(this).hide();
+				$('#uc_online_messages').show();
+			});
+			$('#uc_online_messages_close').click(function(){
+				$('#uc_online_messages').hide();
+				$('#uc_online').show();
+			});
+		});
+    </script>
+</head>
+<body class="bg_color_gray" style="height:2222px;">
+	
+<div id="uc_online" class="uc_online clearfix hand fixed border_all">
+	<!--
+		<em class="uc_online_disable_ico margin_lr_10"></em><span class="uc_online_name">没信息</span>
+	-->
+	<em class="uc_online_enable_ico margin_lr_10"></em><span class="uc_online_name">交流信息</span><span class="uc_online_name margin_lr_10">(12)</span>
+</div>
+
+<div id="uc_online_messages" class="uc_online_messages clearfix fixed hidden">
+	<div class="uc_online clearfix hand border_b">
+		<em class="uc_online_enable_ico margin_lr_10"></em><span class="uc_online_name">交流信息</span><span class="uc_online_name margin_lr_10">(12)</span>
+	</div>
+	<div class="uc_online_messages_items clearfix">
+		<div class="border_b font_size12 item clearfix">
+			<span class="margin_r_10 margin_l_10 left"><img src="../../../skin/default/images/people.jpg" width="20" height="20"/></span>
+			<span title="胡丽(用户体验部)" class="left name_span">胡丽(用户体验部)</span>
+			<span class="margin_l_5 left number_span">(2)</span>
+		</div>
+		<div class="border_b font_size12 item clearfix">
+			<span class="margin_r_10 margin_l_10 left"><img src="../../../skin/default/images/people.jpg" width="20" height="20"/></span>
+			<span title="胡丽(用户体验部)" class="left name_span">胡丽(用户体验部)</span>
+			<span class="margin_l_5 left number_span">(2)</span>
+		</div>
+		<div class="border_b font_size12 item clearfix">
+			<span class="margin_r_10 margin_l_10 left"><img src="../../../skin/default/images/people.jpg" width="20" height="20"/></span>
+			<span title="胡丽(用户体验部)" class="left name_span">胡丽(用户体验部)</span>
+			<span class="margin_l_5 left number_span">(2)</span>
+		</div>
+		<div class="border_b font_size12 item clearfix">
+			<span class="margin_r_10 margin_l_10 left"><img src="../../../skin/default/images/people.jpg" width="20" height="20"/></span>
+			<span title="胡丽(用户体验部)" class="left name_span">胡丽(用户体验部)</span>
+			<span class="margin_l_5 left number_span">(2)</span>
+		</div>
+		<div class="border_b font_size12 item clearfix">
+			<span class="margin_r_10 margin_l_10 left"><img src="../../../skin/default/images/people.jpg" width="20" height="20"/></span>
+			<span title="胡丽(用户体验部)" class="left name_span">胡丽(用户体验部)</span>
+			<span class="margin_l_5 left number_span">(2)</span>
+		</div>
+		<div class="border_b font_size12 item clearfix">
+			<span class="margin_r_10 margin_l_10 left"><img src="../../../skin/default/images/people.jpg" width="20" height="20"/></span>
+			<span title="胡丽(用户体验部)" class="left name_span">胡丽(用户体验部)</span>
+			<span class="margin_l_5 left number_span">(2)</span>
+		</div>
+		<div class="border_b font_size12 item clearfix">
+			<span class="margin_r_10 margin_l_10 left"><img src="../../../skin/default/images/people.jpg" width="20" height="20"/></span>
+			<span title="胡丽(用户体验部)" class="left name_span">胡丽(用户体验部)</span>
+			<span class="margin_l_5 left number_span">(2)</span>
+		</div>
+		<div class="border_b font_size12 item clearfix">
+			<span class="margin_r_10 margin_l_10 left"><img src="../../../skin/default/images/people.jpg" width="20" height="20"/></span>
+			<span title="胡丽(用户体验部)" class="left name_span">胡丽(用户体验部)</span>
+			<span class="margin_l_5 left number_span">(2)</span>
+		</div>
+		<div class="border_b font_size12 item clearfix">
+			<span class="margin_r_10 margin_l_10 left"><img src="../../../skin/default/images/people.jpg" width="20" height="20"/></span>
+			<span title="胡丽(用户体验部)" class="left name_span">胡丽(用户体验部)</span>
+			<span class="margin_l_5 left number_span">(2)</span>
+		</div>
+		<div class="border_b font_size12 item clearfix">
+			<span class="margin_r_10 margin_l_10 left"><img src="../../../skin/default/images/people.jpg" width="20" height="20"/></span>
+			<span title="胡丽(用户体验部)" class="left name_span">胡丽(用户体验部)</span>
+			<span class="margin_l_5 left number_span">(2)</span>
+		</div>
+		<div class="border_b font_size12 item clearfix">
+			<span class="margin_r_10 margin_l_10 left"><img src="../../../skin/default/images/people.jpg" width="20" height="20"/></span>
+			<span title="胡丽(用户体验部)" class="left name_span">胡丽(用户体验部)</span>
+			<span class="margin_l_5 left number_span">(2)</span>
+		</div>
+		<div class="border_b font_size12 item clearfix">
+			<span class="margin_r_10 margin_l_10 left"><img src="../../../skin/default/images/people.jpg" width="20" height="20"/></span>
+			<span title="胡丽(用户体验部)" class="left name_span">胡丽(用户体验部)</span>
+			<span class="margin_l_5 left number_span">(2)</span>
+		</div>
+		
+	</div>
+	<div id='uc_online_messages_close' class="uc_online clearfix hand border_t align_center">
+		<span class="ico16 arrow_2_b"></span>
+	</div>
+</div>	
+	
+    <div class="uc_layout">
+            <div class="clearfix">
+                <div class="gravatar left margin_r_15">
+                    <img class="img" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg" width="72" height="72" alt="" />
+                </div>
+                <div class="over_hidden font_size12 line_height180">
+                    <div class="right margin_t_10">
+                        <a href="javascript:alert('点你妹');" class="color_black_nohover margin_r_10"><span class="ico24 email_24 margin_r_5"></span>电子邮件</a>
+                        <a href="javascript:alert('点你妹');" class="color_black_nohover margin_r_10"><span class="ico24 video_24 margin_r_5"></span>视频会议</a>
+                        <a href="javascript:alert('点你妹');" class="color_black_nohover"><span class="ico24 sms_24 margin_r_5"></span>短信</a>
+                    </div>
+                    <p class="margin_t_5"><span class="onlineState ico16 online1 margin_r_5" id="otherstatus"></span>张仃</p>
+                    <p>用户体验部-交互设计师，云产品-交互设计师</p>
+                    <p id="uc_dasd" class="color_blue line_height160 margin_t_5" contenteditable="true">一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十</p>
+                </div>
+            </div>
+            <div class="margin_t_10 common_send">
+                <div class="common_send_show">
+                    点击进入交流
+                </div>
+                <div class="common_send_box hidden">
+                    <div class="common_send_textarea" contenteditable="true"></div>
+                    <div class="clearfix margin_t_10">
+                        <a href="javascript:void(0)" class="common_button right margin_l_10">添加群/同事<span class="ico16"></span></a>
+                        <div class="common_send_people">
+                            <p class="common_send_people_tip">所有关注我的人</p>
+                            <!--<span class="common_send_people_box">乔丽<em class="ico16"></em></span>
+                            <span class="common_send_people_box">乔丽<em class="ico16"></em></span>
+                            <span class="common_send_people_box">乔丽乔丽乔丽乔丽乔乔乔乔<em class="ico16"></em></span>
+                            <span class="common_send_people_box">乔丽乔丽乔丽乔丽乔丽乔丽乔丽乔<em class="ico16"></em></span>
+                            <span class="common_send_people_box">乔丽<em class="ico16"></em></span>
+                            <span class="common_send_people_box">乔丽<em class="ico16"></em></span>-->
+                        </div>
+                    </div>
+                    <div class="clearfix margin_t_10">
+                        <span class="left margin_t_5"><a href="javascript:void(0)"><em class="ico16 face_16 margin_r_5"></em>表情</a>&nbsp;<a href="javascript:void(0)"><em class="ico16 affix_16 margin_r_5"></em>附件</a>&nbsp;<a href="javascript:void(0)"><em class="ico16 relate_file_16 margin_r_5"></em>关联文档</a>&nbsp;<span class="color_gray">您还可以输入<span class="common_send_textarea_length">140</span>个汉字</span></span>
+                        <a href="javascript:void(0)" class="common_send_box_btnSubmit common_button common_button_disable right">发送</a>
+                    </div>
+                </div>
+            </div>
+            <div class="uc_menu margin_t_10">
+                <a href="javascript:void(0)" class="current"><span class="ico16 work_kik_16 margin_t_10"></span><br />最近消息</a>
+                <a href="javascript:void(0)"><span class="ico16 our_cadre_16 margin_t_10"></span><br />全部人员</a>
+                <a href="javascript:void(0)"><span class="ico16 associated_persons_16 margin_t_10"></span><br />关联人员</a>
+                <a href="javascript:void(0)"><span class="ico16 group_16 margin_t_10"></span><br />群组管理</a>
+            </div>
+            <div class="padding_tb_10 clearfix">
+                <div class="common_tabs clearfix left">
+                    <ul class="left">
+                        <li class="current"><a hidefocus="true" href="javascript:void(0)" class="border_b">全部消息</a></li>
+                        <li><a hidefocus="true" href="javascript:void(0)">单人消息</a></li>
+                        <li><a hidefocus="true" href="javascript:void(0)" class="last_tab">群组消息</a></li>
+                    </ul>
+                </div>
+                <div id="pageChatTabs" class="common_tabs clearfix right margin_l_10">
+                    <ul class="left">
+                        <!--<li id="@1" class="current"><a hidefocus="true" href="javascript:void(0)" class="border_b" title="李立"><span class="ico16 margin_r_5"></span>李立</a></li>
+                        <li id="@2"><a hidefocus="true" href="javascript:void(0)" title="乔立"><span class="ico16 margin_r_5"></span>乔立</a></li>
+                        <li id="@3"><a hidefocus="true" href="javascript:void(0)" title="威尔史密斯"><span class="ico16 margin_r_5"></span>威尔史密斯</a></li>
+                        <li><a id="qqqq" hidefocus="true" href="javascript:void(0)" class="last_tab">更多<span class="ico16 arrow_1_b"></span></a></li>-->
+                    </ul>
+                </div>
+            </div>
+            <ul class="pageChatList">
+                <li class="clearfix border_b_gray margin_t_10 line_height180">
+                    <div class="color_blue pageChatList_pic">
+                        <img class="left" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                        <a class="margin_t_5">乔立</a>
+                    </div>
+                    <div class="over_auto left_ie6">
+                        <div class="pageChat_msg">
+                            <p>
+                                随后，习近平参观了学校科研成果展示，在一个个展台、一件件实物、一幅幅图表前驻足观看，向学校负责人和科研人员详细了解项目研发和应用情况，在不大的展厅里，习近平一边看一边问，90多分钟不知不觉过去。他对学校坚持以我为主、勇于自主创新取得的丰硕成果表示赞赏。习近平接见了学校科技创新团队代表，同他们一一握手、亲切交谈，询问教学科研和生活情况，肯定他们为国家和军队作出的特殊贡献，勉励他们埋头苦干、再接再厉，在新的起点上不断取得更大成绩。
+                            </p>
+                        </div>
+                        <p class="font_size12">
+                            <span class="left color_gray">9月5日&nbsp;10:12:24</span>
+                            <span class="right"><a href="javascript:void(0)" class="pageChatList_Del hidden">删除&nbsp;|&nbsp;</a><a href="javascript:void(0)" class="pageChatOpen" tid="@1" name="1乔立">共5条会话</a></span>
+                        </p>
+                    </div>
+                </li>
+                <li class="clearfix border_b_gray margin_t_10 line_height180">
+                    <div class="color_blue pageChatList_pic">
+                        <img class="left" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                        <a class="margin_t_5">乔立</a>
+                    </div>
+                    <div class="over_auto left_ie6">
+                        <div class="pageChat_msg">
+                        <p>
+                            <span class="color_gray">我：</span>最后是自己说的话,才有"我:"。删除按钮也有变化。
+                        </p>
+                        </div>
+                        <p class="font_size12">
+                            <span class="left color_gray">今天&nbsp;10:12:24</span>
+                            <span class="right"><a href="javascript:void(0)" class="pageChatList_Del hidden">删除&nbsp;|&nbsp;</a><a href="javascript:void(0)" class="pageChatOpen" tid="@1" name="1乔立">共5条会话</a></span>
+                        </p>
+                    </div>
+                </li>
+                <li class="clearfix border_b_gray margin_t_10 line_height180">
+                    <div class="color_blue pageChatList_pic">
+                        <img class="left" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                        <a class="margin_t_5">群群群群群群</a>
+                    </div>
+                    <div class="over_auto left_ie6">
+                        <div class="pageChat_msg">
+                            <p>
+                                <span class="color_gray">人大代表：</span>中国的人大代表和美国的议员不同.中国的人大代表和美国的议员不同.中国的人大代表和美国的议员不同.中国的人大代表和美国的议员不同.中国的人大代表和美国的议员不同.中国的人大代表和美国的议员不同.中国的人大代表和美国的议员不同.
+                            </p>
+                        </div>
+                        <p class="font_size12">
+                            <span class="left color_gray">今天&nbsp;10:12:24</span>
+                            <span class="right"><a href="javascript:void(0)" class="pageChatList_Del hidden">删除&nbsp;|&nbsp;</a><a href="javascript:void(0)" class="pageChatOpen" tid="@1" name="1乔立">共5条会话</a></span>
+                        </p>
+                    </div>
+                </li>
+                <li class="clearfix border_b_gray margin_t_10 line_height180">
+                    <div class="color_blue pageChatList_pic">
+                        <img class="left" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                        <a class="margin_t_5">乔立</a>
+                    </div>
+                    <div class="over_auto left_ie6">
+                        <div class="pageChat_msg">
+                            <p>
+                                <span class="color_blue"></span><span class="im_talk1"><span class="ico16 speech_read_16 left"></span><span class="color_gray right">10"</span></span>
+                            </p>
+                        </div>
+                        <p class="font_size12">
+                            <span class="left color_gray">9月5日&nbsp;10:12&nbsp;来自&nbsp;<a href="javascript:void(0)">M1设计群</a></span>
+                            <span class="right"><a href="javascript:void(0)" class="pageChatList_Del hidden">删除&nbsp;|&nbsp;</a><a href="javascript:void(0)" class="pageChatOpen" tid="@2" name="2李立">共5条会话</a></span>
+                        </p>
+                    </div>
+                </li>
+                <li class="clearfix border_b_gray margin_t_10 line_height180">
+                    <div class="color_blue pageChatList_pic">
+                        <img class="left" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                        <a class="margin_t_5">乔立</a>
+                    </div>
+                    <div class="over_auto left_ie6">
+                        <div class="pageChat_msg">
+                            <p><span class="color_blue"></span><span class="im_talk6"><span class="ico16 speech_read_16 left"></span><span class="color_gray right">60"</span></span></p>
+                        </div>
+                        <p class="font_size12">
+                            <span class="left color_gray">9月5日&nbsp;10:12&nbsp;来自&nbsp;<a href="javascript:void(0)">M1设计群</a></span>
+                            <span class="right"><a href="javascript:void(0)" class="pageChatList_Del hidden">删除&nbsp;|&nbsp;</a><a href="javascript:void(0)" class="pageChatOpen" tid="@3" name="3威尔史密斯">共5条会话</a></span>
+                        </p>
+                    </div>
+                </li>
+                <!--<li class="bg_color_gray align_center font_size12 color_gray padding_tb_5">上次看到这里</li>-->
+            </ul>
+            <div class="common_over_page align_right margin_t_10">
+                <a href="javascript:void(0)" class="common_over_page_btn" title="首页"><em class="pageFirst"></em></a>
+                <a href="javascript:void(0)" class="common_over_page_btn" title="上一页"><em class="pagePrev"></em></a>
+                <span class="margin_l_10">第</span><input type="text" class="common_over_page_txtbox">页/13页
+    <a href="javascript:void(0)" class="common_over_page_btn" title="下一页"><em class="pageNext"></em></a>
+                <a href="javascript:void(0)" class="common_over_page_btn" title="尾页"><em class="pageLast"></em></a>
+            </div>
+
+
+         <br /><br /><br /><br /><br /><br /><br />
+            <ul class="pageChatArea margin_t_10">
+                <li class="pageChatAreaMy">
+                    <img class="pageChatAreaMy_img" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                    <span class="pageChatAreaArrowRight"></span>
+                    <div class="pageChatAreaMy_Send">
+                        <div class="pageChatArea_textarea" contenteditable="true"></div>
+                        <div class="font_size12 margin_t_10">
+                            <span class="left"><a href="javascript:void(0)"><em class="ico16 face_16 margin_r_5"></em>表情</a>&nbsp;<a href="javascript:void(0)"><em class="ico16 affix_16 margin_r_5"></em>附件</a>&nbsp;<a href="javascript:void(0)"><em class="ico16 relate_file_16 margin_r_5"></em>关联文档</a>&nbsp;<a href="javascript:void(0)"><em class="ico16 above_16 margin_r_5"></em>浮出窗口</a>&nbsp;<span class="color_gray">您还可以输入<span class="pageChatArea_textarea_length">140</span>个汉字</span></span>
+                            <a href="javascript:void(0)" class="pageChatArea_btnSubmit common_button common_button_disable right">发送</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="pageChatAreaOther">
+                    <img class="pageChatAreaOther_img" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                    <span class="pageChatAreaArrowLeft"></span>
+                    <div class="pageChatAreaOther_content">
+                        <span class="pageChatAreaListClose">
+                            <span class="pageChatAreaListClose_box">
+                                <span class="ico16 for_close_16"></span>
+                            </span>
+                        </span>
+                        <p>
+                            <span class="color_blue"><a href="javascript:void(0)">乔立：</a></span>@1很好，jiangnan上腾娱乐jiangnan上腾娱乐jiangnan上腾娱乐jiangnan上腾娱乐jiangnan上腾娱乐jiangnan上腾娱乐jiangnan上腾娱乐jiangnan上腾娱乐jiangnan上腾娱乐jiangnan上腾娱乐。<br />
+                            <a href="javascript:void(0)">北京旅游名胜古迹介绍.doc</a><br />
+                            <a href="javascript:void(0)">北京旅游名胜古迹介绍.doc</a><br />
+                            <a href="javascript:void(0)">北京旅游名胜古迹介绍.doc</a><br />
+                        </p>
+                        <p class="font_size12 color_gray">
+                            09-05&nbsp;10:12
+                        </p>
+                    </div>
+                </li>
+                <li class="pageChatAreaMy">
+                    <img class="pageChatAreaMy_img" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                    <span class="pageChatAreaArrowRight"></span>
+                    <div class="pageChatAreaMy_content">
+                        <span class="pageChatAreaListClose">
+                            <span class="pageChatAreaListClose_box">
+                                <span class="ico16 for_close_16"></span>
+                            </span>
+                        </span>
+                        <p>
+                            <span class="color_blue"><a href="javascript:void(0)">乔立：</a></span>@1很好，jiangnan上腾娱乐。
+                        </p>
+                        <p class="font_size12 color_gray">
+                            09-05&nbsp;10:12
+                        </p>
+                    </div>
+                </li>
+                <li class="pageChatAreaOther">
+                    <img class="pageChatAreaOther_img" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                    <span class="pageChatAreaArrowLeft"></span>
+                    <div class="pageChatAreaOther_content speech_w_1">
+                        <span class="pageChatAreaListClose">
+                            <span class="pageChatAreaListClose_box">
+                                <span class="ico16 for_close_16"></span>
+                            </span>
+                        </span>
+                        <p class="speech_height">
+                            <span class="left">
+                                <span class="color_blue"><a href="javascript:void(0)">乔立：</a></span><span class="ico16 speech_gif_16"></span>
+                            </span>
+                            <span class="right font_size12 color_gray ">
+                                09-05&nbsp;10:12<span class="speech_time_box"><span>10"</span></span>
+                            </span>
+                        </p>
+                    </div>
+                </li>
+                <li class="pageChatAreaOther">
+                    <img class="pageChatAreaOther_img" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                    <span class="pageChatAreaArrowLeft"></span>
+                    <div class="pageChatAreaOther_content speech_w_2">
+                        <span class="pageChatAreaListClose">
+                            <span class="pageChatAreaListClose_box">
+                                <span class="ico16 for_close_16"></span>
+                            </span>
+                        </span>
+                        <p class="speech_height">
+                            <span class="left">
+                                <span class="color_blue"><a href="javascript:void(0)">乔立：</a></span><span class="ico16 speech_gif_16"></span>
+                            </span>
+                            <span class="right font_size12 color_gray ">
+                                09-05&nbsp;10:12<span class="speech_time_box"><span>10"</span></span>
+                            </span>
+                        </p>
+                    </div>
+                </li>
+                <li class="pageChatAreaOther">
+                    <img class="pageChatAreaOther_img" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                    <span class="pageChatAreaArrowLeft"></span>
+                    <div class="pageChatAreaOther_content speech_w_3">
+                        <span class="pageChatAreaListClose">
+                            <span class="pageChatAreaListClose_box">
+                                <span class="ico16 for_close_16"></span>
+                            </span>
+                        </span>
+                        <p class="speech_height">
+                            <span class="left">
+                                <span class="color_blue"><a href="javascript:void(0)">乔立：</a></span><span class="ico16 speech_gif_16"></span>
+                            </span>
+                            <span class="right font_size12 color_gray ">
+                                09-05&nbsp;10:12<span class="speech_time_box"><span>10"</span></span>
+                            </span>
+                        </p>
+                    </div>
+                </li>
+                <li class="pageChatAreaOther">
+                    <img class="pageChatAreaOther_img" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                    <span class="pageChatAreaArrowLeft"></span>
+                    <div class="pageChatAreaOther_content speech_w_4">
+                        <span class="pageChatAreaListClose">
+                            <span class="pageChatAreaListClose_box">
+                                <span class="ico16 for_close_16"></span>
+                            </span>
+                        </span>
+                        <p class="speech_height">
+                            <span class="left">
+                                <span class="color_blue"><a href="javascript:void(0)">乔立：</a></span><span class="ico16 speech_read_16"></span>
+                            </span>
+                            <span class="right font_size12 color_gray ">
+                                09-05&nbsp;10:12<span class="speech_time_box"><span>60"</span></span>
+                            </span>
+                        </p>
+                    </div>
+                </li>
+                <li class="pageChatAreaMy">
+                    <img class="pageChatAreaMy_img" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                    <span class="pageChatAreaArrowRight"></span>
+                    <div class="pageChatAreaMy_content speech_w_1">
+                        <span class="pageChatAreaListClose">
+                            <span class="pageChatAreaListClose_box">
+                                <span class="ico16 for_close_16"></span>
+                            </span>
+                        </span>
+                        <p class="speech_height">
+                            <span class="left font_size12 color_gray ">
+                                <span class="speech_time_box"><span>10"</span></span>09-05&nbsp;10:12
+                            </span>
+                            <span class="right">
+                                <span class="color_blue margin_l_5">我</span>
+                            </span>
+                        </p>
+                    </div>
+                </li>
+                <li class="pageChatAreaMy">
+                    <img class="pageChatAreaMy_img" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                    <span class="pageChatAreaArrowRight"></span>
+                    <div class="pageChatAreaMy_content speech_w_2">
+                        <span class="pageChatAreaListClose">
+                            <span class="pageChatAreaListClose_box">
+                                <span class="ico16 for_close_16"></span>
+                            </span>
+                        </span>
+                        <p class="speech_height">
+                            <span class="left font_size12 color_gray ">
+                                <span class="speech_time_box"><span>10"</span></span>09-05&nbsp;10:12
+                            </span>
+                            <span class="right">
+                                <span class="color_blue margin_l_5">我</span>
+                            </span>
+                        </p>
+                    </div>
+                </li>
+                <li class="pageChatAreaMy">
+                    <img class="pageChatAreaMy_img" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                    <span class="pageChatAreaArrowRight"></span>
+                    <div class="pageChatAreaMy_content speech_w_3">
+                        <span class="pageChatAreaListClose">
+                            <span class="pageChatAreaListClose_box">
+                                <span class="ico16 for_close_16"></span>
+                            </span>
+                        </span>
+                        <p class="speech_height">
+                            <span class="left font_size12 color_gray ">
+                                <span class="speech_time_box"><span>10"</span></span>09-05&nbsp;10:12
+                            </span>
+                            <span class="right">
+                                <span class="color_blue margin_l_5">我</span>
+                            </span>
+                        </p>
+                    </div>
+                </li>
+                <li class="pageChatAreaMy">
+                    <img class="pageChatAreaMy_img" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                    <span class="pageChatAreaArrowRight"></span>
+                    <div class="pageChatAreaMy_content speech_w_4">
+                        <span class="pageChatAreaListClose"><span class="pageChatAreaListClose_box"><span class="ico16 for_close_16"></span></span></span>
+                        <p class="speech_height">
+                            <span class="left font_size12 color_gray "><span class="speech_time_box"><span>60"</span></span>09-05&nbsp;10:12</span>
+                            <span class="right"><span class="ico16 speech_gif2_16"></span><span class="color_blue margin_l_5">我</span></span>
+                        </p>
+                    </div>
+                </li>
+                <li class="pageChatAreaMy">
+                    <img class="pageChatAreaMy_img" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                    <span class="pageChatAreaArrowRight"></span>
+                    <div class="pageChatAreaMy_content speech_w_5">
+                        <span class="pageChatAreaListClose"><span class="pageChatAreaListClose_box"><span class="ico16 for_close_16"></span></span></span>
+                        <p class="speech_height">
+                            <span class="left font_size12 color_gray "><span class="speech_time_box"><span>60"</span></span>09-05&nbsp;10:12</span>
+                            <span class="right"><span class="ico16 speech_gif2_16"></span><span class="color_blue margin_l_5">我</span></span>
+                        </p>
+                    </div>
+                </li>
+                <li class="pageChatAreaMy">
+                    <img class="pageChatAreaMy_img" width="48" height="48" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" />
+                    <span class="pageChatAreaArrowRight"></span>
+                    <div class="pageChatAreaMy_content speech_w_6">
+                        <span class="pageChatAreaListClose"><span class="pageChatAreaListClose_box"><span class="ico16 for_close_16"></span></span></span>
+                        <p class="speech_height">
+                            <span class="left font_size12 color_gray "><span class="speech_time_box"><span>60"</span></span>09-05&nbsp;10:12</span>
+                            <span class="right"><span class="ico16 speech_gif2_16"></span><span class="color_blue margin_l_5">我</span></span>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+            <div class="common_over_page align_right margin_t_10">
+                <a href="javascript:void(0)" class="common_over_page_btn" title="首页"><em class="pageFirst"></em></a>
+                <a href="javascript:void(0)" class="common_over_page_btn" title="上一页"><em class="pagePrev"></em></a>
+                <span class="margin_l_10">第</span><input type="text" class="common_over_page_txtbox">页/13页
+    <a href="javascript:void(0)" class="common_over_page_btn" title="下一页"><em class="pageNext"></em></a>
+                <a href="javascript:void(0)" class="common_over_page_btn" title="尾页"><em class="pageLast"></em></a>
+            </div>
+    </div>
+</body>
+</html>
+

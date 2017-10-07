@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html class="h100b over_hidden">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>关联项目－新建项目</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+    <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../calendar/calendar-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.json-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.code-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/i18n-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/v3x-debug.js"></script>
+    <script type="text/javascript" src="../../searchBox-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.menu-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.progress-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tab-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tree-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js"></script>
+	<script type="text/javascript" src="../../seeyon.ui.common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js"></script>
+    <style>
+    </style>
+</head>
+<body class="h100b over_hidden">
+    <div id="tabs2" class="comp" comp="type:'tab',tabsEquallyWidth:true">
+        <div id="tabs2_head" class="common_tabs_3 clearfix">
+            <ul class="left">
+                <li class="current"><a href="javascript:void(0)" tgt="tab1_div"><span>基本信息</span></a></li>
+                <li><a href="javascript:void(0)" tgt="tab2_div"><span>人员设置</span></a></li>
+                <li><a href="javascript:void(0)" tgt="tab3_div"><span>高级设置</span></a></li>
+            </ul>
+        </div>
+        <div id="tabs2_body" class="common_tabs_body color_gray2 font_size14">
+            <div id="tab1_div" class="padding_lr_20">
+                <table width="100%" border="0" cellspacing="5" cellpadding="0" align="center">
+                    <tr>
+                        <td colspan="2" class="padding_t_15"><span class="color_red">*</span>项目名称</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="common_txtbox_wrap">
+                                <input type="text" id="text14">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="padding_t_10" width="50%"><span class="color_red">*</span>项目类型</td>
+                        <td class="padding_t_10">项目编号</td>
+                    </tr>
+                    <tr>
+                        <td class="padding_r_30">
+                            <div class="common_selectbox_wrap">
+                                <select>
+                                    <option>aaaaaaaaaaaaa</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="common_txtbox_wrap">
+                                <input type="text" id="text14">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="padding_t_10"><span class="color_red">*</span>开始时间</td>
+                        <td class="padding_t_10"><span class="color_red">*</span>结束时间</td>
+                    </tr>
+                    <tr>
+                        <td class="padding_r_30">
+                            <div class="common_txtbox_wrap">
+                                <input id="" type="text" class="comp validate " comp="type:'calendar',ifFormat:'%Y-%m-%d %H:%M',showsTime:true" validate="notNull:true">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="common_txtbox_wrap">
+                                <input id="" type="text" class="comp validate " comp="type:'calendar',ifFormat:'%Y-%m-%d %H:%M',showsTime:true" validate="notNull:true">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="padding_t_10">项目状态</td>
+                        <td class="padding_t_10">项目进度</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="radio1" class="margin_r_10 hand"><input type="radio" value="0" id="radio1" name="option" class="radio_com">已开始</label>
+                            <label for="radio2" class="margin_r_10 hand"><input type="radio" value="0" id="radio2" name="option" class="radio_com">已结束</label>
+                            <a href="javascript:void(0)" class="common_button common_button_gray">重启项目</a>
+                        </td>
+                        <td>
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <div class="common_txtbox_wrap">
+                                            <input type="text" id="text14">
+                                        </div>
+                                    </td>
+                                    <td width="15" align="right">%</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="padding_t_10">描述</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="common_txtbox  clearfix">
+                                <textarea cols="30" rows="5" class="w100b"></textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="padding_t_10">
+                            <a href="javascript:void(0)" class="common_button common_button_gray">配置空间设置</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="tab2_div" class="hidden padding_lr_20">
+                <table width="100%" border="0" cellspacing="5" cellpadding="0" align="center">
+                    <tr>
+                        <td class="padding_t_15" width="50%"><span class="color_red">*</span>项目负责人</td>
+                        <td class="padding_t_15">项目助理</td>
+                    </tr>
+                    <tr>
+                        <td class="padding_r_20">
+                            <div class="common_txtbox_wrap">
+                                <input type="text" id="text14">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="common_txtbox_wrap">
+                                <input type="text" id="text14">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="padding_t_10"><span class="color_red">*</span>项目成员</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="common_txtbox  clearfix">
+                                <textarea cols="30" rows="3" class="w100b"></textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="padding_t_10">项目领导</td>
+                        <td class="padding_t_10">关联人员</td>
+                    </tr>
+                    <tr>
+                        <td class="padding_r_20">
+                            <div class="common_txtbox_wrap">
+                                <input type="text" id="text14">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="common_txtbox_wrap">
+                                <input type="text" id="text14">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="padding_t_5">
+                            <a href="">[人员权限解释]</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="padding_t_10">
+                            <div><span class="color_red">*</span>组公开</div>
+                            <div class="common_radio_box clearfix margin_t_5">
+                                <label for="radio1" class="margin_r_10 hand color_gray2"><input type="radio" value="0" id="radio1" name="option" class="radio_com">公开</label>
+                                <label for="radio2" class="margin_r_10 hand color_gray2"><input type="radio" value="0" id="radio2" name="option" class="radio_com">不公开</label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="tab3_div" class="hidden padding_lr_20">
+                <div class="padding_t_10 padding_b_5">项目模版</div>
+                <div class="common_txtbox  clearfix">
+                    <textarea cols="30" rows="3" class="w100b"></textarea>
+                </div>
+                <div class="padding_t_10 padding_b_5 clearfix">
+                    <span class="left">项目阶段</span>
+                    <span class="right"><em class="ico16 task_add_16 margin_l_5"></em><em class="ico16 task_edit_16 margin_l_5"></em><em class="ico16 del_16 margin_l_5"></em></span>
+                </div>
+                <div class="list_content relative" style="height:100px;">
+                    <div class=" table_head relative"><!--表头-->
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="only_table edit_table">
+                            <tbody>
+                                <tr>
+                                    <th width="20" align="center"><input type="checkbox" /></th>
+                                    <th width="">分离表格</th>
+                                    <th width="50">表头</th>
+                                </tr>
+                            </tbody>
+                        </table> 
+                    </div>
+                    <div class="table_body absolute"><!--表身-->
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="only_table edit_table">
+                            <tbody>
+                                <tr>
+                                    <td width="22"><input type="checkbox" /></td>
+                                    <td>2</td>
+                                    <td width="52">3</td>
+                                </tr>
+                                <tr>
+                                    <td width="22"><input type="checkbox" /></td>
+                                    <td>2</td>
+                                    <td width="52">3</td>
+                                </tr>
+                                <tr>
+                                    <td width="22"><input type="checkbox" /></td>
+                                    <td>2</td>
+                                    <td width="52">3</td>
+                                </tr>
+                                <tr>
+                                    <td width="22"><input type="checkbox" /></td>
+                                    <td>2</td>
+                                    <td width="52">3</td>
+                                </tr>
+                            </tbody>
+                        </table>    
+                    </div>
+                </div>
+                <div class="padding_t_15 padding_b_5"><span class="color_red">*</span>当前阶段</div>
+                <div class="common_selectbox_wrap">
+                    <select>
+                        <option>aaaaaaaaaaaaa</option>
+                    </select>
+                </div>
+                <div class="padding_t_15 padding_b_5">点击修改项目颜色</div>
+                <div class="color_selecter"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

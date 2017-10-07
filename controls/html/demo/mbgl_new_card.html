@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html class="h100b over_hidden">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>list</title>
+        <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../../skin/default/skin-debug.css">
+        <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+        <script type="text/javascript" src="../../calendar/calendar-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/jquery.json-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/jquery.code-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/common-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/i18n-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/v3x-debug.js"></script>
+        <script type="text/javascript" src="../../searchBox-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.menu-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.progress-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.tab-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.tree-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js"></script>
+		<script type="text/javascript" src="../../seeyon.ui.common-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js"></script>
+        <style>
+            .stadic_head_height{
+                height:50px;
+                background: #EEE;
+            }
+            .stadic_body_top_bottom{
+                bottom: 0px;
+                top: 50px;
+            }
+
+
+        </style>
+        <script type="text/javascript">
+            var CorrelationProjects = {};
+            CorrelationProjects.setStarFn = function (argument) {
+                alert("标星项目")
+            }
+            CorrelationProjects.removeStarFn = function (argument) {
+                alert("取消标星")
+            }
+            CorrelationProjects.editorProjectFn = function (argument) {
+                alert("编辑项目")
+            }
+            CorrelationProjects.scrollLoadingFn = function (argument) {
+                console.log("滚动加载")
+            }
+            //一行可以显示几个项目
+            CorrelationProjects.rowCanShowNum = null;
+
+
+            $(function () {
+                scrollLoading();
+                getListRowNum();
+            })
+            function getListRowNum () {
+                CorrelationProjects.rowCanShowNum = Math.floor($(window).width() / 290);
+                $(window).resize(function () {
+                    CorrelationProjects.rowCanShowNum = Math.floor($(window).width() / 290);
+                });
+            }
+            //滚动底部加载
+            function scrollLoading() {
+                setInterval(function(){
+                    var scrollHeight = $("#projects")[0].scrollHeight * 1;
+                    var scrollTop = $("#projects").scrollTop() * 1;
+                    var height = $("#projects").height() * 1;
+                    if (scrollHeight == scrollTop + height) {
+                        CorrelationProjects.scrollLoadingFn();
+                    };
+                },2000);
+            }
+        </script>
+    </head>
+    <body class="h100b over_hidden">
+        <div class="stadic_layout">
+            <div class="stadic_layout_head stadic_head_height">
+                <div class="projects_head clearfix">
+                    <span class="left margin_l_10 margin_t_10">
+                        <span class="font_size18">关联项目</span>
+                        <a href="javascript:void(0)" class="common_button common_button_emphasize">已开始项目</a>
+                        <a href="javascript:void(0)" class="common_button common_button_white">已完成项目</a>
+                    </span>
+                    <span class="right margin_r_10 margin_t_10">
+                        <em class="ico24 project_search_24"></em>
+                        <em class="ico24 project_add_24"></em>
+                        <em class="ico24 project_set_24"></em>
+                        <em class="ico24 project_card_24"></em>
+                        <em class="ico24 project_list_24"></em>
+                    </span>
+                </div>
+            </div>
+            <div id="projects" class="stadic_layout_body stadic_body_top_bottom">
+                <div class="projects_box">
+                <div class="projectsList_area clearfix">
+                    <div class="clearfix">
+                        <span class="title">标星项目</span>
+                        <a class="more">更多</a>
+                    </div>
+                    <ul class="list_area">
+                        <li class="list_item cardHoverAnimate">
+                            <div class="list_item_head clearfix">
+                                <span class="t text_overflow">微创新微创新微创新微创新微创新</span>
+                                <em class="ico24 project_star_24"></em>
+                                <em class="ico24 project_editor_24"></em>
+                            </div>
+                            <div class="clearfix">
+                                <div class="info">
+                                    <p>负责人：曾静良</p>
+                                    <p>结束日期：2016-11-11</p>
+                                    <p class="countdown">倒计时<span>5</span>天</p>
+                                </div>
+                                <div class="percentage">100%</div>
+                            </div>
+                        </li>
+                        <li class="list_item cardHoverAnimate">
+                            <div class="list_item_head clearfix">
+                                <span class="t">微创新</span>
+                                <em class="ico24 project_star_24"></em>
+                            </div>
+                            <div class="clearfix">
+                                <div class="info">
+                                    <p>负责人：曾静良</p>
+                                    <p>结束日期：2016-11-11</p>
+                                    <p class="overdue">已超期</p>
+                                </div>
+                                <div class="percentage">100%</div>
+                            </div>
+                        </li>
+                        <li class="list_item cardHoverAnimate">
+                            <div class="list_item_head clearfix">
+                                <span class="t">微创新</span>
+                                <em class="ico24 project_star_24"></em>
+                            </div>
+                            <div class="clearfix">
+                                <div class="info">
+                                    <p>负责人：曾静良</p>
+                                    <p>结束日期：2016-11-11</p>
+                                    <p class="overdue">已超期</p>
+                                </div>
+                                <div class="percentage">100%</div>
+                            </div>
+                        </li>
+                        <li class="list_item cardHoverAnimate">
+                            <div class="list_item_head clearfix">
+                                <span class="t">微创新</span>
+                                <em class="ico24 project_star_24"></em>
+                            </div>
+                            <div class="clearfix">
+                                <div class="info">
+                                    <p>负责人：曾静良</p>
+                                    <p>结束日期：2016-11-11</p>
+                                    <p class="overdue">已超期</p>
+                                </div>
+                                <div class="percentage">100%</div>
+                            </div>
+                        </li>
+                        <li class="list_item cardHoverAnimate">
+                            <div class="list_item_head clearfix">
+                                <span class="t">微创新</span>
+                                <em class="ico24 project_star_24"></em>
+                            </div>
+                            <div class="clearfix">
+                                <div class="info">
+                                    <p>负责人：曾静良</p>
+                                    <p>结束日期：2016-11-11</p>
+                                    <p class="overdue">已超期</p>
+                                </div>
+                                <div class="percentage">100%</div>
+                            </div>
+                        </li>
+                        <li class="list_item cardHoverAnimate">
+                            <div class="list_item_head clearfix">
+                                <span class="t">微创新</span>
+                                <em class="ico24 project_star_24"></em>
+                            </div>
+                            <div class="clearfix">
+                                <div class="info">
+                                    <p>负责人：曾静良</p>
+                                    <p>结束日期：2016-11-11</p>
+                                    <p class="overdue">已超期</p>
+                                </div>
+                                <div class="percentage">100%</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectsList_area clearfix">
+                    <div class="clearfix">
+                        <span class="title">A8项目</span>
+                        <a class="more">更多</a>
+                    </div>
+                    <ul class="list_area">
+                        <li class="list_item cardHoverAnimate">
+                            <div class="list_item_head clearfix">
+                                <span class="t text_overflow">微创新微创新微创新微创新微创新</span>
+                                <em class="ico24 project_no_star_24"></em>
+                                <em class="ico24 project_editor_24"></em>
+                            </div>
+                            <div class="clearfix">
+                                <div class="info">
+                                    <p>负责人：曾静良</p>
+                                    <p>结束日期：2016-11-11</p>
+                                    <p class="countdown">倒计时<span>5</span>天</p>
+                                </div>
+                                <div class="percentage">100%</div>
+                            </div>
+                        </li>
+                        <li class="list_item cardHoverAnimate">
+                            <div class="list_item_head clearfix">
+                                <span class="t">微创新</span>
+                                <em class="ico24 project_star_24"></em>
+                            </div>
+                            <div class="clearfix">
+                                <div class="info">
+                                    <p>负责人：曾静良</p>
+                                    <p>结束日期：2016-11-11</p>
+                                    <p class="overdue">已超期</p>
+                                </div>
+                                <div class="percentage">100%</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectsList_area clearfix">
+                    <div class="clearfix">
+                        <span class="title">标星项目</span>
+                        <a class="more">更多</a>
+                    </div>
+                    <ul class="list_area">
+                        <li class="list_item cardHoverAnimate">
+                            <div class="list_item_head clearfix">
+                                <span class="t text_overflow">微创新微创新微创新微创新微创新</span>
+                                <em class="ico24 project_star_24"></em>
+                                <em class="ico24 project_editor_24"></em>
+                            </div>
+                            <div class="clearfix">
+                                <div class="info">
+                                    <p>负责人：曾静良</p>
+                                    <p>结束日期：2016-11-11</p>
+                                    <p class="countdown">倒计时<span>5</span>天</p>
+                                </div>
+                                <div class="percentage">100%</div>
+                            </div>
+                        </li>
+                        <li class="list_item cardHoverAnimate">
+                            <div class="list_item_head clearfix">
+                                <span class="t">微创新</span>
+                                <em class="ico24 project_star_24"></em>
+                            </div>
+                            <div class="clearfix">
+                                <div class="info">
+                                    <p>负责人：曾静良</p>
+                                    <p>结束日期：2016-11-11</p>
+                                    <p class="overdue">已超期</p>
+                                </div>
+                                <div class="percentage">100%</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div> 
+        </div>
+    </body>
+</html>

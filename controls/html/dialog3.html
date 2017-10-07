@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Dialog-Box</title>
+        <link rel="stylesheet" type="text/css" href="../../skin/default/skin-debug.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common-debug.css">
+	<script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+	
+	<script type="text/javascript" src="../calendar/calendar-debug.js"></script>
+	<script type="text/javascript" src="../calendar/calendar-zh-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/misc/Moo-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.json-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.fillform-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.code-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/common-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/i18n-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/v3x-debug.js"></script>
+	<script type="text/javascript" src="../searchBox-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.checkform-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.dialog-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.grid-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.layout-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.menu-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.progress-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.scroll-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tab-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.toolbar-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tree-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.calendar-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.arraylist-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tooltip-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.comp-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.tree-debug.js"></script>
+        <script>
+            function showMessageBox(flag){
+                if (flag == 0) {
+                    var dialog = $.dialog({
+						id:'url2',
+                        url: 'dialog4.html',
+						min:true,
+						max:true,
+						title:'html',
+						targetWindow: window.parent
+                    });
+                }
+            }
+        </script>
+		<link rel="stylesheet" type="text/css" href="../../docs/resource/doc.css"> 
+		<script src="../../docs/resource/doc.js" type="text/javascript"></script>
+    </head>
+<body>
+	<div class="body-pading">
+	<div class="classification">
+		<div class="title">dialog parent示例</div>
+		<div class="list">
+			<div class="button_box clearfix"><!--按钮居中common_button_center-->
+			<a  href="javascript:showMessageBox(0)" class="common_button common_button_gray">parent show dialog</a>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+</html>

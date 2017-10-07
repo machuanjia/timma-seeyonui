@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Untitled Document</title>
+	    <link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">	
+		
+		
+	    <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+		<script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js"></script>
+		<script type="text/javascript" src="../../seeyon.ui.timeLine-debug.js"></script>
+	
+	<script type="text/javascript" src="../../calendar/calendar-debug.js"></script>
+	<script type="text/javascript" src="../../calendar/calendar-zh-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/misc/Moo-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/jquery.json-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/jquery.code-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/common-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/i18n-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/v3x-debug.js"></script>
+	<script type="text/javascript" src="../../searchBox-debug.js"></script>
+	<script type="text/javascript" src="../../seeyon.ui.checkform-debug.js"></script>
+	<script type="text/javascript" src="../../seeyon.ui.dialog-debug.js"></script>
+	<script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+	<script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+	<script type="text/javascript" src="../../seeyon.ui.menu-debug.js"></script>
+	<script type="text/javascript" src="../../seeyon.ui.progress-debug.js"></script>
+	<script type="text/javascript" src="../../seeyon.ui.scroll-debug.js"></script>
+	<script type="text/javascript" src="../../seeyon.ui.tab-debug.js"></script>
+	<script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+	<script type="text/javascript" src="../../seeyon.ui.tree-debug.js"></script>
+	<script type="text/javascript" src="../../seeyon.ui.calendar-debug.js"></script>
+	<script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js"></script>
+	<script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/jquery.comp-debug.js"></script>
+	<script type="text/javascript" src="../../../ctp/jquery.tree-debug.js"></script>
+		
+		
+		
+		
+		
+		<script>
+			var timeLineObj;
+			$(document).ready(function(){
+				timeLineObj = new MxtTimeLine({
+					id:'11111111111',
+					height:500,
+					render:'line',
+					date:[2012,12,25],
+					timeStep:['8:00','18:00'],
+					searchClick:function(){
+						//{'year':_year,'mounth':_mounth,'day':_day,'fromTime':_ftime,'toTime':_ttime};
+						var sss = timeLineObj.getDate();
+						alert(sss.day)
+					},
+					editClick:function(){
+						alert('edit')
+					},
+					maxClick:function(){
+						alert('max')
+					},
+					action:'testAction',
+					items:[{
+						type:'plan',
+						dateTime:'8:00',
+						childItems:[{
+							id:'plan1',
+							title:'计划一',
+							type:'plan',
+							content:'计划内容计划内容计划内容计划内容计划内容',
+							dateTime:'8:12',
+							account:'北京致远协创软件技术有限公司'
+						}]
+					},{
+						type:'task',
+						dateTime:'12:00',
+						childItems:[{
+							id:'task1',
+							title:'任务一',
+							type:'task',
+							content:'任务内容任务内容任务内容任务内容任务内容任务内容任务内容',
+							dateTime:'8:00',
+							account:'北京致远协创软件技术有限公司'
+						}]
+					},{
+						type:'meeting',
+						dateTime:'13:00',
+						childItems:[{
+							id:'meeting1',
+							title:'会议一',
+							type:'meeting',
+							content:'会议内容会议内容会议内容会议内容会议内容会议内容',
+							dateTime:'04-26 08:00--04-26 08:00',
+							account:'谁谁谁'
+						}]
+					},{
+						type:'event',
+						dateTime:'14:00',
+						childItems:[{
+							id:'event1',
+							title:'事件一',
+							type:'event',
+							content:'事件内容事件内容事件内容事件内容事件内容事件内容事件内容',
+							dateTime:'8:00',
+							account:'北京致远协创软件技术有限公司'
+						}]
+					},{
+						type:'collaboration',
+						dateTime:'15:00',
+						childItems:[{
+							id:'collaboration1',
+							title:'协同一',
+							type:'collaboration',
+							content:'协同内容协同内容协同内容协同内容协同内容协同内容协同内容',
+							dateTime:'8:00',
+							account:'北京致远协创软件技术有限公司'
+						}]
+					},{
+						type:'edoc',
+						dateTime:'16:00',
+						childItems:[{
+							id:'edoc1',
+							title:'公文一',
+							type:'edoc',
+							content:'公文内容公文内容公文内容公文内容公文内容公文内容公文内容公文内容',
+							dateTime:'截止 08:00',
+							account:'北京致远协创软件技术有限公司'
+						}]
+					},{
+						type:'mix',
+						dateTime:'17:00',
+						childItems:[{
+							id:'edoc1',
+							title:'公文一',
+							type:'edoc',
+							content:'公文内容公文内容公文内容公文内容公文内容公文内容公文内容公文内容',
+							dateTime:'8:00',
+							account:'北京致远协创软件技术有限公司'
+						},{
+							id:'collaboration1',
+							title:'协同一',
+							type:'collaboration',
+							content:'协同内容协同内容协同内容协同内容协同内容协同内容协同内容',
+							dateTime:'8:00',
+							account:'北京致远协创软件技术有限公司'
+						},{
+							id:'event1',
+							title:'事件一',
+							type:'event',
+							content:'事件内容事件内容事件内容事件内容事件内容事件内容事件内容',
+							dateTime:'8:00',
+							account:'北京致远协创软件技术有限公司'
+						},{
+							id:'meeting1',
+							title:'会议一',
+							type:'meeting',
+							content:'会议内容会议内容会议内容会议内容会议内容会议内容',
+							dateTime:'8:00',
+							account:'北京致远协创软件技术有限公司'
+						}]
+					},{
+						type:'plan',
+						dateTime:'18:00',
+						childItems:[{
+							id:'plan1',
+							title:'计划一',
+							type:'plan',
+							content:'计划内容计划内容计划内容计划内容计划内容',
+							dateTime:'8:00',
+							account:'北京致远协创软件技术有限公司'
+						}]
+					}]
+				});
+			});
+				function resetTimeLine(){
+					
+					/**
+					timeLineObj.setTimeLineDate({
+						'date':new Date(),
+						'year':'2012',
+						'mounth':'12',
+						'day':'22'
+					});
+					**/
+					
+					timeLineObj.reset({
+						date:[2012,1,27],
+						timeStep:['10:00','17:00'],
+						action:'testAction',
+						items:[{
+							type:'plan',
+							dateTime:'8:00',
+							childItems:[{
+								id:'plan1',
+								type:'plan',
+								title:'计划一',
+								content:'计划内容计划内容计划内容计划内容计划内容',
+								dateTime:'8:00',
+								account:'北京致远协创软件技术有限公司'
+							}]
+						},{
+							type:'task',
+							dateTime:'12:00',
+							childItems:[{
+								id:'task1',
+								type:'task',
+								title:'任务一',
+								content:'任务内容任务内容任务内容任务内容任务内容任务内容任务内容',
+								dateTime:'8:00',
+								account:'北京致远协创软件技术有限公司'
+							}]
+						},{
+							type:'meeting',
+							dateTime:'13:00',
+							childItems:[{
+								id:'meeting1',
+								title:'会议一',
+								type:'meeting',
+								content:'会议内容会议内容会议内容会议内容会议内容会议内容',
+								dateTime:'8:00',
+								account:'北京致远协创软件技术有限公司'
+							}]
+						},{
+							type:'event',
+							dateTime:'14:00',
+							childItems:[{
+								id:'event1',
+								title:'事件一',
+								type:'event',
+								content:'事件内容事件内容事件内容事件内容事件内容事件内容事件内容',
+								dateTime:'8:00',
+								account:'北京致远协创软件技术有限公司'
+							}]
+						},{
+							type:'collaboration',
+							dateTime:'15:00',
+							childItems:[{
+								id:'collaboration1',
+								title:'协同一',
+								type:'collaboration',
+								content:'协同内容协同内容协同内容协同内容协同内容协同内容协同内容',
+								dateTime:'8:00',
+								account:'北京致远协创软件技术有限公司'
+							}]
+						}]
+					});
+				}
+				function testAction(id,type){
+					var _obj = timeLineObj.getDateObj(id)
+					alert(_obj.title)
+				}
+		</script>
+	</head>
+	<body style="overflow:hidden">
+		<br/><input type="button" value="重新设置" onclick="resetTimeLine()"/><br/>
+		<div id="line"></div>
+	</body>
+</html>

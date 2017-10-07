@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>选择表单流程</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css" />
+    <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+
+	<script src="../../seeyon.ui.common-debug.js"> </script>
+	<script type="text/javascript">
+		 $(function(){
+		 	new inputChange($("#newflow"),"选择表单流程");	
+		 	//添加项
+		 	$(".add").click(function(){
+		 		var newItem=$(".newItem").eq(0).clone(true).removeClass("hidden");
+		 		$(".newItem").eq(0).parent().append(newItem);
+		 	});
+		 	//删除项
+		 	$(".remove").click(function(){
+		 		var removeItem=$(".newItem").length;
+		 		if(removeItem!=1) $(".newItem").eq(removeItem-1).remove();	  
+		 	});
+		 	
+		 })
+	</script>
+
+</head>
+<body>
+
+<fieldset class="margin_5">
+    <legend>新流程</legend>
+    <div class="form_area align_center relative padding_b_15">
+    	<table border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
+	        <tr>
+	            <th nowrap="nowrap"><label class="margin_r_5" for="text"><span class="required">*</span>选择表单流程:</label></th>
+	            <td width="100%"><div class="common_txtbox_wrap">
+	            	<input id="newflow" type="text" name="newflow" />
+	            </div></td>
+	        </tr>
+	        <tr>
+	            <th nowrap="nowrap"><label class="margin_r_5" for="text">选择表单流程:</label></th>
+	            <td width="100%"><div class="common_txtbox_wrap">
+	            	<input id="newflow" type="text" name="newflow" />
+	            </div></td>
+	        </tr>
+	     </table>
+	     <div class="fieldset_edit absolute">
+			<span class="ico16 repeater_plus_16 add" ></span>
+			<span class="ico16 repeater_reduce_16 remove"></span>
+		</div>
+    </div>
+    <div class="form_area align_center border_t margin_t_5 padding_t_5 newItem hidden padding_b_15 relative">
+    	<div class="fieldset_edit absolute">
+			<span class="ico16 repeater_plus_16 add" ></span>
+			<span class="ico16 repeater_reduce_16 remove"></span>
+		</div>
+    	<table border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
+	        <tr>
+	            <th nowrap="nowrap"><label class="margin_r_5" for="text"><span class="required">*</span>选择表单流程:</label></th>
+	            <td width="100%"><div class="common_txtbox_wrap">
+	            	<input id="newflow" type="text" name="newflow" />
+	            </div></td>
+	        </tr>
+	        <tr>
+	            <th nowrap="nowrap"><label class="margin_r_5" for="text">选择表单流程:</label></th>
+	            <td width="100%"><div class="common_txtbox_wrap">
+	            	<input id="newflow" type="text" name="newflow" />
+	            </div></td>
+	        </tr>
+	     </table>
+    </div>
+</fieldset>
+ 
+<fieldset class="margin_5">
+    <legend>属性设置</legend>
+    <div class="form_area relative margin_l_10">
+    	<table border="0" cellspacing="0" cellpadding="0" width="100%">
+	        <tr>
+	            <th nowrap="nowrap"><label for="text">节点名称:</label></th>
+	            <td width="100%">总经理部门</td>
+	        </tr>
+	        <tr>
+	            <th nowrap="nowrap"><label for="text">执行模式:</label></th>
+	            <td width="100%">单人</td>
+	        </tr>
+	        <tr>
+	            <th nowrap="nowrap"><label for="text">节点状态:</label></th>
+	            <td width="100%">一般</td>
+	        </tr>
+	        <tr>
+	            <th nowrap="nowrap"><label for="text">节点权限:</label></th>
+	            <td width="100%">协同</td>
+	        </tr>
+	     </table>
+	    	<a href="javascript:void(0)" class="absolute" style="bottom:5px;right:5px;">[权限说明]</a>
+    </div>
+</fieldset>
+	<a href="javascript:void(0)" class="absolute font_size12" style="bottom:5px;right:10px;">[处理说明]</a>
+</body>
+</html>

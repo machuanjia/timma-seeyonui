@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html class="h100b over_hidden">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>表单查询</title>
+        <script src="../../../../scriptes/jquery.js">
+        </script>
+        <script src="../../../../docs/resource/doc.js" type="text/javascript">
+        </script>
+        <script src="../../../seeyon.ui.layout-debug.js">
+        </script>
+        <script src="../../../seeyon.ui.common-debug.js">
+        </script>
+        <script src="../../../seeyon.ui.grid-debug.js">
+        </script>
+        <script src="../../../seeyon.ui.arraylist-debug.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="../../../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../../../skin/default/skin.css">
+        <script>
+            $(document).ready(function(){
+                $.fn.codetext = function(options){
+                };
+                
+                
+                new inputChange($("#set_display"), "点击设置显示");
+                new inputChange($("#sort_display"), "点击设置排序");
+                var layout = new MxtLayout({
+                    'id': 'layout',
+                    'northArea': {
+                        'id': 'north',
+                        'height': 170,
+                        'sprit': true,
+                        'maxHeight': 500,
+                        'minHeight': 0,
+                        'border': true,
+                        'spritBar': true,
+                        spiretBar: {
+                            show: true,
+                            handlerB: function(){
+                                layout.setNorth(168);
+                            },
+                            handlerT: function(){
+                                layout.setNorth(0);
+                            }
+                        }
+                    },
+                    'centerArea': {
+                        'id': 'center',
+                        'border': true,
+                        'minHeight': 20
+                    }
+                });
+                
+                var testData = {
+                    "rows": [{
+                        "id": 10001,
+                        "username": "zhujl",
+                        "truename": "朱家玲",
+                        "handphone": "13808000661",
+                        "officephone": "028-85243926",
+                        "email": "",
+                        "birthday": "1910-01-01",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10001\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10002,
+                        "username": "yuq",
+                        "truename": "余强",
+                        "handphone": "13901206080",
+                        "officephone": "",
+                        "email": "yuqiang@seeyon.com",
+                        "birthday": "1965-03-21",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10002\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10003,
+                        "username": "lq",
+                        "truename": "刘清",
+                        "handphone": "13910976992",
+                        "officephone": "108",
+                        "email": "liuq@seeyon.com",
+                        "birthday": "1910-01-01",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10003\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10004,
+                        "username": "xus",
+                        "truename": "徐石",
+                        "handphone": "13911116021",
+                        "officephone": "101",
+                        "email": "Rock_xu@seeyon.com",
+                        "birthday": "1910-01-01",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10004\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10005,
+                        "username": "张宇红",
+                        "truename": "张宇红",
+                        "handphone": "13301009835",
+                        "officephone": "010-82602233-130",
+                        "email": "zhangyh@seeyon.com",
+                        "birthday": "1976-12-01",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10005\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10006,
+                        "username": "zhangy",
+                        "truename": "张屹",
+                        "handphone": "13701136073",
+                        "officephone": "102",
+                        "email": "zhangy@seeyon.com",
+                        "birthday": "1968-06-25",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10006\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10007,
+                        "username": "qiuwj",
+                        "truename": "邱文娟",
+                        "handphone": "13426220457",
+                        "officephone": "125",
+                        "email": "",
+                        "birthday": "1970-01-01",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10007\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10008,
+                        "username": "lind",
+                        "truename": "林丹",
+                        "handphone": "13908001627",
+                        "officephone": "010-82602233-165",
+                        "email": "lind@seeyon.com",
+                        "birthday": "1910-01-01",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10008\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10009,
+                        "username": "hul",
+                        "truename": "胡丽",
+                        "handphone": "13146164157",
+                        "officephone": "800801",
+                        "email": "hul@seeyon.com",
+                        "birthday": "1983-10-18",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10009\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10010,
+                        "username": "husy",
+                        "truename": "胡守云",
+                        "handphone": "13908057455",
+                        "officephone": "010-82602233-103",
+                        "email": "husy@seeyon.com",
+                        "birthday": "1967-11-13",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10010\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10011,
+                        "username": "huac",
+                        "truename": "华程",
+                        "handphone": "13910338526",
+                        "officephone": "146",
+                        "email": "",
+                        "birthday": "1970-01-01",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10011\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10012,
+                        "username": "taowh",
+                        "truename": "陶维浩",
+                        "handphone": "13308172151",
+                        "officephone": "028-85240311",
+                        "email": "",
+                        "birthday": "1910-01-01",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10012\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10013,
+                        "username": "luojc",
+                        "truename": "罗继承",
+                        "handphone": "13701124108",
+                        "officephone": "62715542",
+                        "email": "luojc@seeyon.com",
+                        "birthday": "1975-07-07",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10013\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10014,
+                        "username": "caozm",
+                        "truename": "曹中敏",
+                        "handphone": "",
+                        "officephone": "",
+                        "email": "",
+                        "birthday": "1970-01-01",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10014\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10015,
+                        "username": "liurh",
+                        "truename": "刘瑞华",
+                        "handphone": "13910519458",
+                        "officephone": "107",
+                        "email": "",
+                        "birthday": "1910-01-01",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10015\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10016,
+                        "username": "xuey",
+                        "truename": "薛瑶",
+                        "handphone": "13910928111",
+                        "officephone": "106",
+                        "email": "xuey@seeyon.com",
+                        "birthday": "1981-11-11",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10016\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10017,
+                        "username": "lijh",
+                        "truename": "李继红",
+                        "handphone": "13709044732",
+                        "officephone": "44455555",
+                        "email": "lijh@seeyon.com",
+                        "birthday": "1910-01-01",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10017\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10018,
+                        "username": "xiaoxs",
+                        "truename": "肖雪松",
+                        "handphone": "13981811797",
+                        "officephone": "028-85248800",
+                        "email": "wuming999@163.com",
+                        "birthday": "1975-08-04",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10018\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10019,
+                        "username": "wangy",
+                        "truename": "王宇",
+                        "handphone": "",
+                        "officephone": "",
+                        "email": "",
+                        "birthday": "1970-01-01",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10019\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10020,
+                        "username": "yuhj",
+                        "truename": "于荒津",
+                        "handphone": "13910621929",
+                        "officephone": "141",
+                        "email": "",
+                        "birthday": "1970-01-01",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10020\"/>",
+                        "jiaqi": 2
+                    }],
+                    "page": 1,
+                    "pages": 18,
+                    "startAt": 0,
+                    "dataCount": 10,
+                    "sortField": null,
+                    "sortOrder": null
+                };
+                function render(text, row, rowIndex, colIndex){
+                    if (rowIndex == 2 && colIndex == 2) {
+                        return "<a href='#'>" + text + "</a>";
+                    }
+                    else {
+                        return text;
+                    }
+                }
+                $("table.flexme1").ajaxgrid({
+                    click: testCellAction,
+                    dblclick: testCellActionDB,
+                    render: render,
+                    datas: testData,
+                    colModel: [{
+                        display: 'id',
+                        name: 'id',
+                        width: '40',
+                        sortable: false,
+                        align: 'center',
+                        type: 'checkbox',
+                        colAction: {
+                            'click': test,
+                            'dblclick': testDB
+                        }
+                    }, {
+                        display: 'username',
+                        name: 'username',
+                        width: '100',
+                        sortable: true,
+                        align: 'left',
+                        colAction: {
+                            'click': test2,
+                            'dblclick': testDB2
+                        }
+                    }, {
+                        display: 'truename',
+                        name: 'truename',
+                        width: '100',
+                        sortable: true,
+                        align: 'left'
+                    }, {
+                        display: 'handphone',
+                        name: 'handphone',
+                        width: '100',
+                        sortable: true,
+                        align: 'center'
+                    }, {
+                        display: 'officephone',
+                        name: 'officephone',
+                        width: '100',
+                        sortable: true,
+                        align: 'left'
+                    }, {
+                        display: 'email',
+                        name: 'email',
+                        width: '100',
+                        sortable: true,
+                        align: 'left'
+                    }, {
+                        display: 'birthday',
+                        name: 'birthday',
+                        width: '100',
+                        sortable: true,
+                        align: 'center'
+                    }, {
+                        display: 'jiaqi',
+                        name: 'jiaqi',
+                        width: '100',
+                        sortable: true,
+                        align: 'left'
+                    }],
+                    sortname: "id",
+                    sortorder: "asc",
+                    usepager: true,
+                    height: 200,
+                    showTableToggleBtn: false,
+                    parentId: 'center1',
+                    vChange: true
+                });
+                function test(id){
+                    $('#s').val('click---' + id)
+                }
+                function test2(id){
+                    $('#s').val('test2---' + id)
+                }
+                function testDB(id){
+                    $('#s').val('dbclick----' + id)
+                }
+                function testDB2(id){
+                    $('#s').val('dbclick222----' + id)
+                }
+                
+                function testCellAction(row, rowIndex, colIndex){
+                    $("table.flexme3").resizeGrid(200);
+                    $('#s').val('click----' + row.id + '---' + colIndex + '---' + rowIndex)
+                }
+                function testCellActionDB(row, rowIndex, colIndex){
+                    window.open("http://www.baidu.com");
+                    $('#s').val('DBclick----' + row.id + '---' + colIndex + '---' + rowIndex)
+                }
+                
+            });
+        </script>
+        <style>
+        .stadic_head_height{
+            height:30px;
+        }
+        .stadic_body_top_bottom{
+	        bottom: 0px;
+            top: 30px;
+        }
+    </style>
+
+    </head>
+    <body class="h100b overflow_hidden page_color" id="layout">
+        <div class="layout_north" id="north">
+            <div class="form_area set_search padding_b_10  margin_5">
+                查询条件:
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                    <tr>
+                        <td width="60%" valign="top">
+                            <fieldset class="fieldset_box margin_t_5">
+                                <legend>
+                                    输入查询条件:
+                                </legend>
+                                <div class="margin_5">
+                                    <select style="width:35px;">
+                                        <option selected value=100> ( </option>
+                                    </select>&nbsp;
+                                    <select style="width:120px;">
+                                        <option selected value=my:产品线>产品线</option>
+                                        <option value=my:版本>版本</option>
+                                    </select>
+                                    <select style="width:60px;">
+                                        <option selected value=13>=</option>
+                                        <option value=14>&lt;&gt;</option>
+                                        <option value=24>包含</option>
+                                        <option value=25>不包含</option>
+                                    </select>
+                                    <select style="WIDTH: 120px;">
+                                        <option value=""></option>
+                                        <option title=A6 selected value=0>A6</option>
+                                        <option title=A8 value=1>A8</option>
+                                        <option title=M1 value=2>M1</option>
+                                        <option title=CTP value=3>CTP</option>
+                                        <option title=Meari value=4>Meari</option>
+                                        <option title=A6升级A8项目 value=5>A6升级A8项目</option>
+                                        <option title=其他产品线 value=6>其他产品线</option>
+                                        <option title=A6-s value=7>A6-s</option>
+                                        <option title=U8-OA value=8>U8-OA</option>
+                                        <option title=DEE value=9>DEE</option>
+                                        <option title=A8+A6 value=10>A8+A6</option>
+                                        <option title=G6 value=11>G6</option>
+                                    </select>
+                                    <select style="width:35px;">
+                                        <option selected value=100> ) </option>
+                                    </select>&nbsp;
+                                    <select style="width:50px;">
+                                        <option selected value=100>and</option>
+                                        <option selected value=100>or</option>
+                                    </select>&nbsp;<span class="ico16 revoked_process_16"></span>
+                                    <span class="ico16"></span>
+                                </div>
+                                <div class="common_radio_box clearfix margin_t_20 padding_b_5">
+                                    流程状态：
+                                    <label class="margin_r_10 hand" for="radio1">
+                                        <input id="radio11" class="radio_com" name="option" checked="checked" value="0" type="radio">已阅
+                                    </label>
+                                    <label class="margin_r_10 hand" for="radio2">
+                                        <input id="radio12" class="radio_com" name="option" value="0" type="radio">同意
+                                    </label>
+                                    <label class="margin_r_10 hand" for="radio3">
+                                        <input id="radio13" class="radio_com" name="option" value="0" type="radio">不同意
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </td>
+                        <td width="40%" valign="top">
+                            <fieldset class="fieldset_box margin_l_10 margin_t_5">
+                                <legend>
+                                    查询设置
+                                </legend>
+                                
+                                <div class="common_txtbox clearfix margin_5">
+                                    <label class="margin_r_10 left title" for="text">
+                                        显示设置:
+                                    </label>
+                                    <label class="margin_l_10 right">
+                                    	<a class="common_button common_button_gray valign_m" href="javascript:void(0)">设置</a>
+                                    </label>
+                                    <div class="common_txtbox_wrap">
+                                        <input type="text" id="set_display"/>
+                                    </div>
+                                </div>
+                                <div class="common_txtbox clearfix margin_5">
+                                    <label class="margin_r_10 left title" for="text">
+                                        排序设置:
+                                    </label>
+                                    <label class="margin_l_10 right">
+                                    	<a class="common_button common_button_gray valign_m" href="javascript:void(0)">设置</a>
+                                    </label>
+                                    <div class="common_txtbox_wrap">
+                                        <input type="text" id="sort_display"/>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </td>
+                    </tr>
+                </table>
+                <div class="align_center clear margin_t_10">
+                    <a class="common_button margin_r_10" href="javascript:void(0)">查询</a>
+                    <a class="common_button margin_r_10" href="javascript:void(0)">重置</a>
+                    <a class="common_button margin_r_10" href="javascript:void(0)">保存我的查询</a>
+                </div>
+            </div>
+        </div>
+        <!--查询设置end-->
+        <div class="layout_center over_hidden" id="center">
+        	 <div class="stadic_layout_head stadic_head_height">
+	            <div class=" padding_lr_5 margin_5  set_search align_right">
+	                <span class="right"><a class="img-button margin_r_5" href="javascript:void(0)"><em class="ico16 forwarding_16"></em>转发协同</a><a class="img-button margin_r_5" href="javascript:void(0)"><em class="ico16 export_excel_16"></em>导出Excel</a><a class="img-button margin_r_5" href="javascript:void(0)"><em class="ico16 print_16"></em>打印</a></span>
+	                <span class="left margin_t_5 margin_b_10">查询结果：</span>
+	            </div>
+             </div>
+             <div class="stadic_layout_body stadic_body_top_bottom" id="center1"  style="overflow:hidden;">
+	            <div class="search_result clear margin_5" style="background:#fff;">
+	                <table class="flexme1">
+	                </table>
+	            </div>
+	         </div>
+        </div>
+    </body>
+</html>

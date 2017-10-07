@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>下拉列表及组合框</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+    <script type="text/javascript" src="../seeyon.ui.common-debug.js"> </script>
+	<script type="text/javascript" src="../searchBox-debug.js"> </script>
+	<script>
+		//var dr;
+	$(function(){
+		$('.common_drop_down').dropdown();
+		//dr = $.dropdown({
+		//	id:'ssss'
+		///});
+	});	
+	//function setvalue(){
+	//	dr.setValue(3);
+	//}
+	</script>
+</head>
+
+<body>
+
+    <h3>[1.下拉列表及组合框示例]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td">定义</td>
+            <td class="td">用于从一组互斥值列表中进行选择，用户能且仅能选择一个选项。在标准下拉列表中，用户只能选择列表中列出的选项，而在组合框中，用户可输入列表中不存在的选项。</td>
+        </tr>
+        <tr>
+            <td class="td" width="200" rowspan="4">下拉列表及组合框 
+			<!--
+			<input value="ssssssssssss" type="button" onclick="setvalue()"/>
+			-->
+			</td>
+            <td class="td">
+            	<select id="ssss" class="common_drop_down w100b">
+            		<option value="0">普通</option>
+					<option value="1">重要</option>
+					<option value="2">非常重要</option>
+					<option value="3">不重要</option>
+            	</select>
+
+				<br/>
+				<div style="display: block;" class="sorce_code">
+				<pre>
+实现方式一：单一实现
+					
+&lt;select id="ssss"&gt;
+	&lt;option value="0"&gt;普通&lt;/option&gt;
+	&lt;option value="1"&gt;重要&lt;/option&gt;
+	&lt;option value="2"&gt;非常重要&lt;/option&gt;
+	&lt;option value="3"&gt;不重要&lt;/option&gt;
+&lt;/select&gt;
+
+
+var dr = $.dropdown({
+	id:'ssss'
+});
+
+//通过对象dr可以调用setValue(value)方法动态设置select显示
+
+
+实现方式二：批量实现
+					
+&lt;select class="common_drop_down w100b"&gt;
+	&lt;option value="0"&gt;普通&lt;/option&gt;
+	&lt;option value="1"&gt;重要&lt;/option&gt;
+	&lt;option value="2"&gt;非常重要&lt;/option&gt;
+	&lt;option value="3"&gt;不重要&lt;/option&gt;
+&lt;/select&gt;
+
+
+$('.common_drop_down').dropdown();
+
+//一般不需要调用setValue(value)方法动态设置select显示
+				</pre>
+				</div>
+            	<br/><br/>
+            </td>
+        </tr>
+        <tr>
+            <td class="td">
+				<select class="common_drop_down w100b" disabled="disabled">
+            		<option value="0">普通</option>
+					<option value="1">重要</option>
+					<option value="2">非常重要</option>
+					<option value="3">不重要</option>
+            	</select>
+				
+
+				<br/><br/>
+				<div style="display: block;" class="sorce_code">
+				<pre>
+&lt;select id="ssss" disabled="disabled"&gt;
+	&lt;option value="0"&gt;普通&lt;/option&gt;
+	&lt;option value="1"&gt;重要&lt;/option&gt;
+	&lt;option value="2"&gt;非常重要&lt;/option&gt;
+	&lt;option value="3"&gt;不重要&lt;/option&gt;
+&lt;/select&gt;
+
+//select上设置disabled="disabled"即为不可用
+var dr = $.dropdown({
+	id:'ssss'
+});
+				</pre>
+				</div>
+            	<br/><br/>
+            </td>
+        </tr>
+    </table>
+    <h3 class="design_hide">[说明]</h3>
+    <table class="docsShowTable design_hide">
+        <!--
+		<tr>
+            <td class="td" width="200" align="right">实现方式:</td>
+            <td class="td">简单的select加上class  'common_drop_down',js会自动检查class为'common_drop_down'的select并把他转换为ctp下拉组件</td>
+        </tr>
+		-->
+		<tr>
+            <td class="td" width="200" align="right">操作说明:</td>
+            <td class="td">ctp封装的下拉只是个样子，最终操作的还是select,所以获取select值或者设置值都可以直接操作select</td>
+        </tr>
+    </table>
+    <h3>[3.UE]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="200" align="right">适用范围:</td>
+            <td class="td"><span style="color:red">只允许在新建页面和UE确定的特定点使用</span></td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide dev_hide">[4.属性]</h3>
+    <table class="docsShowTable design_hide dev_hide">
+        <tr class="head">
+            <td class="td" width="200">属性</td>
+            <td class="td">类型</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide dev_hide">[5.事件]</h3>
+    <table class="docsShowTable design_hide dev_hide">
+        <tr class="head"> 
+            <td class="td" width="200">事件</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide dev_hide">[6.方法]</h3>
+    <table class="docsShowTable design_hide dev_hide">
+        <tr class="head">
+            <td class="td" width="200">方法</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+</body>
+</html>

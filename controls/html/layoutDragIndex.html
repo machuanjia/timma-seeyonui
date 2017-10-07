@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>layout</title>
+        <script src="../../scriptes/jquery.js"></script>
+        <script src="../seeyon.ui.layout-debug.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/common.css">
+		<link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+        <link href="../../docs/resource/demo.css" rel="stylesheet" />
+        <script src="../../docs/resource/demo.js"></script>
+        <script src="../../docs/resource/google-code-prettify/prettify.js"></script>
+        <link href="../../docs/resource/google-code-prettify/prettify.css" rel="stylesheet" />
+    </head>
+    <body>
+    	<iframe width="100%" height="500" src="layoutDrag.html"></iframe>
+		<div style="display: block;" class="sorce_code">
+                <span class="color_red ">Tip:<br />
+                    <span class="font_bold"> 禁止在“code区域”外添加元素，否则会导致页面显示错位！！！</span><br />
+                </span>
+			<pre class="prettyprint">
+
+&lt;body&gt;    
+     &lt;div id='layout' class="comp" comp="type:'layout'"&gt;
+        &lt;div class="layout_north" layout="height:100,maxHeight:100,minHeight:30"&gt;
+            &lt;!--code区域-->上边区域     
+        &lt;/div&gt;
+        &lt;div class="layout_east" layout="width:200,minWidth:50,maxWidth:200"&gt;
+            &lt;!--code区域-->右边区域
+        &lt;/div&gt;
+        &lt;div class="layout_center" layout="border:false"&gt;
+            &lt;!--code区域-->中间区域
+        &lt;/div&gt;
+        &lt;div class="layout_west" layout="width:200,minWidth:50,maxWidth:300"&gt;
+            &lt;!--code区域-->左边区域
+        &lt;/div&gt;
+        &lt;div class="layout_south" layout="height:50,maxHeight:300,minHeight:30"&gt;
+            &lt;!--code区域-->下边区域
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+			</pre>
+		</div>
+		<pre>
+ 
+ 1.设置div的class为comp组件，同时设置comp属性type为layout，框架会自动将其作布局处理
+ 
+ 2.class必须为layout_north的布局div，用layout属性进行宽高设置和最大、最小宽度/高度设置
+ 
+ 3.class必须为layout_east的布局div，用layout属性进行宽高设置和最大、最小宽度/高度设置
+ 
+ 4.class必须为layout_center的布局div，用layout属性进行宽高设置和最大、最小宽度/高度设置，内部还可进行布局嵌套定义
+ 
+ 5.class必须为layout_west的布局div，用layout属性进行宽高设置和最大、最小宽度/高度设置
+ 
+ 6.class必须为layout_south的布局div，用layout属性进行宽高设置和最大、最小宽度/高度设置
+
+		</pre>
+ <b>通过var layout = $("#layout").layout()函数获取Layout对象，用于动态调整布局宽度、高度，如layout.setEast(300); </b>
+ 
+ 
+<h3 class=" design_hide">[属性]</h3>
+<table class="docsShowTable  design_hide">
+    <tr class="head">
+        <td class="td">属性</td>
+        <td class="td">类型</td>
+        <td class="td">描述</td>
+    </tr>
+    <tr>
+        <td class="td">sprit</td>
+        <td class="td">boolean</td>
+        <td class="td">是否显示中间拖动条</td>
+    </tr>
+	<tr>
+        <td class="td">border</td>
+        <td class="td">boolean</td>
+        <td class="td">是否显示边线</td>
+    </tr>
+	<tr>
+        <td class="td">spiretBar</td>
+        <td class="td">json</td>
+        <td class="td">
+        	是否显示中间上下/左右点击btn  及处理事件
+			<div style="display: block;" class="sorce_code">
+			<span style="color:red">
+				处理方式不一样，north 和 south为handlerB和handlerT;west 和 east为handlerL和handlerR
+			</span>
+				<pre class="prettyprint">
+					
+//上边区域
+spiretBar: {
+    show: true,
+    handlerB: function () {
+        layout.setNorth(98);
+    },
+    handlerT: function () {
+        layout.setNorth(0);
+    }
+}
+
+
+//下边区域
+spiretBar: {
+    show: true,
+    handlerB: function () {
+        layout.setSouth(0);
+    },
+    handlerT: function () {
+        layout.setSouth(48);
+    }
+}
+
+//右边区域
+spiretBar: {
+    show: true,
+    handlerL: function () {
+        layout.setEast(198);
+    },
+    handlerR: function () {
+        layout.setEast(0);
+    }
+}
+
+
+//左边区域
+spiretBar: {
+    show: true,
+    handlerL: function () {
+        layout.setWest(0);
+    },
+    handlerR: function () {
+        layout.setWest(198);
+    }
+}
+					
+				</pre>
+			</div>
+		</td>
+    </tr>
+</table>
+ 
+ 
+    <h3 class=" design_hide">[方法]</h3>
+    <table class="docsShowTable  design_hide">
+        <tr class="head">
+            <td class="td" width="150">名称</td>
+            <td class="td">描述</td>
+        </tr>
+		<tr>
+            <td class="td">
+            	setNorth(int)
+            </td>
+            <td class="td sorce_code">
+<pre class="prettyprint">
+//设置,北边区域高度:
+//var layout = $("#layout").layout();
+layout.setNorth(40);
+</pre>
+            </td>
+        </tr>
+		<tr>
+            <td class="td">
+            	setSouth(int)
+            </td>
+            <td class="td sorce_code">
+<pre class="prettyprint">
+//设置,南边区域高度:
+//var layout = $("#layout").layout();
+layout.setSouth(40);
+</pre>
+            </td>
+        </tr>
+		<tr>
+            <td class="td">
+            	setWest(int)
+            </td>
+            <td class="td sorce_code">
+<pre class="prettyprint">
+//设置,西边区域宽度:
+//var layout = $("#layout").layout();
+layout.setWest(40);
+</pre>
+            </td>
+        </tr>
+        <tr>
+            <td class="td">
+            	setEast(int)
+            </td>
+            <td class="td sorce_code">
+<pre class="prettyprint">
+//设置，右边区域宽度:
+//var layout = $("#layout").layout();
+layout.setEast(40);
+</pre>
+            </td>
+        </tr>
+		<tr>
+            <td class="td">
+            	setNorthSp(bool);
+            </td>
+            <td class="td sorce_code">
+<pre class="prettyprint">
+//设置，上边区域中间拖动条:
+//var layout = $("#layout").layout();
+layout.setNorthSp(false);
+</pre>
+            </td>
+        </tr>
+		<tr>
+            <td class="td">
+            	setSouthSp(bool);
+            </td>
+            <td class="td sorce_code">
+<pre class="prettyprint">
+//设置，下边区域中间拖动条:
+//var layout = $("#layout").layout();
+layout.setSouthSp(false);
+</pre>
+            </td>
+        </tr>
+		<tr>
+            <td class="td">
+            	setWestSp(bool);
+            </td>
+            <td class="td sorce_code">
+<pre class="prettyprint">
+//设置，左边区域中间拖动条:
+//var layout = $("#layout").layout();
+layout.setWestSp(false);
+</pre>
+            </td>
+        </tr>
+		<tr>
+            <td class="td">
+            	setEastSp(bool);
+            </td>
+            <td class="td sorce_code">
+<pre class="prettyprint">
+//设置，右边区域中间拖动条:
+//var layout = $("#layout").layout();
+layout.setEastSp(false);
+</pre>
+            </td>
+        </tr>
+    </table>
+ 
+ 
+    </body>
+</html>

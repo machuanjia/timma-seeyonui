@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>翻页</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+</head>
+
+<body>
+    <h3>[1.翻页示例]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td">定义</td>
+            <td class="td">当数据太多(或者数据项列表太长)一页显示不下时，将数据项列表拆分进一系列的页中。提供“上一页”和“下一页”的链接让用户可以访问被分页的数据，同时提供“第一页”和“最后一页”的链接。</td>
+        </tr>
+        <tr>
+            <td class="td" width="200" rowspan="2">翻页示例</td>
+            <td class="td code">
+<div class="common_over_page">
+    每页显示<input type="text" class="common_over_page_txtbox">
+    <span class="margin_r_20">条/共6条</span>
+    <a href="#" class="common_over_page_btn" title="首页"><em class="pageFirst"></em></a><a href="#" class="common_over_page_btn" title="上一页"><em class="pagePrev"></em></a><span class="margin_l_10">第</span><input type="text" class="common_over_page_txtbox">页/13页<a href="#" class="common_over_page_btn" title="下一页"><em class="pageNext"></em></a><a href="#" class="common_over_page_btn" title="尾页"><em class="pageLast"></em></a><a href="javascript:void(0)" id="grid_go" class="common_button common_button_gray margin_lr_10">go</a>
+</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td code">
+<div class="common_over_page common_over_page_disable">
+    每页显示<input type="text" class="common_over_page_txtbox">
+    <span class="margin_r_20">条/共6条</span>
+    <a href="#" class="common_over_page_btn" title="首页"><em class="pageFirst_disable"></em></a><a href="#" class="common_over_page_btn" title="上一页"><em class="pagePrev_disable"></em></a>
+    <span class="margin_l_10">第</span><input type="text" class="common_over_page_txtbox">页/13页<a href="#" class="common_over_page_btn" title="下一页"><em class="pageNext_disable"></em></a><a href="#" class="common_over_page_btn" title="尾页"><em class="pageLast_disable"></em></a><a href="javascript:void(0)" id="A1" class="common_button common_button_gray margin_lr_10">go</a>
+</div>
+            </td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide">[2.使用实例]</h3>
+    <table class="docsShowTable design_hide">
+        <tr>
+            <td class="td" width="200">左对齐</td>
+            <td class="td code"><div class="common_over_page align_left">
+ 	每页显示<input type="text" class="common_over_page_txtbox"><span class="margin_r_20">条/共6条</span>
+	<a href="#" class="common_over_page_btn" title="首页"><em class="pageFirst"></em></a><a href="#" class="common_over_page_btn" title="上一页"><em class="pagePrev"></em></a>
+	<span class="margin_l_10">第</span><input type="text" class="common_over_page_txtbox">页/13页<a href="#" class="common_over_page_btn" title="下一页"><em class="pageNext"></em></a><a href="#" class="common_over_page_btn" title="尾页"><em class="pageLast"></em></a><a href="javascript:void(0)" id="A2" class="common_button common_button_gray margin_lr_10">go</a>
+</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td" width="200">右对齐</td>
+            <td class="td code"><div class="common_over_page align_right">
+        每页显示<input type="text" class="common_over_page_txtbox"><span class="margin_r_20">条/共6条</span>
+	<a href="#" class="common_over_page_btn" title="首页"><em class="pageFirst"></em></a><a href="#" class="common_over_page_btn" title="上一页"><em class="pagePrev"></em></a>
+	<span class="margin_l_10">第</span><input type="text" class="common_over_page_txtbox">页/13页<a href="#" class="common_over_page_btn" title="下一页"><em class="pageNext"></em></a><a href="#" class="common_over_page_btn" title="尾页"><em class="pageLast"></em></a><a href="javascript:void(0)" id="A3" class="common_button common_button_gray margin_lr_10">go</a>
+</div>
+            </td>
+        </tr>
+    </table>
+
+    <h3>[3.UE]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="">信息多到无法合适的放到一页中:将数据项列表拆分进一系列的页中</td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide dev_hide">[4.属性]</h3>
+    <table class="docsShowTable design_hide dev_hide">
+        <tr class="head">
+            <td class="td" width="200">属性</td>
+            <td class="td">类型</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide dev_hide">[5.事件]</h3>
+    <table class="docsShowTable design_hide dev_hide">
+        <tr class="head">
+            <td class="td" width="200">事件</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide dev_hide">[6.方法]</h3>
+    <table class="docsShowTable design_hide dev_hide">
+        <tr class="head">
+            <td class="td" width="200">方法</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+</body>
+</html>

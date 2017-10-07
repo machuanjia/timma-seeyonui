@@ -1,0 +1,544 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>个人知识中心</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+    <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../searchBox-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.menu-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.progress-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tab-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tree-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.json-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.code-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/i18n-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/v3x-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.pageMenu-debug.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".tab_iframe li:odd").css({ background: "#F7F7F7" });
+            //********平分式页签***********
+            $(".common_tabs2").each(function (index) {
+                var _this = $(this);
+                _this.find(".common_tabs_head a").click(function () {
+                    _this.find(".common_tabs_head a").removeClass("current");
+                    $(this).addClass("current");
+                    _this.find(".tab_iframe").hide();
+                    _this.find("." + $(this).attr("tgt")).show();
+                });
+            });
+            //**********搜索************
+            var searchobj = $('#searchDiv').searchCondition({
+                searchHandler: function () {
+                    var ssss = searchobj.g.getReturnValue();
+                    alert($.toJSON(ssss))
+                },
+                conditions: [{
+                    id: 'title',
+                    name: 'title',
+                    type: 'input',
+                    text: '标题',
+                    value: 'subject'
+                }, {
+                    id: 'importent',
+                    name: 'importent',
+                    type: 'select',
+                    text: '重要程度',
+                    value: 'importantLevel',
+                    codecfg: "codeType:'java',codeId:'com.seeyon.apps.samples.test.enums.MyEnums'",
+                    items: [{
+                        text: '普通',
+                        value: '0'
+                    }, {
+                        text: '重要',
+                        value: '1'
+                    }, {
+                        text: '非常重要',
+                        value: '2'
+                    }]
+                }, {
+                    id: 'spender',
+                    name: 'spender',
+                    type: 'input',
+                    text: '发起人',
+                    value: 'startMemberName'
+                }, {
+                    id: 'datetime',
+                    name: 'datetime',
+                    type: 'datemulti',
+                    text: '发起时间',
+                    value: 'createDate',
+                    dateTime: true
+                }]
+            });
+            //*********中间小块操作菜单***********
+            //小块显示设置菜单
+            //$(".file_box_area").mouseenter(function () {
+            //    $(this).find(".file_box_menu").show();
+            //}).mouseleave(function () {
+            //    $(this).find(".file_box_menu").hide();
+            //});
+            //小块设置单机事件
+            $(".file_box_area .file_box_menu .FBM_setting").click(function () {
+                $(this).parents(".file_box_area").find(".file_box_menu_list").show();
+            });
+            $(".file_box_area .file_box_menu_list").mouseleave(function () {
+                $(this).hide();
+            });
+            //小块菜单控制
+            $(".file_box_area .lvl1 > li[class!='line']").each(function () {
+                var item = $(this).find(".lvl2");
+                $(this).mouseenter(function () {
+                    $(this).addClass("current");
+                    $(this).find("span").toggleClass("arrow_gray_r arrow_white_r");
+                    item.show();
+                }).mouseleave(function () {
+                    $(this).removeClass("current");
+                    $(this).find("span").toggleClass("arrow_gray_r arrow_white_r");
+                    item.hide();
+                });
+                $(this).find(".lvl2 li").mouseenter(function () {
+                    $(this).addClass("current");
+                }).mouseleave(function () {
+                    $(this).removeClass("current");
+                });
+            });
+            //************左侧菜单**************
+            var a = [
+            { "id": "10000000000000000000", "frName": "1一级菜单" },
+            { "id": "30000000000000000000", "frName": "3一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "4174229432277681481", "frName": "4一级菜单" },
+            { "id": "20000000000000000000", "frName": "2一级菜单" },
+            { "id": "5173422943477641481", "frName": "###一级菜单" }];
+            var b = {
+                "ONE_10000000000000000000": [
+                    { "id": "1111111111111", "frName": "1二级菜单1" },
+                    { "id": "12222222222", "frName": "1二级菜单1" },
+                    { "id": "133333333333333", "frName": "1二级菜单1" },
+                    { "id": "14444444444", "frName": "1二级菜单1" },
+                    { "id": "1555555555", "frName": "1二级菜单1" },
+                    { "id": "166666666", "frName": "1二级菜单1" },
+                    { "id": "1777777777", "frName": "1二级菜单1" },
+                    { "id": "1888888888", "frName": "###二级菜单2" }
+                ], "ONE_20000000000000000000": [
+                    { "id": "21111111111111111111", "frName": "2二级菜单1" },
+                    { "id": "2222222222222222222", "frName": "2二级菜单1" },
+                    { "id": "233333333333", "frName": "2二级菜单1" },
+                    { "id": "2444444444444", "frName": "2二级菜单1" },
+                    { "id": "255555555555", "frName": "2二级菜单1" },
+                    { "id": "26666666666666", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "22二级菜单1" },
+                    { "id": "1620962714275667", "frName": "222二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2222二级菜单1" },
+                    { "id": "1620962714275667", "frName": "22222二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "2二级菜单1" },
+                    { "id": "1620962714275667", "frName": "###二级菜单1" }
+                ], "ONE_30000000000000000000": []
+            };
+            $("#menu").pagemenu({
+                max:10,
+                all_number: 400,
+                data: [a, b],
+                handler: function (json) {
+                    alert(json.id + "___" + json.frName);
+                }
+            });
+            //返回顶部按钮
+            GoTo_Top({ obj: $("#center2"), showHeight: 230, marginLeft: 820 });
+        });
+        ///获取文件有几列
+        function getFileRow() {
+            var n = Math.floor(($("#centerOver").width() - 10) / ($(".file_box_area").width() + 12));
+            alert('查看更多-' + n);
+            return n;
+        }
+    </script>
+    <style type="text/css">
+        .topButtom { }
+    </style>
+</head>
+<body class="page_color">
+    <div></div>
+    <div id='layout' class="comp" comp="type:'layout'">
+        <div class="layout_north" layout="height:56,border:false,sprit:false">
+            <div class="font_size12 clearfix padding_lr_10 padding_tb_5">
+                <span class="left"><strong>个人知识中心</strong></span>
+                <span class="right"><a href="#">去知识广场</a></span>
+            </div>
+            <div class="hr_heng"></div>
+            <div class="common_tabs clearfix margin_t_5 margin_l_10">
+                <ul class="left">
+                    <li class="current"><a hidefocus="true" href="javascript:void(0)" class="border_b">我的知识库</a></li>
+                    <li><a hidefocus="true" href="javascript:void(0)">组织推送</a></li>
+                    <li><a hidefocus="true" href="javascript:void(0)">他人推荐</a></li>
+                    <li><a hidefocus="true" href="javascript:void(0)">他人评价</a></li>
+                    <li><a hidefocus="true" href="javascript:void(0)">我的订阅</a></li>
+                    <li><a hidefocus="true" href="javascript:void(0)" class="last_tab">我的收藏</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="layout_center" layout="border:false,sprit:false">
+            <div id='Div1' class="comp" comp="type:'layout'">
+                <div class="layout_west" layout="width:131,border:false,sprit:false">
+                    <div id="menu">
+                    </div>
+                </div>
+                <div class="layout_center" layout="border:false,sprit:false">
+                    <div class="font_size12 padding_l_10 padding_r_5 right" style="width: 251px;">
+                        <div class="border_all bg_color_white clearFlow">
+                            <div class="clearFlow font_size14 padding_l_10 margin_t_20 line_height160"><strong class="left margin_r_5">张小一</strong><a class="common_level left">11</a></div>
+                            <div class="color_gray padding_l_10 margin_t_10">用户体验部 交互设计师</div>
+                            <div class="clearfix padding_lr_10 margin_t_20">
+                                <a href="javascript:void(0)" class="common_button common_button_emphasize left">我要分享</a>
+                                <span class="line_height200 right">我分享了2300份文档</span>
+                            </div>
+                            <div class="border_t margin_t_20 align_right padding_tb_5">
+                                <a href="#" class="margin_r_10">我的共享</a><a href="#" class="margin_r_10">我的博客</a>
+                            </div>
+                        </div>
+                        <div class="margin_t_5 bg_color_yellow">
+                            <div class="padding_lr_10 padding_tb_10 border_all"><strong>借阅请求:</strong>&nbsp;有<a class="color_blue" href="#">20个借阅请求</a>,需要您处理</div>
+                        </div>
+                        <div class="margin_t_5">
+                            <div class="bg_color_white padding_lr_10 padding_tb_5 border_lr border_t"><strong>我的学习区:</strong></div>
+                            <div class="common_tabs2">
+                                <table width="100%" class="common_tabs_head" cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                        <td width="50%"><a href="javascript:void(0)" hidefocus="true" class="current" tgt="tab_iframe1"><span>他人推荐</span></a></td>
+                                        <td><a href="javascript:void(0)" hidefocus="true" tgt="tab_iframe2"><span>个人安排</span></a></td>
+                                    </tr>
+                                </table>
+                                <div class="tab_iframe tab_iframe1">
+                                    <ul class="line_height200 margin_l_10">
+                                        <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>他人推荐</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                        <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                        <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                        <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                        <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                        <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                        <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                        <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                    </ul>
+                                    <div class="border_t align_right padding_tb_5">
+                                        <a href="#" class="valign_m">更多</a><span class="valign_m ico16 arrow_2_r margin_r_5"></span>
+                                    </div>
+                                </div>
+                                <div class="tab_iframe tab_iframe2 hidden">
+                                    <ul class="line_height200 margin_l_10">
+                                        <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>个人安排</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                        <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                        <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                        <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                        <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                        <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                        <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                        <li><a href="#" class="text_overflow color_black w160b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a><span class="color_gray margin_l_10">2012-12-12</span></li>
+                                    </ul>
+                                    <div class="border_t align_right padding_tb_5">
+                                        <a href="#" class="valign_m">更多</a><span class="valign_m ico16 arrow_2_r margin_r_5"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="margin_t_5">
+                                <div class="bg_color_white padding_lr_10 padding_tb_5 border_lr border_t"><strong>我的知识链接:</strong></div>
+                                <div class="common_tabs2">
+                                    <table width="100%" class="common_tabs_head" cellpadding="0" cellspacing="0" border="0">
+                                        <tr>
+                                            <td width="50%"><a href="javascript:void(0)" hidefocus="true" class="current" tgt="tab_iframe1"><span>个人常用链接</span></a></td>
+                                            <td><a href="javascript:void(0)" hidefocus="true" tgt="tab_iframe2"><span>系统常用链接</span></a></td>
+                                        </tr>
+                                    </table>
+                                    <div class="tab_iframe tab_iframe1">
+                                        <ul class="line_height200 clearfix">
+                                            <li class="clearfix">
+                                                <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>个人常用链接</a>
+                                                <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>1致远协同软件安装1致远协同软件安装</a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                                <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                                <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                                <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                                <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                                <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                                <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                                <a href="#" class="text_overflow color_black w115b"><span class="ico16 word_16 margin_r_5"></span>网易</a>
+                                            </li>
+                                        </ul>
+                                        <div class="border_t align_right padding_tb_5">
+                                            <a href="#" class="valign_m margin_r_10">配置</a><a href="#" class="valign_m">更多</a><span class="valign_m ico16 arrow_2_r"></span>
+                                        </div>
+                                    </div>
+                                    <div class="tab_iframe tab_iframe2 hidden">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="centerOver" class="over_auto border_all padding_b_10 font_size12" style="_margin-right: 261px; height:2000px;">
+                        <div class="clearfix padding_lr_10 padding_tb_5 border_b bg_color_gray">
+                            <div class="color_gray font_size14 left margin_t_5">测试类(32)</div>
+                            <div id="searchDiv" class="right"></div>
+                        </div>
+                        <div class="padding_r_10 clearFlow">
+                            <div class="file_box_area">
+                                <div class="clearfix padding_10">
+                                    <span class="ico32 ppt_32 margin_r_10 left"></span>
+                                    <div class="over_auto_hiddenY left_ie6">
+                                        <p class="file_box_area_title" title="收藏收藏收藏收藏收藏收藏收藏收藏收藏">收藏收藏收藏收藏</p>
+                                        <span class="stars1_5"></span>
+                                        <p class="margin_t_5 color_gray">作者:张小一</p>
+                                    </div>
+                                </div>
+                                <div class="clearfix border_t">
+                                    <span class="color_gray left padding_tb_5 padding_l_10">收藏(12)&nbsp;评价(12)</span>
+                                    <span class="right">
+                                        <span class="file_box_menu">
+                                            <a href="#" class="ico16 FBM_recommend" title="推荐"></a>
+                                            <a href="#" class="ico16 FBM_setting" title="操作"></a>
+                                        </span>
+                                        <div class="file_box_menu_list">
+                                            <ul class="lvl1">
+                                                <li>
+                                                    <a href="#">发送到</a><span class="ico16 arrow_gray_r left"></span>
+                                                    <div class="lvl2_box">
+                                                        <ul class="lvl2">
+                                                            <li><a href="#">发送到</a></li>
+                                                            <li><a href="#">发送到</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#">转发</a><span class="ico16 arrow_gray_r left"></span>
+                                                    <div class="lvl2_box">
+                                                        <ul class="lvl2">
+                                                            <li><a href="#">转发</a></li>
+                                                            <li><a href="#">转发</a></li>
+                                                            <li><a href="#">转发</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li><a href="#">移动</a></li>
+                                                <li><a href="#">删除</a></li>
+                                                <li><a href="#">重命名</a></li>
+                                                <li><a href="#">借阅</a></li>
+                                                <li><a href="#">属性</a></li>
+                                            </ul>
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="file_box_area">
+                                <div class="clearfix padding_10">
+                                    <span class="ico32 ppt_32 margin_r_10 left"></span>
+                                    <div class="over_auto_hiddenY left_ie6">
+                                        <p class="file_box_area_title" title="收藏收藏收藏收藏收藏收藏收藏收藏收藏">收藏收藏收藏收藏</p>
+                                        <span class="stars1_5"></span>
+                                        <p class="margin_t_5 color_gray">作者:张小一</p>
+                                    </div>
+                                </div>
+                                <div class="clearfix border_t">
+                                    <span class="color_gray left padding_tb_5 padding_l_10">收藏(12)&nbsp;评价(12)</span>
+                                    <span class="right">
+                                        <span class="file_box_menu">
+                                            <a href="#" class="ico16 FBM_recommend" title="推荐"></a>
+                                            <a href="#" class="ico16 FBM_setting" title="操作"></a>
+                                        </span>
+                                        <div class="file_box_menu_list">
+                                            <ul class="lvl1">
+                                                <li>
+                                                    <a href="#">发送到</a><span class="ico16 arrow_gray_r left"></span>
+                                                    <div class="lvl2_box">
+                                                        <ul class="lvl2">
+                                                            <li><a href="#">发送到</a></li>
+                                                            <li><a href="#">发送到</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#">转发</a><span class="ico16 arrow_gray_r left"></span>
+                                                    <div class="lvl2_box">
+                                                        <ul class="lvl2">
+                                                            <li><a href="#">转发</a></li>
+                                                            <li><a href="#">转发</a></li>
+                                                            <li><a href="#">转发</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li><a href="#">移动</a></li>
+                                                <li><a href="#">删除</a></li>
+                                                <li><a href="#">重命名</a></li>
+                                                <li><a href="#">借阅</a></li>
+                                                <li><a href="#">属性</a></li>
+                                            </ul>
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="file_box_area">
+                                <div class="clearfix padding_10">
+                                    <span class="ico32 ppt_32 margin_r_10 left"></span>
+                                    <div class="over_auto_hiddenY left_ie6">
+                                        <p class="file_box_area_title" title="收藏收藏收藏收藏收藏收藏收藏收藏收藏">收藏收藏收藏收藏</p>
+                                        <span class="stars1_5"></span>
+                                        <p class="margin_t_5 color_gray">作者:张小一</p>
+                                    </div>
+                                </div>
+                                <div class="clearfix border_t">
+                                    <span class="color_gray left padding_tb_5 padding_l_10">收藏(12)&nbsp;评价(12)</span>
+                                    <span class="right">
+                                        <span class="file_box_menu">
+                                            <a href="#" class="ico16 FBM_recommend" title="推荐"></a>
+                                            <a href="#" class="ico16 FBM_setting" title="操作"></a>
+                                        </span>
+                                        <div class="file_box_menu_list">
+                                            <ul class="lvl1">
+                                                <li>
+                                                    <a href="#">发送到</a><span class="ico16 arrow_gray_r left"></span>
+                                                    <div class="lvl2_box">
+                                                        <ul class="lvl2">
+                                                            <li><a href="#">发送到</a></li>
+                                                            <li><a href="#">发送到</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#">转发</a><span class="ico16 arrow_gray_r left"></span>
+                                                    <div class="lvl2_box">
+                                                        <ul class="lvl2">
+                                                            <li><a href="#">转发</a></li>
+                                                            <li><a href="#">转发</a></li>
+                                                            <li><a href="#">转发</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li><a href="#">移动</a></li>
+                                                <li><a href="#">删除</a></li>
+                                                <li><a href="#">重命名</a></li>
+                                                <li><a href="#">借阅</a></li>
+                                                <li><a href="#">属性</a></li>
+                                            </ul>
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="padding_t_10 padding_lr_10">
+                            <div class="bg_color_white border_all align_center padding_5 color_gray hand" onclick="getFileRow()">查看更多</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

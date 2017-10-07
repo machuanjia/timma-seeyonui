@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="h100b over_auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>综合查询</title>
+<script src="../../../scriptes/jquery.js"></script>
+<script src="../../../docs/resource/doc.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="../../../css/common-debug.css"> 
+<link rel="stylesheet" type="text/css" href="../../../skin/default/skin-debug.css">
+<link rel="stylesheet" type="text/css" href="../../../docs/resource/doc.css">
+<script src="../../seeyon.ui.layout-debug.js"> </script>
+<style>
+	.stadic_head_height{
+		height:222px;
+	}
+	.stadic_body_top_bottom{
+		bottom: 35px;
+ 		top:222px;
+	}
+	.stadic_footer_height{
+		height:35px;
+	}
+</style>
+</head>
+<body class="h100b overflow_auto page_color">
+	<div class="stadic_layout">
+		<div class="stadic_layout_head stadic_head_height set_search">
+			<div class="common_tabs clearfix">
+			    <ul class="left">
+					<li class="current"><a href="javascript:void(0)"><span>综合查询</span></a></li>
+					<li><a href="javascript:void(0)" class="last_tab"><span>全文检索</span></a></li>
+			    </ul>
+			</div>
+			<div class="form_area common_tabs_body set_search border_all padding_b_10">
+				<h3 class="border_b">查询条件</h3>
+		    	<table border="0" cellspacing="0" cellpadding="0" width="800" align="center">
+		        	<tbody>
+		        		<tr>
+		            		<th nowrap="nowrap" align="right"><label class="margin_r_5" for="text">类型:</label></th>
+		            		<td width="50%"><div class="common_selectbox_wrap">
+		            			<select>
+		            				<option>协同</option>
+		            				<option>计划</option>
+		            				<option>会议</option>
+		            			</select>
+		            		</div></td>
+		            		<th noWrap="nowrap"><label class="margin_r_5" for="text">起止时间:</label></th>
+		            		<td width="50%">
+		            			<input id="text" value="" style="width:70px;" type="text"> 至 <input id="text" value="" style="width:70px;"  type="text">
+		            		</td>
+		          		</tr>
+			            <tr>
+			            	<th noWrap="nowrap" align="right"><label class="margin_r_5" for="text">标题:</label></th>
+			                <td width="50%"><div class="common_txtbox_wrap"><input id="text" value="" type="text"></div></td>
+			                <th noWrap="nowrap" align="right"><label class="margin_r_5" for="text">&nbsp;&nbsp;查询范围:</label></th>
+				                <td width="50%"><div class="common_radio_box clearfix">
+				                	<label class="margin_r_10 hand" for="radio1"><input id="radio1" class="radio_com" name="option" value="0" type="radio">未归档</label>
+									<label class="margin_r_10 hand" for="radio2"><input id="radio2" class="radio_com" name="option" value="0" type="radio">已归档</label>
+				                	<select><option>单位文档</option></select>
+				                	<label class="margin_r_10 hand" for="check1"><input id="check1" class="radio_com" name="option" value="0" type="checkbox">转储数据</label>
+		
+				                </div></td>
+			            </tr> 
+			            <tr>
+			            	<th noWrap="nowrap" align="right"><label class="margin_r_5" for="text">发起条件:</label></th>
+			                <td width="50%"><div class="common_radio_box clearfix">
+			                	<label class="margin_r_10 hand" for="radio3"><input id="radio3" class="radio_com" name="option1" value="0" type="radio">我发出的</label>
+								<label class="margin_r_10 hand" for="radio4"><input id="radio4" class="radio_com" name="option1" value="0" type="radio">发给我的</label>
+			                	<label class="margin_r_10 hand" for="radio5"><input id="radio5" class="radio_com" name="option1" value="0" type="radio"><a href="javascript:void(0)">[指定人]</a> 发给我的</label>
+			                </div></td>
+			                <th nowrap="nowrap" align="right"><label class="margin_r_5" for="text">关键字:</label></th>
+			                <td width="50%">
+		            			<input id="text" value=""  type="text"/>
+		            		</td>
+			            </tr> 
+		        	</tbody>
+		        </table>
+			    <div class="align_center clear margin_t_10">
+			        <a class="common_button common_button_gray" href="javascript:void(0)">查询</a>
+				</div>
+			</div>
+			<h3 class="border_b">查询结果</h3>
+		</div>
+		<!--查询结果展示-->
+		<div class="stadic_layout_body stadic_body_top_bottom border_b">
+	      	<div class="search_Result">
+	        	<table border="0" cellspacing="0" cellpadding="0" width="100%" class=" only_table">
+	          		<thead>
+	          			<tr>
+			                <th>标题</th>
+			                <th>发起人</th>
+			                <th>发起日期</th>
+			                <th>所在位置</th>
+		              </tr>
+		             </thead>
+		             <tbody>
+		              	<tr>
+			                <td>1</td>
+			                <td>2</td>
+			                <td>3</td>
+			               	<td>4</td>
+			            </tr>
+			            <tr>
+			                <td>1</td>
+			                <td>2</td>
+			                <td>3</td>
+			               	<td>4</td>
+			            </tr>
+		              	<tr>
+			                <td>1</td>
+			                <td>2</td>
+			                <td>3</td>
+			               	<td>4</td>
+		              	</tr>
+	      			</tbody>
+	    		</table>
+ 			</div>
+ 		</div>
+ 		<div class="stadic_layout_footer stadic_footer_height">
+	 		<div class="common_over_page align_right padding_tb_5">
+				每页<input class="common_over_page_size align_center valign_m" value="" type="text">条/共6条记录<span class="margin_lr_10">共1页</span>
+				<a class="margin_l_20" href="#">首页</a><a class="margin_lr_15" href="#">上一页</a>
+				<a class="margin_r_10" href="#">下一页</a><span class="margin_l_20 margin_r_10">第
+				<input class="common_over_page_size" value="" type="text">页</span><input class="common_over_page_go align_center valign_m margin_l_10" value="go" type="button">		
+			</div>
+		</div>
+
+ 	</div>
+	<script>
+		$(document).ready(function(i){
+			$(".only_table tbody tr:even").each(function(){
+				$(this).addClass("erow")
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,379 @@
+﻿<!DOCTYPE html>
+<html class="h100b over_hidden">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>查看处理页面</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+    <script src="../../../scriptes/jquery.js"> </script>
+    <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js">
+    </script>
+    <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js">
+    </script>
+    <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js">
+    </script>
+    <script type="text/javascript" src="../../../ctp/jquery.json-debug.js">
+    </script>
+    <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js">
+    </script>
+    <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js">
+    </script>
+    <script type="text/javascript" src="../../../ctp/jquery.code-debug.js">
+    </script>
+    <script type="text/javascript" src="../../../ctp/common-debug.js">
+    </script>
+    <script type="text/javascript" src="../../../ctp/i18n-debug.js">
+    </script>
+    <script type="text/javascript" src="../../../ctp/v3x-debug.js">
+    </script>
+    <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js">
+    </script>
+    <script src="../../seeyon.ui.layout-debug.js"> </script>
+    <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.comLanguage-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.menu-debug.js"></script>
+    <style type="text/css">
+        .stadic_head_height {
+            height: 143px;
+        }
+
+        .stadic_body_top_bottom {
+            bottom: 0;
+            top: 143px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            var layout = new MxtLayout({
+                'id': 'layout',
+                'eastArea': {
+                    'id': 'east',
+                    'width': 350,
+                    'sprit': true,
+                    'minWidth': 350,
+                    'maxWidth': 500,
+                    'border': true,
+                    spiretBar: {
+                        show: true,
+                        showItem:"L",
+                        handlerL: function () {
+                            layout.setEast(window.document.body.clientWidth / 2);
+                            $(".deal_area").show();
+                            $("#deal_area_show").hide();
+                        },
+                        handlerR: function () {
+                            layout.setEast(348);
+                            $(".deal_area").show();
+                            $("#deal_area_show").hide();
+                        }
+                    }
+                },
+                'centerArea': {
+                    'id': 'center',
+                    'border': true,
+                    'minHeight': 20
+                }
+            });
+
+            /*设置正文编辑区域*/
+            $(".stadic_layout_body").css({ "overflow": "hidden" });//避免双滚动条
+            if ($.browser.msie) {
+                if ($.browser.version < 8) {
+                    $("#iframe_content").css("height", $(".stadic_layout_body").height());
+                }
+            }
+            $("#iframe_content").attr("src", "content_view.html");//设置iframe高度后,在加载
+
+
+            $("#add_new").click(function () {
+                $(".textarea").removeClass("display_none");
+            });
+            $("#cancel").click(function () {
+                $(".textarea").addClass("display_none");
+            });
+
+
+            $("#deal_area_show").click(function () {
+                $(".deal_area #hidden_side").trigger("click");
+            });
+            $(".deal_area #hidden_side").click(function () {
+                if ($("#east").outerWidth() == 350) {
+                    layout.setEast(38);
+                    $(".deal_area").hide();
+                    $("#deal_area_show").show();
+                } else {
+                    layout.setEast(348);
+                    $(".deal_area").show();
+                    $("#deal_area_show").hide();
+                }
+            });
+            $("#cyy").comLanguage({
+                textboxID: "cyy_textbox",
+                data: [
+                    "已阅",
+                    "顶",
+                    "恭喜",
+                    "哈喽哈222喽2222啊22哈喽2",
+                    "哈喽哈喽啊哈喽",
+                    "哈喽哈222喽2222啊22哈喽2",
+                    "哈喽哈喽啊哈喽",
+                    "哈喽哈222喽2222啊22哈喽2",
+                    "哈喽哈喽啊哈喽",
+                    "哈喽哈222喽2222啊22哈喽2",
+                    "哈喽哈喽啊哈喽",
+                    "哈喽哈222喽2222啊22哈喽2",
+                    "哈喽哈喽啊哈喽",
+                    "哈喽哈222喽2222啊22哈喽2",
+                    "哈喽哈喽啊哈喽"
+                ],
+                newBtnHandler: function () {
+                    new MxtDialog({
+                        id: 'html',
+                        htmlId: 'htmlId',
+                        title: '常用语'
+                    });
+                }
+            });
+            ////////////
+            $("#caozuo_more").menuSimple({
+                direction: "BR",
+                data: [{
+                    name: "属性状态",
+                    className: "attribute_16",
+                    handle: function (json) {
+                        alert(json.name);
+                    }
+                }, {
+                    name: "明细日志",
+                    className: "view_log_16",
+                    handle: function (json) {
+                        alert(json.name);
+                    }
+                }, {
+                    name: "查看全部附件",
+                    className: "",
+                    handle: function (json) {
+                        alert(json.name);
+                    }
+                }, {
+                    name: "打印",
+                    className: "print_16",
+                    handle: function (json) {
+                        alert(json.name);
+                    }
+                }]
+            });
+        });
+        function showMessageBox2() {
+            var dialog = new MxtDialog({
+                width: 100,
+                height: 190,
+                type: 'panel',
+                htmlId: 'img_more',
+                targetId: 'img_more_btn',
+                shadow: false,
+                panelParam: {
+                    'show': false,
+                    'margins': false
+                }
+            });
+
+            $('#img_more').mouseleave(function () {
+                dialog.close();
+            });
+        }
+    </script>
+</head>
+
+<body class="h100b over_hidden page_color">
+    <div id='layout'>
+        <div class="layout_east" id="east">
+            <!--处理区域-->
+            <div id="deal_area_show" class="font_size12 align_center h100b hidden hand"><span class="ico16 arrow_2_l"></span>
+                <br />
+                处<br />
+                理<br />
+                意<br />
+                见</div>
+            <div class="deal_area padding_lr_10">
+                <div class="clearfix padding_t_10">
+                    <span class="left"><em id="hidden_side" class="ico16 arrow_2_r margin_r_5"></em>协同</span>
+                    <span class="right"><em class="ico16"></em></span>
+                </div>
+                <!--<div class="clearfix margin_t_5">
+                    <span class="left"><a class="img-button margin_r_5" href="javascript:void(0)"><em class="ico16 signature_16 margin_r_5"></em>加签</a><div class="img-button-line"></div><a class="img-button margin_r_5" href="javascript:void(0)"><em class="ico16 forwarding margin_r_5"></em>转发</a><div class="img-button-line">&nbsp;</div><a class="img-button margin_r_5" href="javascript:void(0)"><em class="ico16 notification_16 margin_r_5"></em>知会</a></span>
+                    <span class="right"><a id="img_more_btn" class="img-button" href="javascript:showMessageBox2()">更多</a></span>
+                </div>-->
+                <div id="sss">
+                    <div class="margin_t_5"><a id="img_more_btn" href="javascript:showMessageBox2()">&nbsp;更多</a></div>
+                </div>
+                <script type="text/javascript">
+                    var myBar = new WebFXMenuBar({ 'contextPath': '', 'searchHtml': 'sss', 'borderTop': true, 'borderBottom': true, 'borderLeft': true, 'borderRight': true });
+
+                    var transmit = new WebFXMenu;
+                    transmit.add(new WebFXMenuItem({ 'id': 'transmit1', 'name': '协同协同协同协同协同协同协同协同', 'click': function () { alert(123) }, 'className': 'ico16 refresh' }));
+                    transmit.add(new WebFXMenuItem({ 'id': 'transmit2', 'name': '邮件', 'click': function () { alert(456) }, 'className': 'ico16 refresh' }));
+
+                    myBar.add(new WebFXMenuButton({ 'id': 'transmit', 'name': '转发', 'className': 'ico16 forwarding_16', 'subMenu': transmit }));
+                    myBar.add(new WebFXMenuButton({ 'id': 'delete', 'name': '删除', 'className': 'ico16 del_16' }));
+                    myBar.add(new WebFXMenuButton({ 'id': 'refresh', 'name': '刷新', 'click': function () { alert(123) }, 'className': 'ico16 refresh_16' }));
+
+                    myBar.show();
+                    myBar.disabled('delete');
+                    myBar.enabled('delete');
+                </script>
+                <div id="img_more" class="hidden">
+                    <ul>
+                        <li><a id="A5" href="javascript:void(0)" class="img_more_item"><span class="ico16 margin_r_5"></span>回退</a></li>
+                        <li><a id="A1" href="javascript:void(0)" class="img_more_item"><span class="ico16 termination_16 margin_r_5"></span>终止</a></li>
+                        <li><a id="A2" href="javascript:void(0)" class="img_more_item"><span class="ico16 notification_16 margin_r_5"></span>知会</a></li>
+                        <li><a id="A3" href="javascript:void(0)" class="img_more_item"><span class="ico16 current_countersigned_16 margin_r_5"></span>当前会签</a></li>
+                        <li><a id="A4" href="javascript:void(0)" class="img_more_item"><span class="ico16 signafalse_16 margin_r_5"></span>减签</a></li>
+                    </ul>
+                </div>
+                <div class="hr_heng margin_t_10">&nbsp;</div>
+                <!--处理意见区域-->
+                <div class="opinions margin_t_10">
+                    <div class="common_radio_box clearfix">
+                        <div class="left">
+                            <label class="margin_r_10 hand" for="afterRead">
+                                <input id="afterRead" class="radio_com" name="attitude" value="1" type="radio" checked="checked">已阅
+                            </label>
+                            <label class="margin_r_10 hand" for="agree">
+                                <input id="agree" class="radio_com" name="attitude" value="2" type="radio">同意
+                            </label>
+                            <label class="margin_r_10 hand" for="notagree">
+                                <input id="notagree" class="radio_com" name="attitude" value="3" type="radio">不同意
+                            </label>
+                        </div>
+                        <div class="right"><a id="cyy" href="javascript:void(0)">常用语</a></div>
+                    </div>
+                    <div id="htmlId" class="hidden">
+                        <iframe src="F1-常用语-前台布局.html" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
+                    </div>
+                    <div class="common_txtbox  clearfix margin_t_5">
+                        <textarea id="cyy_textbox" class="padding_5" style="width: 95%; height: 270px;"> </textarea>
+                    </div>
+                    <div class="clearfix margin_t_5">
+                        <span class="left">
+                            <a href="javascript:void(0)"><span class="ico16 affix_16  margin_r_5"></span>附件</a>（2）<a href="javascript:void(0)"><span class="ico16 associated_document_16  margin_r_5"></span>关联</a>（0）
+                        </span>
+                        <span class="right"><a href="javascript:void(0)"><span class="ico16 del  margin_r_5"></span>消息推送</a></span>
+                    </div>
+                    <div class="newinfo_area margin_t_5">
+                        <div class="content_area">
+                            <span><em class="ico16 affix_16 margin_r_5"></em><a href="#">附件a附件附件附件本品在传统健美食疗方的基础上优化配比，采用黄精、山药等7种天然纯食疗植物草本配方，利用现代生物提取技术精炼而成，从根本上改善胃肠机能，增强脾胃消化功能，达到健身增肌的效果，让瘦弱的男士变胖、变强键，拥有健康健硕美。</a><em class="ico16 revoked_process  margin_l_5"> </em></span>
+                            <span><em class="ico16 affix_16 margin_r_5"></em><a href="#">附件b附件附件本品在传统健美食疗方的基础上优化配比，采用黄精、山药等7种天然纯食疗植物草本配方，利用现代生物提取技术精炼而成，从根本上改善胃肠机能，增强脾胃消化功能，达到健身增肌的效果，让瘦弱的男士变胖、变强键，拥有健康健硕美。</a><em class="ico16 revoked_process  margin_l_5"> </em></span>
+                        </div>
+                    </div>
+                    <div class="hr_heng margin_t_5">&nbsp;</div>
+                    <div class="clearfix margin_t_10">
+                        <div class="common_checkbox_box clearfix left margin_t_5">
+                            <label class="margin_r_10 hand" for="isHidden">
+                                <input id="isHidden" class="radio_com" name="isHidden" value="0" type="checkbox">意见隐藏
+                            </label>
+                        </div>
+                        <div id="showToIdSpan" class="common_txtbox common_txtbox_dis clearfix">
+                            <label class="margin_r_10 left title" for="text">不包括:</label>
+                            <div class="common_txtbox_wrap">
+                                <input type="text" id="showToIdInput" name="showToIdInput" class="common_txtbox_wrap_dis" value="<点击选择公开认>" disabled="disabled" onclick="selectPeopleFun_sp()">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="common_radio_box common_checkbox_box clearfix margin_t_10">
+                        <label class="margin_r_10 hand" for="isTrack">
+                            <input id="isTrack" class="radio_com" name="isTrack" value="0" type="checkbox">跟踪
+                        </label>
+                        <label class="margin_r_10 disabled_color hand" for="trackRange_all" id="label_all">
+                            <input id="trackRange_all" class="radio_com" name="trackRange" value="1" type="radio" disabled="disabled">全部
+                        </label>
+                        <label class="margin_r_10 disabled_color hand" for="trackRange_members" id="label_members">
+                            <input id="trackRange_members" class="radio_com" name="trackRange" value="0" type="radio" disabled="disabled">指定人
+                        </label>
+                    </div>
+                    <div class="clearfix margin_t_20">
+                        <div class="common_checkbox_box clearfix">
+                            <label class="margin_r_10 hand" for="pigeonhole">
+                                <input id="pigeonhole" class="radio_com" name="pigeonhole" value="0" type="checkbox">处理后归档
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="hr_heng margin_t_10">&nbsp;</div>
+                <div class="clearfix margin_t_10">
+                    <div class="left"><a href="javascript:void(0)" class="common_button common_button_emphasize left">提交</a></div>
+                    <div class="right">
+                        <a class="common_button common_button_gray right" href="javascript:void(0)">暂存待办</a><a class="common_button common_button_gray right  margin_r_10" href="javascript:void(0)">存为草稿</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layout_center over_hidden h100b" id="center">
+            <!--查看区域-->
+            <div class="h100b stadic_layout">
+                <div class="stadic_layout_head stadic_head_height h100b">
+                    <!--标题+附件区域-->
+                    <div class="newinfo_area title_view">
+                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                            <tr>
+                                <td width="65">
+                                    <div class="title_area">标<span class="w1em"></span><span class="w1em"></span>题:</div>
+                                </td>
+                                <td>
+                                    <b>测测测</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="title_area">发<span class="align_center w2em text_indent0">起</span>人:</div>
+                                </td>
+                                <td><a href="javascript:void(0)">杨佰元</a>(2012-07-16 17:25)</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="title_area">附<span class="w1em"></span><span class="w1em"></span>件:</div>
+                                </td>
+                                <td>
+                                    <div class="content_area">
+                                        (1)<span class="margin_l_5"><em class="ico16 affix_16  margin_r_5"></em><a href="javascript:void(0)">本品在传统健美食疗方的基础上优化配比，采用黄精、山药等7种天然纯食疗植物草本配方，利用现代生物提取技术精炼而成，从根本上改善胃肠机能，增强脾胃消化功能，达到健身增肌的效果，让瘦弱的男士变胖、变强键，拥有健康健硕美。</a></span><abbr>(300k)</abbr>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="title_area">关联文档:</div>
+                                </td>
+                                <td>
+                                    <div class="content_area">
+                                        (2)<span class="margin_l_5"><em class="ico16 associated_document_16  margin_r_5"> </em><a href="javascript:void(0)">本品在传统健美食疗方的基础上优化配比，采用黄精、山药等7种天然纯食疗植物草本配方，利用现代生物提取技术精炼而成，从根本上改善胃肠机能，增强脾胃消化功能，达到健身增肌的效果，让瘦弱的男士变胖、变强键，拥有健康健硕美。</a></span>
+                                        <span><em class="ico16 associated_document_16  margin_r_5"></em><a href="javascript:void(0)">本品在传统健美食疗方的基础上优化配比，采用黄精、山药等7种天然纯食疗植物草本配方，利用现代生物提取技术精炼而成，从根本上改善胃肠机能，增强脾胃消化功能，达到健身增肌的效果，让瘦弱的男士变胖、变强键，拥有健康健硕美。</a></span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--命令按钮区域-->
+                    <div class="orderBt right margin_r_10 margin_t_10">
+                        <span class="hand"><span class="ico16 search_16 margin_lr_5" title="意见查找"></span>意见查找</span>
+                        <span class="hand"><span class="ico16 margin_lr_5" title="收藏"></span>收藏</span>
+                        <span class="hand"><span class="ico16 margin_lr_5" title="新建会议"></span>新建会议</span>
+                        <span class="hand"><span class="ico16 communication_16 margin_lr_5" title="及时交流"></span>及时交流</span>
+                        <span id="caozuo_more" class="ico16 arrow_2_b"></span>
+                    </div>
+                    <!--视图切换区域-->
+                    <div class="common_tabs clearfix margin_t_5  margin_l_10">
+                        <ul class="left">
+                            <li class="current"><a href="javascript:void(0)" class="border_b">正文</a></li>
+                            <li><a href="javascript:void(0)" class="last_tab">流程</a></li>
+                        </ul>
+                    </div>
+                    <div id="iframe_area" class="stadic_layout_body stadic_body_top_bottom">
+                        <iframe id="iframe_content" src="" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

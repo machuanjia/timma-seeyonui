@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>滚动</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+
+    <script type="text/javascript" src="../seeyon.ui.tooltip-debug.js"></script>
+	<script type="text/javascript" src="../calendar/calendar-debug.js"></script>
+	<script type="text/javascript" src="../calendar/calendar-zh-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/misc/Moo-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.json-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.fillform-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.code-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/common-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/i18n-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/v3x-debug.js"></script>
+	<script type="text/javascript" src="../searchBox-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.checkform-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.dialog-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.grid-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.layout-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.menu-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.progress-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tab-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.toolbar-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tree-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.calendar-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.arraylist-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tooltip-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.comp-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.tree-debug.js"></script>
+    <style type="text/css">
+        /************上下滚动显示****************/
+        .rolling_area_zong {float:left; position:relative;overflow:hidden; width:270px; height:200px; }
+        .rolling_area_zong ul.rolling_box{ position:relative; top:0px; width:100px; }
+        .rolling_area_zong li.rolling_item{ float:left; width:270px; height:200px;  word-break:break-all; }
+        .rolling_btn_area { float:left; margin-left:5px; }
+        .rolling_btn_area ul{ margin-top:5px; padding-bottom:10px; }
+        .rolling_btn_area li{margin-top:10px; }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            /********************上下滚动显示**********************************/
+            var FRF = $(".front_rolling_flash");//
+            var FRF_ROOLING_BTN_LI = FRF.find(".rolling_btn_area ul li");//按钮区域li
+            var front_rolling_flash_number = FRF.find(".rolling_box li").size();//获取当前显示条数
+            FRF.find(".rolling_btn_area .rolling_btn_t").click(function () {
+                var _n = FRF_ROOLING_BTN_LI.index(FRF_ROOLING_BTN_LI.find(".rolling_current").parent()) - 1;
+                var _h = FRF.find(".rolling_box .rolling_item").height();
+                if (_n >= 0) {
+                    FRF_ROOLING_BTN_LI.find(".ico16").removeClass("rolling_current").addClass("rolling_uncurrent");
+                    FRF_ROOLING_BTN_LI.eq(_n).find(".ico16").toggleClass("rolling_current rolling_uncurrent");
+                    FRF.find(".rolling_box").stop(true).animate({ top: _n * -1 * _h });
+                }
+            });
+            FRF.find(".rolling_btn_area .rolling_btn_b").click(function () {
+                var _n = FRF_ROOLING_BTN_LI.index(FRF_ROOLING_BTN_LI.find(".rolling_current").parent()) + 1;
+                var _h = FRF.find(".rolling_box .rolling_item").height();
+                if (_n <= front_rolling_flash_number - 1) {
+                    FRF_ROOLING_BTN_LI.find(".ico16").removeClass("rolling_current").addClass("rolling_uncurrent");
+                    FRF_ROOLING_BTN_LI.eq(_n).find(".ico16").toggleClass("rolling_current rolling_uncurrent");
+                    FRF.find(".rolling_box").stop(true).animate({ top: _n * -1 * _h });
+                }
+            });
+            FRF_ROOLING_BTN_LI.find(".ico16").click(function () {
+                FRF_ROOLING_BTN_LI.find(".ico16").removeClass("rolling_current").addClass("rolling_uncurrent");
+                $(this).toggleClass("rolling_current rolling_uncurrent");
+                var _n = FRF_ROOLING_BTN_LI.index(FRF_ROOLING_BTN_LI.find(".rolling_current").parent());
+                var _h = FRF.find(".rolling_box .rolling_item").height();
+                if (_n >= 0) {
+                    FRF.find(".rolling_box").stop(true).animate({ top: _n * -1 * _h });
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="front_rolling_flash clearfix">
+        <div class="rolling_area_zong">
+            <ul class="rolling_box">
+                <li class="rolling_item">
+                    <object width="300" height="200" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0">
+                        <param name="SRC" value="http://www.w3school.com.cn/i/bookmark.swf">
+                        <embed src="http://www.w3school.com.cn/i/bookmark.swf" width="300" height="200" />
+                    </object>
+                </li>
+                <li class="rolling_item">22222222222222222222222</li>
+                <li class="rolling_item">333333333333333333333333</li>
+                <li class="rolling_item">4444444444444444444444444444</li>
+                <li class="rolling_item">5555555555555555555555555555</li>
+            </ul>
+        </div>
+        <div class="rolling_btn_area">
+            <span class="ico16 rolling_btn_t"></span>
+            <ul>
+                <li><em class="ico16 rolling_current" title="flash"></em></li>
+                <li><em class="ico16 rolling_uncurrent" title="222"></em></li>
+                <li><em class="ico16 rolling_uncurrent" title="333"></em></li>
+                <li><em class="ico16 rolling_uncurrent" title="44444"></em></li>
+                <li><em class="ico16 rolling_uncurrent" title="55"></em></li>
+            </ul>
+            <span class="ico16 rolling_btn_b"></span>
+        </div>
+    </div>
+</body>
+</html>

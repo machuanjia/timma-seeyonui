@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>IM</title>
+		<script>
+			var winIm=null;
+			function showIm(){
+				if(winIm == null){
+					winIm = window.open("im.html","","width=1000;height=600");
+				}else{
+					winIm.focus();
+				}
+			}
+			function sss(){
+				alert('sss')
+			}
+			function sd(){
+				if(winIm!=null){
+					winIm.fff();
+				}
+			}
+		</script>
+	</head> 
+	<body>
+		<input value="弹出IM" type="button" onclick="showIm()" id="ddd"/>
+		<input value="调用弹出窗口方法" type="button" onclick="sd()"/>
+	</body>
+</html>

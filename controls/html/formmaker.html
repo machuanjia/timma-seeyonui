@@ -1,0 +1,412 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>layout</title>
+        <script src="../../scriptes/jquery.js">
+        </script>
+        <script src="../seeyon.ui.layout-debug.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../skin/default/skin-debug.css">
+        <script type="text/javascript" src="../calendar/calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../calendar/calendar-zh-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/Moo-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.json-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.fillform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.code-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/i18n-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/v3x-debug.js">
+        </script>
+        <script type="text/javascript" src="../searchBox-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.checkform-debug.js">
+        </script>
+		<script type="text/javascript" src="../../ctp/seeyon.ui.core-debug.js"></script>
+        <script type="text/javascript" src="../seeyon.ui.dialog-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.grid-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.layout-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.menu-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.progress-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.scroll-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tab-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.toolbar-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.arraylist-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tooltip-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.comp-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.jcrop-debug.js">
+        </script>
+        <style>
+            .form_croop_border {
+                position: absolute;
+                border: 1px #cdcdcd solid;
+                background: #fff;
+                filter: alpha(opacity = 70);
+                -moz-opacity: 0.7;
+                opacity: 0.7;
+                z-index: 300;
+            }
+        </style>
+        <script type="text/javascript">
+            var CROOPOBJ = {
+                //所有热点集合
+                CROOPARRAY: [],
+                //JCROP选择框
+                JCROP: null,
+                //当前选中的热点ID
+                CURRENTID: null,
+                //框选信息[坐标、宽高]
+                POSITION: null,
+                //是否是修改状态：区分新建和修改 修改框事件
+                isEdit: false
+            };
+            var CROOPOBJ_DIALOG;
+            $(document).ready(function(){
+                $("#toolbar2").toolbar({
+                    toolbar: [{
+                        id: "switch_layouts",
+                        name: "布局",
+                        className: "ico16 switch_layouts_16 ",
+                        click: function(){
+                            alert('布局')
+                        }
+                    }, {
+                        id: "import",
+                        name: "导入",
+                        className: "ico16 import_16",
+                        click: function(){
+                            alert('导入')
+                        }
+                    }, {
+                        id: "save",
+                        name: "保存     ",
+                        className: "ico16 save_up_16  ",
+                        click: function(){
+							//存储数据
+                            saveLink();
+							//这里还需要添加存储压缩图片代码
+                        }
+                    }, {
+                        id: "setting",
+                        name: "设置链接",
+                        className: "ico16 setting_16",
+                        click: function(){
+                            //初始化选择框
+                            $('#crop_target').Jcrop({
+                                onChange: showPositionChange,
+                                onSelect: showPositionSelect,
+								minSize:[40,30]
+                            }, function(){
+                                CROOPOBJ.JCROP = this;
+                            });
+                        }
+                    }, {
+                        id: "cancle_hyperlink",
+                        name: "清除所有链接",
+                        className: "ico16  cancle_hyperlink_16  ",
+                        click: function(){
+							//清除所有热点
+                            $('.form_croop_border').remove();
+							//隐藏选择区域
+							CROOPOBJ.JCROP.release();
+							$('#settingCroop').hide();
+                        }
+                    }, {
+                        id: "prevsee",
+                        name: "预览",
+                        className: "ico16",
+                        click: function(){
+                            if (CROOPOBJ.CROOPARRAY.length > 0) {
+                                window.open("formmakerpreview.html");
+                            }
+                            else {
+                                alert("未保存或未创建链接!")
+                            }
+                        }
+                    }]
+                });
+                
+                //16.如果图片在宽度上超过画布的宽度，以画布宽度为标准做同比例的纵向上伸缩。
+				//在点击保存那需要添加另存压缩图片代码
+                var _tar = $('#crop_target');
+                var _lay = $('#layout_center');
+                var _tarw = _tar.width();
+                var _layw = _lay.width();
+                if (_tarw > _layw) {
+                    _tar.attr('width', _layw);
+                }
+				
+            });
+            //框选
+            function showPositionSelect(p){
+                CROOPOBJ.POSITION = p;
+				//如果有图标则不新添加
+                if ($('#settingCroop').size() > 0) {
+					//更新图标位置
+                    $('#settingCroop').css({
+                        left: CROOPOBJ.POSITION.x2 - 25,
+                        top: CROOPOBJ.POSITION.y2 - 25
+                    }).show();
+					//如果是单击热点进入的则隐藏图标
+                    if (CROOPOBJ.isEdit) {
+                        $('#settingCroop').hide();
+                    }
+                }else {
+					//获取图标添加的位置
+                    var _ss = $('.jcrop-hline').siblings('.jcrop-tracker');
+					//创建图标并添加
+                    $("<span id='settingCroop' class='ico16 setting_16' style='position:absolute;display:block;z-index:2000000;top:" + (CROOPOBJ.POSITION.y2 - 25) + "px;left:" + (CROOPOBJ.POSITION.x2 - 25) + "px'></span>").appendTo($('.jcrop-holder'));
+                    //在图标上添加简易菜单
+					$("#settingCroop").menuSimple({
+                        data: [{
+                            name: "创建链接",
+                            className: 'ico16 edit_hyperlink_16',
+                            handle: function(json){
+                                createLink();
+                            }
+                        }, {
+                            name: "取消链接",
+                            className: 'ico16 cancle_hyperlink_16',
+                            handle: function(json){
+								//取消选择区域
+                                CROOPOBJ.JCROP.release();
+								$('#settingCroop').hide();
+                            }
+                        }]
+                    });
+                }
+            }
+            
+            
+            //change事件
+            function showPositionChange(p){
+                CROOPOBJ.POSITION = p;
+				//如果是单击热点进入的则修改热点位置等信息
+                if (CROOPOBJ.isEdit) {
+                    $('#' + CROOPOBJ.CURRENTID).css({
+                        left: CROOPOBJ.POSITION.x + 2,
+                        top: CROOPOBJ.POSITION.y + 2,
+                        width: CROOPOBJ.POSITION.w - 6,
+                        height: CROOPOBJ.POSITION.h - 6
+                    }).attr('x1', CROOPOBJ.POSITION.x).attr('y1', CROOPOBJ.POSITION.y).attr('x2', CROOPOBJ.POSITION.x2).attr('y2', CROOPOBJ.POSITION.y2);
+                    //热点中的图标信息
+					$('#' + CROOPOBJ.CURRENTID + '_icon').css({
+                        left: CROOPOBJ.POSITION.w - 25,
+                        top: CROOPOBJ.POSITION.h - 25
+                    });
+                }else{
+					$('#settingCroop').hide();
+				}
+            }
+            
+            
+            //创建链接
+            function createLink(){
+				//弹出设置框，获取信息，在确定方法中生成热点
+                var ssss = $.dialog({
+                    id: 'fjhf',
+                    url: '',
+                    width: 300,
+                    height: 400,
+                    title: 'url',
+                    buttons: [{
+                        text: "ok",
+                        btnType: 1,
+                        handler: function(){
+							//var rv = dialog.getReturnValue();
+							
+                            //链接地址
+                            var _url = "http://www.baidu.com";
+                            //0:新窗口(_blank) 1:直接链接过去
+                            var _openType = 0;
+                            //id
+                            var _id = Math.floor(Math.random() * 100000000);
+                            //创建半透明区域
+                            $('.jcrop-holder').append("<div id='" + _id + "' class='form_croop_border' openType='" + _openType + "' url='" + _url + "'  x1='" + CROOPOBJ.POSITION.x + "' y1='" + CROOPOBJ.POSITION.y + "' x2 = '" + CROOPOBJ.POSITION.x2 + "' y2 ='" + CROOPOBJ.POSITION.y2 + "' style='left:" + (CROOPOBJ.POSITION.x + 2) + "px;top:" + (CROOPOBJ.POSITION.y + 2) + "px;width:" + (CROOPOBJ.POSITION.w - 6) + "px;height:" + (CROOPOBJ.POSITION.h - 6) + "px;'><span  id='" + _id + "_icon'  class='ico16 setting_16 form_croop_border_icon16' style='position:absolute;display:block;z-index:2000000;top:" + (CROOPOBJ.POSITION.h - 25) + "px;left:" + (CROOPOBJ.POSITION.w - 25) + "px'></span></div>");
+                           
+                            //释放选择框
+                            CROOPOBJ.JCROP.release();
+							$('#settingCroop').hide();
+                            //绑定单击事件,单击进入调整大小位置状态
+                            $('#' + _id).click(function(ev){
+                                var _tar = ev.target;
+                                if (_tar.id == this.id) {
+                                    //设置修改标记
+                                    CROOPOBJ.isEdit = true;
+                                    //当前修改热点id
+                                    CROOPOBJ.CURRENTID = this.id;
+                                    //当前热点信息
+                                    var _temp = $(this);
+                                    var _x1 = parseInt(_temp.attr('x1'));
+                                    var _x2 = parseInt(_temp.attr('x2'));
+                                    var _y1 = parseInt(_temp.attr('y1'));
+                                    var _y2 = parseInt(_temp.attr('y2'));
+                                    //显示选择区域
+                                    CROOPOBJ.JCROP.setSelect([_x1, _y1, _x2, _y2]);
+									//进入编辑状态，不能连续新建
+                                    CROOPOBJ.JCROP.setOptions({
+                                        allowSelect: false
+                                    });
+									//编辑状态隐藏选择框中的图标
+                                    $("#settingCroop").hide();
+									
+									//单击蒙版区域取消编辑状态
+                                    $('.jcrop-tracker').click(function(){
+										//取消编辑状态
+                                        CROOPOBJ.JCROP.release();
+										$('#settingCroop').hide();
+										//修改编辑标记
+                                        CROOPOBJ.isEdit = false;
+										//可以连续新建
+                                        CROOPOBJ.JCROP.setOptions({
+                                            allowSelect: true
+                                        });
+										//取消绑定事件
+                                        $('.jcrop-tracker').unbind("click");
+                                    });
+                                }
+								ssss.close();
+                            });
+							//在热点区域图标上绑定简易菜单
+                            $('#' + _id + '_icon').menuSimple({
+                                data: [{
+                                    id: _id + '_name',
+                                    name: "修改链接",
+                                    className: 'ico16 edit_hyperlink_16',
+                                    handle: function(json){
+                                        //当前修改热点id
+                                        CROOPOBJ.CURRENTID = json.id.split('_')[0];
+                                        //当前热点信息
+                                        //var _temp = $('#' + CROOPOBJ.CURRENTID);
+                                        //var _x1 = parseInt($(_temp).attr('x1'));
+                                        //var _x2 = parseInt($(_temp).attr('x2'));
+                                        //var _y1 = parseInt($(_temp).attr('y1'));
+                                        //var _y2 = parseInt($(_temp).attr('y2'));
+                                        //var _openType = $(_temp).attr('openType');
+                                        //var _url = $(_temp).attr('url');
+                                        var ssdd = $.dialog({
+                                            id: 'fffgggg',
+                                            url: '',
+                                            width: 300,
+                                            height: 400,
+                                            title: 'url',
+                                            buttons: [{
+                                                text: "ok",
+                                                btnType: 1,
+                                                handler: function(){
+													//var rv = dialog.getReturnValue();
+                                                    var _temp = $('#' + CROOPOBJ.CURRENTID);
+                                                    alert('更新数据!')
+                                                    //通过设置属性更新数据
+                                                    //_temp.attr('openType',0).attr('url','');
+													ssdd.close();
+                                                }
+                                            }, {
+                                                text: "cancel",
+                                                handler: function(){
+                                                	//关闭窗口
+													ssdd.close();
+                                                }
+                                            }]
+                                        });
+                                    }
+                                }, {
+                                    id: _id + '_cancel',
+                                    name: "取消链接",
+                                    className: 'ico16 cancle_hyperlink_16',
+                                    handle: function(json){
+                                        var _id = json.id.split('_')[0];
+										//删除热点
+                                        $('#' + _id).remove();
+										//取消选择
+                                        CROOPOBJ.JCROP.release();
+										$('#settingCroop').hide();
+                                    }
+                                }]
+                            });
+							 ssss.close();
+                        }
+                    }, {
+                        text: "cancel",
+                        handler: function(){
+							//关闭窗口
+							ssss.close();
+                        }
+                    }]
+                });
+            }
+            
+            //保存所有热区
+            function saveLink(){
+                //选中所有热点dom，所有数据都通过attr保存/更新/设置
+                var _croop = $('.form_croop_border');
+                if (_croop.size() > 0) {
+                    _croop.each(function(){
+                        var _temp = $(this);
+                        var _x1 = parseInt($(_temp).attr('x1'));
+                        var _x2 = parseInt($(_temp).attr('x2'));
+                        var _y1 = parseInt($(_temp).attr('y1'));
+                        var _y2 = parseInt($(_temp).attr('y2'));
+                        var _url = $(_temp).attr('url');
+                        var _openType = $(_temp).attr('openType');
+                        //存储所有热点信息
+                        CROOPOBJ.CROOPARRAY.push({
+                            x1: _x1,
+                            x2: _x2,
+                            y1: _y1,
+                            y2: _y2,
+                            url: _url,
+                            openType: _openType
+                        });
+                    });
+                }
+                else {
+                    alert('没有设置的链接!')
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id='layout' class="comp" comp="type:'layout'">
+            <div class="layout_north" layout="height:30,sprit:false,border:false">
+                <div id="toolbar2">
+                </div>
+            </div>
+            <div class="layout_center" id="layout_center" layout="border:false">
+                <img src="Koala.jpg" id="crop_target" alt="图片"/>
+            </div>
+        </div>
+    </body>
+</html>

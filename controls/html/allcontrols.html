@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>致远控件库</title>
+		<style>
+			.header{
+				background-color:#1462ba;
+				text-align:left;
+				padding:10px;
+				font-size:20px;
+				color:#ffffff;
+				font-weight:bold;
+			}
+			.type{
+				border:1px #d1d1d1 solid;
+				margin:5px;
+			}
+			.style{
+				text-align:left;;
+				background-color:#ededed;
+				padding:5px;
+				font-weight:bold;
+				font-size:12px;	
+				
+				
+			}
+			.hide{
+				margin-right:5px;
+			}
+			.ele_type{
+				margin:10px;
+			}
+			.name{
+				color:#1758ba;
+				font-size:16px;
+				padding-left:0px;
+				font-weight:bold;
+			}
+			.sprit{
+				background:#ededed;
+				height:3px;
+				overflow:hidden;
+				margin-top:3px;
+			}
+			.ele{
+				padding:10px 30px;
+				cursor:pointer;
+			}
+			a{
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css"> 
+		<link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+		<link rel="stylesheet" type="text/css" href="../../docs/resource/doc.css">
+		<script src="../../scriptes/jquery.js" type="text/javascript"></script>
+		<script src="../seeyon.ui.progress-debug.js" type="text/javascript"></script>
+		<script>
+			function isShowHeader(){
+				var locationStr = window.location+"";
+				if(locationStr.indexOf('fromTree=true')!=-1){
+					document.getElementById('header').style.display="none";
+				}
+			}
+			function showProgress(){
+				ss = new MxtProgressBar({
+					text:"正在更新RSS信息....",
+					progress:30
+				});
+			}
+			
+		</script>
+	</head>
+	<body onload="isShowHeader()">
+		<div class="header" id="header">致远控件库</div>
+		<div class="type">
+			<div class="style">基础控件库</div>
+			<div class="controls">
+				<!--按钮-->
+				<div class="ele_type">
+					<div class="name">按钮</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							
+							<a  href="javascript:void(0)" class="common_button common_button_gray">确 定</a>
+							<a  href="javascript:void(0)" class="common_button common_button_gray">取 消</a>
+							<div class="clear"></div>
+							<br/>
+							
+							<a  href="javascript:void(0)" class="common_button common_button_icon"><em></em>附 件</a>
+							<a  href="javascript:void(0)" class="common_button common_button_icon"><em></em>附 件</a>
+							<div class="clear"></div>
+							<br/>
+							
+							<a  href="javascript:void(0)" class="common_button common_button_blue">确 定</a>
+							<a  href="javascript:void(0)" class="common_button common_button_blue">取 消</a>
+							<div class="clear"></div>
+							<br/>
+							
+							<a href="javascript:void(0)" class="common_button common_button_disable">确 定</a>
+							<a href="javascript:void(0)" class="common_button common_button_disable">取 消</a>
+							<br/>
+							
+							<div class="clear"></div>
+							<a href="javascript:void(0)" class="img-button"><em></em>附 件</a>
+							<a href="javascript:void(0)" class="img-button"><em></em>附 件</a>
+							<div class="clear"></div>
+							
+							
+							<br/>
+							<br/>
+							
+							<a  href="button.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--单选-->
+				<div class="ele_type">
+					<div class="name">单选</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							<div class="common_radio_box clearfix">
+								<label for="radio1" class="margin_r_10 hand"><input type="radio" value="0" id="radio1" name="option" class="radio_com"/>选项1</label>
+							</div>
+							<br/>
+							<br/>
+							
+							<a  href="radio.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--复选-->
+				<div class="ele_type">
+					<div class="name">复选</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							<div class="common_checkbox_box clearfix">
+								<label for="radio1" class="margin_r_10 hand"><input type="checkbox" value="0" id="radio1" name="option" class="radio_com"/>选项1</label>
+							</div>
+							<br/>
+							<br/>
+							
+							<a  href="checkbox.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--进度条-->
+				<div class="ele_type">
+					<div class="name">进度条</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							
+							<a  href="javascript:showProgress()" class="common_button common_button_gray">显示进度条</a>
+							<br/>
+							<br/>
+							
+							<a  href="progressBar.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--页签-->
+				<div class="ele_type">
+					<div class="name">页签</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							<script src="../seeyon.ui.tab-debug.js"></script>
+							<div class="list">
+								<div class="code_list clearfix">
+									<div class="common_tabs clearfix">
+								        <ul class="left">
+											<li class="current"><a href="javascript:void(0)" class="border_b">正文</a></li>
+											<li><a href="javascript:void(0)">流程</a></li>
+											<li><a href="javascript:void(0)">编辑</a></li>
+											<li><a href="javascript:void(0)" class="last_tab">表单</a></li>
+								        </ul>
+								    </div>
+								</div>
+								<br/>	
+								<div class="code_list">
+									<div id="tabs">
+									    <div id="tabs_head" class="common_tabs clearfix">
+									        <ul class="left">
+												<li class="current"><a href="javascript:void(0)" tgt="tab1_iframe"><span>baidu</span></a></li>
+												<li><a href="javascript:void(0)" tgt="tab2_iframe"><span>google</span></a></li>
+												<li><a href="javascript:void(0)" tgt="tab3_iframe"><span>baidu</span></a></li>
+												<li><a href="javascript:void(0)" tgt="tab4_iframe" class='last_tab'><span>google</span></a></li>
+									        </ul>
+									    </div>
+									    <div id='tabs_body' class="common_tabs_body">
+									        <iframe id="tab1_iframe" width="100%" src="http://www.baidu.com" frameborder="no" border="0"></iframe>
+									        <iframe id="tab2_iframe" width="100%" src="http://www.google.com.cn" frameborder="no" border="0" class="hidden"></iframe>
+											<iframe id="tab3_iframe" width="100%" src="http://www.baidu.com" frameborder="no" border="0" class="hidden"></iframe>
+									        <iframe id="tab4_iframe" width="100%" src="http://www.google.com.cn" frameborder="no" border="0" class="hidden"></iframe>
+									    </div>
+										<script>
+											new MxtTab({
+												'id': 'tabs',
+												'type':'iframe',
+												'width':600,
+												'height':200
+											});
+										</script>
+									</div>
+								</div>
+								<br/>
+								<br/>
+								
+								<div class="code_list">
+									<a href="javascript:setDisable()" class="common_button common_button_gray">设置div3不可用</a>
+									<a href="javascript:setEnable()" class="common_button common_button_gray">设置div3可用</a>
+									<a href="javascript:setCurrent()" class="common_button common_button_gray">触发div2</a>
+									<a href="javascript:setMouseOver()" class="common_button common_button_gray">onmouseover触发事件</a>
+									<a href="javascript:setClick()" class="common_button common_button_gray">onclick触发事件</a>
+									
+									<br/><br/>
+									<div id="tabs2">
+									    <div id="tabs2_head" class="common_tabs clearfix">
+									        <ul class="left">
+												<li class="current"><a href="javascript:void(0)" tgt="tab1_div"><span>div1</span></a></li>
+												<li><a href="javascript:void(0)" tgt="tab2_div"><span>div2</span></a></li>
+												<li><a href="javascript:void(0)" tgt="tab3_div"><span>div3</span></a></li>
+												<li><a href="javascript:void(0)" tgt="tab4_div" class='last_tab'><span>div4</span></a></li>
+									        </ul>
+									    </div>
+									    <div id='tabs2_body' class="common_tabs_body">
+									        <div id="tab1_div">1</div>
+									        <div id="tab2_div"  class="hidden">2</div>
+											<div id="tab3_div"  class="hidden">3</div>
+											<div id="tab4_div"  class="hidden">4</div>
+									    </div>
+									</div>
+									<script>
+										var divs = new MxtTab({
+										'id': 'tabs2',
+										'type':'div',
+										'width':600,
+										'height':200
+										});	
+										function setDisable(){
+											divs.disabled('tab3_div');
+										}
+										function setEnable(){
+											divs.enable('tab3_div');
+										}
+										function setCurrent(){
+											divs.setCurrent('tab2_div');
+										}
+										function setMouseOver(){
+											divs.setMouseOver();
+										}
+										function setClick(){
+											divs.setClick();
+										}
+									</script>
+								</div>
+							</div>
+							
+							<br/>
+							
+							<div class="clear"></div>
+							<br/>
+							<br/>
+							
+							<a  href="tab.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--文本框-->
+				<div class="ele_type">
+					<div class="name">文本框</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							<div class="common_txtbox clearfix">
+								<label class="margin_r_10 left" for="text">标题:</label>
+								<div class="common_txtbox_wrap"><input type="text" id="text"/></div>
+							</div><br/>
+							<div class="common_txtbox  clearfix">
+								<label class="margin_l_10 right"><a href="javascript:void(0)" class="common_button common_button_gray valign_m">浏览</a></label>
+								<div class="common_txtbox_wrap"><input type="text" id="text" class=""/></div>	
+							</div><br/>
+							<div class="common_txtbox  common_txtbox_dis clearfix">
+								<label class="margin_r_10 left" for="text">标题:</label>
+								<div class="common_txtbox_wrap"><input type="text" id="text" disabled="disabled" class="common_txtbox_wrap_dis"/></div>       
+							</div><br/>
+							<div class="common_txtbox  common_txtbox_dis clearfix">
+								<label class="margin_l_10 right"><a href="javascript:void(0)" class="common_button common_button_disable valign_m">浏览</a></label>
+								<div class="common_txtbox_wrap"><input type="text" id="text" disabled="disabled" class="common_txtbox_wrap_dis"/></div>
+							</div><br/>
+							<div class="common_txtbox  clearfix">
+					            <textarea cols="30" rows="7" class="padding_5 w100b "></textarea>
+							</div><br/>
+							<div class="common_txtbox clearfix">
+					            <textarea cols="30" rows="7" disabled="disabled" class="padding_5 common_txtbox_wrap_dis w100b"> </textarea>
+							</div>
+							<br/>
+							
+							<a  href="textBox.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--下拉列表及二级下拉列表-->
+				<div class="ele_type">
+					<div class="name">下拉列表及二级下拉列表</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							
+						   <div class="common_drop_list_box clearfix code_list">      
+						   <div class="common_drop_list">
+						   		<div class="common_drop_list_title">
+						   			<a href="javascript:void(0)"  class="common_drop_list_select common_button common_button_gray">
+						   				<table width="100%">
+						   					<tr>
+						   						<td>
+						   							普通
+						   						</td>
+												<td class="align_right">
+													<em></em>
+												</td>
+						   					</tr>
+						   				</table>
+									</a>
+									</div>
+									<div class="common_drop_list_content display_none">
+				                       <a href="#">重要</a>
+				                       <a href="#">非常重要</a>
+				                       <a href="#">不重要</a>
+				                    </div>
+						   </div>
+						   <br>
+						   <div class="common_drop_list">
+					   		<div class="common_drop_list_title">
+					   			<a href="javascript:void(0)"  class="common_drop_list_select common_button common_button_disable">
+					   				<table width="100%">
+					   					<tr>
+					   						<td>
+					   							普通
+					   						</td>
+											<td class="align_right">
+												<em></em>
+											</td>
+					   					</tr>
+					   				</table>
+								</a>
+							</div>
+							<div class="common_drop_list_content display_none">
+		                       <a href="#">重要</a>
+		                       <a href="#">非常重要</a>
+		                       <a href="#">不重要</a>
+		                    </div>
+					   </div>
+						   <br>
+						  <div class="common_drop_list">
+					   		<div class="common_drop_list_title">
+					   			<a href="javascript:void(0)"  class="common_drop_list_select common_button common_button_gray">
+					   				<table width="100%">
+					   					<tr>
+					   						<td>
+					   							普通
+					   						</td>
+											<td class="align_right">
+												<em></em>
+											</td>
+					   					</tr>
+					   				</table>
+								</a>
+								</div>
+								<div class="common_drop_list_content">
+			                       <a href="#">重要</a>
+			                       <a href="#">非常重要</a>
+			                       <a href="#">不重要</a>
+			                    </div>
+					   </div>
+							<br/>
+							<br/>
+							
+							<a  href="dropDownList.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--链接-->
+				<div class="ele_type">
+					<div class="name">链接</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							<div class="link_box">
+							<a  href="#">更 多</a>
+							</div>
+							<br/>
+							<br/>
+							
+							<a  href="link.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--搜索框-->
+				<div class="ele_type">
+					<div class="name">搜索框</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							
+							<div class="common_search_box clearfix">
+								<ul class="common_search">
+									<li id="inputBorder" class="common_search_input"><input class="search_input" type="text">
+									</li>
+									<li><a class="common_button common_button_gray search_buttonHand" href="javascript:void(0)"><em></em></a></li>
+								</ul>
+							</div>
+							<br/>
+							<div class="common_search_box clearfix">
+								<ul class="common_search_disable">
+									<li id="inputBorder" class="common_search_input"><input class="search_input" disabled="disabled" type="text">
+									</li>
+									<li><a class="common_button common_button_disable search_buttonHand" href="javascript:void(0)"><em></em></a></li>
+								</ul>
+							</div>
+							
+							<br/>
+							<div class="common_search_box clearfix">
+								<ul class="common_search common_search_condition">
+									<li><a class="common_button common_button_gray condition" href="javascript:void(0)">查询条件<em></em></a></li>
+									<li class="common_search_input"><input class="search_input" type="text">
+									</li>
+									<li><a class="common_button common_button_gray search_buttonHand" href="javascript:void(0)"><em></em></a></li>
+								</ul>
+							</div>
+							
+							<br/>
+							<div class="common_search_box clearfix">
+								<ul class="common_search_disable common_search_condition_disable">
+									<li><a class="common_button common_button_disable condition" href="javascript:void(0)">查询条件<em></em></a></li>
+									<li class="common_search_input"><input class="search_input" disabled="disabled" type="text">
+									</li>
+									<li><a class="common_button common_button_disable search_buttonHand" href="javascript:void(0)"><em></em></a></li>
+								</ul>
+							</div>
+							<br/>
+							<br/>
+							
+							<a  href="searchBox.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--渐进展开控件-->
+				<div class="ele_type">
+					<div class="name">渐进展开控件</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							
+							<br/>
+							<br/>
+							
+							<a  href="#" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				
+				<!--列表框（单选、多选）-->
+				<div class="ele_type">
+					<div class="name">列表框（单选、多选）</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							<div class="common_list_box clearfix">
+								<ul class="common_list">
+				                	<li><a href="javascript:void(0)">这是列表框</a></li>
+				                    <li><a href="javascript:void(0)">这是列表框</a></li>
+				                    <li><a href="javascript:void(0)">这是列表框</a></li>
+				                    <li><a href="javascript:void(0)" class="last">这是列表框</a></li>
+				               	</ul>
+							</div>
+							<br/>
+							<div class="common_list_box clearfix">
+								<ul class="common_list">
+				                	<li><a href="javascript:void(0)">这是列表框</a></li>
+				                    <li><a href="javascript:void(0)" class="current">这是列表框</a></li>
+				                    <li><a href="javascript:void(0)">这是列表框</a></li>
+				                    <li><a href="javascript:void(0)" class="last">这是列表框</a></li>
+				               	</ul>
+							</div>
+							<br/>
+							<div class="common_list_box clearfix">
+								<ul class="common_list common_list_disable">
+				                	<li><a href="javascript:void(0)">这是列表框</a></li>
+				                    <li><a href="javascript:void(0)">这是列表框</a></li>
+				                    <li><a href="javascript:void(0)">这是列表框</a></li>
+				                    <li><a href="javascript:void(0)" class="last">这是列表框</a></li>
+				               	</ul>
+							</div>
+							
+							<br/>
+							<div class="common_list_box clearfix">
+								<ul class="common_list">
+				                	<li><a href="javascript:void(0)"><em></em>这是列表框</a></li>
+				                    <li><a href="javascript:void(0)"><em></em>这是列表框</a></li>
+				                    <li><a href="javascript:void(0)"><em></em>这是列表框</a></li>
+				                    <li><a href="javascript:void(0)" class="last"><em></em>这是列表框</a></li>
+				               	</ul>
+							</div>
+							
+							<br/>
+							<div class="common_list_box clearfix">
+								<ul class="common_list common_list_disable">
+				                	<li><a href="javascript:void(0)"><em></em>这是列表框</a></li>
+				                    <li><a href="javascript:void(0)"><em></em>这是列表框</a></li>
+				                    <li><a href="javascript:void(0)"><em></em>这是列表框</a></li>
+				                    <li><a href="javascript:void(0)" class="last"><em></em>这是列表框</a></li>
+				               	</ul>
+							</div>
+							<br/>
+							<br/>
+							
+							<a  href="listBox.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--列表视图-->
+				<div class="ele_type">
+					<div class="name">列表视图</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							<script src="../seeyon.ui.grid-debug.js"> </script>
+							<div class="list">
+				                <div class="button_box clearfix">
+				                    <br/>
+				                    <table class="flexme3" style="display: none">
+				                    </table>
+				                    <div id='searchHTML' class="hidden">
+				                        <table>
+				                            <tr>
+				                                <td>
+				                                    ss:
+				                                </td>
+				                                <td>
+				                                    <input/>
+				                                </td>
+				                                <td>
+				                                    ss:
+				                                </td>
+				                                <td>
+				                                    <input/>
+				                                </td>
+				                            </tr>
+				                            <tr>
+				                                <td>
+				                                    ss:
+				                                </td>
+				                                <td>
+				                                    <input/>
+				                                </td>
+				                                <td>
+				                                    ss:
+				                                </td>
+				                                <td>
+				                                    <input/>
+				                                </td>
+				                            </tr>
+				                        </table>
+				                    </div>
+				                    <script>
+				                        //$('.flexme1').flexigrid();
+				                        //$('.flexme2').flexigrid({height:'auto',striped:false});
+				                        //没有数据:87 20:431 100:1615   200:3225  400:6330
+				                        var testData = {
+				                            "size":20,
+				                            "total":349,
+				                            "rows":[
+				                                      {
+				                                          "id":10001
+				                                          ,"username":"zhujl"
+				                                          ,"truename":"朱家玲"
+				                                          ,"handphone":"13808000661"
+				                                          ,"officephone":"028-85243926"
+				                                          ,"email":""
+				                                          ,"birthday":"1910-01-01"
+				                                          ,"idString":"<input type=\"checkbox\" vlaue=\"10001\"/>"
+				                                          ,"jiaqi":2
+				                                      }
+				                                      ,{"id":10002,"username":"yuq","truename":"余强","handphone":"13901206080","officephone":"","email":"yuqiang@seeyon.com","birthday":"1965-03-21","idString":"<input type=\"checkbox\" vlaue=\"10002\"/>","jiaqi":2}
+				                                      ,{"id":10003,"username":"lq","truename":"刘清","handphone":"13910976992","officephone":"108","email":"liuq@seeyon.com","birthday":"1910-01-01","idString":"<input type=\"checkbox\" vlaue=\"10003\"/>","jiaqi":2}
+				                                      ,{"id":10004,"username":"xus","truename":"徐石","handphone":"13911116021","officephone":"101","email":"Rock_xu@seeyon.com","birthday":"1910-01-01","idString":"<input type=\"checkbox\" vlaue=\"10004\"/>","jiaqi":2}
+				                                      ,{"id":10005,"username":"张宇红","truename":"张宇红","handphone":"13301009835","officephone":"010-82602233-130","email":"zhangyh@seeyon.com","birthday":"1976-12-01","idString":"<input type=\"checkbox\" vlaue=\"10005\"/>","jiaqi":2}
+				                                      ,{"id":10006,"username":"zhangy","truename":"张屹","handphone":"13701136073","officephone":"102","email":"zhangy@seeyon.com","birthday":"1968-06-25","idString":"<input type=\"checkbox\" vlaue=\"10006\"/>","jiaqi":2}
+				                                      ,{"id":10007,"username":"qiuwj","truename":"邱文娟","handphone":"13426220457","officephone":"125","email":"","birthday":"1970-01-01","idString":"<input type=\"checkbox\" vlaue=\"10007\"/>","jiaqi":2}
+				                                      ,{"id":10008,"username":"lind","truename":"林丹","handphone":"13908001627","officephone":"010-82602233-165","email":"lind@seeyon.com","birthday":"1910-01-01","idString":"<input type=\"checkbox\" vlaue=\"10008\"/>","jiaqi":2}
+				                                      ,{"id":10009,"username":"hul","truename":"胡丽","handphone":"13146164157","officephone":"800801","email":"hul@seeyon.com","birthday":"1983-10-18","idString":"<input type=\"checkbox\" vlaue=\"10009\"/>","jiaqi":2}
+				                                      ,{"id":10010,"username":"husy","truename":"胡守云","handphone":"13908057455","officephone":"010-82602233-103","email":"husy@seeyon.com","birthday":"1967-11-13","idString":"<input type=\"checkbox\" vlaue=\"10010\"/>","jiaqi":2}
+				                                      ,{"id":10011,"username":"huac","truename":"华程","handphone":"13910338526","officephone":"146","email":"","birthday":"1970-01-01","idString":"<input type=\"checkbox\" vlaue=\"10011\"/>","jiaqi":2}
+				                                      ,{"id":10012,"username":"taowh","truename":"陶维浩","handphone":"13308172151","officephone":"028-85240311","email":"","birthday":"1910-01-01","idString":"<input type=\"checkbox\" vlaue=\"10012\"/>","jiaqi":2}
+				                                      ,{"id":10013,"username":"luojc","truename":"罗继承","handphone":"13701124108","officephone":"62715542","email":"luojc@seeyon.com","birthday":"1975-07-07","idString":"<input type=\"checkbox\" vlaue=\"10013\"/>","jiaqi":2}
+				                                      ,{"id":10014,"username":"caozm","truename":"曹中敏","handphone":"","officephone":"","email":"","birthday":"1970-01-01","idString":"<input type=\"checkbox\" vlaue=\"10014\"/>","jiaqi":2}
+				                                      ,{"id":10015,"username":"liurh","truename":"刘瑞华","handphone":"13910519458","officephone":"107","email":"","birthday":"1910-01-01","idString":"<input type=\"checkbox\" vlaue=\"10015\"/>","jiaqi":2}
+				                                      ,{"id":10016,"username":"xuey","truename":"薛瑶","handphone":"13910928111","officephone":"106","email":"xuey@seeyon.com","birthday":"1981-11-11","idString":"<input type=\"checkbox\" vlaue=\"10016\"/>","jiaqi":2}
+				                                      ,{"id":10017,"username":"lijh","truename":"李继红","handphone":"13709044732","officephone":"44455555","email":"lijh@seeyon.com","birthday":"1910-01-01","idString":"<input type=\"checkbox\" vlaue=\"10017\"/>","jiaqi":2}
+				                                      ,{"id":10018,"username":"xiaoxs","truename":"肖雪松","handphone":"13981811797","officephone":"028-85248800","email":"wuming999@163.com","birthday":"1975-08-04","idString":"<input type=\"checkbox\" vlaue=\"10018\"/>","jiaqi":2}
+				                                      ,{"id":10019,"username":"wangy","truename":"王宇","handphone":"","officephone":"","email":"","birthday":"1970-01-01","idString":"<input type=\"checkbox\" vlaue=\"10019\"/>","jiaqi":2}
+				                                      ,{"id":10020,"username":"yuhj","truename":"于荒津","handphone":"13910621929","officephone":"141","email":"","birthday":"1970-01-01","idString":"<input type=\"checkbox\" vlaue=\"10020\"/>","jiaqi":2}
+				                                  ]
+				                            ,"page":1
+				                            ,"pages":18
+				                            ,"startAt":0
+				                            ,"dataCount":20
+				                            ,"sortField":null
+				                            ,"sortOrder":null
+				                        };
+				                        function render(text,rowIndex,colIndex){
+				                            if(rowIndex == 2 && colIndex == 2){
+				                                return "<a href='#'>"+text+"</a>";
+				                            }else{
+				                                return text;
+				                            }
+				                        }
+				                        $("table.flexme3").ajaxgrid({
+				                            searchHTML:'searchHTML',
+				                            click:testCellAction,
+				                            dblclick:testCellActionDB,
+				                            render:render,
+				                            datas:testData,
+				                            colModel: [{
+				                              display: 'id',
+				                              name: 'idString',
+				                              width: '40',
+				                              sortable: false,
+				                              align: 'center',
+				                              type:'checkbox',
+				                              colAction: {'click':test,'dblclick':testDB}
+				                          }, {
+				                              display: 'username',
+				                              name: 'username',
+				                              width: '100',
+				                              sortable: true,
+				                              align: 'left',
+				                              colAction: {'click':test2,'dblclick':testDB2}
+				                          }, {
+				                              display: 'truename',
+				                              name: 'truename',
+				                              width: '100',
+				                              sortable: true,
+				                              align: 'left'
+				                          },{
+				                              display: 'handphone',
+				                              name: 'handphone',
+				                              width: '100',
+				                              sortable: true,
+				                              align: 'center'
+				                          }, {
+				                              display: 'officephone',
+				                              name: 'officephone',
+				                              width: '100',
+				                              sortable: true,
+				                              align: 'left'
+				                          }, {
+				                              display: 'email',
+				                              name: 'email',
+				                              width: '100',
+				                              sortable: true,
+				                              align: 'left'
+				                          },{
+				                              display: 'birthday',
+				                              name: 'birthday',
+				                              width: '100',
+				                              sortable: true,
+				                              align: 'center'
+				                          }, {
+				                              display: 'jiaqi',
+				                              name: 'jiaqi',
+				                              width: '100',
+				                              sortable: true,
+				                              align: 'left'
+				                          }],
+				                            buttons: [{
+				                                name: 'Add',
+				                                bclass: 'add',
+				                                onpress: test
+				                            }, {
+				                                name: 'Delete',
+				                                bclass: 'delete',
+				                                onpress: test
+				                            }, {
+				                                separator: true
+				                            }],
+				                            searchitems: [{
+				                                display: 'username',
+				                                name: 'username'
+				                            }, {
+				                                display: 'truename',
+				                                name: 'truename',
+				                                isdefault: true
+				                            }],
+				                            sortname: "id",
+				                            sortorder: "asc",
+				                            usepager: true,
+				                            title: 'Persons',
+				                            useRp: true,
+				                            rp: 15,
+				                            showTableToggleBtn: true,
+				                            width: 1000,
+				                            height: 400,
+				                            //managerName:"a6UserManager",
+				                            //managerMethod:"selectPerson"
+				                        });
+				                        function test(id){
+				                            $('#s').val('click---'+id)
+				                        }
+				                        function test2(id){
+				                            $('#s').val('test2---'+id)
+				                        }
+				                        function testDB(id){
+				                            $('#s').val('dbclick----'+id)
+				                        }
+				                        function testDB2(id){
+				                            $('#s').val('dbclick222----'+id)
+				                        }
+				                        
+				                        function testCellAction(row,rowIndex,colIndex){
+				                            $('#s').val('click----'+row.id+'---'+colIndex+'---'+rowIndex)
+				                        }
+				                        function testCellActionDB(row,rowIndex,colIndex){
+				                            $('#s').val('DBclick----'+row.id+'---'+colIndex+'---'+rowIndex)
+				                        }
+				                    </script>
+				                    <input type="text" id='s' style="width:300px;"/>
+				                </div>
+				            </div>
+							<br/> 
+							<br/>
+							
+							<a  href="grid.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--翻页栏-->
+				<div class="ele_type">
+					<div class="name">翻页栏</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+								<div class="common_over_page">
+									每页<input type="text" class="common_over_page_size"/>条/共6条记录<span class="margin_lr_10">共1页</span><a href="#" class="margin_l_20">首页</a><a href="#" class="margin_lr_15">上一页</a><a href="#" class="margin_r_10">下一页</a><span class="margin_l_20 margin_r_10">第<input type="text" class="common_over_page_size"/>页</span><input type="button" value="go" class="common_over_page_go"/>		
+								</div>
+								
+								<br/>
+								
+								<div class="common_over_page_disable">
+									每页<input type="text" disabled="disabled" class="common_over_page_size"/>条/共6条记录<span class="margin_lr_10">共1页</span><a href="#" class="margin_l_20">首页</a><a href="#" class="margin_lr_15">上一页</a><a href="#" class="margin_r_10">下一页</a><span class="margin_l_20 margin_r_10">第<input type="text" disabled="disabled" class="common_over_page_size"/>页</span><input type="button" disabled="disabled" value="go" class="common_over_page_go"/>		
+								</div>
+							<br/>
+							<br/>
+							
+							<a  href="overPage.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--树视图-->
+				<div class="ele_type">
+					<div class="name">树视图</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							<script src="../../scriptes/jquery.js">
+        					</script>
+							<script type="text/javascript" src="../seeyon.ui.tree-debug.js"> </script>
+							<br/>
+							<br/>
+							<table width="100%">
+								<tr>
+									<td width="300" class="border_all" valign="top">
+							            <div class="list  clearfix">
+							                <ul id="tree" class="treeDemo_0 ztree"></ul>
+							                <script>
+							                    var setting1 = {
+							                        callback: {
+							                            onClick: onClick1 //回调函数 onClick
+							                        }
+							                    }
+							                    var zNodes1 = [{
+							                        name: "根节点 - 展开-隐藏checkbox",
+							                        open: true,
+							                        children: [{
+							                            name: "父节点11 - 折叠",
+							                            children: [{
+							                                name: "叶子节点111--disabled"
+							                            }, {
+							                                name: "叶子节点112"
+							                            }, {
+							                                name: "叶子节点113"
+							                            }, {
+							                                name: "叶子节点114"
+							                            }]
+							                        }, {
+							                            name: "父节点12 - 折叠",
+							                            children: [{
+							                                name: "叶子节点121"
+							                            }, {
+							                                name: "叶子节点122"
+							                            }, {
+							                                name: "叶子节点123"
+							                            }, {
+							                                name: "叶子节点124"
+							                            }]
+							                        }, {
+							                            name: "父节点13 - 没有子节点",
+							                            isParent: true
+							                        }]
+							                    }];
+							                    function onClick1(e, treeId, treeNode){ //单击节点展开子节点
+							                        var zTree = $.fn.zTree.getZTreeObj("tree");
+							                        zTree.expandNode(treeNode);
+							                    }
+							                    
+							                    $(document).ready(function(){
+							                        $.fn.zTree.init($("#tree"), setting1, zNodes1);//zTree 初始化方法，创建 zTree 必须使用此方法
+							                    });
+							                </script>
+							            </div>			
+									</td>
+									</tr>
+								</table>
+							<a  href="tree.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--滚动条-->
+				<div class="ele_type">
+					<div class="name">滚动条[只允许在栏目中使用]</div>
+					<div class="sprit"> </div>
+					<div class="demo">
+						<div class="ele">
+							<script type="text/javascript" src="../seeyon.ui.scroll-debug.js"></script>
+							<script>
+								$(document).ready(function(){
+									$('#scrollbar1').tinyscrollbar();	
+								});
+							</script>
+							
+							<div id="scrollbar1" class="common_scrollbar">
+								<div class="scrollbar right"><div class="track relative"><div class="thumb absolute"><div class="end"></div></div></div></div>
+								<div class="viewport relative">
+									 <div class="overview absolute">
+										<h3>Magnis dis parturient montes</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae velit at velit pretium sodales. Maecenas egestas imperdiet mauris, vel elementum turpis iaculis eu. Duis egestas augue quis ante ornare eu tincidunt magna interdum. Vestibulum posuere risus non ipsum sollicitudin quis viverra ante feugiat. Pellentesque non faucibus lorem. Nunc tincidunt diam nec risus ornare quis porttitor enim pretium. Ut adipiscing tempor massa, a ullamcorper massa bibendum at. Suspendisse potenti. In vestibulum enim orci, nec consequat turpis. Suspendisse sit amet tellus a quam volutpat porta. Mauris ornare augue ut diam tincidunt elementum. Vivamus commodo dapibus est, a gravida lorem pharetra eu. Maecenas ultrices cursus tellus sed congue. Cras nec nulla erat.</p>
+										
+										<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque eget mauris libero. Nulla sit amet felis in sem posuere laoreet ut quis elit. Aenean mauris massa, pretium non bibendum eget, elementum sed nibh. Nulla ac felis et purus adipiscing rutrum. Pellentesque a bibendum sapien. Vivamus erat quam, gravida sed ultricies ac, scelerisque sed velit. Integer mollis urna sit amet ligula aliquam ac sodales arcu euismod. Fusce fermentum augue in nulla cursus non fermentum lorem semper. Quisque eu auctor lacus. Donec justo justo, mollis vel tempor vitae, consequat eget velit.</p>
+										
+										<p>Vivamus sed tellus quis orci dignissim scelerisque nec vitae est. Duis et elit ipsum. Aliquam pharetra auctor felis tempus tempor. Vivamus turpis dui, sollicitudin eget rhoncus in, luctus vel felis. Curabitur ultricies dictum justo at luctus. Nullam et quam et massa eleifend sollicitudin. Nulla mauris purus, sagittis id egestas eu, pellentesque et mi. Donec bibendum cursus nisi eget consequat. Nunc sit amet commodo metus. Integer consectetur lacus ac libero adipiscing ut tristique est viverra. Maecenas quam nibh, molestie nec pretium interdum, porta vitae magna. Maecenas at ligula eget neque imperdiet faucibus malesuada sed ipsum. Nulla auctor ligula sed nisl adipiscing vulputate. Curabitur ut ligula sed velit pharetra fringilla. Cras eu luctus est. Aliquam ac urna dui, eu rhoncus nibh. Nam id leo nisi, vel viverra nunc. Duis egestas pellentesque lectus, a placerat dolor egestas in. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec vitae ipsum non est iaculis suscipit.</p>
+										
+										<h3>Adipiscing risus </h3>
+										<p>Quisque vel felis ligula. Cras viverra sapien auctor ante porta a tincidunt quam pulvinar. Nunc facilisis, enim id volutpat sodales, leo ipsum accumsan diam, eu adipiscing risus nisi eu quam. Ut in tortor vitae elit condimentum posuere vel et erat. Duis at fringilla dolor. Vivamus sem tellus, porttitor non imperdiet et, rutrum id nisl. Nunc semper facilisis porta. Curabitur ornare metus nec sapien molestie in mattis lorem ullamcorper. Ut congue, purus ac suscipit suscipit, magna diam sodales metus, tincidunt imperdiet diam odio non diam. Ut mollis lobortis vulputate. Nam tortor tortor, dictum sit amet porttitor sit amet, faucibus eu sem. Curabitur aliquam nisl sed est semper a fringilla velit porta. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum in sapien id nulla volutpat sodales ac bibendum magna. Cras sollicitudin, massa at sodales sodales, lacus tortor vestibulum massa, eu consequat dui nulla et ipsum.</p>
+										
+										<p>Aliquam accumsan aliquam urna, id vulputate ante posuere eu. Nullam pretium convallis tincidunt. Duis vitae odio arcu, ut fringilla enim. Nam ante eros, vestibulum sit amet rhoncus et, vehicula quis tellus. Curabitur sed iaculis odio. Praesent vitae ligula id tortor ornare luctus. Integer placerat urna non ligula sollicitudin vestibulum. Nunc vestibulum auctor massa, at varius nibh scelerisque eget. Aliquam convallis, nunc non laoreet mollis, neque est mattis nisl, nec accumsan velit nunc ut arcu. Donec quis est mauris, eu auctor nulla. Fusce leo diam, tempus a varius sit amet, auctor ac metus. Nam turpis nulla, fermentum in rhoncus et, auctor id sem. Aliquam id libero eu neque elementum lobortis nec et odio.</p>                   
+									</div>
+								</div>
+							</div>
+							
+							<br/>
+							<br/>
+							
+							<a  href="scrollBar.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--面包屑-->
+				<div class="ele_type">
+					<div class="name">面包屑</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							<div class="common_crumbs">
+								<span class="margin_r_10">当前位置:</span><a href="#">文档中心</a><span class="common_crumbs_next margin_lr_5">-</span><a href="#">业务培训</a>					
+							</div>
+							<br/>
+							<div class="common_crumbs_disable">
+								<span class="margin_r_10">当前位置:</span><a href="#">文档中心</a><span class="margin_lr_5">-</span><a href="#">业务培训</a>					
+							</div>
+							<br/>
+							<br/>
+							
+							<a  href="crumbs.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--时间控件-->
+				<div class="ele_type">
+					<div class="name">时间控件</div>
+					<div class="demo">
+						<div class="ele">
+					        <script src="../seeyon.ui.calendar-debug.js"> </script>
+					        <div id="cont" class="left"> </div>
+					        <script>
+			        			var LEFT_CAL = Calendar.setup({
+					            cont: "cont",
+					            weekNumbers: true,
+					            selectionType: Calendar.SEL_MULTIPLE,
+					            showTime: 12
+			         			})
+        					</script>
+							<div class="clear"><a  href="calendar.html" target="_blank">详情>></a></div>
+						</div>
+					</div>
+				</div>
+				
+				<!--命令菜单-->
+				<div class="ele_type">
+					<div class="name">命令菜单</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							<div class="width_max_100 common_order_menu_box clearfix">
+								<ul class="common_order_menu">
+									<li>
+										<a  href="javascript:void(0)" class="order_menuitem">menu1</a>
+									</li>
+									<li>
+										<a  href="javascript:void(0)" class="order_menuitem">menu12</a>
+									</li>
+									<li>
+										<a  href="javascript:void(0)" class="order_menuitem">menu123</a>
+									</li>
+									<li>
+										<a  href="javascript:void(0)" class="order_menuitem">menu1234</a>
+									</li>
+									<li>
+										<a  href="javascript:void(0)" class="order_menuitem">menu12345</a>
+									</li>
+									<li>
+										<a  href="javascript:void(0)" class="order_menuitem">menu123456</a>
+									</li>
+									<li>
+										<a  href="javascript:void(0)" class="order_menuitem">menu1234567</a>
+									</li>
+									<li>
+										<a  href="javascript:void(0)" class="order_menuitem">menu12345678</a>
+									</li>
+									<li>
+										<a  href="javascript:void(0)" class="order_menuitem">menu123456789</a>
+									</li>
+									<li>
+										<a  href="javascript:void(0)" class="order_menuitem">menu12345678910</a>
+									</li>						
+								</ul>
+							</div>
+							<br/>
+							<br/>
+							
+							<a  href="orderMenu.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--回复模块-->
+				<div class="ele_type">
+					<div class="name">回复模块</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+
+
+                   <div class="common_bbs clearfix">
+                        <dl class="bbs clearfix">
+                            <dt class="common_bbs_photo left">
+                                <img src="../../css/images/photo.jpg"/>
+                            </dt>
+                            <dd class="common_bbs_content w_adapt">
+                                <table class="content_box" width="100%">
+                                    <tr>
+                                        <td class="content_box_l relative" valign="top">
+                                            <div class="content_say absolute">
+                                            </div>
+                                        </td>
+                                        <td class="content_text" valign="top">
+                                            <table>
+                                                <tr>
+                                                    <td colspan="2" class="text">
+                                                            菲律宾外交部发言人费尔南德斯5月23日在新闻发布会上称，“我们从菲律宾海岸警卫队接到报告，称有越来越多的中国政府船只和渔船出现在该海域”，菲方对这种“侵犯菲律宾主权”的行为表示抗议。
+													菲律宾外交部发言人费尔南德斯5月23日在新闻发布会上称，“我们从菲律宾海岸警卫队接到报告，称有越来越多的中国政府船只和渔船出现在该海域”，菲方对这种“侵犯菲律宾主权”的行为表示抗议。
+												    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="time">
+                                                    	发表于:05-08 13:10
+                                                    </td>
+                                                    <td class="reply" align="right">
+                                                    	<a href="#">回复</a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </dd>
+                        </dl>
+						
+						<div class="reply_box">
+	                        <dl class="bbs clearfix">
+	                            <dt class="common_bbs_photo left">
+	                                <img src="../../css/images/photo.jpg"/>
+	                            </dt>
+	                            <dd class="common_bbs_content w_adapt">
+	                                <table width="100%">
+	                                    <tr>
+	                                        <td class="content_box_l relative" valign="top">
+	                                            <div class="content_say absolute">
+	                                            </div>
+	                                        </td>
+	                                        <td class="content_text" valign="top">
+	                                            <table>
+	                                                <tr>
+	                                                    <td colspan="2" class="text">
+	                                                            菲律宾外交部发言人费尔南德斯5月23日在新闻发布会上称，“我们从菲律宾海岸警卫队接到报告，称有越来越多的中国政府船只和渔船出现在该海域”，菲方对这种“侵犯菲律宾主权”的行为表示抗议。
+														菲律宾外交部发言人费尔南德斯5月23日在新闻发布会上称，“我们从菲律宾海岸警卫队接到报告，称有越来越多的中国政府船只和渔船出现在该海域”，菲方对这种“侵犯菲律宾主权”的行为表示抗议。
+													    </td>
+	                                                </tr>
+	                                                <tr>
+	                                                    <td class="time">
+	                                                    	发表于:05-08 13:10
+	                                                    </td>
+	                                                    <td class="reply" align="right">
+	                                                    	<a href="#">删除</a>
+															<a href="#">编辑</a>
+	                                                    </td>
+	                                                </tr>
+	                                            </table>
+	                                        </td>
+	                                    </tr>
+	                                </table>
+	                            </dd>
+	                        </dl>
+						</div>
+						
+						<div class="reply_box">
+	                        <dl class="bbs clearfix">
+	                            <dt class="common_bbs_photo left">
+	                                <img src="../../css/images/photo.jpg"/>
+	                            </dt>
+	                            <dd class="common_bbs_content w_adapt">
+	                                <table class="content_box" width="100%">
+	                                    <tr>
+	                                        <td class="content_box_l relative" valign="top">
+	                                            <div class="content_say absolute">
+	                                            </div>
+	                                        </td>
+	                                        <td class="content_text" valign="top">
+	                                            <table>
+	                                                <tr>
+	                                                    <td colspan="2" class="text">
+	                                                            菲律宾外交部发言人费尔南德斯5月23日在新闻发布会上称，“我们从菲律宾海岸警卫队接到报告，称有越来越多的中国政府船只和渔船出现在该海域”，菲方对这种“侵犯菲律宾主权”的行为表示抗议。
+														菲律宾外交部发言人费尔南德斯5月23日在新闻发布会上称，“我们从菲律宾海岸警卫队接到报告，称有越来越多的中国政府船只和渔船出现在该海域”，菲方对这种“侵犯菲律宾主权”的行为表示抗议。
+													    </td>
+	                                                </tr>
+	                                                <tr>
+	                                                    <td class="time">
+	                                                    	发表于:05-08 13:10
+	                                                    </td>
+	                                                    <td class="reply" align="right">
+	                                                    	<a href="#">删除</a>
+															<a href="#">编辑</a>
+	                                                    </td>
+	                                                </tr>
+	                                            </table>
+	                                        </td>
+	                                    </tr>
+	                                </table>
+	                            </dd>
+	                        </dl>
+						</div>
+                    </div>
+
+
+							<br/>
+							<br/>
+							
+							<a  href="bbs.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+		
+		<div class="type">
+			<div class="style">容器控件库</div>
+			<div class="controls">
+				<!--banner-->
+				<div class="ele_type">
+					<div class="name">banner</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							<div class="common_banner_box clearfix">
+								<div class="banner_l">
+								</div>
+							</div>
+							
+							<br/>
+							<br/>
+							
+							<a  href="banner.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--导航条-->
+				<div class="ele_type">
+					<div class="name">导航条</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+					        <script src="../seeyon.ui.menu-debug.js"></script>
+							<div id='menuDiv'></div>
+					        <script>
+								var menubar = new MxtMenuBar({'render':'menuDiv','maxMenu':4});
+								
+								var menu51 = new MxtMenu({'id':'51','name':'菜单一'});
+								menu51.add(new MxtMenuItem({'uId':'2201','name':'item1','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								
+								var item2 = new MxtMenuItem({'uId':'2202','name':'item2','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true})
+								var subMenu = new MxtSubMenu({'id':'22021','name':'subMenu1'});
+								subMenu.add(new MxtSubMenuItem({'uId':'220211','name':'subItem1','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								subMenu.add(new MxtSubMenuItem({'uId':'220212','name':'subItem1','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								subMenu.add(new MxtSubMenuItem({'uId':'220213','name':'subItem1','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								subMenu.add(new MxtSubMenuItem({'uId':'220214','name':'subItem1','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								subMenu.add(new MxtSubMenuItem({'uId':'220215','name':'subItem1','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								item2.add(subMenu);
+								menu51.add(item2);
+								
+								menu51.add(new MxtMenuItem({'uId':'2203','name':'item3','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								menu51.add(new MxtMenuItem({'uId':'2204','name':'item4','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								
+								var menu52 = new MxtMenu({'id':'52','name':'菜单二'});
+								menu52.add(new MxtMenuItem({'uId':'3201','name':'item1','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								menu52.add(new MxtMenuItem({'uId':'3202','name':'item2','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								menu52.add(new MxtMenuItem({'uId':'3203','name':'item3','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								menu52.add(new MxtMenuItem({'uId':'3204','name':'item4','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								
+								var menu53 = new MxtMenu({'id':'53','name':'菜单三'});
+								menu53.add(new MxtMenuItem({'uId':'4201','name':'item1','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								menu53.add(new MxtMenuItem({'uId':'4202','name':'item2','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								menu53.add(new MxtMenuItem({'uId':'4203','name':'item3','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								menu53.add(new MxtMenuItem({'uId':'4204','name':'item4','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								
+								
+								var menu54 = new MxtMenu({'id':'54','name':'菜单四'});
+								menu54.add(new MxtMenuItem({'uId':'5201','name':'item1','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								menu54.add(new MxtMenuItem({'uId':'5202','name':'item2','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								menu54.add(new MxtMenuItem({'uId':'5203','name':'item3','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								menu54.add(new MxtMenuItem({'uId':'5204','name':'item4','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								
+								
+								var menu55 = new MxtMenu({'id':'55','name':'菜单五'});
+								menu55.add(new MxtMenuItem({'uId':'6201','name':'item1','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								menu55.add(new MxtMenuItem({'uId':'6202','name':'item2','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								menu55.add(new MxtMenuItem({'uId':'6203','name':'item3','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								menu55.add(new MxtMenuItem({'uId':'6204','name':'item4','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								
+								var menu56 = new MxtMenu({'id':'56','name':'菜单六'});
+								menu56.add(new MxtMenuItem({'uId':'7201','name':'item1','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								menu56.add(new MxtMenuItem({'uId':'7202','name':'item2','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								menu56.add(new MxtMenuItem({'uId':'7203','name':'item3','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								menu56.add(new MxtMenuItem({'uId':'7204','name':'item4','action':'http://www.baidu.com','target':'main','icon':'','description':'sssssssssssssss','isShow':true}));
+								
+								menubar.add(menu51);
+								menubar.add(menu52);
+								menubar.add(menu53);
+								menubar.add(menu54);
+								menubar.add(menu55);
+								menubar.add(menu56);
+								menubar.show();
+								
+					        </script>
+							
+							<br/>
+							<br/>
+							
+							<a  href="menu.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				<!--layout-->
+				<div class="ele_type">
+					<div class="name">布局</div>
+					<div class="sprit"></div>
+					<div class="demo">
+			<div class="layout clearfix code_list">
+            	<div class="col1">
+                	一列
+                </div>
+			</div>
+			<br/>
+            <div class="layout clearfix code_list">
+            	<div class="col2">
+                	两列均分
+                </div>
+                <div class="col2">
+                	两列均分
+                </div>
+			</div>
+			<br/>
+            <div class="layout clearfix code_list">
+            	<div class="col2-2-1">
+                	两列1
+                </div>
+                <div class="col2-2-2">
+                	两列2
+                </div>
+			</div>
+			<br/>
+            <div class="layout clearfix code_list">
+            	<div class="col2-2-2">
+                	两列2
+                </div>
+                <div class="col2-2-1">
+                	两列1
+                </div>
+			</div>
+			<br/>
+            <div class="layout clearfix code_list">
+            	<div class="col3">
+                	三列1
+                </div>
+                <div class="col3">
+                	两列2
+                </div>
+                <div class="col3">
+                	两列3
+                </div>
+			</div>
+			<br/>
+            <div class="layout clearfix code_list">
+            	<div class="col3-1">
+                	三列1
+                </div>
+                <div class="col3-2">
+               		<div class="col3-2-1">
+                		三列2
+                    </div>
+                    <div class="col3-2-2">
+                		三列3
+                    </div>
+                    <div class="col3-2-3">
+                		三列4
+                    </div>
+                </div>
+			</div>
+			<br/>
+            <div class="layout clearfix code_list">
+                <div class="col32-1">
+                    <div class="col3-2-2">
+                		三列1
+                    </div>
+                    <div class="col3-2-3">
+                		三列2
+                    </div>
+                </div>
+                <div class="col32-2">
+                	三列3
+                </div>
+			</div>
+						
+					<br><br>	
+					<a  href="layout.html" target="_blank">详情>></a>	
+					</div>
+				</div>		
+				
+				<!--弹出框-->
+				<div class="ele_type">
+					<div class="name">弹出框</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							
+				<script src="../seeyon.ui.dialog-debug.js"></script>
+				<script>		
+		           function showMessageBox(flag){
+		                if (flag == 0) {
+		                    var dialog = new MxtDialog({
+		                        html: 'this is msg html!',
+								buttons:[{
+									text:"button1",
+									handler:function(){
+										dialog.close();
+									}
+								},{
+									text:"button2",
+									handler:function(){
+										dialog.close();
+									}
+								}]
+		                    });
+		                }else if(flag==1){
+		                    var dialog = new MxtDialog({
+		                        url: 'message-box.html',
+								width:500,
+								height:400,
+								buttons:[{
+									text:"button1",
+									handler:function(){
+										var sss = dialog.getReturnValue();
+										alert(sss);
+										dialog.close();
+									}
+								},{
+									text:"button2",
+									handler:function(){
+										dialog.close();
+									}
+								}]
+		                    });
+						}
+		            }
+		        </script>
+							
+				<div class="button_box clearfix"><!--按钮居中common_button_center-->
+				<a  href="javascript:showMessageBox(0)" class="common_button common_button_gray">html</a>
+				<br/><br/>
+				<a  href="javascript:showMessageBox(1)" class="common_button common_button_gray">url</a>
+				<br/><br/>
+				</div>
+							
+							
+							
+				<div class="common_pop_win">
+					<div class="pop_win_head clearfix">
+						<span class="logo left"></span><span class="title left">文本标题</span>
+						<span class="min right"></span>
+						<span class="close right"></span>
+					</div>
+					<div class="pop_win_body">
+						<div class="pop_win_body_main">
+							
+						</div>
+					</div>
+					<div class="pop_win_footer_1">
+						
+					</div>
+				</div>
+				
+				<br/>
+				
+				<div class="common_pop_win">
+					<div class="pop_win_head clearfix">
+						<span class="logo left"></span><span class="title left">文本标题</span>
+						<span class="min right"></span>
+						<span class="close right"></span>
+					</div>
+					<div class="pop_win_body">
+						<div class="pop_win_body_main">
+							
+						</div>
+					</div>
+					<div class="pop_win_footer_2">
+						<a href="#" class="more right">更多</a>
+					</div>
+				</div>
+				<br/>
+				<div class="common_pop_win">
+					<div class="pop_win_head clearfix">
+						<span class="logo left"></span><span class="title left">文本标题</span>
+						<span class="min right"></span>
+						<span class="close right"></span>
+					</div>
+					<div class="pop_win_body">
+						<div class="pop_win_body_main">
+							
+						</div>
+					</div>
+					<div class="pop_win_footer_3 align_right">
+						<table class="common_button_right w100b">
+							<tr>
+								<td class="clearfix">
+									<a  href="javascript:void(0)" class="common_button common_button_gray">确 定</a>
+									<a  href="javascript:void(0)" class="common_button common_button_gray last">取 消</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+							<br/>
+							<br/>
+							
+							<a  href="popWin.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				
+				<!--msgbox-->
+				<div class="ele_type">
+					<div class="name">Msgbox</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							
+					       <script>
+					        	function OK(){
+									return "sdsdsd";
+								}
+								
+					            function showMessageBox(flag){
+					                if (flag == 0) {
+					                    new MxtMsgBox({
+					                        'type': 0,
+					                        'msg': 'this is msg content!',
+											ok_fn:function(){alert('确定后执行，自定义方法test()!');}
+					                    });
+					                }else if(flag==1){
+										new MxtMsgBox({
+					                        'type': 1,
+					                        'msg': 'this is msg content!',
+											ok_fn:function(){alert('确定后执行，自定义方法test()!');}
+					                    });
+									}else if(flag==2){
+										new MxtMsgBox({
+					                        'type': 2,
+					                        'msg': 'this is msg content!',
+											ok_fn:function(){alert('确定后执行，自定义方法test()!');}
+					                    });
+									}else if(flag==3){
+										new MxtMsgBox({
+					                        'type': 3,
+					                        'msg': 'this is msg content!',
+											ok_fn:function(){alert('确定后执行，自定义方法test()!');}
+					                    });
+									}else if(flag==4){
+										new MxtMsgBox({
+					                        'type': 4,
+					                        'msg': 'this is msg content!',
+											ok_fn:function(){alert('确定后执行，自定义方法test()!');}
+					                    });
+									}else if(flag==5){
+										new MxtMsgBox({
+					                        'type': 5,
+					                        'msg': 'this is msg content!',
+											imgType:0,
+											ok_fn:function(){alert('确定后执行，自定义方法test()!');}
+					                    });
+									}else if(flag==100){
+										new MxtMsgBox({
+					                        'type': 100,
+					                        'msg': 'this is msg content!',
+											buttons:[{
+												text:"button1",
+												handler:function(){alert('handler')}
+											},{
+												text:"button2",
+												handler:function(){alert('handler')}
+											}]
+					                    });
+									}
+					            }
+					        </script>
+								<div class="button_box clearfix"><!--按钮居中common_button_center-->
+								<a  href="javascript:showMessageBox(0)" class="common_button common_button_gray">确定</a>
+								<br/><br/>
+								<a  href="javascript:showMessageBox(1)" class="common_button common_button_gray">确定 + 取消</a>
+								<br/><br/>
+								<a  href="javascript:showMessageBox(2)" class="common_button common_button_gray">是 + 否 + 取消</a>
+								<br/><br/>
+								<a  href="javascript:showMessageBox(3)" class="common_button common_button_gray">是 + 否</a>
+								<br/><br/>
+								<a  href="javascript:showMessageBox(4)" class="common_button common_button_gray">重试 + 取消</a>
+								<br/><br/>
+								<a  href="javascript:showMessageBox(5)" class="common_button common_button_gray">确定 + 详细</a>
+								<br/><br/>
+								<a  href="javascript:showMessageBox(100)" class="common_button common_button_gray">自定义</a>	
+								<br/><br/>
+								</div>
+							
+							<br/>
+							<br/>
+							<a  href="message-box.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				
+				
+				<!--内容显示模块-->
+				<div class="ele_type">
+					<div class="name">内容显示模块</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							<div class="common_content_area">
+							<div class="content_area_head clearfix">
+								<span class="show left"></span><span class="title left">文本标题</span><span class="edit"></span>
+							</div>
+							<div class="content_area_body">
+								
+							</div>
+						</div>
+							
+							<br/>
+							
+							<div class="common_content_area_tab">
+								<div class="content_area_head clearfix">
+									<span class="show left"> </span><span class="title left">文本标题</span>
+									<div class="common_tabs">
+									    <ul>
+											<li class="current"><a href="#">正文</a></li>
+											<li><a href="#">流程</a></li>
+											<li><a href="#">编辑</a></li>
+											<li><a href="#" class="last_tab">表单</a></li>
+									    </ul>
+									</div>
+									<span class="edit right"> </span>
+								</div>
+								<div class="content_area_body">	
+								</div>
+								<div class="content_area_footer clearfix">
+									<a href="#" class="right">更多</a>
+								</div>
+							</div>
+							
+							<br/>
+							<br/>
+							
+							<a  href="contentDiv.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+				
+				<!--工具条-->
+				<div class="ele_type">
+					<div class="name">工具条</div>
+					<div class="sprit"></div>
+					<div class="demo">
+						<div class="ele">
+							
+							
+							<script src="../seeyon.ui.toolbar-debug.js"></script>
+			                <script>
+			                	function test(){alert('test')}
+			                    var myBar = new WebFXMenuBar({'contextPath':'','searchHtml':'sss','borderTop':true,'borderBottom':true,'borderLeft':true,'borderRight':true});
+			                    
+			                    var transmit = new WebFXMenu;
+			                    transmit.add(new WebFXMenuItem({'id':'transmit1','name':'协同协同协同协同协同协同协同协同','click':'test()','className':'ico16 refresh'}));
+			                    transmit.add(new WebFXMenuItem({'id':'transmit2','name':'邮件','click':'test()','className':'ico16 refresh'}));
+			                    
+								myBar.add(new WebFXMenuButton({'id':'transmit','name':'转发','click':'test()','className':'ico16 refresh','subMenu':transmit}));
+								myBar.add(new WebFXMenuButton({'id':'delete','name':'删除','click':'test()','className':'ico16 del'}));
+								myBar.add(new WebFXMenuButton({'id':'refresh','name':'刷新','click':'test()','className':'ico16 refresh'}));
+								
+			                    myBar.show();
+			                    myBar.disabled('delete');
+								myBar.enabled('delete');
+			                </script>
+							<!--
+							<div class="common_toolbar_box clearfix">
+								<div class="toolbar_box_left">
+									
+									<a href="#" class="toolbar_button"><em></em><span>新建</span></a>
+									<span class="common_separater"></span>
+									
+									<a href="#" class="toolbar_button"><em></em><span>新建</span></a>
+									<span class="common_separater"></span>
+									
+									<a href="#" class="toolbar_button"><em></em><span>新建</span></a>
+									
+								</div>
+								<div class="toolbar_box_right">
+									
+								</div>
+												
+							</div>
+							--> 
+							<br/>
+							<br/>
+							<a  href="toolbar.html" target="_blank">详情>></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

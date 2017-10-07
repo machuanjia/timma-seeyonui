@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Untitled Document</title>
+	    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+	    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+	    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+	    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+		<script type="text/javascript" src="../seeyon.ui.arraylist-debug.js"></script>
+		<script type="text/javascript" src="../seeyon.ui.print-debug.js"></script>
+		
+		
+		<script>
+			var _ctxPath = "";
+			$(document).ready(function(){
+				$('#print').click(function(){
+					
+					var printSubject = "标题";
+					var printsub = "printsub";
+					printsub = "<center><span style='font-size:24px;line-height:24px;'>"+printsub.escapeHTML()+"</span></center>";
+					var printSubFrag = new PrintFragment(printSubject, printsub);
+					
+					
+					var printSenderInfo = "发起人信息";
+					var printSender = "printSender";
+					printSender = "<center><span style='font-size:12px;line-height:16px;'>" + printSender + "</span></center>";
+					var printSenderFrag = new PrintFragment(printSenderInfo, printSender);
+					
+					
+					
+					var printColBody= "正文";
+					var colBody = $('#col-contentText').html(); 
+					var colBodyFrag = new PrintFragment(printColBody, colBody);
+					
+					
+					
+					
+					var cssList = new ArrayList();
+					cssList.add("/apps_res/collaboration/css/collaboration.css")
+					
+					var pl = new ArrayList();
+					pl.add(printSubFrag);
+					pl.add(printSenderFrag);
+					pl.add(colBodyFrag);
+					
+					printList(pl,cssList);
+					
+				});
+			});
+		</script>
+	</head>
+	<body>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="200" rowspan="5">打印示例</td>
+            <td class="td ">
+            	<a id="print" href="javascript:void(0)" class="common_button common_button_gray">打印</a>
+				<br/><br/>
+				<div style="display: block;" class="sorce_code">
+				<pre>
+	
+function printColl{
+	
+	var printSubject = "标题";
+	var printsub = "printsub";
+	printsub = "&lt;center&gt;&lt;hr style='height:1px' class='Noprint'&lgt;&lt;/hr&gt;&lt;span style='font-size:24px;line-height:24px;'&gt;"+printsub.escapeHTML()+"&lt;/span&gt;&lt;/center&gt;";
+	var printSubFrag = new PrintFragment(printSubject, printsub);
+	
+	
+	var printSenderInfo = "发起人信息";
+	var printSender = "printSender";
+	printSender = "&lt;center&gt;&lt;span style='font-size:12px;line-height:16px;'&gt;" + printSender + "&lt;/span&gt;&lt;/center&gt;";
+	var printSenderFrag = new PrintFragment(printSenderInfo, printSender);
+	
+	
+	
+	var printColBody= "正文";
+	var colBody = $('#col-contentText').html(); 
+	var colBodyFrag = new PrintFragment(printColBody, colBody);
+	
+	
+	
+	
+	var cssList = new ArrayList();
+	cssList.add("/apps_res/collaboration/css/collaboration.css")
+	
+	var pl = new ArrayList();
+	pl.add(printSubFrag);
+	pl.add(printSenderFrag);
+	pl.add(colBodyFrag);
+	
+	printList(pl,cssList);
+	
+}
+				</pre>
+				</div>
+            	<br/><br/>
+				
+			</td>
+        </tr>
+    </table>
+	<div id="col-contentText" class="contentText">
+		<P>打印内容</P>
+		<br/><P>打印内容</P>
+	</div>
+	</body>
+</html>

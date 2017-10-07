@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Calendar</title>
+        <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+        <link rel="stylesheet" type="text/css" href="../../../docs/resource/demo.css">
+        <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+        <script type="text/javascript" src="../../../docs/resource/demo.js"></script>
+        <script type="text/javascript" src="../../calendar/calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../calendar/calendar-zh-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.json-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.code-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/i18n-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/v3x-debug.js">
+        </script>
+        <script type="text/javascript" src="../../searchBox-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.grid-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.layout-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.menu-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.progress-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.tab-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../../calendar/calendar-zh-debug.js"></script>
+      	<script>
+      		
+      	</script>
+    </head>
+    <body class="body-pading">
+		<div class="font_size12 form_area">
+			<table class="" cellpadding="0" width="400" cellspacing="0">
+	        	<tr>
+	        		<td colspan="2" class="font_bold">开始时间</td>
+	        		<td colspan="2" class="font_bold">结束时间</td>
+	        	</tr>
+	        	<tr>
+	                <td class="padding_tb_5 padding_r_5" id="start" colspan="2">
+	                	<script>
+							$.calendar({
+								displayArea:'start_time',
+								flat:'start',
+								returnValue: true,
+								date:new Date(),
+								onUpdate:showStart,
+								ifFormat:"%Y-%m-%d",
+								daFormat:"%Y-%m-%d",
+								showsTime:false
+						    });
+						    function showStart(date){
+						}
+	                	</script>
+						
+	                </td>
+	                <td class="td" id="end" colspan="2">
+	                	<script>
+							$.calendar({
+								//position:[500,200],
+								flat:'end',
+								returnValue: true,
+								date:new Date(),
+								onUpdate:showEnd,
+								ifFormat:"%Y-%m-%d",
+								daFormat:"%Y-%m-%d",
+								showsTime:false
+						    });
+						    function showEnd(date){
+						}
+	                	</script>
+	                </td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<div class="common_checkbox_box clearfix ">
+							<label class="margin_r_10 hand" for="Checkbox1">
+                        	<input id="Checkbox1" checked="checked" class="radio_com" name="option" value="0" type="checkbox">全天</label>
+                        </div>
+				</td>
+				<tr>
+					<th  nowrap="nowrap">时间:</th>
+					<td  width="50%"><div class="common_txtbox_wrap"><input id="start_time"/></div></td>
+					<th nowrap="nowrap">时间:</th>
+					<td width="50%"><div class="common_txtbox_wrap"><input id="end_time"/></div></td>
+				</tr>
+				<tr>
+					<th  nowrap="nowrap">开始前提醒:</th>
+					<td  width="50%">
+						<div class="common_selectbox_wrap">
+	                        <select>
+	                            <option> </option>
+	                        </select>
+                    </div>
+					</td>
+					<th nowrap="nowrap">结束前提醒:</th>
+					<td width="50%"><div class="common_selectbox_wrap">
+	                        <select>
+	                            <option> </option>
+	                        </select>
+                    </div></td>
+				</tr>
+			</table>
+		</div>
+
+    </body>
+</html>

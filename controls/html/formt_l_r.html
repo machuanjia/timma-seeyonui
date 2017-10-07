@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>layout</title>
+        <script src="../../scriptes/jquery.js">
+        </script>
+        <script src="../../docs/resource/doc.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/common-debug.css"> 
+        <link rel="stylesheet" type="text/css" href="../../skin/default/skin-debug.css">
+        <script src="../seeyon.ui.toolbar-debug.js"></script>
+        <script src="../seeyon.ui.grid-debug.js"></script>
+        <script src="../seeyon.ui.layout-debug.js"></script>
+        <script>
+        	$(document).ready(function(){
+                new MxtLayout({
+					'id':'layout',
+					'northArea':{
+						'id':'north',
+						'height':29,
+						'sprit':false,
+						'border':false
+					},
+					'westArea':{
+						'id':'west',
+						'width':200,
+						'sprit':true,
+						'border':true
+					},
+					'centerArea':{
+						'id':'center',
+						'border':true
+					}
+				});
+            });
+        </script>
+    </head>
+    <body id='layout'>
+		<div class="layout_north" id="north">
+                <script>
+                	function test(){alert('test')}
+                    var myBar = new WebFXMenuBar({'contextPath':'','searchHtml':'sss','borderBottom':false});
+                    
+                    var transmit = new WebFXMenu;
+                    transmit.add(new WebFXMenuItem({'id':'transmit1','name':'协同协同协同协同协同协同协同协同','click':'test()','className':'ico16 refresh'}));
+                    transmit.add(new WebFXMenuItem({'id':'transmit2','name':'邮件','click':'test()','className':'ico16 refresh'}));
+                    
+					myBar.add(new WebFXMenuButton({'id':'transmit','name':'转发','click':'test()','className':'ico16 refresh_16','subMenu':transmit}));
+					myBar.add(new WebFXMenuButton({'id':'delete','name':'删除','click':'test()','className':'ico16 del_16'}));
+					myBar.add(new WebFXMenuButton({'id':'refresh','name':'刷新','click':'test()','className':'ico16 refresh_16'}));
+					
+                    myBar.show();
+                    myBar.disabled('delete');
+					myBar.enabled('delete');
+                </script>
+        </div>
+		<div class="layout_west" id="west"></div>
+		<div class="layout_center" id="center">
+		</div>
+    </body>
+</html>

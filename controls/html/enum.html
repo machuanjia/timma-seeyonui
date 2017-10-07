@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>枚举组件</title>
+<script type="text/javascript" src="../../scriptes/jquery.js"></script>
+<script type="text/javascript" src="../seeyon.ui.enum.js"></script>
+<script src="../../docs/resource/doc.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="../../css/common-debug.css"> 
+<link rel="stylesheet" type="text/css" href="../../skin/default/skin-debug.css">
+<link rel="stylesheet" type="text/css" href="../../docs/resource/doc.css"> 
+</head>
+
+<body class="body-pading">
+    
+    <div class="classification">
+        <div class="title">特点/使用方式</div>
+        <div class="list">
+            <div class="ue">
+                <pre>
+枚举组件主要是为了通过简便的方式使用系统枚举，并达到样式统一的目的。
+本组件目前只支持表单枚举、系统meta枚举两种。通过codeType=form、meta加以区分。
+
+                </pre>
+            </div>
+            <table width="100%" cellpadding="0" cellspacing="0" class="showList">
+                <thead class="head">
+                    <th>
+                        代码说明
+                    </th>
+                    <th>
+                        代码示例
+                    </th>
+                </thead>
+                <tbody class="body">
+                    <tr>
+                        <td>
+                            <pre>
+前台需要引入这个文件
+&lt;%@ include file="/WEB-INF/jsp/common/common.jsp"%/&gt;<br/>
+暂时只支持select标签作为枚举，使用select标签会列出所有选项以供选择。
+必须存在codecfg样式，否则不会进行替换。
+其他标签提供枚举值，会将枚举值替换为枚举文本。
+                            </pre>
+                        </td>
+                        <td>
+                            <pre>
+&lt;div id="testFillFormAndCode"&gt;
+&lt;select id="testcode1" name="testcode1"
+  <font color="red">class="codecfg" codecfg='codeType:form,codeId:4171705351394184829,default:2'</font>&gt;
+  &lt;option value=""&gt;请选择1...&lt;/option&gt;
+&lt;/select&gt;
+&lt;select id="testcode2" name="testcode2"
+  <font color="red">class="codecfg" codecfg='codeType:meta,codeId:1001'</font>&gt;
+  &lt;option value=""&gt;请选择1...&lt;/option&gt;
+&lt;/select&gt;
+&lt;/div&gt;
+&lt;table id="mygrid" class="tablesorter" cellpadding="2" cellspacing="1"
+  width="100%"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;代码值&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody bgcolor="#FFFFFF"&gt;
+    &lt;tr&gt;
+      &lt;td <font color="red">class="codecfg" codecfg='codeType:form,codeId:4171705351394184829'</font>&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td <font color="red">class="codecfg" codecfg='codeType:meta,codeId:1001'</font>&gt;col_flow_perm_policy&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+                            </pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre>
+枚举组件不需要做任何应用在前台做任何操作，由组件负责在前台替换枚举选项或枚举文本。
+如果想动态修改枚举样式，可以调用$.codeoption方法或$("select").codeoption方法。
+codetext方法与之类似。
+                            </pre>
+                        </td>
+                        <td>
+                            <pre>
+
+                            </pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="classification">
+        <div class="title">codeoption/codetext方法的参数说明</div>
+        <div class="list">
+            <div class="ue">
+                <pre>
+codecfg作为标签的属性，或者两个方法的参数的属性，其可用属性并不多，主要有如下三个
+                </pre>
+            </div>
+            <table width="100%" cellpadding="0" cellspacing="0" class="showList">
+                <thead class="head">
+                    <th>
+                        属性名
+                    </th>
+                    <th>
+                        属性值与说明
+                    </th>
+                </thead>
+                <tbody class="body">
+                    <tr>
+                        <td>
+                            <pre>
+codeType
+                            </pre>
+                        </td>
+                        <td>
+                            <pre>
+只存在两个可选值form和meta，注意：不能有引号，单引号双引号都不可以。
+                            </pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre>
+codeId
+                            </pre>
+                        </td>
+                        <td>
+                            <pre>
+枚举表的id，对应的meta即使v3x_metadata表的id，form的话就是form_enumlist的id。
+                            </pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre>
+default
+                            </pre>
+                        </td>
+                        <td>
+                            <pre>
+默认选中的枚举值。只能提供枚举值，不能是枚举值对应的文本。
+                            </pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

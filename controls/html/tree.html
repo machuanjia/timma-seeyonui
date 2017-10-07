@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>tree</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+
+    <script type="text/javascript" src="../seeyon.ui.tree-debug.js"></script>
+</head>
+<body>
+
+    <h3>[1.tree示例]</h3><a href="tree/JQuery zTree v3.2/demo/cn/index.html">查看原始实例</a>
+    <table class="docsShowTable dev_hide">
+        <tr>
+            <td class="td">定义</td>
+            <td class="td">用于通过单选或多选方式查看和操作以层级方式组织的一组对象。</td>
+        </tr>
+        <tr>
+            <td class="td" width="200">tree示例一[简单的tree]</td>
+            <td class="td">
+                <ul id="tree" class="treeDemo_0 ztree"></ul>
+                <script>
+                    var setting1 = {
+                        callback: {
+                            onClick: onClick1 //回调函数 onClick
+                        }
+                    }
+                    var zNodes1 = [{
+                        name: "根节点 - 展开-隐藏checkbox",
+                        open: true,
+                        children: [{
+                            name: "父节点11 - 折叠",
+							iconSkin:'treeAccount',
+                            children: [{
+                                name: "叶子节点11",
+								iconSkin:'treeAccount',
+								children:[{
+									name: "叶子节点113",
+									iconSkin:'account'
+								}]
+                            }, {
+                                name: "叶子节点112",
+								iconSkin:'flow'
+                            }, {
+                                name: "叶子节点113",
+								iconSkin:'department'
+                            }, {
+                                name: "叶子节点114",
+								iconSkin:'department'
+                            }]
+                        }, {
+                            name: "父节点12 - 折叠",
+							iconSkin:'treeDepartment',
+                            children: [{
+                                name: "叶子节点121"
+                            }, {
+                                name: "叶子节点122"
+                            }, {
+                                name: "叶子节点123"
+                            }, {
+                                name: "叶子节点124"
+                            }]
+                        }, {
+                            name: "父节点13 - 没有子节点",
+							iconSkin:'treeMyKnowledge',
+							children:[{
+								name: "叶子节点121"
+							}]
+                        }, {
+                            name: "父节点13 - 没有子节点",
+							iconSkin:'treeAccountFile',
+							children:[{
+								name: "叶子节点121"
+							}]
+                        }, {
+                            name: "父节点13 - 没有子节点",
+							iconSkin:'treeGroupFile',
+							children:[{
+								name: "叶子节点121"
+							}]
+                        }, {
+                            name: "父节点13 - 没有子节点",
+							iconSkin:'treeProjectFile',
+							children:[{
+								name: "叶子节点121"
+							}]
+                        }, {
+                            name: "父节点13 - 没有子节点",
+							iconSkin:'treeEdocFile',
+							children:[{
+								name: "叶子节点121"
+							}]
+                        }, {
+                            name: "父节点13 - 没有子节点",
+							iconSkin:'treeCustomAccountFile',
+							children:[{
+								name: "叶子节点121"
+							}]
+                        }, {
+                            name: "父节点13 - 没有子节点",
+							iconSkin:'treeCustomGroupFile',
+							children:[{
+								name: "叶子节点121"
+							}]
+                        }, {
+                            name: "父节点13 - 没有子节点",
+							iconSkin:'treeCustomFile',
+							children:[{
+								name: "叶子节点121"
+							}]
+                        }]
+                    }];
+                    function onClick1(e, treeId, treeNode) { //单击节点展开子节点
+                        var zTree = $.fn.zTree.getZTreeObj("tree");
+                        zTree.expandNode(treeNode);
+                    }
+
+                    $(document).ready(function () {
+                        $.fn.zTree.init($("#tree"), setting1, zNodes1);//zTree 初始化方法，创建 zTree 必须使用此方法
+                    });
+                </script>
+				<div><a href="http://10.3.4.240:8080/userContent/ctp_pub/docs/CTP开发指南.html#d5e2214">查看代码</a></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td">tree示例二[添加checkbox的tree]</td>
+            <td class="td">
+                <div class="zTreeDemoBackground left">
+                    <ul id="tree2" class="treeDemo_0 ztree"></ul>
+                </div>
+                <script>
+                    var setting2 = {
+                        check: {
+                            enable: true, //设置 zTree 的节点上显示 checkbox/radio
+                            chkStyle: "checkbox",//勾选框类型为checkbox
+                            chkboxType: {
+                                "Y": "ps",
+                                "N": "ps"
+                            }//勾选 checkbox 对于父子相互关联
+                        },
+                        callback: {
+                            onClick: onClick2
+                        }
+                    }
+                    var zNodes2 = [{
+                        name: "根节点 - 展开-隐藏checkbox",
+                        open: true,
+                        children: [{
+                            name: "父节点11 - 折叠",
+                            children: [{
+                                name: "叶子节点111--disabled"
+                            }, {
+                                name: "叶子节点112"
+                            }, {
+                                name: "叶子节点113"
+                            }, {
+                                name: "叶子节点114"
+                            }]
+                        }, {
+                            name: "父节点12 - 折叠",
+                            children: [{
+                                name: "叶子节点121"
+                            }, {
+                                name: "叶子节点122"
+                            }, {
+                                name: "叶子节点123"
+                            }, {
+                                name: "叶子节点124"
+                            }]
+                        }, {
+                            name: "父节点13 - 没有子节点",
+                            isParent: true
+                        }]
+                    }];
+                    function onClick2(e, treeId, treeNode) {
+                        var zTree = $.fn.zTree.getZTreeObj("tree2");
+                        zTree.expandNode(treeNode);
+                    }
+
+                    $(document).ready(function () {
+                        $.fn.zTree.init($("#tree2"), setting2, zNodes2);
+                    });
+                </script>
+				<div class="clear"><a href="http://10.3.4.240:8080/userContent/ctp_pub/docs/CTP开发指南.html#d5e2214">查看代码</a></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td">tree示例三[拖动接点]</td>
+            <td class="td">
+
+                <ul id="treeDemo3" class="ztree"></ul>
+                <script type="text/javascript">
+                    var setting3 = {
+                        edit: {
+                            enable: true,
+                            showRemoveBtn: false,
+                            showRenameBtn: false
+                        },
+                        data: {
+                            simpleData: {
+                                enable: true
+                            }
+                        },
+                        callback: {
+                            beforeDrag: beforeDrag3,
+                            beforeDrop: beforeDrop3
+                        }
+                    };
+
+                    var zNodes3 = [
+                        { id: 1, pId: 0, name: "随意拖拽 1", open: true },
+                        { id: 11, pId: 1, name: "随意拖拽 1-1" },
+                        { id: 12, pId: 1, name: "随意拖拽 1-2", open: true },
+                        { id: 121, pId: 12, name: "随意拖拽 1-2-1" },
+                        { id: 122, pId: 12, name: "随意拖拽 1-2-2" },
+                        { id: 123, pId: 12, name: "随意拖拽 1-2-3" },
+                        { id: 13, pId: 1, name: "禁止拖拽 1-3", open: true, drag: false },
+                        { id: 131, pId: 13, name: "禁止拖拽 1-3-1", drag: false },
+                        { id: 132, pId: 13, name: "禁止拖拽 1-3-2", drag: false },
+                        { id: 133, pId: 13, name: "随意拖拽 1-3-3" },
+                        { id: 2, pId: 0, name: "随意拖拽 2", open: true },
+                        { id: 21, pId: 2, name: "随意拖拽 2-1" },
+                        { id: 22, pId: 2, name: "禁止拖拽到我身上 2-2", open: true, drop: false },
+                        { id: 221, pId: 22, name: "随意拖拽 2-2-1" },
+                        { id: 222, pId: 22, name: "随意拖拽 2-2-2" },
+                        { id: 223, pId: 22, name: "随意拖拽 2-2-3" },
+                        { id: 23, pId: 2, name: "随意拖拽 2-3" }
+                    ];
+
+                    function beforeDrag3(treeId, treeNodes) {
+                        for (var i = 0, l = treeNodes.length; i < l; i++) {
+                            if (treeNodes[i].drag === false) {
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                    function beforeDrop3(treeId, treeNodes, targetNode, moveType) {
+                        return targetNode ? targetNode.drop !== false : true;
+                    }
+
+                    function setCheck3() {
+                        //							var zTree = $.fn.zTree.getZTreeObj("treeDemo3"),
+                        //							isCopy = $("#copy").attr("checked"),
+                        //							isMove = $("#move").attr("checked"),
+                        //							prev = $("#prev").attr("checked"),
+                        //							inner = $("#inner").attr("checked"),
+                        //							next = $("#next").attr("checked");
+                        //							zTree.setting.edit.drag.isCopy = isCopy;
+                        //							zTree.setting.edit.drag.isMove = isMove;
+                        //							showCode3(1, ['setting.edit.drag.isCopy = ' + isCopy, 'setting.edit.drag.isMove = ' + isMove]);
+                        //				
+                        //							zTree.setting.edit.drag.prev = prev;
+                        //							zTree.setting.edit.drag.inner = inner;
+                        //							zTree.setting.edit.drag.next = next;
+                        //							showCode3(2, ['setting.edit.drag.prev = ' + prev, 'setting.edit.drag.inner = ' + inner, 'setting.edit.drag.next = ' + next]);
+                    }
+                    function showCode3(id, str) {
+                        var code = $("#code" + id);
+                        code.empty();
+                        for (var i = 0, l = str.length; i < l; i++) {
+                            code.append("<li>" + str[i] + "</li>");
+                        }
+                    }
+
+                    $(document).ready(function () {
+                        $.fn.zTree.init($("#treeDemo3"), setting3, zNodes3);
+                        setCheck3();
+                        $("#copy").bind("change", setCheck3);
+                        $("#move").bind("change", setCheck3);
+                        $("#prev").bind("change", setCheck3);
+                        $("#inner").bind("change", setCheck3);
+                        $("#next").bind("change", setCheck3);
+                    });
+                </script>
+				<div><a href="http://10.3.4.240:8080/userContent/ctp_pub/docs/CTP开发指南.html#d5e2214">查看代码</a></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td">tree示例四[可编辑tree]</td>
+            <td class="td">
+                <ul id="treeDemo4" class="ztree"></ul>
+                <script type="text/javascript">
+                    var setting4 = {
+                        edit: {
+                            enable: true
+                        },
+                        data: {
+                            simpleData: {
+                                enable: true
+                            }
+                        },
+                        callback: {
+                            beforeDrag: beforeDrag4
+                        }
+                    };
+
+                    var zNodes4 = [
+                        { id: 1, pId: 0, name: "父节点 1", open: true },
+                        { id: 11, pId: 1, name: "叶子节点 1-1" },
+                        { id: 12, pId: 1, name: "叶子节点 1-2是否上的法师打法师打发哒是否是法师打发生大幅是是" },
+                        { id: 13, pId: 1, name: "叶子节点 1-3" },
+                        { id: 2, pId: 0, name: "父节点 2", open: true },
+                        { id: 21, pId: 2, name: "叶子节点 2-1" },
+                        { id: 22, pId: 2, name: "叶子节点 2-2" },
+                        { id: 23, pId: 2, name: "叶子节点 2-3" },
+                        { id: 3, pId: 0, name: "父节点 3", open: true },
+                        { id: 31, pId: 3, name: "叶子节点 3-1" },
+                        { id: 32, pId: 3, name: "叶子节点 3-2" },
+                        { id: 33, pId: 3, name: "叶子节点 3-3" }
+                    ];
+
+                    function beforeDrag4(treeId, treeNodes) {
+                        return false;
+                    }
+
+                    function setEdit4() {
+                        //								var zTree = $.fn.zTree.getZTreeObj("treeDemo4"),
+                        //								remove = $("#remove").attr("checked"),
+                        //								rename = $("#rename").attr("checked"),
+                        //								removeTitle = $.trim($("#removeTitle").get(0).value),
+                        //								renameTitle = $.trim($("#renameTitle").get(0).value);
+                        //								zTree.setting.edit.showRemoveBtn = remove;
+                        //								zTree.setting.edit.showRenameBtn = rename;
+                        //								zTree.setting.edit.removeTitle = removeTitle;
+                        //								zTree.setting.edit.renameTitle = renameTitle;
+                        //								showCode4(['setting.edit.showRemoveBtn = ' + remove, 'setting.edit.showRenameBtn = ' + rename,
+                        //									'setting.edit.removeTitle = "' + removeTitle +'"', 'setting.edit.renameTitle = "' + renameTitle + '"']);
+                    }
+                    function showCode4(str) {
+                        var code = $("#code");
+                        code.empty();
+                        for (var i = 0, l = str.length; i < l; i++) {
+                            code.append("<li>" + str[i] + "</li>");
+                        }
+                    }
+                    $(document).ready(function () {
+                        $.fn.zTree.init($("#treeDemo4"), setting4, zNodes4);
+                        setEdit4();
+                        $("#remove").bind("change", setEdit4);
+                        $("#rename").bind("change", setEdit4);
+                        $("#removeTitle").bind("propertychange", setEdit4)
+                        .bind("input", setEdit4);
+                        $("#renameTitle").bind("propertychange", setEdit4)
+                        .bind("input", setEdit4);
+                    });
+                </script>
+				<div><a href="http://10.3.4.240:8080/userContent/ctp_pub/docs/CTP开发指南.html#d5e2214">查看代码</a></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td">tree示例五[两列tree--]</td>
+            <td class="td">
+                <table>
+                    <tr>
+                        <td class="" width="200">
+                            <ul id="treeDemo51" class="ztree border_all" style="height: 300px;"></ul>
+                        </td>
+                        <td>&nbsp;
+                        </td>
+                        <td class="" width="200">
+                            <ul id="treeDemo52" class="ztree border_all" style="height: 300px;"></ul>
+                        </td>
+                    </tr>
+                </table>
+
+                <script type="text/javascript">
+                    var setting5 = {
+                        edit: {
+                            enable: true,
+                            showRemoveBtn: false,
+                            showRenameBtn: false
+                        },
+                        data: {
+                            simpleData: {
+                                enable: true
+                            }
+                        },
+                        callback: {
+                            beforeDrag: beforeDrag5,
+                            beforeDrop: beforeDrop5
+                        }
+                    };
+
+                    var zNodes5 = [
+                        { id: 1, pId: 0, name: "父节点 1", open: true },
+                        { id: 11, pId: 1, name: "叶子节点 1-1" },
+                        { id: 12, pId: 1, name: "叶子节点 1-2" },
+                        { id: 13, pId: 1, name: "叶子节点 1-3" },
+                        { id: 2, pId: 0, name: "父节点 2", open: true },
+                        { id: 21, pId: 2, name: "叶子节点 2-1" },
+                        { id: 22, pId: 2, name: "叶子节点 2-2" },
+                        { id: 23, pId: 2, name: "叶子节点 2-3" },
+                        { id: 3, pId: 0, name: "父节点 3", open: true },
+                        { id: 31, pId: 3, name: "叶子节点 3-1" },
+                        { id: 32, pId: 3, name: "叶子节点 3-2" },
+                        { id: 33, pId: 3, name: "叶子节点 3-3" }
+                    ];
+
+                    function beforeDrag5(treeId, treeNodes) {
+                        for (var i = 0, l = treeNodes.length; i < l; i++) {
+                            if (treeNodes[i].drag === false) {
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                    function beforeDrop5(treeId, treeNodes, targetNode, moveType) {
+                        return targetNode ? targetNode.drop !== false : true;
+                    }
+
+                    $(document).ready(function () {
+                        $.fn.zTree.init($("#treeDemo51"), setting5, zNodes5);
+                        $.fn.zTree.init($("#treeDemo52"), setting5);
+
+                    });
+                </script>
+				<div><a href="http://10.3.4.240:8080/userContent/ctp_pub/docs/CTP开发指南.html#d5e2214">查看代码</a></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td">tree示例六[自定义tree--进度条]</td>
+            <td class="td">
+                <ul id="treeDemo6" class="ztree"></ul>
+                <script type="text/javascript">
+                    var IDMark_Switch = "_switch",
+                    IDMark_Icon = "_ico",
+                    IDMark_Span = "_span",
+                    IDMark_Input = "_input",
+                    IDMark_Check = "_check",
+                    IDMark_Edit = "_edit",
+                    IDMark_Remove = "_remove",
+                    IDMark_Ul = "_ul",
+                    IDMark_A = "_a";
+
+                    var setting6 = {
+                        view: {
+                            addDiyDom: addDiyDom
+                        }
+                    };
+
+                    var zNodes6 = [
+                        {
+                            id: 1, name: "hover事件显示控件", open: true,
+                            children: [
+                                   { id: 11, name: "按钮1" },
+                                   { id: 12, name: "按钮2" },
+                                   { id: 13, name: "下拉框" },
+                                   { id: 141, name: "文本1" },
+                                   { id: 142, name: "文本2" },
+                                   { id: 15, name: "超链接" }
+
+                            ]
+                        },
+                        {
+                            id: 2, name: "始终显示控件", open: true,
+                            children: [
+                                   { id: 21, name: "按钮1" },
+                                   { id: 22, name: "按钮2" },
+                                   { id: 23, name: "下拉框" },
+                                   { id: 24, name: "文本" },
+                                   { id: 25, name: "超链接" }
+                            ]
+                        }
+                    ];
+
+
+                    function addDiyDom(treeId, treeNode) {
+                        if (treeNode.parentNode && treeNode.parentNode.id != 2) return;
+                        var aObj = $("#" + treeNode.tId + IDMark_A);
+                        if (treeNode.id == 21) {
+                            var editStr = "<span style='display: inline-block;background:#ccc;width:200px;height:12px;'></span><span>30%</span>";
+                            aObj.append(editStr);
+                        } else if (treeNode.id == 22) {
+                            var editStr = "<span style='display: inline-block;background:#ccc;width:200px;height:12px;'></span><span>30%</span>";
+                            aObj.after(editStr);
+                        } else if (treeNode.id == 23) {
+                            var editStr = "<span style='display: inline-block;background:#ccc;width:200px;height:12px;'></span><span>30%</span>";
+                            aObj.after(editStr);
+                        } else if (treeNode.id == 24) {
+                            var editStr = "<span style='display: inline-block;background:#ccc;width:200px;height:12px;'></span><span>30%</span>";
+                            aObj.after(editStr);
+                        } else if (treeNode.id == 25) {
+                            var editStr = "<span style='display: inline-block;background:#ccc;width:200px;height:12px;'></span><span>30%</span>";
+                            aObj.after(editStr);
+                        }
+                    }
+
+                    $(document).ready(function () {
+                        $.fn.zTree.init($("#treeDemo6"), setting6, zNodes6);
+                    });
+                    //-->
+                </script>
+				<div><a href="http://10.3.4.240:8080/userContent/ctp_pub/docs/CTP开发指南.html#d5e2214">查看代码</a></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td">tree示例七[自定义tree--右键菜单]</td>
+            <td class="td">
+                <script type="text/javascript">
+                    var setting7 = {
+                        view: {
+                            dblClickExpand: false
+                        },
+                        check: {
+                            enable: true
+                        },
+                        callback: {
+                            onRightClick: OnRightClick
+                        }
+                    };
+
+                    var zNodes7 = [
+                        {
+                            id: 1, name: "无右键菜单 1", open: true, noR: true,
+                            children: [
+                                   { id: 11, name: "节点 1-1", noR: true },
+                                   { id: 12, name: "节点 1-2", noR: true }
+
+                            ]
+                        },
+                        {
+                            id: 2, name: "右键操作 2", open: true,
+                            children: [
+                                   { id: 21, name: "节点 2-1" },
+                                   { id: 22, name: "节点 2-2" },
+                                   { id: 23, name: "节点 2-3" },
+                                   { id: 24, name: "节点 2-4" }
+                            ]
+                        },
+                        {
+                            id: 3, name: "右键操作 3", open: true,
+                            children: [
+                                   { id: 31, name: "节点 3-1" },
+                                   { id: 32, name: "节点 3-2" },
+                                   { id: 33, name: "节点 3-3" },
+                                   { id: 34, name: "节点 3-4" }
+                            ]
+                        }
+                    ];
+
+                    function OnRightClick(event, treeId, treeNode) {
+                        if (!treeNode && event.target.tagName.toLowerCase() != "button" && $(event.target).parents("a").length == 0) {
+                            zTree.cancelSelectedNode();
+                            showRMenu("root", event.clientX, event.clientY);
+                        } else if (treeNode && !treeNode.noR) {
+                            zTree.selectNode(treeNode);
+                            showRMenu("node", event.clientX, event.clientY);
+                        }
+                    }
+
+                    function showRMenu(type, x, y) {
+                        $("#rMenu ul").show();
+                        if (type == "root") {
+                            $("#m_del").hide();
+                            $("#m_check").hide();
+                            $("#m_unCheck").hide();
+                        } else {
+                            $("#m_del").show();
+                            $("#m_check").show();
+                            $("#m_unCheck").show();
+                        }
+
+                        rMenu.css({ "top": y + "px", "left": x + "px", "visibility": "visible" });
+
+                        $("body").bind("mousedown", onBodyMouseDown);
+                    }
+                    function hideRMenu() {
+                        if (rMenu) rMenu.css({ "visibility": "hidden" });
+                        $("body").unbind("mousedown", onBodyMouseDown);
+                    }
+                    function onBodyMouseDown(event) {
+                        if (!(event.target.id == "rMenu" || $(event.target).parents("#rMenu").length > 0)) {
+                            rMenu.css({ "visibility": "hidden" });
+                        }
+                    }
+                    var addCount = 1;
+                    function addTreeNode() {
+                        hideRMenu();
+                        zTree.addNodes(zTree.getSelectedNodes()[0], [{ name: "增加" + (addCount++), checked: zTree.getSelectedNodes()[0].checked }]);
+                    }
+                    function removeTreeNode() {
+                        hideRMenu();
+                        var nodes = zTree.getSelectedNodes();
+                        if (nodes && nodes.length > 0) {
+                            if (nodes[0].children && nodes[0].children.length > 0) {
+                                var msg = "要删除的节点是父节点，如果删除将连同子节点一起删掉。\n\n请确认！";
+                                if (confirm(msg) == true) {
+                                    zTree.removeNode(nodes[0]);
+                                }
+                            } else {
+                                zTree.removeNode(nodes[0]);
+                            }
+                        }
+                    }
+                    function checkTreeNode(checked) {
+                        var nodes = zTree.getSelectedNodes();
+                        if (nodes && nodes.length > 0) {
+                            zTree.checkNode(nodes[0], checked, true);
+                        }
+                        hideRMenu();
+                    }
+                    function resetTree() {
+                        hideRMenu();
+                        $.fn.zTree.init($("#treeDemo7"), setting7, zNodes7);
+                    }
+
+                    var zTree, rMenu;
+                    $(document).ready(function () {
+                        $.fn.zTree.init($("#treeDemo7"), setting7, zNodes7);
+                        zTree = $.fn.zTree.getZTreeObj("treeDemo7");
+                        rMenu = $("#rMenu");
+                    });
+                </script>
+                <style type="text/css">
+                    div#rMenu {
+                        position: absolute;
+                        visibility: hidden;
+                        top: 0;
+                        background-color: #555;
+                        text-align: left;
+                        padding: 2px;
+                    }
+
+                    div#rMenu ul li {
+                        margin: 1px 0;
+                        padding: 0 5px;
+                        cursor: pointer;
+                        list-style: none outside none;
+                        background-color: #DFDFDF;
+                    }
+                </style>
+                <ul id="treeDemo7" class="ztree"></ul>
+                <div id="rMenu">
+                    <ul>
+                        <li id="m_add" onclick="addTreeNode();">增加节点</li>
+                        <li id="m_del" onclick="removeTreeNode();">删除节点</li>
+                        <li id="m_check" onclick="checkTreeNode(true);">Check节点</li>
+                        <li id="m_unCheck" onclick="checkTreeNode(false);">unCheck节点</li>
+                        <li id="m_reset" onclick="resetTree();">恢复zTree</li>
+                    </ul>
+                </div>
+				<div><a href="http://10.3.4.240:8080/userContent/ctp_pub/docs/CTP开发指南.html#d5e2214">查看代码</a></div>
+            </td>
+        </tr>
+    </table>
+    <table class="docsShowTable design_hide">
+        <tr>
+            <td class="td">定义</td>
+            <td class="td">用于通过单选或多选方式查看和操作以层级方式组织的一组对象。</td>
+        </tr>
+        <tr>
+            <td class="td" width="200">简单同步tree</td>
+            <td class="td">
+                  树组件包括同步、异步树支持，框架封装后的树组件实现最简单同步树的代码如下：<br/>
+				<div style="display: block;" class="sorce_code">
+				<pre>
+$("#simpleTree").tree({//1
+    idKey : "orgid",//2
+    pIdKey : "parentid",//3
+    nameKey : "orgname"//4
+});
+
+&lt;div id="simpleTree"&gt;&lt;/div&gt;&lt;!--5--&gt;
+</pre>
+				</div>
+<pre>			
+ 1.使用jquery插件的tree函数初始化树组件
+ 
+ 2.数据对象的主键属性名称，默认值为id
+ 
+ 3.数据对象的父对象主键属性名称，默认值为pId
+ 
+ 4.显示名称的数据对象属性名，默认值为name
+ 
+ 5.树组件展现元素	
+ 
+ 
+ 
+ 后台通过在controller中通过自动回填机制可以通过平台自动加载树中的数据，代码如下：
+ 
+</pre>	 			
+ <div style="display: block;" class="sorce_code">
+ <pre>
+TestCRUDManager mgr = (TestCRUDManager) AppContext.getBean("testCRUDManager");
+request.setAttribute("ffsimpleTree", mgr.testLoadAll());//1
+</pre>
+ </div>
+ <pre>
+ 	
+1.ff前缀表示要自动回填tree组件，后面的为要回填的tree元素id，值为查询某个树形关系表的列表数据，树组件会自动根据前端设置形成树形结构，无需手工处理
+
+
+简单同步树只需要上面几行代码即可实现，如果要在树上增加节点，可以执行如下代码，在当前选择的节点下增加一个新节点，如果没有选择则添加到根节点
+
+ </pre>
+ <div style="display: block;" class="sorce_code">
+ <pre>
+var nodes = $("#simpleTree").treeObj().getSelectedNodes();//1
+var data = $("#addNode").formobj();
+if (nodes.length > 0) {
+    $("#simpleTree").treeObj().addNodes(nodes[0], data);//2
+} else {
+    $("#simpleTree").treeObj().addNodes(null, data);//3
+}
+</pre>
+ </div>
+ <pre>
+ 
+ 1.通过jquery插件的treeObj函数取得对象的getSelectedNodes()取得当前选中的节点列表
+ 
+ 2.通过addNodes函数在指定节点下增加新的节点数据
+ 
+ 3.第一个参数为null表示增加新节点到根
+
+ </pre>
+            </td>
+        </tr>
+		<tr>
+			<td class="td">
+				复杂功能
+			</td>
+			<td class="td">
+				<pre>
+					
+对于树组件的一些复杂功能如下代码所示：
+
+				</pre>
+				<div style="display: block;" class="sorce_code">
+				<pre>
+&lt;script type="text/javascript" language="javascript"&gt;
+  $().ready(function() {
+    $("#tree").tree({
+      onClick : clk,//1
+      beforeDrag : beforeDrag,//2
+      beforeDrop : beforeDrop,//3
+      managerName : "testCRUDManager",//4
+      managerMethod : "testLoadAll",//5
+      idKey : "orgid",
+      pIdKey : "parentid",
+      nameKey : "orgname",
+      enableCheck : true,//6
+      enableEdit : true,//7
+      enableRename : true,//8
+      enableRemove : true,//9
+      asyncParam : {//10
+        orgname : '组织'
+      },
+      nodeHandler : function(n) {//11
+        n.open = true;//12
+        if (n.data.orgid == '1') {
+          n.isParent = true;//13
+          //n.drag = false;
+          //n.drop = false;
+        }
+        n.isParent = true;
+      },
+      render : function(name, data) {//14
+        return data.orgid + " - " + name;
+      }
+    });
+
+    function clk(e, treeId, node) {
+      alert($.toJSON(node.data));
+      //node.children[0].data 取第0个子节点的数据对象
+    }
+
+    function beforeDrag(treeId, treeNodes) {
+      if (treeNodes[0].drag === false) {
+        return false;
+      }
+      return true;
+    }
+    function beforeDrop(treeId, treeNodes, targetNode, moveType) {
+      return targetNode ? targetNode.drop !== false : true;
+    }
+
+    $("#selectedBtn").click(function() {
+      var nodes = $("#tree").treeObj().getSelectedNodes();//15
+      alert($.toJSON(nodes));
+    });
+    $("#checkedBtn").click(function() {
+      var nodes = $("#tree").treeObj().getCheckedNodes();//16
+      alert($.toJSON(nodes));
+    });
+
+    $("#asyncBtn").click(function() {
+      $("#tree").treeObj().reAsyncChildNodes(null, "refresh");//17
+    });
+  });
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;input type="button" id="selectedBtn" value="已选择节点"&gt;
+&lt;input type="button" id="checkedBtn" value="已勾选节点"&gt;
+&lt;input type="button" id="asyncBtn" value="异步加载当前节点"&gt;
+&lt;div id="tree"&gt;&lt;/div&gt;
+&lt;/body&gt;
+				</pre>
+				</div>
+<pre>
+	
+1.onClick单击事件,function clk(e, treeId, node)，通过node.data可以取得点击节点的数据对象，node.children取得子节点数组 
+ 
+ 
+2.beforeDrag树节点拖拽前事件，function beforeDrag(treeId, treeNodes)，第二个参数为当前正在拖拽的节点数组（支持多节点拖拽）， 
+
+返回false取消此次拖拽
+ 
+ 
+3.beforeDrop树节点拖拽后事件，function beforeDrop(treeId, treeNodes, targetNode, moveType) ，targetNode为目标节点， 
+
+返回false取消此次拖拽
+ 
+ 
+4.managerName，异步树加载Manager在spring中配置的bean id
+ 
+ 
+5.managerMethod，异步树加载Manager的方法名，该Manager方法只允许有一个Map参数，用于接收查询参数，当前展开节点id将以idKey属性名传入，另外
+
+还可以通过asyncParam配置其它异步树加载查询参数
+ 
+ 
+6.enableCheck用于指定是否显示ckeckbox，默认为false
+ 
+ 
+7.enableEdit用于指定是否允许树编辑，比如拖拽，修改节点名称，默认为false
+ 
+ 
+8.enableRename用于指定是否允许树节点直接重命名，默认为false
+ 
+ 
+9.enableRemove用于指定是否允许树节点直接删除，默认为false
+ 
+ 
+10.asyncParam用于指定异步树加载时的其它定制查询参数
+ 
+ 
+11.nodeHandler节点处理器，在树节点加载过程中可以对节点相关属性进行设置，比如是否为父节点，是否展开等
+ 
+ 
+12.节点的open属性设置为true表示节点展开
+ 
+ 
+13.节点的isParent属性设置为true表示该节点为可展开父节点，在enableAsync为true时，展开该节点将触发异步数据加载
+ 
+ 
+14.render用于树节点展现渲染，function(name, data)，第一个参数为树节点显示名称，第二个参数为数据对象，返回值为渲染后的树节点 
+ 
+ 
+15.取得选择的节点列表
+ 
+16.取得选中checkbox的节点列表
+ 
+17.重新异步加载树节点，enableAsync为true时有效，reAsyncChildNodes(null, "refresh")，第一个参数为要重新加载的节点，null表示根节点，第二个参数为refresh表示强制重新加载，其它值则不强制加载
+ 
+
+</pre>
+<h3><a href="tree/api/API_cn.html" target="_blank">详细文档>></a></h3>		
+			</td>
+		</tr>
+	</table>
+	
+		
+    <h3 class="dev_hide design_hide">[2.使用实例]</h3>
+    <table class="docsShowTable dev_hide design_hide">
+        <tr>
+            <td class="td" width="200"></td>
+            <td class="td code"></td>
+        </tr>
+    </table>
+    <h3 class=" ">[4.属性]</h3>
+    <table class="docsShowTable  ">
+        <tr class="head">
+            <td class="td" width="200">属性</td>
+            <td class="td" width="200">类型</td>
+            <td class="td">描述</td>
+        </tr>
+		<tr>
+            <td class="td">iconSkin</td>
+            <td class="td">class</td>
+			<td class="td">
+				<pre>
+更换图标
+treeAccount:单位[父节点]
+
+treeDepartment:部门[父节点]
+
+treeMyKnowledge:我的知识库[父节点]
+
+treeAccountFile:单位文档[父节点]
+
+treeGroupFile:集团文档[父节点]
+
+treeProjectFile:项目文档[父节点]
+
+treeEdocFile:公文文档[父节点]
+
+treeCustomAccountFile:自定义单位文档[父节点]
+
+treeCustomGroupFile:自定义集团文档[父节点]
+
+treeCustomFile:自定义[父节点]
+
+flie:文档[子节点]
+
+account:单位[子节点]
+
+department:部门[子节点]
+
+collaboration:协同模板[子节点]
+
+edoc:公文模板[子节点]
+
+format:格式模板[子节点]
+
+flow:流程模板[子节点]
+
+treeCustomMenu:自定义树节点[父节点]
+
+enumerateType:枚举类型[子节点]
+
+enumerationClassification:枚举分类[子节点]
+
+实例:在后台产生数据的时候，添加iconSkin属性
+...
+{
+    name: "父节点11 - 折叠",
+	iconSkin:'treeAccount',
+    children: [{
+        name: "叶子节点111--disabled",
+		iconSkin:'account'
+    }, {
+        name: "叶子节点112",
+		iconSkin:'flie'
+    }, {
+        name: "叶子节点113",
+		iconSkin:'department'
+    }, {
+        name: "叶子节点114",
+		iconSkin:'department'
+    }]
+}
+...
+				</pre>
+				
+			</td>
+        </tr>
+    </table>
+
+    <h3 class="dev_hide design_hide">[5.事件]</h3>
+    <table class="docsShowTable dev_hide design_hide">
+        <tr class="head">
+            <td class="td" width="200">事件</td>
+            <td class="td">描述</td>
+        </tr>
+    </table>
+
+    <h3 class="dev_hide design_hide">[6.方法]</h3>
+    <table class="docsShowTable dev_hide design_hide">
+        <tr class="head">
+            <td class="td" width="200">方法</td>
+            <td class="td">描述</td>
+        </tr>
+    </table>
+    <h3>[3.UE]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="">仅包含容器结点的树形视图:用户一次可以查看并操作一个容器。</td>
+            <td class="td"></td>
+        </tr>
+        <tr>
+            <td class="td">带复选框的树形视图:用户能够选择任意数量的项，包括不选。</td>
+            <td class="td"></td>
+        </tr>
+        <tr>
+            <td class="td">具有其他访问方式的树形视图:用户可通过使用树形层次结构之外的方式查找对象。</td>
+            <td class="td"></td>
+        </tr>
+        <tr>
+            <td class="td">支持层级结构中对象的拖拽、编辑、删除操作:在树形结构中的提供拖拽、编辑、删除操作，支持数据类信息的联动（如任务进度显示百分比），实现快速操作。</td>
+            <td class="td"></td>
+        </tr>
+    </table>
+</body>
+</html>

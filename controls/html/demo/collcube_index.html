@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html class="h100b">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>slider</title>
+        <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+        <script type="text/javascript" src="../../../scriptes/jquery.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/seeyon.ui.core-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../docs/resource/demo.js">
+        </script>
+        <script type="text/javascript" src="../../../docs/resource/demo.js">
+        </script>
+        <script type="text/javascript" src="../../calendar/calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../calendar/calendar-zh-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.json-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.code-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/i18n-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/v3x-debug.js">
+        </script>
+        <script type="text/javascript" src="../../searchBox-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.grid-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.layout-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.menu-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.progress-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.scroll-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.tab-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.peopleSquare-debug.js">
+        </script>
+        <script>
+            var cardMini;
+            function clicks(id,w) { //单击相关人员触发的事件
+               var obj = $("#" + id);
+               var left = obj.offset().left +w-5;              
+               var top = obj.offset().top-50;
+               $("#relative_content").css({"left":left,"top":top}).show();
+            }
+            function hidden(){
+            	$("#relative_content").hide();
+            }
+            function mouseOut(id,w) {           	
+            	var obj=$("#"+id);
+            	var minLeft=obj.offset().left;
+            	var maxLeft = obj.offset().left+w+$("#relative_content").width() ;
+                var minTop = obj.offset().top;
+                var MaxTop = obj.offset().top+$("#relative_content").height();
+                ifClose(minLeft,maxLeft,minTop,MaxTop,hidden);
+            }
+            function test1(id) {
+                alert(id)
+            }
+        	var peopleSquare;
+            $(function(){
+                //huaxian(0, 0, 250, 250);
+                peopleSquare = new MxtPeopleSquare({
+                    id: 'canvasDiv2',
+                    width:541,
+                    height:542,
+                    imgH:54,
+					imgW:54,
+					squareR:180,
+					squareStep:10,
+					sliderMax: 41,
+					parentId: "cube",
+					mouseOver: clicks, //鼠标移入头像的方法
+                    mouseOut:mouseOut, //鼠标移出头像的方法
+					defaultPeople:{
+						defaultName:'谢小萍',
+						defaultSrc:'../../../skin/default/images/people.jpg',
+                        click:test1
+					},
+					sliderHandle:function(step){
+						$('#sssss').val(step);
+					},
+                    peopleItems: {
+                        step1: [{
+                            id: 'img1',
+                            src: '../../../skin/default/images/people.jpg',
+                            name: '稍等1'
+
+                        },{
+                            id: 'img2',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍1'
+                        },{
+                            id: 'img3',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍1'
+                        },{
+                            id: 'img4',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍1'
+                        },{
+                            id: 'img5',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍1'
+                        },{
+                            id: 'img6',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍1'
+                        },{
+                            id: 'img7',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍1'
+                        },{
+                            id: 'img8',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍1'
+                        },{
+                            id: 'img9',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍1'
+                        },{
+                            id: 'img10',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍1'
+                        }],
+                        step2: [{
+                            id: 'img11',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等2'
+                        }, {
+                            id: 'img12',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍2'
+                        }, {
+                            id: 'img13',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍2'
+                        }, {
+                            id: 'img14',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍2'
+                        }, {
+                            id: 'img15',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍2'
+                        }, {
+                            id: 'img16',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍2'
+                        }, {
+                            id: 'img17',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍2'
+                        }, {
+                            id: 'img18',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍2'
+                        }, {
+                            id: 'img19',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍2'
+                        }, {
+                            id: 'img20',
+                            src: '../../../skin/default/images/people.jpg',
+							name:'稍等稍2'
+                        }]
+                    }
+                });   
+            });
+		$(document).ready(function(){
+			var zoom= $("#cube")[0].style.zoom != "" ? $("#cube")[0].style.zoom:1;
+			zoom=Math.round(zoom*10)/10;
+			$(".canvasName,.myName,.canvasName span.font_size14").css({"font-size":12/zoom + "px","height":"auto"});
+			$(".canvasName span").not(".font_size14").css({"font-size":22/zoom + "px","height":"auto"});
+		})
+        </script>
+        <style>
+	.stadic_head_height{
+		height:60px;
+	}
+	.stadic_body_top_bottom{
+		bottom: 0px;
+ 		top:60px;
+	}
+</style>
+<script>
+    $(function () {
+        var dr = $.dropdown({
+            id: 'type'
+        });
+         $("#tewnty").click(function(){
+        	peopleSquare.squareR=210;
+        	peopleSquare.imgH=34;
+			peopleSquare.imgW=34;
+        	peopleSquare.setAnimate("step2");        	
+        	peopleSquare.updateItems("step1",523,523,130)
+        })
+         $("#ten").click(function(){        	
+        	
+        	peopleSquare.imgH=54;
+			peopleSquare.imgW=54;
+			peopleSquare.setAnimate("step1");
+        	peopleSquare.updateItems("step1",541,542,180)
+        })
+    })
+   
+   
+</script>
+</head>
+<body class="h100b page_color">
+     <div class="absolute" style="top:10px; right:10px;z-index:2;">
+                <span class="display_inline-block w100 align_left margin_r_5">
+                   <select id="type">
+                    <option>累积</option>
+                    <option>本季度</option>
+                    <option>本月</option>
+                    <option>本年</option>
+                </select> 
+                </span>             
+                <input name="name" class="comp" type="text" value="" comp="type:'search',title:'查询控件交换引擎任务'">
+                <a class="common_button btn_img" href="javascript:void(0)"><em class="ico16 home_16"></em></a>
+              </div>
+    <div id='layout' class="comp" comp="type:'layout'">
+        <div class="layout_north" layout="height:50,border:false,sprit:false" style="overflow:visible;">
+        	<div class="common_radio_box clearfix margin_t_10 margin_l_5">
+                    <label class="margin_r_10 hand" for="ten">
+                        <input id="ten" class="radio_com" checked="checked" name="number" value="0" type="radio">10人</label>
+                    <label class="margin_r_10 hand" for="tewnty">
+                        <input id="tewnty" class="radio_com" name="number" value="0" type="radio">20人</label>
+
+                </div>
+           
+		</div>
+       
+        <div class="layout_center bg_color_white over_hidden" style="background:#cce4ff;" layout="border:true">
+        	
+            <div class="absolute w100b h100b margin_0" id="cube" >
+            	
+               
+            </div>
+            <div class="relative_detail border_all absolute font_size12 bg_color_white hidden" id="relative_content"><!--关系详情-->
+                <p class="border_b padding_5 page_color">关系指数:119 (2012年9月8号)</p>
+                <ul class="padding_lr_5 clearfix">
+                    <li class="w50b left"><label>协同：</label><span>24 </span></li>
+                    <li class="w50b left"><label>公文：</label><span>24 </span></li>
+                    <li class="w50b left"><label>文档：</label><span>5 </span></li>
+                    <li class="w50b left"><label>文档：</label><span>5 </span></li>
+                    <li class="w50b left"><label>文档：</label><span>5 </span></li>
+                    <li class="w50b left"><label>文档：</label><span>5 </span></li>
+                    <li class="w50b left"><label>文档：</label><span>5 </span></li>
+                    <li class="w50b left"><label>文档：</label><span>5 </span></li>
+                </ul>
+                <p class="border_t margin_t_5 align_right clear" >
+                    <a class="img-button" href="javascript:void(0)"><em class="ico16 coll_cube_16 margin_r_5"></em>协同立方</a>
+                    <a class="img-button" href="javascript:void(0)"><em class="ico16 coll_cube_16 margin_r_5"></em>协同360</a>
+
+                </p>
+            </div>
+      </div>
+              
+	</div>	
+    
+         
+        
+        
+    </body>
+</html>

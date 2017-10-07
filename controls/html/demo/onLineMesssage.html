@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>在线消息</title>
+        <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.tree-debug.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+        <style type="text/css">
+            .stadic_head_height {
+                height: 30px;
+            }
+
+            .stadic_body_top_bottom {
+                bottom: 36px;
+                top: 30px;
+            }
+
+            .stadic_footer_height {
+                height: 36px;
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+                new MxtLayout({
+                    'id': 'layout',
+                    'northArea': {
+                        'id': 'north',
+                        'sprit': true,
+                        'height':73,
+						'border': true
+                    },
+                    'westArea': {
+                        'id': 'west',
+                        'width': 200,
+                        'sprit': true,
+                        'minWidth': 50,
+                        'maxWidth': 300,
+						'border': true
+                    },
+                    'centerArea': {
+                        'id': 'center',
+                        'border': true,
+						'minHeight':20
+                    }
+                
+                });
+            });
+
+            ///树
+            var setting1 = {
+                callback: {
+                    onClick: onClick1 //回调函数 onClick
+                }
+            }
+            var zNodes1 = [{
+                name: "根节点 - 展开-隐藏checkbox",
+                open: true,
+                children: [{
+                    name: "父节点11 - 折叠",
+                    children: [{
+                        name: "叶子节点111--disabled"
+                    }, {
+                        name: "叶子节点112"
+                    }, {
+                        name: "叶子节点113"
+                    }, {
+                        name: "叶子节点114"
+                    }]
+                }, {
+                    name: "父节点12 - 折叠",
+                    children: [{
+                        name: "叶子节点121"
+                    }, {
+                        name: "叶子节点122"
+                    }, {
+                        name: "叶子节点123"
+                    }, {
+                        name: "叶子节点124"
+                    }]
+                }, {
+                    name: "父节点13 - 没有子节点",
+                    isParent: true
+                }]
+            }];
+            function onClick1(e, treeId, treeNode) { //单击节点展开子节点
+                var zTree = $.fn.zTree.getZTreeObj("tree");
+                zTree.expandNode(treeNode);
+            }
+
+            $(document).ready(function () {
+                $.fn.zTree.init($("#tree"), setting1, zNodes1);//zTree 初始化方法，创建 zTree 必须使用此方法
+            });
+            $(function () {
+                //全选js
+                $(".message_list_cbox_all .cboxAll").click(function () {
+                    if ($(this).attr("checked") == "checked") {
+                        $(".message_list_area .cbox").attr("checked", "checked");
+                    } else {
+                        $(".message_list_area .cbox").attr("checked", null);
+                    }
+                });
+            })
+        </script>
+    </head>
+    <body>
+        <div id='layout'>
+            <div class="layout_north page_color" id="north">
+                <div class="common_tabs clearfix border_b">
+                    <ul class="left">
+                        <li><a href="javascript:void(0)" class="no_b_border">系统提示信息</a></li>
+                        <li class="current"><a href="javascript:void(0)" class="last_tab no_b_border">在线交流信息</a></li>
+                    </ul>
+                </div>
+				<div id="sss" >
+                    <div class=" padding_tb_5 margin_r_5">
+					<div class="common_search_box right clearfix">
+						<ul class="common_search">
+							<li id="inputBorder" class="common_search_input"><input class="search_input" type="text">
+							</li>
+							<li><a class="common_button common_button_gray search_buttonHand" href="javascript:void(0)"><em></em></a></li>
+						</ul>
+					</div>
+                    </div>
+				</div>
+                <div class="">
+                    <script type="text/javascript">
+                        var myBar = new WebFXMenuBar({ 'contextPath': '', 'searchHtml': 'sss', 'borderTop': false, 'borderBottom': false, 'borderLeft': true, 'borderRight': true });
+
+                        myBar.add(new WebFXMenuButton({ 'id': 'transmit', 'name': '导出Excel', 'click': function () { alert(123) }, 'className': 'ico16 export_excel_16' }));
+                        myBar.add(new WebFXMenuButton({ 'id': 'delete', 'name': '删除', 'click': function () { alert(123) }, 'className': 'ico16 del_16' }));
+
+                        myBar.show();
+                        myBar.disabled('delete');
+                        myBar.enabled('delete');
+
+                    </script>
+                </div>
+	        </div>
+	        <div class="layout_center" id="center">
+                <div class="stadic_layout">
+                    <div class="stadic_layout_head stadic_head_height">
+                    <div class="message_list_cbox_all">
+                        <input id="Checkbox1" type="checkbox" class="cboxAll" />&nbsp;全选</div></div>
+                    <div class="stadic_layout_body stadic_body_top_bottom">
+                        <div class="message_list_area">
+                            <div class="title">日期：2012-12-12</div>
+                            <ul class="list_item padding_tb_5 border_b">
+                                <li class="info"><span></span>
+                                    <input id="Checkbox2" type="checkbox" class="cbox" />甄帅（用户体验） 2012-12-12 12:12:12</li>
+                                <li class="msg">消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息</li>
+                            </ul>
+                            <ul class="list_item padding_tb_5 border_b">
+                                <li class="info"><span></span>
+                                    <input id="Checkbox3" type="checkbox" class="cbox" />甄帅（用户体验） 2012-12-12 12:12:12</li>
+                                <li class="msg">ffffffffffffffffffffffffffffffffffffffdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</li>
+                            </ul>
+                            <ul class="list_item border_b">
+                                <li class="info"><span></span>
+                                    <input id="Checkbox3" type="checkbox" class="cbox" />甄帅（用户体验） 2012-12-12 12:12:12</li>
+                                <li class="msg">ffffffffffffffffffffffffffffffffffffffdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</li>
+                            </ul>
+                            <ul class="list_item border_b">
+                                <li class="info"><span></span>
+                                    <input id="Checkbox3" type="checkbox" class="cbox" />甄帅（用户体验） 2012-12-12 12:12:12</li>
+                                <li class="msg">ffffffffffffffffffffffffffffffffffffffdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</li>
+                            </ul>
+                            <ul class="list_item border_b">
+                                <li class="info"><span></span>
+                                    <input id="Checkbox3" type="checkbox" class="cbox" />甄帅（用户体验） 2012-12-12 12:12:12</li>
+                                <li class="msg">ffffffffffffffffffffffffffffffffffffffdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</li>
+                            </ul>
+                            <ul class="list_item border_b">
+                                <li class="info"><span></span>
+                                    <input id="Checkbox4" type="checkbox" class="cbox" />甄帅（用户体验） 2012-12-12 12:12:12</li>
+                                <li class="msg">消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="stadic_layout_footer stadic_footer_height">
+                               <div class="common_over_page right margin_t_5 margin_r_10">
+				                    每页显示<input type="text" class="common_over_page_txtbox"><span class="margin_r_20">条/共6条</span><a href="#" class="common_over_page_btn" title="首页"><em class="pageFirst"></em></a><a href="#" class="common_over_page_btn" title="上一页"><em class="pagePrev"></em></a><span class="margin_l_10">第</span><input type="text" class="common_over_page_txtbox">页/13页<a href="#" class="common_over_page_btn" title="下一页"><em class="pageNext"></em></a><a href="#" class="common_over_page_btn" title="尾页"><em class="pageLast"></em></a>
+				               </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layout_west" id="west">
+                <ul id="tree" class=" ztree"></ul>
+            </div>
+		</div>
+    </body>
+</html>

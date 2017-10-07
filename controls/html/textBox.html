@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>文本框</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+</head>
+
+<body>
+    <h3>[1.文本框示例]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td">定义</td>
+            <td class="td">用于显示、输入或编辑文本或数值。</td>
+        </tr>
+        <tr>
+            <td class="td" width="200" rowspan="7">文本框示例</td>
+            <td class="td code">
+                <div class="common_txtbox clearfix">
+                    <label class="margin_r_10 left title" for="text">标题:</label>
+                    <div class="common_selectbox_wrap">
+                        <select>
+                            <option> </option>
+                        </select>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td code">
+                <div class="common_txtbox clearfix">
+                    <label class="margin_r_10 left title" for="text">标题:</label>
+                    <div class="common_txtbox_wrap">
+                        <input type="text" id="text1" class="" />
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td code">
+                <div class="common_txtbox  clearfix">
+                    <label class="margin_l_10 right"><a href="javascript:void(0)" class="common_button common_button_gray valign_m">浏览</a></label>
+                    <div class="common_txtbox_wrap">
+                        <input type="text" id="text2" class="" />
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td code">
+                <div class="common_txtbox  common_txtbox_dis clearfix">
+                    <label class="margin_r_10 left title" for="text">标题:</label>
+                    <div class="common_txtbox_wrap">
+                        <input type="text" id="text3" disabled="true" value="" class="common_txtbox_wrap_dis" />
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td code">
+                <div class="common_txtbox  common_txtbox_dis clearfix">
+                    <label class="margin_l_10 right"><a href="javascript:void(0)" class="common_button common_button_disable valign_m">浏览</a></label>
+                    <div class="common_txtbox_wrap">
+                        <input type="text" id="text4" disabled="true" class="common_txtbox_wrap_dis" />
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td code">
+                <div class="common_txtbox  clearfix">
+                    <textarea cols="30" rows="7" class="padding_5 w100b "> </textarea>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td code">
+                <div class="common_txtbox  clearfix">
+                    <textarea cols="30" rows="7" disabled="true" class="padding_5 common_txtbox_wrap_dis w100b"> </textarea>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide">[2.使用实例]</h3>
+    <table class="docsShowTable design_hide">
+        <tr>
+            <td class="td" width="200">单列</td>
+            <td class="td code" >
+                <div class="form_area">
+                    <div class="one_row">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                                <tr>
+                                    <th nowrap="nowrap">
+                                        <label class="margin_r_10" for="text">标题:</label></th>
+                                    <td width="100%">
+                                        <div class="common_txtbox_wrap">
+                                            <input type="text" id="text18">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th nowrap="nowrap">
+                                        <label class="margin_r_10" for="text">人员编号:</label></th>
+                                    <td>
+                                        <div class="common_txtbox_wrap">
+                                            <input type="text" id="text19">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th nowrap="nowrap">
+                                        <label class="margin_r_10" for="text">人员编号:</label></th>
+                                    <td>
+                                        <div class="common_selectbox_wrap">
+                                            <select>
+                                                <option>aaaaaaaaaaaaa</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th nowrap="nowrap">
+                                        <label class="margin_r_10" for="text">备注:</label></th>
+                                    <td>
+                                        <div class="common_txtbox  clearfix">
+                                            <textarea cols="30" rows="7" class="w100b "></textarea>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="align_center">
+                        <a href="javascript:void(0)" class="common_button common_button_gray">确定</a>
+                        <a href="javascript:void(0)" class="common_button common_button_gray">取消</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td">双列</td>
+            <td class="td code">
+                <div class="form_area">
+                    <div class="form_area_content">
+                        <div class="one_row">
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <th nowrap="nowrap">
+                                            <label class="margin_r_10" for="text">标题:</label></th>
+                                        <td width="100%">
+                                            <div class="common_txtbox_wrap">
+                                                <input type="text" id="text14">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th nowrap="nowrap">
+                                            <label class="margin_r_10" for="text">人员编号:</label></th>
+                                        <td width="100%">
+                                            <div class="common_txtbox_wrap">
+                                                <input type="text" id="text15">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th nowrap="nowrap">
+                                            <label class="margin_r_10" for="text">人员编号:</label></th>
+                                        <td>
+                                            <div class="common_selectbox_wrap">
+                                                <select>
+                                                    <option>aaaaaaaaaaaaa</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th nowrap="nowrap">
+                                            <label class="margin_r_10" for="text">备注:</label></th>
+                                        <td width="100%">
+                                            <div class="common_txtbox  clearfix">
+                                                <textarea cols="30" rows="7" class="w100b "></textarea>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="one_row">
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <th nowrap="nowrap">
+                                            <label class="margin_r_10" for="text">标题:</label></th>
+                                        <td width="100%">
+                                            <div class="common_txtbox_wrap">
+                                                <input type="text" id="text16">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th nowrap="nowrap">
+                                            <label class="margin_r_10" for="text">人员编号:</label></th>
+                                        <td width="100%">
+                                            <div class="common_txtbox_wrap">
+                                                <input type="text" id="text17">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th nowrap="nowrap">
+                                            <label class="margin_r_10" for="text">人员编号:</label></th>
+                                        <td>
+                                            <div class="common_selectbox_wrap">
+                                                <select>
+                                                    <option>aaaaaaaaaaaaa</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th nowrap="nowrap">
+                                            <label class="margin_r_10" for="text">备注:</label></th>
+                                        <td width="100%">
+                                            <div class="common_txtbox  clearfix">
+                                                <textarea cols="30" rows="7" class="w100b "></textarea>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="align_center clear">
+                        <a href="javascript:void(0)" class="common_button common_button_gray">确定</a>
+                        <a href="javascript:void(0)" class="common_button common_button_gray">取消</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td dev_hide">新建</td>
+            <td class="td code dev_hide">
+                <div class="form_area">
+                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                        <tbody>
+                            <tr>
+                                <td rowspan="2" width="1%" nowrap="nowrap"><a href="javascript:void(0)" class="margin_5 display_inline-block padding_t_10 align_center new_btn">发送</a>&nbsp;</td>
+                                <th nowrap="nowrap" width="1%">
+                                    <label for="text">&nbsp;标题:&nbsp;</label></th>
+                                <td>
+                                    <div class="common_txtbox_wrap">
+                                        <input class="w100b" type="text" id="text12" title="点击此处填写标题">
+                                    </div>
+                                </td>
+                                <td width="10%" class="">
+                                    <div class="common_selectbox_wrap margin_l_5">
+                                        <select class="w100b">
+                                            <option>普通</option>
+                                            <option>重要</option>
+                                            <option>非常重要</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th nowrap="nowrap" width="1%">&nbsp;<label class="margin_l_10" for="text">关联项目:&nbsp;</label></th>
+                                <td width="20%">
+                                    <div class="common_selectbox_wrap">
+                                        <select class="w100b">
+                                            <option>无</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th nowrap="nowrap" width="1%">
+                                    <label for="text">流程期限:&nbsp;</label></th>
+                                <td width="20%">
+                                    <div class="common_selectbox_wrap">
+                                        <select class="w100b">
+                                            <option>无</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th nowrap="nowrap" width="1%">
+                                    <label for="text">流程:&nbsp;</label></th>
+                                <td>
+                                    <div class="common_txtbox_wrap">
+                                        <input class="w100b" type="text" id="text13" title="点击此处填写标题">
+                                    </div>
+                                </td>
+                                <td width="10%" class="">
+                                    <div class="margin_l_5">
+                                        <a class="common_button common_button_icon" href="javascript:void(0)"><em class="ico16 process_16"></em>编辑流程</a>
+
+                                    </div>
+                                </td>
+                                <th nowrap="nowrap" width="1%">&nbsp;<label class="margin_l_10" for="text">预归档到:&nbsp;</label></th>
+                                <td width="20%">
+                                    <div class="common_selectbox_wrap">
+                                        <select class="w100b">
+                                            <option>无</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th nowrap="nowrap" width="1%">
+                                    <label class="margin_l_10" for="text">提醒:&nbsp;</label></th>
+                                <td width="20%">
+                                    <div class="common_selectbox_wrap">
+                                        <select class="w100b">
+                                            <option>无</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td valign="top" width="5%" nowrap="nowrap" align="center"><a href="javascript:void(0);" class="display_inline-block margin_t_5 margin_l_5">更多<em class="more_down"></em></a></td>
+                            </tr>
+                            <!--更多-->
+                            <tr class="newinfo_more">
+                                <th nowrap="nowrap" width="1%" colspan="2">
+                                    <div class="common_checkbox_box clearfix ">
+                                        <label class="hand" for="radio1">
+                                            <input id="checkbox7" name="option" value="0" class="radio_com" type="checkbox">跟踪:&nbsp;</label>
+                                    </div>
+                                </th>
+                                <td colspan="2">
+                                    <div class="common_checkbox_box clearfix ">
+                                        <label class="margin_r_10 hand" for="radio1">
+                                            <input id="radio3" name="option" value="0" type="radio" class="radio_com">全部人员</label>
+                                        <label class="margin_r_10 hand" for="radio1">
+                                            <input id="radio4" name="option" value="0" type="radio" class="radio_com">指定人员</label>
+                                    </div>
+                                </td>
+                                <th nowrap="nowrap" width="1%">&nbsp;<label class="margin_l_10" for="text">督办人员:&nbsp;</label></th>
+                                <td width="20%">
+                                    <div class="common_txtbox_wrap">
+                                        <input class="w100b" type="text">
+                                    </div>
+                                </td>
+                                <th nowrap="nowrap" rowspan="2" width="1%" valign="top">&nbsp;<label class="margin_l_10 margin_t_5" for="text">督办主题:&nbsp;</label></th>
+                                <td width="20%" rowspan="2">
+                                    <div class="">
+                                        <textarea rows="4" class="w100b"></textarea>
+                                    </div>
+                                </td>
+                                <td width="5%" rowspan="2" colspan="2"></td>
+                            </tr>
+                            <tr class="newinfo_more">
+                                <td nowrap="nowrap" colspan="2" align="right">
+                                    <label for="text">允许操作:&nbsp;</label>
+                                </td>
+                                <td colspan="2">
+                                    <div class="common_checkbox_box clearfix ">
+                                        <label class="margin_r_10 hand" for="radio1">
+                                            <input id="checkbox8" value="0" class="radio_com" type="checkbox">转发</label>
+                                        <label class="margin_r_10 hand" for="radio1">
+                                            <input id="checkbox9" value="0" class="radio_com" type="checkbox">改变流程</label>
+                                        <label class="margin_r_10 hand" for="radio1">
+                                            <input id="checkbox10" value="0" class="radio_com" type="checkbox">修改正文</label>
+                                        <label class="margin_r_10 hand" for="radio1">
+                                            <input id="checkbox11" value="0" class="radio_com" type="checkbox">修改附件</label>
+                                        <label class="margin_r_10 hand" for="radio1">
+                                            <input id="checkbox12" value="0" class="radio_com" type="checkbox">归档</label>
+                                    </div>
+                                </td>
+                                <th nowrap="nowrap" width="1%">&nbsp;<label class="margin_l_10" for="text">督办期限:</label></th>
+                                <td width="20%">
+                                    <div class="common_txtbox_wrap">
+                                        <input class="w100b" type="text">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <h3>[3.UE]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td">常规 :<br />
+                1）当禁用文本框时，应当同时禁用其标签、说明标签、微调控件及命令按钮。<br />
+                2）应使用自动完成来帮助用户输入可能会被重复使用的数据，除可能包含敏感信息的文本框（如：密码）。<br />
+                3）不要使用不必要的滚动条。<br />
+                4）不要在多行文本框中使用水平滚动条。应采用垂直滚动条或自动换行<br />
+                5）不要在单行文本框上使用任何滚动条。<br />
+                6）应限制输入文本的长度（具体多少个字需要产品给出具体的需求）。<br /><br />
+                交互 :<br />
+                1）当用户输入一个无效字符时，应忽略该字符，并显示“输入错误气泡状提示”，用于报告哪些字符无效，不应输入。<br />
+                2）提示位于文本框内作为默认值显示，一般用简短说明。当用户在文本框内开始输入或当获得输入焦点时，提示文字将消失。</td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide dev_hide">[4.属性]</h3>
+    <table class="docsShowTable design_hide dev_hide">
+        <tr class="head">
+            <td class="td" width="200">属性</td>
+            <td class="td">类型</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide dev_hide">[5.事件]</h3>
+    <table class="docsShowTable design_hide dev_hide">
+        <tr class="head">
+            <td class="td" width="200">事件</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide dev_hide">[6.方法]</h3>
+    <table class="docsShowTable design_hide dev_hide">
+        <tr class="head">
+            <td class="td" width="200">方法</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+</body>
+</html>

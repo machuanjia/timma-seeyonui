@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Calendar</title>
+        <link rel="stylesheet" type="text/css" href="../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+        <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+        <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+        <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+        <script type="text/javascript" src="../calendar/calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../calendar/calendar-zh_CN.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/Moo-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.json-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.fillform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.code-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/i18n-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/v3x-debug.js">
+        </script>
+        <script type="text/javascript" src="../searchBox-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.checkform-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.dialog-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.grid-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.layout-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.menu-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.progress-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tab-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.toolbar-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.arraylist-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tooltip-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.comp-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.tree-debug.js">
+        </script>
+      
+    </head>
+    <body class="body-pading">
+        <h3>[1.时间控件示例]</h3>
+        <table class="docsShowTable">
+            <tr>
+                <td class="td">
+                    定义
+                </td>
+                <td class="td">
+                    可选择不同的时间节点，用于设置时间点及时间段。
+                </td>
+            </tr>
+            <tr>
+                <td class="td" width="200">
+                    示例
+                </td>
+                <td class="td">
+                    <input id="mycal" type="text"  class="comp" comp="type:'calendar',ifFormat:'%Y-%m-%d %H:%M',showsTime:true,cache:false,isClear:true,clearBlank:false,isShowIcon:false"/>
+                    <br/>
+                    <br/>
+                    显示时间:showsTime:true
+                    <div style="display: block;" class="sorce_code">
+                        <pre>&lt;input id="mycal2" type="text" class="comp" comp="type:'calendar',onUpdate:test,ifFormat:'%Y-%m-%d %H:%M,showsTime:true'"/&gt;</pre>
+                    </div>
+                    <br/>
+                    <br/>
+                    <input id="mycal2" type="text" class="comp" comp="type:'calendar',ifFormat:'%Y-%m-%d',cache:false"/>
+                    <br/>
+                    <br/>
+                    不显示时间:
+                    <div style="display: block;" class="sorce_code">
+                        <pre>&lt;input id="mycal2" type="text" class="comp" comp="type:'calendar',ifFormat:'%Y-%m-%d '"/&gt;</pre>
+                    </div>
+                    <br/>
+                    <br/>
+                    <input id="mycal3" type="text" class="comp" comp="type:'calendar',ifFormat:'%Y-%m',cache:false"/>
+                    <br/>
+                    <br/>
+                    月份选择:
+                    <div style="display: block;" class="sorce_code">
+                        <pre>&lt;input id="mycal3" type="text" class="comp" comp="type:'calendar',ifFormat:'%Y-%m'"/&gt;</pre>
+                    </div>
+                    <br/>
+                    <br/>
+                    <input id="mycal4" type="text"  class="comp" comp="type:'calendar',ifFormat:'%Y-%m-%d %H:%M',cache:false,showsTime:true,minuteStep:1"/>
+                    <br/>
+                    <br/>
+                    调整分钟步长:minuteStep:1
+                    <div style="display: block;" class="sorce_code">
+                        <pre>&lt;input id="mycal4" type="text" class="comp" comp="type:'calendar',ifFormat:'%Y-%m-%d %H:%M,showsTime:true,minuteStep:1'"/&gt;</pre>
+                    </div>
+                    <br/>
+                    <br/>
+                    <input id="mycal55" type="text"  class="comp" comp="type:'calendar',ifFormat:'%Y-%m-%d %H:%M',showsTime:true,cache:false,isClear:false,isOutShow:true"/>
+                    <br/>
+                    <br/>
+                    显示时间:showsTime:true
+                    <div style="display: block;" class="sorce_code">
+                        <pre>&lt;input id="mycal55" type="text" class="comp" comp="type:'calendar',onUpdate:test,ifFormat:'%Y-%m-%d %H:%M,showsTime:true,isOutShow:true'"/&gt;</pre>
+                    </div>                                      
+                </td>
+            </tr>
+        </table>
+        <h3 class="">[2.使用实例]</h3>
+        <table class="docsShowTable  ">
+        	<tr>
+                <td class="td" width="200">
+                </td>
+                <td class="td code">
+开始时间:<input id="fromdate" type="text"  class="comp" comp="type:'calendar',dateString:'2012-12-16 17:59',onUpdate:checkfrom,ifFormat:'%Y-%m-%d %H:%M',showsTime:true,cache:false"/>
+结束时间：<input id="todate" type="text" value="2012-12-16 17:59" class="comp" comp="type:'calendar',onUpdate:checkto,ifFormat:'%Y-%m-%d %H:%M',showsTime:true,cache:false"/>
+<script type="text/javascript">
+$(function(){
+	var date=new Date();
+	var fromDate=date.print("%Y-%m-%d %H:%M");
+	toDate=date.getTime() + 1800000;//结束时间：默认显示当前时间加30分钟
+	$("#fromdate").val(fromDate);//开始时间：默认显示当前时间
+	$("#todate").val(new Date(toDate).print("%Y-%m-%d %H:%M"));
+})
+function checkfrom(obj){
+	var beginDate = $("#fromdate").attr("value");//初始时间 string
+	var endDate = $("#todate").attr("value");//结束时间 string
+	var p=obj.params;
+	var format=p.ifFormat;//日期格式
+	var now=new Date().print(format);//当前时间
+	var formDate=obj.date;//开始时间对象
+	var update = (obj.dateClicked || p.electric);
+	if (update && p.singleClick && obj.dateClicked){//判断日历是否关闭
+		if(beginDate>now&&beginDate!=endDate){		//如果开始时间大于当前时间且不等于结束时间	
+			var toDate=formDate.getTime() + 1800000//借宿时间加30分钟
+			$("#todate").val(new Date(toDate).print(format))
+		}
+	}	
+}
+function checkto(obj){
+	var endDate = $("#todate").attr("value");//结束时间 string
+	var p=obj.params;
+	var format=p.ifFormat;//日期格式
+	var now=new Date().print(format);//当前时间
+	var toDate=initDate(endDate);//结束时间对象
+	var update = (obj.dateClicked || p.electric);
+	if (update && p.singleClick && obj.dateClicked){//判断日历是否关闭
+		if(endDate<now){	//如果结束时间小于开始时间		
+			var formDate=toDate.getTime() - 1800000//开始时间减30分钟
+			$("#fromdate").val(new Date(formDate).print(format))
+		}
+	}	
+}
+
+</script>
+                </td>
+            </tr>
+            <tr>
+                <td class="td" width="200">
+                </td>
+                <td class="td code">
+<a id="calendar"   href="javascript:fff('calendar')">时间控件</a>
+<script type="text/javascript">
+
+	function fff(id){
+		$.calendar({
+			displayArea:id,
+			//position:[500,200],
+			returnValue: true,
+			date:new Date(),
+			onUpdate:test,
+			autoShow:true,
+			ifFormat:"%Y-%m-%d %H:%M",
+			daFormat:"%Y-%m-%d %H:%M",
+			showsTime:true,
+			isClear:false
+	    });
+	}
+
+	function test(date){
+		//alert(date)
+	}
+</script>
+                </td>
+            </tr>
+        </table>
+        <h3 class=" ">[4.属性]</h3>
+        <table class="docsShowTable   ">
+            <tr class="head">
+                <td class="td" width="200">
+                    属性
+                </td>
+                <td class="td" width="200">
+                    类型
+                </td>
+                <td class="td">
+                    描述
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    displayArea
+                </td>
+                <td class="td">string
+                </td>
+                <td class="td">
+                    要绑定日期控件的ID
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    ifFormat
+                </td>
+                <td class="td">string
+                </td>
+                <td class="td">
+                    日期选择结果的格式
+                </td>
+            </tr>
+            <tr>
+                <td class="td">showsTime
+                </td>
+                <td class="td">boolean
+                </td>
+                <td class="td">是否显示时间选择
+                </td>
+            </tr>
+			<tr>
+                <td class="td">autoShow
+                </td>
+                <td class="td">boolean
+                </td>
+                <td class="td">是否直接显示时间日历
+                </td>
+            </tr>
+            <tr>
+                <td class="td">dateString
+                </td>
+                <td class="td">string
+                </td>
+                <td class="td">控件打开显示的默认日期
+                </td>
+            </tr>
+            <tr>
+                <td class="td">position
+                </td>
+                <td class="td">[]
+                </td>
+                <td class="td">显示的相对位置[10,10]
+                </td>
+            </tr>
+           
+            <tr>
+                <td class="td">onUpdate
+                </td>
+                <td class="td">function
+                </td>
+                <td class="td">选择日期后执行的方法
+                </td>
+            </tr>
+        </table>
+        <h3 class=" ">[5.事件]</h3>
+        <table class="docsShowTable  ">
+            <tr class="head">
+                <td class="td" width="200">
+                    事件
+                </td>
+                <td class="td">
+                    描述
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                </td>
+                <td class="td">
+                </td>
+            </tr>
+        </table>
+        <h3 class=" ">[6.方法]</h3>
+        <table class="docsShowTable  ">
+            <tr class="head">
+                <td class="td" width="200">
+                    方法
+                </td>
+                <td class="td">
+                    描述
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    $("#" + id).data("selectedDate");
+                </td>
+                <td class="td">
+                    获取选择日期的结果一
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    $("#" + showId).val()
+                </td>
+                <td class="td">
+                    获取选择日期的结果二
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    $("#" + showId).html()
+                </td>
+                <td class="td">
+                    获取选择日期的结果三
+                </td>
+            </tr>
+        </table>
+        <h3>[3.UE]</h3>
+        <table class="docsShowTable">
+            <tr>
+                <td class="td" width="">
+                    可选某年某月:通过日期选择器可选择某年某月
+                </td>
+                <td class="td">
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    可选某年某月某日:通过日期选择器可选择某年某月某日
+                </td>
+                <td class="td">
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    可选某年某月某日某时:通过日期选择器可选择某年某月某日某时
+                </td>
+                <td class="td">
+                </td>
+            </tr>
+        </table>
+		<br/>
+		<div>
+			<div class="calendar_month_container border_all">
+				<div class="calendar_month_container_head border_b">
+					<select>
+						<option>1900</option><option>2000</option><option>2001</option><option>2012</option>
+					</select>
+				</div>
+				<div class="calendar_month_container_body">
+					<a href="javascript:void(0)">一月</a>
+					<a href="javascript:void(0)">二月</a>	
+					<a href="javascript:void(0)">三月</a>	
+					<a href="javascript:void(0)">四月</a>	
+					<a class="current"  href="javascript:void(0)">五月</a>	
+					<a href="javascript:void(0)">六月</a>	
+					<a href="javascript:void(0)">七月</a>	
+					<a href="javascript:void(0)">八月</a>	
+					<a href="javascript:void(0)">九月</a>	
+					<a href="javascript:void(0)">十月</a>	
+					<a href="javascript:void(0)">十一月</a>	
+					<a href="javascript:void(0)">十二月</a>	
+				</div>
+			</div>
+		</div>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html class="h100b">
+<head>
+    <title>选择表单流程</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css" />
+    <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+
+	<script src="../../seeyon.ui.common-debug.js"> </script>
+	<script type="text/javascript">
+		 $(function(){
+		 	new inputChange($("#select_people"),"单击选择人员");	
+		 })
+	</script>
+
+</head>
+<body class="h100b">
+	<div class="form_area padding_5">
+		<table border="0" cellSpacing="0" cellPadding="0" width="100%">
+		  <tbody><tr>
+		    <th noWrap="nowrap"><label class="margin_r_10" for="text">设置节点权限:</label></th>
+		    <td width="100%"><div class="common_selectbox_wrap"><select><option>协同</option></select></div></td>
+		    <td nowrap="nowrap" rowspan="3" valign="top"><a href="javascript:void(0)" class="display_inline-block margin_t_10">&nbsp;[权限说明]</a></td>
+		  </tr>
+		  <tr>
+		    <th noWrap="nowrap"><label class="margin_r_10" for="text">请选择人员:</label></th>
+		    <td ><div class="common_txtbox_wrap"><input id="select_people"  type="text"></div></td>
+		  </tr>
+		  <tr>
+		    <th noWrap="nowrap"><label class="margin_r_10" for="text">流程模式:</label></th>
+		    <td>
+		    	<div class="common_radio_box clearfix">
+                    <label class="margin_r_10 hand" for="radio1"><input id="radio11" checked="checked" class="radio_com" name="option" value="0" type="radio">串发</label>
+                    <label class="margin_r_10 hand" for="radio2"><input id="radio12" class="radio_com" name="option" value="0" type="radio">并发</label>
+                    <label class="margin_r_10 hand" for="radio3"><input id="radio13" class="radio_com" name="option" value="0" type="radio">与下一节点并发</label>  
+                </div>
+			</td>
+		  </tr></tbody>
+		</table>
+	</div>
+
+</body>
+</html>

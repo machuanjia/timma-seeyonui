@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html class="h100b over_auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工作管理</title>
+<script src="../../../scriptes/jquery.js"></script>
+<script src="../../../docs/resource/doc.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="../../../css/common-debug.css"> 
+<link rel="stylesheet" type="text/css" href="../../../skin/default/skin-debug.css">
+<link rel="stylesheet" type="text/css" href="../../../docs/resource/doc.css"> 
+<style>
+	.stadic_head_height{
+		height:270px;
+	}
+	.stadic_body_top_bottom{
+		bottom:35px;
+ 		top:270px;
+	}
+	.stadic_footer_height{
+		height:35px;
+	}
+</style>
+</head>
+<body class="h100b overflow_auto page_color">
+	<div class="stadic_layout">
+		<div class="stadic_layout_head stadic_head_height">
+			<div class="common_tabs clearfix">
+			    <ul class="left">
+					<li class="current"><a class="border_b" href="javascript:void(0)"><span>工作统计</span></a></li>
+					<li><a href="javascript:void(0)" class="last_tab"><span>超期统计</span></a></li>
+			    </ul>
+			</div>
+			<div class="border_all margin_t_5 clearfix">
+				
+				<div class="common_search_box clearfix right padding_tb_5 margin_r_5">
+					
+					<ul class="common_search">
+						<li class="left margin_t_5">管理范围：</li>
+						<li id="inputBorder" class="common_search_input"><input class="search_input" type="text">
+						</li>
+						<li><a class="common_button common_button_gray search_buttonHand" href="javascript:void(0)"><em></em></a></li>
+					</ul>
+				</div>
+			
+				<div class="common_radio_box clearfix  margin_t_5">
+					<label class="margin_r_10 hand" for="radio1"><input id="radio1" class="radio_com" name="option" value="0" type="radio">协同</label>
+					<label class="margin_r_10 hand" for="radio2"><input id="radio2" class="radio_com" name="option" value="0" type="radio">公文</label>
+					<label class="margin_r_10 hand" for="radio3"><input id="radio3" class="radio_com" name="option" value="0" type="radio">会议</label>
+					<label class="margin_r_10 hand" for="radio4"><input id="radio4" class="radio_com" name="option" value="0" type="radio">计划</label>
+					<label class="margin_r_10 hand" for="radio5"><input id="radio5" class="radio_com" name="option" value="0" type="radio">任务</label>
+					<a class="img-button margin_r_0" href="javascript:void(0)"><em class="ico16 export_excel_16"> </em>导出Excel</a>
+				</div>
+			</div>
+			<div style="height:200px; overflow:auto;background:#fff;" class="clear">
+				<table class="only_table edit_table"  border=0 cellSpacing=0 cellPadding=0 width="100%">
+						<tbody>
+							<tr align="center">
+								<th  rowSpan=2 width="10%">人员</th>
+								<th  width="15%"  height="22" colSpan=2>累计待办 </th>
+								<th  width="15%" colSpan=2>本日</th>
+								<th  width="15%" colSpan=2>本周</th>
+								<th  width="15%" colSpan=2>本月</th>
+								<th  width="20%" colSpan=2 noWrap>起止日期: <INPUT style="HEIGHT: 17px" readOnly value=2012-09-30> </th>
+								<th  rowSpan=2 width="10%" noWrap>已归档 </th>
+							</tr>
+							<tr align="center">
+								<td height="20">待办</td>
+								<td >暂存待办</td>
+								<td >已办</td>
+								<td >已发</td>
+								<td >已办</td>
+								<td >已发</td>
+								<td >已办</td>
+								<td >已发</td>
+								<td >已办</td>
+								<td >已发</td>
+							</tr>
+						<tbody>
+							<tr align="center">
+								<td>谢小萍</td>
+								<td>4</td>
+								<td>4</td>
+								<td>4</td>
+								<td>4</td>
+								<td>4</td>
+								<td>4</td>
+								<td>4</td>
+								<td>4</td>
+								<td>4</td>
+								<td>4</td>
+								<td>4</td>		
+							</tr>
+						</tbody>
+					</table>	
+			</div>
+			
+		</div>
+		<div class="stadic_layout_body stadic_body_top_bottom border_b" style="background:#fff;">
+			<div class="padding_5 border_t">协同(待办)</div>
+			<table class="only_table edit_table" border="0" cellspacing="0" cellpadding="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>标题</th>
+                            <th>发起人</th>
+                            <th>发起时间</th>
+                            <th>处理时间</th>
+                            <th>处理期限</th>
+                            <th>是否结束</th>
+                            <th>跟踪状态</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="erow">
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+			</div>	
+		<div class="stadic_layout_footer stadic_footer_height align_right">
+			<div class="common_over_page margin_t_5">
+				每页<input class="common_over_page_size align_center valign_m" value="" type="text">条/共6条记录<span class="margin_lr_10">共1页</span>
+				<a class="margin_l_20" href="#">首页</a><a class="margin_lr_15" href="#">上一页</a>
+				<a class="margin_r_10" href="#">下一页</a><span class="margin_l_20 margin_r_10">第
+				<input class="common_over_page_size" value="" type="text">页</span><input class="common_over_page_go align_center valign_m margin_l_10" value="go" type="button">		
+			</div>
+
+		</div>
+	</div>
+		
+</body>
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Dialog-Box</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+	<script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+	
+	<script type="text/javascript" src="../calendar/calendar-debug.js"></script>
+	<script type="text/javascript" src="../calendar/calendar-zh-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/misc/Moo-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.json-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.fillform-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.code-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/common-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/i18n-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/v3x-debug.js"></script>
+	<script type="text/javascript" src="../searchBox-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.checkform-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/seeyon.ui.core-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.dialog-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.grid-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.layout-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.menu-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.progress-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.scroll-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tab-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.toolbar-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tree-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.calendar-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.arraylist-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tooltip-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.comp-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.tree-debug.js"></script>
+	
+</head>
+<body>
+    <h3>[1.弹出框口示例]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="200" rowspan="3">弹出框口示例</td>
+            <td class="td"><a  href="javascript:showMessageBox0()" class="common_button common_button_gray">html</a>
+                <script type="text/javascript">
+                    function showMessageBox0() {
+                       var dialog = $.dialog({
+                            id: 'html',
+                            htmlId: 'htmlId',
+                           height:100,
+                            title: 'html',
+							bottomHTML:"<b>ssssssssssssssss</b>",
+							overflow:'hidden',
+                            buttons: [{
+                                //id: 'ok',
+                                text: "button1",
+                                handler: function () {
+                                    //dialog.enabledBtn('cancel');
+                                    dialog.close({isFormItem:true});
+                                }
+                            }, {
+                                //id: 'cancel',
+                                //disabled: true,
+								//hide:true,
+                                text: "button2",
+                                handler: function () {
+                                    //dialog.disabledBtn('ok');
+                                    dialog.close();
+                                }
+                            }]
+                        });
+						dialog.setTitle('sdsadasdasdas');
+                    }
+                </script>
+				<br/><br/>
+				<div style="display: block;" class="sorce_code design_hide">
+				<pre>
+var dialog = $.dialog({
+    id: 'html',
+    htmlId: 'htmlId',
+    title: 'html',
+    buttons: [{
+        text: "button1",
+        handler: function () {
+            dialog.close({isFormItem:true});
+        }
+    }, {
+        disabled: true,
+        text: "button2",
+        handler: function () {
+            dialog.close();
+        }
+    }]
+});
+				</pre>
+				</div>
+            	<br/><br/>
+            </td>
+        </tr>
+        <tr>
+            <td class="td"><a  href="javascript:showMessageBox1()" class="common_button common_button_gray">url11</a>
+                <div id="htmlId" class="hidden">
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                    <input type="text" name="name" value="" /><br />
+                </div>
+                <script type="text/javascript">
+                	var wwwwwwwwwwwwww = 33333333 ;
+                    function showMessageBox1() {
+                       dialog = $.dialog({
+                            id: 'url',
+                            url: 'message-box.html',
+                            width: 3000,
+                            height: 400,
+                            title: 'url',
+							transParams:wwwwwwwwwwwwww,
+							checkMax:true,
+                            minParam:{
+								'show':true,
+								handler:function(){
+									var d = dialog.getMin();
+								}
+							},
+                            maxParam:{
+								'show':true,
+								handler:function(){
+									var d = dialog.getMax();
+								}
+							},
+							closeParam:{
+								'show':true,
+								autoClose:false,
+								handler:function(){
+									//var d = dialog.getClose();
+									alert(1)
+								}
+							},
+                            buttons: [{
+                                text: "button1",
+                                handler: function () {
+									
+									dialog.startLoading()
+									
+                                   var oooooooooo = dialog.getReturnValue({ 'name': 'macj' });
+								  // alert(oooooooooo)
+								   
+                                   //dialog.close();
+                                }
+                            }, {
+                                text: "button2",
+                                handler: function () {
+									dialog.endLoading()
+                                    //dialog.close();
+                                }
+                            }]
+                        });
+                    }
+                </script>
+				
+				<br/><br/>
+				<div style="display: block;" class="sorce_code design_hide">
+				<pre>
+var dialog = $.dialog({
+    id: 'url',
+    url: 'message-box.html',
+    width: 500,
+    height: 400,
+    title: 'url',
+    buttons: [{
+        text: "button1",
+        handler: function () {
+           var rv = dialog.getReturnValue({ 'name': 'macj' });
+		   //alert(rv);
+           dialog.close();
+        }
+    }, {
+        text: "button2",
+        handler: function () {
+            dialog.close();
+        }
+    }]
+});
+				</pre>
+				</div>
+            	<br/><br/>
+            </td>
+        </tr>
+        <tr>
+            <td class="td">
+            	<a  href="javascript:showMessageBox2()" id='target' class="common_button common_button_gray">显示panel</a>
+				<a  id='sdsadsadsadsadasd' class="common_button common_button_gray">关闭panel</a>
+                <div id="searchId" class="hidden">searchHtml</div>
+                <script type="text/javascript">
+                    function showMessageBox2() {
+                        var panel = $.dialog({
+							id:'ssss',
+                            width: 300,
+                            height: 200,
+                            type: 'panel',
+                            htmlId: 'searchId',
+                            targetId: 'target',
+							shadow:false,
+							panelParam:{
+								'show':false,
+								'margins':false
+							}
+                        });
+						
+						$('#sdsadsadsadsadasd').click(function(){
+							panel.close();
+						});
+                    }
+                </script>
+				<br/><br/>
+				<div style="display: block;" class="sorce_code design_hide">
+				<pre>
+					
+var panel = $.dialog({
+	id:'ssss',
+    width: 300,
+    height: 200,
+    type: 'panel',
+    htmlId: 'searchId',
+    targetId: 'target',
+	shadow:false,
+	panelParam:{
+		'show':false,
+		'margins':false
+	}
+});
+				</pre>
+				</div>
+            	<br/><br/>
+            </td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide dev_hide">[2.使用实例]</h3>
+    <table class="docsShowTable design_hide dev_hide">
+        <tr>
+            <td class="td" width="200"></td>
+            <td class="td">
+                <iframe src="dialog2.html" width="200" height="200"></iframe>
+            </td>
+        </tr>
+    </table>
+    <h3 class="design_hide">[4.属性]</h3>
+    <table class="docsShowTable design_hide">
+        <tr class="head">
+            <td class="td" width="200">属性</td>
+            <td class="td" width="200">类型</td>
+            <td class="td">描述</td>
+        </tr>
+					<tr>
+						<td class="td">
+							title
+						</td>
+                        <td class="td"></td>
+						<td class="td">
+							窗口名称
+						</td>
+					</tr>
+					<tr>
+						<td class="td">
+							html
+						</td>
+                        <td class="td"></td>
+						<td class="td">
+							内容显示传入的html代码
+						</td>
+					</tr>
+					<tr>
+						<td class="td">
+							url
+						</td>
+                        <td class="td"></td>
+						<td class="td">
+							内容显示iframe，src为传入的url
+						</td>
+					</tr>
+					<tr>
+						<td class="td">
+							width
+						</td>
+                        <td class="td"></td>
+						<td class="td">
+							内容区宽度
+						</td>
+					</tr>
+					<tr>
+						<td class="td">
+							height
+						</td>
+                        <td class="td"></td>
+						<td class="td">
+							内容区高度
+						</td>
+					</tr>
+					<tr>
+						<td class="td">
+							buttons
+						</td>
+                        <td class="td"></td>
+						<td class="td">
+							数组:按钮及事件
+							buttons:[{
+								text:"button1",
+								handler:function(){alert('handler')}
+							},{
+								text:"button2",
+								handler:function(){alert('handler')}
+							}]
+						</td>
+					</tr>
+					<tr>
+						<td class="td">
+							isDrag
+						</td>
+                        <td class="td"></td>
+						<td class="td">
+							是否允许拖拽
+						</td>
+					</tr>
+					<tr>
+						<td class="td">
+							type
+						</td>
+                        <td class="td"></td>
+						<td class="td">
+							是'dialog'还是'panel',默认为'dialog'
+						</td>
+					</tr>
+					<tr>
+						<td class="td">
+							htmlId
+						</td>
+                        <td class="td"></td>
+						<td class="td">
+							显示改id内的内容
+						</td>
+					</tr>
+					<tr>
+						<td class="td">
+							targetId
+						</td>
+                        <td class="td"></td>
+						<td class="td">
+							panel显示在改id对象的下方
+						</td>
+					</tr>
+					<tr>
+						<td class="td">
+							targetWindow
+						</td>
+                        <td class="td"></td>
+						<td class="td">
+							跨iframe显示[window.parent]注：window必须存在
+						</td>
+					</tr>
+					<tr>
+						<td class="td">
+							minParam
+						</td>
+                        <td class="td"></td>
+						<td class="td">
+							最小化参数[show：是否显示最小化按钮,参数true or false],[handler:点击最小化后调用的方法],默认值:{'show':true,handler:function(){}}
+						</td>
+					</tr>
+					<tr>
+						<td class="td">
+							maxParam
+						</td>
+                        <td class="td"></td>
+						<td class="td">
+							最大化参数[show：是否显示最小化按钮,参数true or false],[handler:点击最大化后调用的方法],默认值:{'show':true,handler:function(){}}
+						</td>
+					</tr>
+					<tr>
+						<td class="td">
+							closeParam
+						</td>
+                        <td class="td"></td>
+						<td class="td">
+							关闭按钮参数[show：是否显示关闭按钮,参数true or false],[autoClose:点击关闭按钮是否自动关闭窗口,参数true or false],[handler:点击关闭后调用的方法],默认值:{'show':true,handler:function(){}}
+						</td>
+					</tr>
+					<tr>
+						<td class="td">
+							transParams
+						</td>
+                        <td class="td"></td>
+						<td class="td">
+							当url不为空时即弹出窗口中加载的是另外的窗口时，可以通过transParams传参数到弹出窗口中，在子页面中通过window.parentDialogObj[id]获取窗口对象，然后调用getTransParams()来获取传过来的参数
+						</td>
+					</tr>
+					<tr>
+						<td class="td">
+							checkMax
+						</td>
+                        <td class="td"></td>
+						<td class="td">
+							检查弹出窗口是否超过浏览器可视区域
+						</td>
+					</tr>
+					
+    </table>
+
+    <h3 class="design_hide dev_hide">[5.事件]</h3>
+    <table class="docsShowTable design_hide dev_hide">
+        <tr class="head">
+            <td class="td" width="200">事件</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide">[6.方法]</h3>
+    <table class="docsShowTable design_hide">
+        <tr class="head">
+            <td class="td" width="200">方法</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td">close()</td>
+            <td class="td">关闭窗口:dialog.close();</td>
+        </tr>
+        <tr>
+            <td class="td">getReturnValue()</td>
+            <td class="td">获取iframe页面中OK()方法返回值:dialog.getReturnValue();</td>
+        </tr>
+        <tr>
+            <td class="td">disabledBtn('按钮id')</td>
+            <td class="td">
+            	设置按钮不可用:dialog.disabledBtn('按钮id')<br>
+				<pre>
+					
+var dialog = $.dialog({
+    id: 'html',
+    htmlId: 'htmlId',
+    title: 'html',
+    buttons: [{
+        id: 'ok',
+        text: "button1",
+        handler: function () {
+            //dialog.enabledBtn('cancel');
+            dialog.close();
+        }
+    }, {
+        id: 'cancel',
+        //disabled: true,//按钮默认是否可用
+		//hide:true,//按钮默认是否可见
+        text: "button2",
+        handler: function () {
+            //dialog.disabledBtn('ok');
+            dialog.close();
+        }
+    }]
+});
+				</pre>
+				
+			</td>
+        </tr>
+        <tr>
+            <td class="td">enabledBtn('按钮id')</td>
+            <td class="td">设置按钮可用dialog.enabledBtn('按钮id')</td>
+        </tr>
+		<tr>
+            <td class="td">hideBtn('按钮id')</td>
+            <td class="td">设置按钮不可见:dialog.hideBtn('按钮id')</td>
+        </tr>
+        <tr>
+            <td class="td">showBtn('按钮id')</td>
+            <td class="td">设置按钮可见dialog.showBtn('按钮id')</td>
+        </tr>
+        <tr>
+            <td class="td">reSize(json)</td>
+            <td class="td">设置dialog的大小dialog.reSize({width:300,height:300})
+            </td>
+        </tr>
+		<tr>
+            <td class="td">getMin(json)</td>
+            <td class="td">调用欠入页面中MIN()方法:dialog.getMin(json);</td>
+        </tr>
+		<tr>
+            <td class="td">getMax(json)</td>
+            <td class="td">调用欠入页面中MAX()方法:dialog.getMax(json);</td>
+        </tr>
+		<tr>
+            <td class="td">getClose(json)</td>
+            <td class="td">调用欠入页面中CLOSE()方法:dialog.getClose(json);</td>
+        </tr>
+		<tr>
+            <td class="td">getWidth()</td>
+            <td class="td">获取内容区域宽度:dialog.getWidth();</td>
+        </tr>
+		<tr>
+            <td class="td">getHeight()</td>
+            <td class="td">获取内容区域高度:dialog.getHeight();</td>
+        </tr>
+		<tr>
+            <td class="td">reloadUrl(url)</td>
+            <td class="td">重新设置url,如果不传参,为声明dialog的url参数:dialog.reloadUrl("http://www.qq.com");</td>
+        </tr>
+		<tr>
+            <td class="td">setTitle(title)</td>
+            <td class="td">重新设置title</td>
+        </tr>
+		<tr>
+            <td class="td">window.parentDialogObj[id]</td>
+            <td class="td">子页面获取dialog对象</td>
+        </tr>
+		<tr>
+            <td class="td">getTransParams()</td>
+            <td class="td">子页面获取dialog参数【window.parentDialogObj[id].getTransParams()】</td>
+        </tr>
+		<tr>
+            <td class="td">startLoading()</td>
+            <td class="td">显示遮罩</td>
+        </tr>
+		<tr>
+            <td class="td">endLoading()</td>
+            <td class="td">隐藏遮罩</td>
+        </tr>
+    </table>
+	<h3>[3.UE]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="200">弹出div窗口</td>
+            <td class="td"></td>
+        </tr>
+    </table>
+</body>
+</html>

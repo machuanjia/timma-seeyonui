@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>按钮</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js"></script>
+</head>
+
+<body>
+    <h3 class="dev_hide">[1.按钮示例]</h3>
+    <table class="docsShowTable dev_hide">
+        <tr>
+            <td class="td" width="200">定义</td>
+            <td class="td">可让用户立即触发一个动作。</td>
+        </tr>
+        <tr>
+            <td class="td" width="200" rowspan="5">按钮示例</td>
+            <td class="td code"><a href="javascript:void(0)" class="common_button common_button_gray">按钮</a></td>
+        </tr>
+        <tr>
+            <td class="td code"><a href="javascript:void(0)" class="common_button common_button_icon"><em class="ico16 affix_16"></em>按钮</a></td>
+        </tr>
+        <tr>
+            <td class="td code"><a href="javascript:void(0)" class="common_button common_button_emphasize">按钮</a></td>
+        </tr>
+        <tr>
+            <td class="td code"><a href="javascript:void(0)" class="common_button common_button_disable">按钮</a></td>
+        </tr>
+        <tr>
+            <td class="td code"><a href="javascript:void(0)" class="img-button margin_r_0"><em class="ico16 affix_16 margin_r_5"></em>附件</a></td>
+        </tr>
+    </table>
+	
+    <table class="docsShowTable design_hide">
+        <tr>
+            <td class="td" width="200">定义</td>
+            <td class="td">可让用户立即触发一个动作。</td>
+        </tr>
+        <tr>
+            <td class="td" width="200" rowspan="5">按钮示例</td>
+            <td class="td ">
+            	<a id="btnsave" href="javascript:void(0)" class="common_button common_button_gray">保存</a>
+				<br/><br/>
+				<div style="display: block;" class="sorce_code">
+				<pre>&lt;a id="btnsave" class="common_button common_button_gray" href="javascript:void(0)"&gt;${ctp:i18n('common.button.save.label')}&lt;/a&gt;</pre>
+				</div>
+            	<br/><br/>
+				
+				<a id="btnmodify" href="javascript:void(0)" class="common_button common_button_gray">修改</a>
+					
+				<br/><br/>
+				<div style="display: block;" class="sorce_code">
+				<pre>&lt;a id="btnmodify" class="common_button common_button_gray" href="javascript:void(0)"&gt;${ctp:i18n('common.button.modify.label')}&lt;/a&gt;</pre>
+				</div>
+            	<br/><br/>
+				
+				<a id="btnsearch" href="javascript:void(0)" class="common_button common_button_gray">查询</a>
+				<br/><br/>
+				<div style="display: block;" class="sorce_code">
+				<pre>&lt;a id="btnsearch" class="common_button common_button_gray" href="javascript:void(0)"&gt;${ctp:i18n('common.button.condition.search.label')}&lt;/a&gt;</pre>
+				</div>
+            	<br/><br/>
+				<script>
+					$('#btnsave').click(function(){
+						alert(1)
+					});
+					$('#btnsearch').click(function(){
+						alert(2)
+					});
+				</script>
+				<a href="javascript:void(0)" class="common_button common_button_gray">确定</a>
+				<br/><br/>
+				<div style="display: block;" class="sorce_code">
+				<pre>&lt;a id="btnok" class="common_button common_button_gray" href="javascript:void(0)"&gt;${ctp:i18n('common.button.ok.label')}&lt;/a&gt;</pre>
+				</div>
+				
+				<br/><br/>
+				
+				<a href="javascript:void(0)" class="common_button common_button_gray">取消</a>
+				<br/><br/>
+				<div style="display: block;" class="sorce_code">
+				<pre>&lt;a id="btncancel" class="common_button common_button_gray" href="javascript:void(0)"&gt;${ctp:i18n('common.button.cancel.label')}&lt;/a&gt;</pre>
+				</div>
+				
+				<br/><br/>
+				
+				<a href="javascript:void(0)" class="common_button common_button_gray">关闭</a>
+				<br/><br/>
+				<div style="display: block;" class="sorce_code">
+				<pre>&lt;a id="btnclose" class="common_button common_button_gray" href="javascript:void(0)"&gt;${ctp:i18n('common.button.close.label')}&lt;/a&gt;</pre>
+				</div>
+				
+				<br/><br/>
+				
+				<a href="javascript:void(0)" class="common_button common_button_gray">重置</a>
+				<br/><br/>
+				<div style="display: block;" class="sorce_code">
+				<pre>&lt;a id="btnreset" class="common_button common_button_gray" href="javascript:void(0)"&gt;${ctp:i18n('common.button.reset.label')}&lt;/a&gt;</pre>
+				</div>
+				
+				<br/><br/>
+				
+				<a href="javascript:void(0)" class="common_button common_button_gray">提交</a>
+				<br/><br/>
+				<div style="display: block;" class="sorce_code">
+				<pre>&lt;a id="btnsubmit" class="common_button common_button_gray" href="javascript:void(0)"&gt;${ctp:i18n('common.button.submit.label')}&lt;/a&gt;</pre>
+				</div>
+				
+				<br/><br/>
+				
+			</td>
+        </tr>
+        <tr class="">
+            <td class="td code"><a href="javascript:void(0)" class="common_button common_button_icon"><em class="ico16 affix_16"></em>按钮</a></td>
+        </tr>
+        <tr>
+            <td class="td code"><a href="javascript:void(0)" class="common_button common_button_emphasize">按钮</a></td>
+        </tr>
+        <tr>
+            <td class="td code"><a href="javascript:void(0)" class="common_button common_button_disable">按钮</a></td>
+        </tr>
+        <tr class="">
+            <td class="td code"><a href="javascript:void(0)" class="img-button margin_r_0"><em class="ico16 affix_16 margin_r_5"></em>附件</a></td>
+        </tr>
+    </table>
+    
+    <h3 class="design_hide"><b style="color:red">[*.特殊说明]</b></h3>
+    <table class="docsShowTable design_hide">
+        <tr class="head">
+            <td class="td" style="text-align:left">按钮的id必须有，ctp通过id绑定了快捷键<br/>
+			"ENTER"：依次为[保存]、[确定]、[提交]、[查询]、[重置]、[修改]<br/>
+			"ESC":依次为[取消]、[关闭]
+			<br/>
+			<span style="color:red">一个页面中按钮的id不能重复，默认是绑定的第一个，如果重复可以把不需要绑定的id删除</span>
+			</td>
+        </tr>
+    </table>
+	
+	
+    <h3 class="design_hide">[2.使用实例]</h3>
+    <table class="docsShowTable design_hide">
+        <tr class="dev_hide">
+            <td class="td" width="200">左对齐</td>
+            <td class="td">
+                <div class="align_left">
+                    <a href="javascript:void(0)" class="common_button common_button_gray">确定</a>
+                    <a href="javascript:void(0)" class="common_button common_button_gray">取消</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td">中对齐</td>
+            <td class="td">
+                <div class="align_center">
+                    <a href="javascript:void(0)" class="common_button common_button_gray">确定</a>
+                    <a href="javascript:void(0)" class="common_button common_button_gray">取消</a>
+                </div>
+				<br/><br/>
+				<div class="design_hide">
+				<div style="display: block;" class="sorce_code">
+				<pre>
+&lt;div class="align_center"&gt;
+&lt;a id="btnok" class="common_button common_button_gray" href="javascript:void(0)"&gt;${ctp:i18n('common.button.ok.label')}&lt;/a&gt;
+&lt;a id="btncancel" class="common_button common_button_gray" href="javascript:void(0)"&gt;${ctp:i18n('common.button.cancel.label')}&lt;/a&gt;
+&lt;/div&gt;
+				</pre>
+				</div>
+				</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td">右对齐</td>
+            <td class="td">
+                <div class="align_right">
+                    <a href="javascript:void(0)" class="common_button common_button_gray">确定</a>
+                    <a href="javascript:void(0)" class="common_button common_button_gray">取消</a>
+                </div>
+				<br/><br/>
+				<div class="design_hide">
+				<div style="display: block;" class="sorce_code">
+				<pre>
+&lt;div class="align_right"&gt;
+&lt;a id="btnok" class="common_button common_button_gray" href="javascript:void(0)"&gt;${ctp:i18n('common.button.ok.label')}&lt;/a&gt;
+&lt;a id="btncancel" class="common_button common_button_gray" href="javascript:void(0)"&gt;${ctp:i18n('common.button.cancel.label')}&lt;/a&gt;
+&lt;/div&gt;
+				</pre>
+				</div>
+				</div>
+            </td>
+        </tr>
+    </table>
+    <h3 class="dev_hide design_hide">[4.属性]</h3>
+    <table class="docsShowTable dev_hide design_hide">
+        <tr class="head">
+            <td class="td">属性</td>
+            <td class="td">类型</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+	
+	
+    <h3 class="design_hide">[5.事件]</h3>
+    <table class="docsShowTable design_hide">
+        <tr class="head">
+            <td class="td">事件</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+		<tr>
+            <td class="td">按钮可用不可用</td>
+            <td class="td">
+            	<div style="display: block;" class="sorce_code">
+				<span style="color:red">获取id为'testRegion'的区域直接.disable()或.enable()即可<br/>$("#testRegion").disable();<br/>$("#testRegion").enable();</span>
+				<br/><br/>
+				<pre>
+&lt;script&gt;
+  $(document).ready(function() {
+    $("#mybtn").toggle(function() {
+      $("#mycal1").disable();
+      $("#testRegion").disable();
+    }, function() {
+      $("#mycal1").enable();
+      $("#testRegion").enable();
+    });
+  });
+&lt;/script&gt;
+&lt;input type="button" id="mybtn" value="禁用/启用"&gt;
+&lt;div id="testRegion"&gt;
+    &lt;a href="javascript:void(0)" class="common_button common_button_gray"&gt;按钮1&lt;/a&gt;&lt;a href="javascript:void(0)"
+        class="common_button common_button_gray"&gt;按钮2&lt;/a&gt; &lt;input type="text" class="comp"
+        comp="type:'calendar',ifFormat:'%m-%Y-%d'"&gt; &lt;input type="checkbox"&gt;&lt;input type="radio"&gt;
+&lt;/div&gt;
+				</pre>
+				</div>
+            </td>
+        </tr>
+    </table>
+
+    <h3 class="dev_hide design_hide">[6.方法]</h3>
+    <table class="docsShowTable dev_hide design_hide">
+        <tr class="head">
+            <td class="td">方法</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+    <h3>[3.UE]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="200">可以使用标准命令按钮来启动一个立即操作</td>
+            <td class="td"><a href="javascript:void(0)" class="common_button common_button_gray">按钮</a></td>
+        </tr>
+        <tr>
+            <td class="td">窗口中的默认命令按钮表示当用户按下 Enter 键时会被激活，每个窗口中只能有一个按钮成为默认按钮</td>
+            <td class="td"><a href="javascript:void(0)" class="common_button common_button_gray">按钮</a></td>
+        </tr>
+        <tr>
+            <td class="td">图标按钮</td>
+            <td class="td"><a href="javascript:void(0)" class="common_button common_button_icon"><em class="ico16 affix_16"></em>按钮</a></td>
+        </tr>
+        <tr>
+            <td class="td">引导按钮</td>
+            <td class="td"><a href="javascript:void(0)" class="common_button common_button_emphasize">按钮</a></td>
+        </tr>
+        <tr>
+            <td class="td">不可用按钮</td>
+            <td class="td"><a href="javascript:void(0)" class="common_button common_button_disable">按钮</a></td>
+        </tr>
+        <tr>
+            <td class="td">轻量级命令按钮和标准命令按钮很像，唯一的不同在于其边框仅当鼠标悬停的时候才会显示。</td>
+            <td class="td"><a href="javascript:void(0)" class="img-button margin_r_0"><em class="ico16 affix_16 margin_r_5"></em>附件</a></td>
+        </tr>
+    </table>
+</body>
+</html>

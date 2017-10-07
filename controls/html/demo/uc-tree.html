@@ -1,0 +1,392 @@
+﻿<!DOCTYPE html>
+<html class="over_y_scroll">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>UC中心tree</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css" />
+    <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.menu-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.common-debug.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            /**********列表/树 切换***********/
+            $("#toggleListTreeBtn").click(function () {
+                toggle_ListTree($(this).attr("value"));
+                if ($(this).attr("value") == 0) {
+                    $(this).attr("value", 1);
+                    $(this).find("span:last").html("列表显示");
+                    $(this).find(".ico16").removeClass("list_show_16 tree_show_16").addClass("list_show_16");
+                } else {
+                    $(this).attr("value", 0);
+                    $(this).find("span:last").html("树形显示");
+                    $(this).find(".ico16").removeClass("list_show_16 tree_show_16").addClass("tree_show_16");
+                }
+            });
+
+            ///列表/树 切换
+            function toggle_ListTree(n) {
+                //0为列表  1为树
+                if (n == 0) {
+                    var _wTree = [120, 100, 100, 402];
+                    $(".only_table thead th").each(function (i) {
+                        $(this).width(_wTree[i]);
+                    });
+                    $(".uc_tree_list").hide();
+                } else {
+                    var _wTree = [120, 100, 100, 225];
+                    $(".only_table thead th").each(function (i) {
+                        $(this).width(_wTree[i]);
+                    });
+                    $(".uc_tree_list").show();
+                }
+                $(".uc_layout .signiture_w1,.uc_layout .signiture_w2").toggleClass("signiture_w1 signiture_w2");
+            }
+            /*************个性签名*****************/
+            $("#uc_dasd").focus(function () {
+                $(this).css({ border: "solid 1px #B6B6B6", padding: "5px" });
+            }).focusout(function () {
+                $(this).css({ border: "", padding: "" });
+                alert("保存个性签名");
+            });
+            /************导航菜单******************/
+            $(".uc_menu a").click(function () {
+                $(".uc_menu a").removeClass("current");
+                $(this).addClass("current");
+            });
+            /*************返回顶部****************/
+            GoTo_Top();
+            /************消息输入框*************/
+            var common_send_toggle = false;
+            $(".common_send .common_send_show").click(function () { $(this).hide(); $(this).parents(".common_send").find(".common_send_box").show().find(".common_send_textarea").focus(); });
+            $(".common_send").mouseenter(function () {
+                common_send_toggle = false;
+            }).mouseleave(function () {
+                common_send_toggle = true;
+            });
+            $(document).click(function () {
+                if (common_send_toggle) {
+                    $(".common_send .common_send_box").hide().find(".common_send_textarea").html("");
+                    $(".common_send .common_send_show").show();
+                }
+            });
+            $(".common_send .common_send_textarea").keyup(function () {
+                var n = 140 - isOverBytes($(this).text()) / 2;
+                $(".common_send .common_send_textarea_length").html(Math.ceil(n));
+                if (n < 0) {
+                    $(".common_send .common_send_textarea_length").css("color", "red");
+                    $(".common_send .common_send_box_btnSubmit").removeClass("common_button_emphasize common_button_disable").addClass("common_button_disable");
+                } else {
+                    $(".common_send .common_send_textarea_length").css("color", "");
+                    $(".common_send .common_send_box_btnSubmit").removeClass("common_button_emphasize common_button_disable").addClass("common_button_emphasize");
+                }
+                if ($(this).text().length == 0) {
+                    $(".common_send .common_send_box_btnSubmit").removeClass("common_button_emphasize common_button_disable").addClass("common_button_disable");
+                }
+            });
+            $(".common_send .common_send_people .common_send_people_box").click(function () { $(this).remove(); });
+
+            /*************列表关闭按钮********/
+            $(".pageChatList li").mouseenter(function () {
+                $(this).find(".pageChatList_Del").show();
+            }).mouseleave(function () {
+                $($(this).selector + " .pageChatList_Del").hide();
+            });
+
+            /*************单人聊天关闭按钮********/
+            $(".pageChatArea li").mouseenter(function () {
+                $(this).find(".pageChatAreaListClose").show();
+            }).mouseleave(function () {
+                $(this).find(".pageChatAreaListClose").hide();
+            }).find(".pageChatAreaListClose").click(function () {
+                $(this).parents("li").remove();
+                alert("删除聊天");
+            });
+            /************单人聊天-回复消息输入框*************/
+            $(".pageChatArea .pageChatArea_textarea").keyup(function () {
+                var n = 140 - isOverBytes($(this).text()) / 2;
+                $(".pageChatArea .pageChatArea_textarea_length").html(Math.ceil(n));
+                if (n < 0) {
+                    $(".pageChatArea .pageChatArea_textarea_length").css("color", "red");
+                    $(".pageChatArea .pageChatArea_btnSubmit").removeClass("common_button_emphasize common_button_disable").addClass("common_button_disable");
+                } else {
+                    $(".pageChatArea .pageChatArea_textarea_length").css("color", "");
+                    $(".pageChatArea .pageChatArea_btnSubmit").removeClass("common_button_emphasize common_button_disable").addClass("common_button_emphasize");
+                }
+                if ($(this).text().length == 0) {
+                    $(".pageChatArea .pageChatArea_btnSubmit").removeClass("common_button_emphasize common_button_disable").addClass("common_button_disable");
+                }
+            });
+            /*************列表-单人聊天页签***********/
+            ///点击添加聊天页签
+            $(".pageChatList .pageChatOpen").click(function () {
+                var _id = $(this).attr("tid");
+                var _name = $(this).attr("name");
+                var _length = $("#pageChatTabs li").length;
+                //判断是否已经打开页签，如果打开激活页签
+                for (var i = 0; i < $("#pageChatTabs li").length; i++) {
+                    if ($("#pageChatTabs li").eq(i).attr("id") == _id) {
+                        var _this = $("#pageChatTabs li").eq(i);
+                        $("#pageChatTabs li").removeClass("current").removeClass("border_b");
+                        _this.addClass("current").find("a").addClass("border_b");
+                        ajaxChatOne(_this.attr("id"));
+                        return;
+                    }
+                }
+                for (var i = 0; i < pageChatMoreData.length; i++) {
+                    if (pageChatMoreData[i].id == _id) {
+                        $("#pageChatTabsMoreMenuList a[id='" + _id + "']").trigger("click");
+                        return;
+                    }
+                }
+                //插入页签
+                if (_length == 0) {
+                    $("#pageChatTabs ul").html("<li id=\"" + _id + "\" class=\"current\"><a hidefocus=\"true\" href=\"javascript:void(0)\" class=\"border_b last_tab\" title=\"" + _name + "\"><span class=\"ico16 chat_16 margin_r_5\"></span>" + _name + "</a><span class='pageChatTabsClose_box'><span class='pageChatTabsClose'><span class=\"ico16 for_close_16\"></span></span></span></li>");
+                } else if (1 <= _length && _length <= 2) {
+                    $("#pageChatTabs li").removeClass("current");
+                    $("#pageChatTabs li:first").before("<li id=\"" + _id + "\" class=\"current\"><a hidefocus=\"true\" href=\"javascript:void(0)\" class=\"border_b\" title=\"" + _name + "\"><span class=\"ico16 chat_16 margin_r_5\"></span>" + _name + "</a><span class='pageChatTabsClose_box'><span class='pageChatTabsClose'><span class=\"ico16 for_close_16\"></span></span></span></li>");
+                } else {
+                    if ($("#pageChatTabs li:last a").attr("id") != "pageChatTabsMore") {
+                        $("#pageChatTabs li a").removeClass("last_tab");
+                        $("#pageChatTabs li:last").after("<li><a id=\"pageChatTabsMore\" hidefocus=\"true\" href=\"javascript:void(0)\" class=\"last_tab\">更多<span class=\"ico16 arrow_1_b\"></span></a></li>");
+                    }
+                    //生成下拉列表
+                    var _l = pageChatMoreData.length;
+                    pageChatMoreData.push({
+                        id: _id,
+                        name: "<span class=\"ico16 chat_16 margin_r_5\"></span>" + _name,
+                        handle: function funH(json) {
+                            var _id = this.id;
+                            var _t = this.name;
+                            pageChatMoreData.splice(_l, 1, {
+                                id: $("#pageChatTabs li").eq(2).attr("id"),
+                                name: $("#pageChatTabs li").eq(2).find("a").html(),
+                                handle: funH
+                            });
+                            $("#pageChatTabs li").eq(2).attr("id", _id).find("a").html(_t);
+                            pageChatMore(pageChatMoreData);
+                            $("#pageChatTabs li").removeClass("current").removeClass("border_b");
+                            $("#pageChatTabs li").eq(2).addClass("current").find("a").addClass("border_b");
+                            ajaxChatOne(json.id);
+                        }
+                    });
+                    pageChatMore(pageChatMoreData);
+                }
+                ///绑定页签切换事件
+                $("#pageChatTabs li").unbind().click(function () {
+                    if ($(this).attr("id")) {
+                        $("#pageChatTabs li").removeClass("current").removeClass("border_b");
+                        $(this).addClass("current").find("a").addClass("border_b");
+                        ajaxChatOne($(this).attr("id"));
+                    }
+                }).mouseenter(function () {
+                    $(this).find(".pageChatTabsClose").show();
+                }).mouseleave(function () {
+                    $(this).find(".pageChatTabsClose").hide();
+                });
+                //页签关闭操作
+                $("#pageChatTabs li .pageChatTabsClose").unbind().click(function () {
+                    if (pageChatMoreData.length == 0) {
+                        $(this).parents("li").remove();
+                        $("#pageChatTabs li:last a").addClass("last_tab");
+                        $("#pageChatTabs li:first").trigger("click");
+                        return;
+                    }
+                    if (pageChatMoreData.length == 1) {
+                        var obj = $("#pageChatTabs li:eq(2)");
+                        obj.attr("id", pageChatMoreData[0].id);
+                        obj.find("a").html(pageChatMoreData[0].name);
+                        $("#pageChatTabs li:last").remove();
+                        $("#pageChatTabs li:last a").addClass("last_tab");
+                        pageChatMoreData.shift();
+                        pageChatMore(pageChatMoreData);
+                    }
+                    if (pageChatMoreData.length > 1) {
+                        var obj = $("#pageChatTabs li:eq(2)");
+                        obj.attr("id", pageChatMoreData[0].id);
+                        obj.find("a").html(pageChatMoreData[0].name);
+                        pageChatMoreData.shift();
+                        pageChatMore(pageChatMoreData);
+                    }
+                }).mouseenter(function () {
+                    $(this).find(".ico16").removeClass("for_close_16 hover_close_16").addClass("hover_close_16");
+                }).mouseleave(function () {
+                    $(this).find(".ico16").removeClass("for_close_16 hover_close_16").addClass("for_close_16");
+                });
+                if (pageChatMoreData.length > 0) {
+                    $("#pageChatTabsMoreMenuList a[id='" + _id + "']").trigger("click");
+                } else {
+                    ajaxChatOne(_id);
+                }
+            });
+            var pageChatMoreData = [];
+            pageChatMore(pageChatMoreData);
+            function pageChatMore(d) {
+                $("#pageChatTabsMore").menuSimple({
+                    id: "pageChatTabsMoreMenuList",
+                    width: 100,
+                    offsetTop: -4,
+                    data: d
+                });
+            }
+        })
+        ///字节计算器-区分全角半角
+        function isOverBytes(s, maxbytes) {
+            var i = 0;
+            var bytes = 0;
+            var uFF61 = parseInt("FF61", 16);
+            var uFF9F = parseInt("FF9F", 16);
+            var uFFE8 = parseInt("FFE8", 16);
+            var uFFEE = parseInt("FFEE", 16);
+            while (i < s.length) {
+                var c = parseInt(s.charCodeAt(i));
+                if (c < 256) {
+                    bytes = bytes + 1;
+                }
+                else {
+                    if ((uFF61 <= c) && (c <= uFF9F)) {
+                        bytes = bytes + 1;
+                    } else if ((uFFE8 <= c) && (c <= uFFEE)) {
+                        bytes = bytes + 1;
+                    }
+                    else {
+                        bytes = bytes + 2;
+                    }
+                }
+                i = i + 1;
+            }
+            return bytes;
+        }
+        ///会话聊天ajax
+        function ajaxChatOne(id) {
+            alert("会话聊天ajax___ID:" + id);
+        }
+    </script>
+</head>
+<body class="uc_bg_color">
+    <div class="uc_layout">
+        <div class="uc_layout_sideL">
+            <div class="clearfix">
+                <div class="gravatar left">
+                    <img class="img" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" width="100" height="100" alt="" />
+                    <div class=""></div>
+                </div>
+                <div class="over_auto font_size12 padding_l_20 line_height180">
+                    <p class="margin_t_10">张仃</p>
+                    <p>用户体验部-交互设计师，云产品-交互设计师</p>
+                    <p id="uc_dasd" class="word_break_all color_blue" contenteditable="true">颤三颤！颤三颤！颤三颤！颤三颤！个人说明</p>
+                </div>
+            </div>
+            <div class="margin_t_10 common_send">
+                <div class="common_send_show">
+                    发起交流信息
+                </div>
+                <div class="common_send_box hidden">
+                    <div class="common_send_textarea" contenteditable="true"></div>
+                    <div class="clearfix margin_t_10">
+                        <a href="javascript:void(0)" class="common_button right margin_l_10">添加群/同事<span class="ico16"></span></a>
+                        <div class="common_send_people">
+                            <p class="common_send_people_tip">所有关注我的人</p>
+                            <!--<span class="common_send_people_box">乔丽<em class="ico16"></em></span>
+                            <span class="common_send_people_box">乔丽<em class="ico16"></em></span>
+                            <span class="common_send_people_box">乔丽乔丽乔丽乔丽乔乔乔乔<em class="ico16"></em></span>
+                            <span class="common_send_people_box">乔丽乔丽乔丽乔丽乔丽乔丽乔丽乔<em class="ico16"></em></span>
+                            <span class="common_send_people_box">乔丽<em class="ico16"></em></span>
+                            <span class="common_send_people_box">乔丽<em class="ico16"></em></span>-->
+                        </div>
+                    </div>
+                    <div class="clearfix margin_t_10">
+                        <span class="left margin_t_5"><a href="javascript:void(0)"><em class="ico16 face_16 margin_r_5"></em>表情</a>&nbsp;<a href="javascript:void(0)"><em class="ico16 affix_16 margin_r_5"></em>附件</a>&nbsp;<a href="javascript:void(0)"><em class="ico16 relate_file_16 margin_r_5"></em>关联文档</a>&nbsp;<span class="color_gray">您还可以输入<span class="common_send_textarea_length">140</span>个汉字</span></span>
+                        <a href="javascript:void(0)" class="common_send_box_btnSubmit common_button common_button_disable right">发送</a>
+                    </div>
+                </div>
+            </div>
+            <div class="uc_menu margin_t_10">
+                <a href="javascript:void(0)" class="current"><span class="ico16 work_kik_16 margin_t_10"></span><br />工作微信</a>
+                <a href="javascript:void(0)"><span class="ico16 system_messages_16 margin_t_10"></span><br />系统消息</a>
+                <a href="javascript:void(0)"><span class="ico16 our_cadre_16 margin_t_10"></span><br />本部门</a>
+                <a href="javascript:void(0)"><span class="ico16 associated_persons_16 margin_t_10"></span><br />关联人员</a>
+                <a href="javascript:void(0)"><span class="ico16 group_16 margin_t_10"></span><br />群组</a>
+                <a href="javascript:void(0)" class="all">全部</a>
+            </div>
+            <div class="clearfix font_size12 margin_t_10">
+                <a id="toggleListTreeBtn" value="1" class="left margin_t_5" href="#"><span class="ico16 list_show_16 margin_r_5"></span><span>列表显示</span></a>
+                <div class="right common_search_box clearfix">
+                    <ul class="common_search">
+                        <li id="inputBorder" class="common_search_input">
+                            <input class="search_input" type="text">
+                        </li>
+                        <li><a class="common_button common_button_gray search_buttonHand" href="javascript:void(0)"><em></em></a></li>
+                    </ul>
+                </div>
+                <div class="right margin_t_5 common_checkbox_box clearfix">
+                    <label for="Checkbox1" class="margin_r_10 hand color_gray">
+                        <input type="checkbox" value="0" id="Checkbox1" name="option" class="radio_com">显示离线人员</label></div>
+                <span class="right margin_t_5 margin_r_10 color_gray">人员:<span class="font_bold green">122</span>/335</span>
+            </div>
+            <div class="clearfix margin_t_10">
+                <div class="uc_tree_list hidden">
+                    tree<br />
+                </div>
+                <table width="" border="0" cellspacing="0" cellpadding="0" class="only_table">
+                    <thead>
+                        <tr>
+                            <th width="120">姓名</th>
+                            <th width="">部门</th>
+                            <th width="">岗位</th>
+                            <th width="402">签名</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="ucFaceImage"><span class="onlineState_box"><span class="onlineState ico16 online_news_16"></span></span>
+                                    <img class="img" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" width="42" height="42" alt=""><span class="name text_overflow">乔丽乔丽乔丽</span></div>
+                            </td>
+                            <td><div class="w100 text_overflow">部门部门部门部门部门部门部门部门部门部门部门</div></td>
+                            <td><div class="w100 text_overflow">岗位岗位岗位岗位岗位岗位岗位岗位岗位岗位岗位</div></td>
+                            <td>
+                                <div class="signiture_w2 text_overflow left">&nbsp;</div>
+                                <span class="send_messages_icon_box"><span class="send_messages_icon ico16 send_messages_16"></span></span>
+                            </td>
+                        </tr>
+                        <tr class="erow">
+                            <td>
+                                <div class="ucFaceImage"><span class="onlineState_box"><span class="onlineState ico16 online_news_16"></span></span>
+                                    <img class="img" src="http://img.baidu.com/img/image/liulanimage/w_quweigaoxiao.jpg?0225" width="42" height="42" alt=""><span class="name">乔丽</span></div>
+                            </td>
+                            <td><div class="w100 text_overflow">部门</div></td>
+                            <td><div class="w100 text_overflow">岗位</div></td>
+                            <td>
+                                <div class="signiture_w2 text_overflow left">签名签名签</div>
+                                <span class="send_messages_icon_box"><span class="send_messages_icon ico16 send_messages_16"></span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" class="border_t_gray" align="right">
+                                <div class="common_over_page padding_tb_10">
+                                    <a href="#" class="common_over_page_btn" title="首页"><em class="pageFirst"></em></a>
+                                    <a href="#" class="common_over_page_btn" title="上一页"><em class="pagePrev"></em></a>
+                                    <span class="margin_l_10">第</span><input type="text" class="common_over_page_txtbox">页/13页
+    <a href="#" class="common_over_page_btn" title="下一页"><em class="pageNext"></em></a>
+                                    <a href="#" class="common_over_page_btn" title="尾页"><em class="pageLast"></em></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="uc_layout_sideR align_center">
+            <div class="margin_t_10 font_size12 color_gray">UC工具</div>
+            <a href="javascript:void(0)"><img class="margin_t_10" src="../../../skin/default/images/uc/uc_yj.png" /></a>
+            <a href="javascript:void(0)"><img class="margin_t_10" src="../../../skin/default/images/uc/uc_sphy.png" /></a>
+            <a href="javascript:void(0)"><img class="margin_t_10" src="../../../skin/default/images/uc/uc_dx.png" /></a>
+            <a href="javascript:void(0)"><img class="margin_t_10" src="../../../skin/default/images/uc/uc_dzcz.png" /></a>
+        </div>
+    </div>
+</body>
+</html>
+

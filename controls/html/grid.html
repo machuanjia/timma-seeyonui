@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>grid</title>
+        <link rel="stylesheet" type="text/css" href="../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+        <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+        <script type="text/javascript" src="../../scriptes/jquery.js">
+        </script>
+        <script type="text/javascript" src="../../docs/resource/demo.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.contextmenu-debug.js">
+        </script>
+		<script src="../seeyon.ui.grid-debug.js"></script>
+		<script src="../seeyon.ui.arraylist-debug.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $.fn.codetext = function(options){
+                };
+                //$('.flexme1').flexigrid();
+                //$('.flexme2').flexigrid({height:'auto',striped:false});
+                //没有数据:87 20:431 100:1615   200:3225  400:6330
+                var testData = {
+                    "size": 20,
+                    "total": 349,
+                    "rows": [{
+                        "id": 10001,
+                        "username": "zhujl",
+                        "truename": "朱家玲",
+                        "handphone": "13808000661",
+                        "officephone": "028-85243926",
+                        "email": "",
+                        "birthday": "1910-01-01",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10001\"/>",
+                        "jiaqi": 2
+                    }, {
+                        "id": 10002,
+                        "username": "yuq<span class='ico16 affix_16'></span>",
+                        "truename": "余强",
+                        "handphone": "13901206080",
+                        "officephone": "",
+                        "email": "yuqiang@seeyon.com",
+                        "birthday": "1965-03-21",
+                        "idString": "<input type=\"checkbox\" vlaue=\"10002\"/>",
+                        "jiaqi": 2
+                    }],
+                    "page": 1,
+                    "pages": 18,
+                    "startAt": 0,
+                    "dataCount": 20,
+                    "sortField": null,
+                    "sortOrder": null
+                };
+                function render(text, row, rowIndex, colIndex){
+					if(row.id=='10001' && colIndex==1){
+						return "<span class='ico16 affix_16'></span>"+text+"<span class='ico16 affix_16'></span>";
+					}
+                    if (rowIndex == 1 && colIndex == 1) {
+                        return "<a id='ssssssssdemo' href='javascript:alert(1)'>" + text + "</a>";
+                    }
+                    else {
+                        return text;
+                    }
+                }
+                var grid = $("#flexme3").ajaxgrid({
+                    click: testCellAction,
+                    dblclick: testCellActionDB,
+                    render: render,
+                    datas: testData,
+                    colModel: [{
+                        display: 'id',
+                        name: 'id',
+                        width: '5%',
+                        sortable: false,
+                        type: 'checkbox',
+						align: 'center'
+                    }, {
+                        display: 'username',
+                        name: 'username',
+                        width: '25%',
+                        sortable: true,
+                        align: 'left'
+                    }, {
+                        display: 'truename',
+                        name: 'truename',
+                        width: '15%',
+                        sortable: true,
+                        align: 'left'
+                    }, {
+                        display: 'handphone',
+                        name: 'handphone',
+                        width: '15%',
+                        //hide: true,
+                        sortable: true
+                    }, {
+                        display: 'officephone',
+                        name: 'officephone',
+                        width: '10%',
+                        sortable: true,
+                        align: 'left'
+                    }, {
+                        display: 'email',
+                        name: 'email',
+                        width: '10%',
+                        sortable: true,
+                        align: 'left'
+                    }, {
+                        display: 'birthday',
+                        name: 'birthday',
+                        width: '10%',
+                        sortable: true
+                    }, {
+                        display: 'jiaqi',
+                        name: 'jiaqi',
+                        width: '10%',
+                        sortable: true,
+                        align: 'left'
+                    }],
+                    
+                    sortname: "id",
+                    sortorder: "asc",
+                    width: 1000,
+                    height: 300,
+                    resizable:false
+                    //managerName:"a6UserManager",
+                    //managerMethod:"selectPerson"
+                });
+                
+                function testCellAction(row, rowIndex, colIndex){
+                    //$('#s').val('click----' + row.id + '---' + colIndex + '---' + rowIndex)
+                }
+                
+                function testCellActionDB(row, rowIndex, colIndex){
+                    //$('#s').val('DBclick----' + row.id + '---' + colIndex + '---' + rowIndex)
+                }
+				
+				$('#getdddselect').click(function(){
+					rows = grid.grid.getSelectRows();
+					alert(rows[0].id)
+				});
+            });
+        </script>
+    </head>
+    <body>
+        <h3>[1.grid示例]</h3>
+		<input type="button" value="select" id="getdddselect" class="hidden"/>
+        <table class="docsShowTable">
+            <tr>
+                <td class="td">
+                    定义
+                </td>
+                <td class="td">
+                    用于通过单选或多选的方式，查看并操作一个数据对象集合，支持带标题的多个列、按列全局排序、更改列的宽度和顺序、拖拽排序、列信息可配置、列视图切换操作。
+                </td>
+            </tr>
+            <tr>
+                <td class="td" width="200">
+                    grid示例
+                </td>
+                <td class="td">
+                    <div class="button_box clearfix">
+                        <br/>
+                        <table id="flexme3" class="flexme3" style="display: none">
+                        </table>
+                        <input type="hidden" id='s' style="width: 300px;"/>
+                    </div>
+                   
+                </td>
+            </tr>
+        </table>
+        <h3 class="design_hide dev_hide ">[2.使用实例]</h3>
+        <table class="docsShowTable design_hide dev_hide">
+            <tr>
+                <td class="td" width="200">
+                </td>
+                <td class="td code">
+                </td>
+            </tr>
+        </table>
+        <h3 class="design_hide">[7.代码说明]</h3>
+        <table class="docsShowTable design_hide">
+            <tr>
+                <td class="td" width="400">
+                    简单表格初始化
+                </td>
+                <td class="td">
+                    <div class="sorce_code">
+                        <pre>
+var grid = $("#mytable").ajaxgrid({
+      colModel : [ {
+        display : 'id',
+        name : 'orgid',
+        width : '40%',
+        type : 'checkbox'
+      }, {
+        display : '组织名称',
+        name : 'orgname',
+        width : '30%',
+      }, {
+        display : '父组织ID',
+        name : 'parentid',
+        width : '30%'
+      } ],
+      managerName : "testPagingManager",//Ajax翻页调用的Manager在sprint中的bean id
+      managerMethod : "testPaging"//Ajax翻页调用的Manager的方法，接收参数必须是两个(FlipInfo fi, Map param)，翻页信息类和查询参数map 
+});
+var o = new Object();
+o.orgname = "%";
+$("#mytable").ajaxgridLoad(o);
+
+&lt;table id="mytable"&gt;&lt;/table&gt;
+</pre>
+                    </div>
+<pre>
+	
+页面加载完成之后调用ajaxgridLoad进行首次数据加载，输入参数对象为查询条件(Manager方法的第二个参数接收)，另外，也可利用表单自动回填机制，在controller中做如下动作：
+
+</pre>
+<div style="display: block;" class="sorce_code">
+<pre>
+TestPagingManager testBS = (TestPagingManager) AppContext.getBean("testPagingManager");
+Map param = new HashMap();
+param.put("orgname", "%");
+FlipInfo fi = testBS.testPaging(new FlipInfo(), param);
+request.setAttribute("ffmytable", fi);//ff表示需要自动回填，之后为要回填的表格id，值必须为FlipInfo翻页信息对象
+</pre>
+</div>					
+                </td>
+            </tr>
+			
+			<tr>
+			<td class="td">
+				详细实例
+			</td>
+			<td class="td">
+				<div class="sorce_code">
+					<pre>
+				
+&lt;%@ page contentType="text/html; charset=utf-8" isELIgnored="false"%&gt;
+&lt;%@ include file="/WEB-INF/jsp/common/common.jsp"%&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;AjaxPagingGrid测试&lt;/title&gt;
+&lt;script text="text/javascript"&gt;
+  $(function() {
+    var t = $("#mytable").ajaxgrid({
+      click : clk,//单击事件
+      dblclick : dblclk,//双击事件
+      render : rend,//function rend(txt,data, r, c)，自定义渲染器，可以对单元格显示数据和样式进行加工展现，txt为渲染单元格文本，data为渲染行数据对象，r为行，c为列
+      colModel : [ {
+        display : 'id',
+        name : 'orgid',
+        width : '40',
+        sortable : false,
+        align : 'center',
+        type : 'checkbox'
+      }, {
+        display : '组织名称',
+        name : 'orgname',
+        width : '180',
+        sortable : true,
+        align : 'left'
+      }, {
+        display : '父组织ID',
+        name : 'parentid',
+        width : '180',
+        sortable : true,
+        align : 'left',
+        codecfg : "codeId:'test_code'"//定义框架自动枚举转换规则，具体请参考“枚举组件”部分说明
+      } ],
+      searchitems : [ {
+        display : '组织ID',
+        name : 'orgid'
+      }, {
+        display : '组织名称',
+        name : 'orgname'
+      } ],
+      width : 1200,
+      height : 400,
+      managerName : "testPagingManager",
+      managerMethod : "testPaging"
+    });
+    function rend(txt,data, r, c) {
+      if (c == 0)
+        return '&lt;input type="checkbox" value="'+txt+'"&gt;';
+      else
+        return txt;
+    }
+    function clk(data, r, c) {
+      $("#txt").val("clk:" + $.toJSON(data) + "[" + r + ":" + c + "]");
+    }
+    function dblclk(data, r, c) {
+      $("#txt").val("dblclk:" + $.toJSON(data) + "[" + r + ":" + c + "]");
+    }
+    $("#btn").click(function() {
+      var v = $("#mytable").formobj({//获取表格数据对象，用于ajax或其它处理操作,另外，还可以使用$("#mytable").ajaxgridData(objs)手工加载数据，objs结构为{ rows : [], page : 0, total : 0 }，rows为数据对象数组，page为页，total为总记录数
+        gridFilter : function(data, row) {
+          return $("input:checkbox", row)[0].checked;
+        }
+      });
+      alert($.toJSON(v));
+    });
+  });
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class="body-pading" leftmargin="0" topmargin="" marginwidth="0" marginheight="0"&gt;
+    &lt;input id="txt" type="text" size="100"&gt;
+    &lt;input id="btn" type="button" value="取数"&gt;
+    &lt;div class="classification"&gt;
+        &lt;div class="title"&gt;grid示例&lt;/div&gt;
+        &lt;div class="list"&gt;
+            &lt;div class="button_box clearfix"&gt;
+                &lt;table id="mytable" style="display: none"&gt;&lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id="searchHTML"&gt;
+        组织ID：&lt;input name="orgid" type="text" /&gt;组织名称&lt;input name="orgname" type="text" /&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+					</pre>
+				</div>
+			</td>
+			</tr>
+			<!--
+            <tr>
+                <td class="td">
+                    表格初始化之后，第一页的数据不是通过ajax请求的数据过来的，而是后台传过来的。
+                    <br/>
+                    而且使用的是表单回填的机制，只不过setAttribute进去的对象类型是FlipInfo。
+                    <br/>
+                    必须将一个FlipInfo对象压入request中，其key以ff开头，后面的字符是前台table标签的id。
+                </td>
+                <td class="td">
+                    <div class="sorce_code">
+                        <pre>
+FlipInfo fi = new FlipInfo();
+Map params = new HashMap();
+request.setAttribute("fftestList", a6userManager.selectPerson(fi, params));
+</pre>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    列表组件是一个跨越前台和后台的组件。
+                    <br/>
+                    当调用flexigrid函数时，需要统一提供managerName和managerMethod参数。
+                    <br/>
+                    该组件与ajax组件硬性捆绑，使用ajax方式指定Manager来翻页、查询、排序。
+                    <br/>
+                    表格初始化之后，第一页的数据不是通过ajax请求的数据过来的以下是功能和参数说明
+                </td>
+                <td class="td">
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    排序功能后台处理
+                </td>
+                <td class="td">
+                    <div class="sorce_code">
+                        <pre>
+当需要排序功能时，组件已经将排序列和排序顺序（顺序还是倒叙）的参数接收过来，放入fi对象中，只需要判断是否为空即可。
+if(fi!=null){
+    if(fi.getSortField()!=null && fi.getSortOrder()!=null){
+        orderby =  " order by a."+fi.getSortField()+" "+fi.getSortOrder();
+    }
+}
+</pre>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    查询功能（组件提供）后台参数接收
+                </td>
+                <td class="td">
+                    <div class="sorce_code">
+                        <pre>
+当需要组件的查询功能时，后台请接收参数qtype和query，自行拼接sql语句。
+例如：
+Object qtypeObj = params.get("qtype");
+Object queryObj = params.get("query");
+if(qtypeObj!=null && queryObj!=null){
+    confitionFlag = true;
+    String query = qtypeObj.toString().trim();
+    if("truename".equals(query)
+            || "username".equals(query)){
+        where += " a." + qtypeObj.toString() + " like :"+qtypeObj.toString();
+        paramss.put(qtypeObj.toString(), "%"+queryObj.toString()+"%");
+    }
+}
+</pre>
+                    </div>
+                </td>
+            </tr>
+			-->
+            <!--
+            <tr>
+            <td class="td">
+            查询功能（自定义）后台参数接收
+            <br/>
+            前台调用flexigrid函数时指定了searchHTML参数。
+            </td>
+            <td class="td">
+            <div class="sorce_code">
+            <pre>
+            Object usernameObj = params.get("username");
+            if(usernameObj!=null){
+            confitionFlag = true;
+            String username = usernameObj.toString().trim();
+            where += " a.username like :username";
+            paramss.put("username","%"+username+"%");
+            }
+            </pre>
+            </div>
+            </td>
+            </tr>
+            -->
+        </table>
+        <h3 class="design_hide">[4.属性]</h3>
+        <table class="docsShowTable design_hide">
+            <tr class="head">
+                <td class="td" width="200">
+                    属性
+                </td>
+                <td class="td" width="200">
+                    类型
+                </td>
+                <td class="td">
+                    描述
+                </td>
+            </tr>
+			<tr>
+                <td class="td">
+                    colModel
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+<PRE>             	
+colModel : [ {
+	display : 'id',//对应数据中的字段名
+	name : 'orgid',
+	width : '40%',//宽度可为数字或百分比[字符串]
+	type : 'checkbox',//是否是checkbox或radio[一般只有第一列显示]
+	hide:false//默认显示与否,
+	sortType:'number', //按数字排序
+},{
+	display : 'id1',//对应数据中的字段名
+	name : 'orgid1',
+	width : '40%',//宽度可为数字或百分比[字符串]
+	type : 'date',//是否是checkbox或radio[一般只有第一列显示]
+	hide:false//默认显示与否,
+	sortType:'date',//按时间排序
+	isToggleHideShow:false//控制在表头下拉菜单中是否显示列项[默认把name为'id','name','title'隐藏了]
+}]
+</PRE>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    managerName
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    后台Manager的名称（必须提供该参数）
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    managerMethod
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    后台对应Manager的方法名（必须提供该参数）
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    colModel
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    列描述，要求是一个数组（必须提供该参数）其中的每一个元素都应该是一个Object
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    click
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    单击事件返回值:row(行json对象),colIndex(所在列index值),rowIndex(所在行index值)
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    dbclick
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    双击事件返回值:row(行json对象),colIndex(所在列index值),rowIndex(所在行index值)
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    height
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    高度[px]，默认200px
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    width
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    宽度值[px],默认auto表示根据每列的宽度自动计算
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    striped
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    是否显示斑纹效果，默认是奇偶交互的形式
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    minwidth
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    列的最小宽度,默认30
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    minheight
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    列的最小高度，默认80
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    resizable
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    是否可伸缩
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    errormsg
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    错误提示信息
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    usepager
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    是否分页[false]
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    page
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    默认当前页[1]
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    total
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    总页面数[1]
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    useRp
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    是否可以动态设置每页显示的结果数[true]
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    rp
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    每页默认的结果数[15]
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    rpOptions
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    可选择设定的每页结果数[10,15,20,25,40]
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    title
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    是否包含标题[false]
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    procmsg
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    正在处理的提示信息['Processing, please wait …']
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    query
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    搜索查询的条件
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    qtype
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    搜索查询的类别
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    nomsg
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    无结果的提示信息
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    blockOpacity
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    透明度设置
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    blockOpacity
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    透明度设置
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    onChangeSort
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    当改变排序时执行的函数，默认为false。当该属性设置时，组件不再使用自己的查询机制。
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    onCurrentPageSort
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    是否只对当前页的数据进行排序，默认为false。当设置为true时，只对当前页的数据进行排序。
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    onSuccess
+                </td>
+                <td class="td">
+                </td>
+                <td class="td">
+                    成功后执行的函数
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    slideToggleBtn
+                </td>
+                <td class="td">
+                    bool
+                </td>
+                <td class="td">
+                    上下伸缩按钮是否显示
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    slideToggleUpHandle
+                </td>
+                <td class="td">
+                    function
+                </td>
+                <td class="td">
+                    向上按钮委托执行的方法
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    slideToggleDownHandle
+                </td>
+                <td class="td">
+                    function
+                </td>
+                <td class="td">
+                    向下按钮委托执行的方法
+                </td>
+            </tr>
+			<tr>
+                <td class="td">
+                    resizeGridUpDown
+                </td>
+                <td class="td">
+                    
+                </td>
+                <td class="td">
+                   动态设置分割条位置，参数为'up','middle','down'。grid.grid.resizeGridUpDown('up')
+                </td>
+            </tr>
+			
+			
+			<tr>
+                <td class="td">
+                    customize
+                </td>
+                <td class="td">
+                    
+                </td>
+                <td class="td">
+                   是否启用个性化存储，默认为true
+                </td>
+            </tr>
+			<tr>
+                <td class="td">
+                    customId
+                </td>
+                <td class="td">
+                    
+                </td>
+                <td class="td">
+                   个性化存储id ，默认值为$.ctx._currentPathId,自定义的化在默认值后添加后缀,例如customId : $.ctx._currentPathId_+"${xxx.ff}";
+                </td>
+            </tr>
+			
+        </table>
+        <h3 class="design_hide dev_hide">[5.事件]</h3>
+        <table class="docsShowTable design_hide dev_hide">
+            <tr class="head">
+                <td class="td" width="200">
+                    事件
+                </td>
+                <td class="td">
+                    描述
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                </td>
+                <td class="td">
+                </td>
+            </tr>
+        </table>
+        <h3 class="design_hide">[6.方法]</h3>
+        <table class="docsShowTable design_hide">
+            <tr class="head">
+                <td class="td" width="200">
+                    方法
+                </td>
+                <td class="td">
+                    描述
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                      获取grid参数
+                </td>
+                <td class="td">
+                    grid.p//得到该grid所有参数
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    获取grid事件
+                </td>
+                <td class="td">
+                    grid.grid//得到该grid处理方法
+                </td>
+            </tr>
+			<tr>
+                <td class="td">
+                    getSelectRows()
+                </td>
+                <td class="td">
+                    var rows = grid.grid.getSelectRows();
+					//获取列表组件选中行记录,返回值为数组[{"id": 10001, ... },{"id": 10001, ... }]
+                </td>
+            </tr>
+			<tr>
+                <td class="td">
+                    callBackTotle
+                </td>
+                <td class="td">
+                    设置totle条数回调函数 类似:render
+                </td>
+            </tr>
+			
+        </table>
+       
+         <h3>[3.UE]</h3>
+        <table class="docsShowTable">
+            <tr>
+                <td class="td" width="">
+                    使用模式：
+                </td>
+                <td class="td">
+                    所有视图都支持单选、多选、全选。单选即用户一次可选择一项；而多选即用户可选择任意项，包括不选；
+                    <br/>
+                    全选即通过全选框，一次性全选所有列表项。
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    设计规范：
+                </td>
+                <td class="td">
+                    呈现
+                    <br/>
+                    1）以逻辑顺序排列列表项
+                    <br/>
+                    2）避免呈现空的列表视图。如果用户创建了一个列表，应当将用说明文本或用户可能会需要的示例项来初始化该列表。
+                    <br/>
+                    3）如果用户更改视图、分组、按列排序或是改变列及其宽度与顺序的话，应当维持这些设置使下次显示该列表视图时这些设置仍然有效。这些设置应当是基于特定的列表视图及用户的。
+                    <br/>
+                    4）列表默认最多支持8列信息呈现
+                    <br/>
+                    5）支持全局按列排序。
+                    <br/>
+                    6）支持全局翻页排序。
+                    <br/>
+                    7）表头区域保持固定，不随滚动条上下移动。
+                    <br/>
+                    8）页面默认显示列表行数：20行，当列表信息总数小于等于20行时，不出现翻页显示
+                    <br/>
+                    <br/>
+                    交互
+                    <br/>
+                    1）使用单击以选择用户指向的列表项。
+                    <br/>
+                    2）列表中双击全屏打开列表信息。
+                    <br/>
+                    3）默认无水平滚动条。
+                </td>
+            </tr>
+        </table>
+        <div class="contextMenu" id="myMenu1">
+            <ul class="common_order_menu ">
+                <li id="open">
+                    <span class="ico16 del_16 margin_r_5"></span>menu1
+                </li>
+                <li id="email">
+                    <span class="ico16 del_16 margin_r_5"></span>menu1
+                </li>
+                <li id="save">
+                    <span class="ico16 del_16 margin_r_5"></span>menu1
+                </li>
+                <li id="delete">
+                    <span class="ico16 del_16 margin_r_5"></span>menu1
+                </li>
+            </ul>
+        </div>
+        <input type="button" value="sssssssss" id="ssssdddd" class="hidden"/>
+    </body>
+</html>
+<script>
+    $(document).ready(function(){
+        $('#ssssdddd').click(function(){
+            var sssss = $('.flexme3').getSelectCheckbox();
+            alert(sssss.length)
+        });
+        
+        
+        $('tr .bDiv').contextMenu('myMenu1', {
+            onContextMenu: function(e){
+                if ($(e.target).parent().parent().attr('id') == 'row10001') {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            },
+            onShowMenu: function(e, menu){
+                if ($(e.target).parent().parent().attr('id') == 'row10002') {
+                    $('#email, #save', menu).remove();
+                }
+                return menu;
+            },
+            bindings: {
+                'open': function(t){
+                    alert('Trigger was ' + t.id + '\nAction was Open');
+                },
+                'email': function(t){
+                    alert('Trigger was ' + t.id + '\nAction was Email');
+                },
+                'save': function(t){
+                    alert('Trigger was ' + t.id + '\nAction was Save');
+                },
+                'delete': function(t){
+                    alert('Trigger was ' + t.id + '\nAction was Delete');
+                }
+            }
+        });
+    });
+</script>

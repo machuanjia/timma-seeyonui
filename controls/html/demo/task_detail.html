@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>目标管理详细</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+    <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../searchBox-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.menu-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.progress-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tab-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tree-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.json-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.code-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/i18n-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/v3x-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.pageMenu-debug.js"></script>
+    <style>
+	.stadic_head_height{
+		height:60px;
+	}
+	.stadic_body_top_bottom{
+		bottom: 5px;
+ 		top:60px;
+ 		width:auto;
+ 		left:5px;
+ 		right:5px;
+	}
+</style>
+
+</head>
+<body class="page_color">
+    <div id='layout' class="comp" comp="type:'layout'">
+        <div class="layout_north" layout="height:85,border:false,sprit:false">
+            <!--当前位置-->
+                <div class="common_crumbs padding_l_10  padding_b_5  padding_t_5">
+                    <span class="margin_r_10">当前位置:</span><a href="#">我的任务</a><span class="common_crumbs_next margin_lr_5">-</span><a href="#">任务管理器</a>
+                </div>
+            <div class="hr_heng"> </div>
+            <table cellpadding="0" cellspacing="0" align="left" width="100%" class="font_size12 margin_t_5">
+            	<tr>
+            		<td rowspan="2" class="padding_l_5"><span class='ico16 much_important_16'></span><span class='ico16 milestone'></span><span class='ico16 risk_16'></span>9月15日前完成设计<span class='ico16 affix_16'></span></td>
+            		<td width="300" height="25">
+            			<span class='left margin_lr_5 color_gray'>已延期：</span>
+            			<p class='task_rate adapt_w left' style='margin-top:0; width:100px;'>
+            				<a href='#' class='rate_delay' style='width:30%;'></a>
+            			</p>
+            		</td>
+            		<td width="200" ><span class="color_gray">负责人：</span>李立、皓月、乔力</td>
+            	</tr>
+            	<tr>
+            		<td height="25"><span class="color_gray">当前耗时：</span>57小时 </td>
+            		<td><span class="color_gray">检查人：</span> 李继红</td>
+            	</tr>
+            </table>
+            <div class="hr_heng clear"> </div>
+        </div>
+         <div class="layout_east over_hidden" layout="width:300,sprit:false" style="border-top:none;">
+         	<div class="stadic_layout_head stadic_head_height">
+	            <a class="common_button common_button_gray right margin_5" href="javascript:void(0)">回复</a>
+	            <p class="font_size12  clear margin_l_5">任务回复：</p>
+            </div>
+            <div class="stadic_layout_body stadic_body_top_bottom">
+	            <ul style="background:#fff;" class=" border_all  font_size12">
+	            	<li class="padding_5 border_b">
+	            		<a href="javascript:void(0)">王君平</a>里程碑任务没有设置提醒
+	            		<p class="color_gray align_right">2012-11-06 11:00</p>
+	            	</li>
+	            	<li class="padding_5">
+	            		<a href="javascript:void(0)">王君平</a>里程碑任务没有设置提醒
+	            		<p class="color_gray align_right">2012-11-06 11:00</p>
+	            	</li>
+	            </ul>
+            </div>
+        </div>
+        <div class="layout_center over_hidden" layout="sprit:false">
+        	<div class="stadic_layout_head stadic_head_height">
+	           <div class="common_tabs clearfix margin_5 ">
+	                <ul class="left">
+	                    <li class="current"><a hideFocus="true" class="border_b" href="javascript:void(0)">任务详情</a></li>
+	                    <li><a hideFocus="true" href="javascript:void(0)">任务树</a></li>
+	                    <li><a hideFocus="true" href="javascript:void(0)">进展汇报</a></li>
+	                    <li><a hideFocus="true" class="last_tab" href="javascript:void(0)">相关计划</a></li>
+	                </ul>
+	            </div>
+	            <div class="font_size12 margin_t_5">
+	            	<a class="img-button margin_r_0" href="javascript:void(0)"><em class="ico16 edit_16"></em>修改</a>
+	            	<a class="img-button margin_r_0" href="javascript:void(0)"><em class="ico16 affix_16 "></em>分解</a>
+	            </div>
+           </div>
+           <div class="stadic_layout_body stadic_body_top_bottom  border_all" style="background:#fff;">
+           	
+         
+            <div class="people_msg font_size12 margin_lr_5 "  >
+            	<table width="500" class="padding_l_10">
+            		<tr>
+            			<th nowrap="nowrap" align="right">标题：</th>
+            			<td width="100%" colspan="3">9月15日前完成设计</td>
+            		</tr>
+            		<tr>
+            			<th nowrap="nowrap" align="right">上级任务：</th>
+            			<td width="50%">9月15日前完成设计</td>
+            			<th nowrap="nowrap" align="right">权重：</th>
+            			<td width="50%">9月15日前完成设计</td>
+            		</tr>
+            		<tr>
+            			<th nowrap="nowrap" align="right">标题：</th>
+            			<td width="100%" colspan="3">9月15日前完成设计</td>
+            		</tr>
+            		<tr>
+            			<th nowrap="nowrap" align="right">上级任务：</th>
+            			<td width="50%">9月15日前完成设计</td>
+            			<th nowrap="nowrap" align="right">权重：</th>
+            			<td width="50%">9月15日前完成设计</td>
+            		</tr>
+            		<tr>
+            			<td height="20"> </td>
+            		</tr>
+            		<tr>
+            			<th nowrap="nowrap" align="right">关联文档<span>(1)</span>：</th>
+            			<td width="100%" colspan="3">
+            				<span>
+            					<em class="ico16 associated_document_16"> </em>
+            					5.0目标管理设计
+            				</span>
+            			</td>
+            			
+            		</tr>
+            		<tr>
+            			<th nowrap="nowrap" align="right">附件<span>(1)</span>：</th>
+            			<td width="100%" colspan="3">
+            				<span>
+            					<em class="ico16 affix_16"> </em>
+            					5.0目标管理设计
+            				</span>
+            			</td>
+            			
+            		</tr>
+            	</table>
+            	
+            </div>
+         </div>
+</div>
+   </div>
+    
+</body>
+</html>

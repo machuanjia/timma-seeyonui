@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html class="h100b over_hidden">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>借阅请求</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+    <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../searchBox-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.menu-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.progress-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tab-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tree-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js"></script>
+    <script type="text/javascript" src="../../seeyon.ui.common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.json-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.code-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/common-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/i18n-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/v3x-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js"></script>
+    <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js"></script>
+    <style type="text/css">
+        .stadic_head_height { height: 56px; }
+        .stadic_body_top_bottom { bottom: 0px; top: 56px; }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $(".qingqiu").mouseenter(function () {
+                $(this).find(".qingqiu_item").show();
+            }).mouseleave(function () {
+                $(this).find(".qingqiu_item").hide();
+            });
+        });
+    </script>
+
+    <style type="text/css">
+        .area_menu { overflow: hidden; *zoom: 1; background: #EDEDED; }
+        .area_menu a { float: left; display: block; width: 78px; height: 60px; text-align: center; font-size: 12px; line-height: 25px; color: #000; }
+        .area_menu a:hover, .area_menu a.current, .area_menu .common_list li a.current:hover, .common_list li .area_menu a.current:hover { font-weight: bold; background: url(images/control_bg.png) left -780px; }
+        .area_menu a.all { float: right; display: inline; width: initial; padding-top: 35px; padding-right: 10px; height: 25px; text-align: right; background: url(about:blank); }
+        .area_menu a .ico24 { margin-top: 10px; }
+        /**********************************/
+        .area_page { overflow: hidden; *zoom: 1; width: 960px; margin: 0 auto; font-size: 12px; background: #FFF; }
+        .area_page .area_main { float: left; width: 680px; padding: 5px 10px; }
+        .area_page .area_sub { float: left; margin-left: 10px; width: 250px; }
+
+        .zszx_file_list { overflow: hidden; *zoom: 1; padding: 10px 20px; }
+        .zszx_file_list li { float: left; width: 195px; }
+        .zszx_file_list li .t { font-weight: bold; font-size: 12px; }
+
+        .area_learn { }
+        .area_learn a { float: left; display: block; width: 160px; overflow: hidden; text-overflow: ellipsis; word-break: keep-all; white-space: nowrap; }
+    </style>
+</head>
+<body style="background: #d9d9d9;">
+    <div class="area_page padding_b_10">
+        <div class="page_color">
+            <div class="common_crumbs left">
+                <span class="margin_r_10">当前位置:</span><a href="#">文档中心</a><span class="common_crumbs_next margin_lr_5">-</span><a href="#">业务培训</a>
+            </div>
+            <a href="#" class="right margin_r_10 margin_t_5">返回</a>
+            <div class="hr_heng"></div>
+            <div class="color_gray margin_t_5 margin_l_10 padding_b_5">借阅请求(12条)</div>
+        </div>
+        <ul class="bg_color_white border_r border_b clearfix">
+            <li class="qingqiu padding_10 border_t_gray left_ie6">
+                <img class="left margin_l_10 margin_b_10 margin_r_20 hand" src="http://list.image.baidu.com/t/image/w_mengchong.jpg" width="42" height="42" onclick="" /><div class="over_auto_hiddenY">
+                    <div class="clearfix">
+                        <span class="left"><a href="#" class="margin_r_5 left">曾静亮</a><span class="margin_r_5 left">新增文档</span><span class="ico16 xls_16 margin_r_5 left"></span><a href="#" class="margin_r_5 left">《知识管理概要设计V1.2》</a><span class="stars3_5 left"></span></span>
+                        <span class="color_gray right">3个小时前</span>
+                    </div>
+                    <div class="over_hidden left_ie6">
+                        <div class="line_height180 margin_t_5 font_size14">
+                            “2012-10-30 UC会议<br />
+                            1）完成立项说明书；<br />
+                            2）完成一级计划；<br />
+                            3）讨论二级计划的内容；<br />
+                            4）接下来的工作安排。显示全文 收起 ~”
+                        </div>
+                        <div class="clearfix margin_t_10">
+                            <span class="left margin_t_5">文档路径:<a href="#">内容管理部/销售工具/应用宣传</a></span>
+                            <span class="qingqiu_item hidden right margin_l_10"><a href="#">删除</a></span>
+                            <span class="qingqiu_item hidden right margin_l_10"><a href="#">忽略</a></span>
+                            <span class="qingqiu_item hidden right margin_l_10"><a href="#">拒绝</a></span>
+                            <span class="qingqiu_item hidden right margin_l_10"><a href="#">同意借阅</a></span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="qingqiu padding_10 border_t_gray left_ie6">
+                <img class="left margin_l_10 margin_b_10 margin_r_20 hand" src="http://list.image.baidu.com/t/image/w_mengchong.jpg" width="42" height="42" onclick="" /><div class="over_auto_hiddenY">
+                    <div class="clearfix">
+                        <span class="left"><a href="#" class="margin_r_5 left">曾静亮</a><span class="margin_r_5 left">新增文档</span><span class="ico16 xls_16 margin_r_5 left"></span><a href="#" class="margin_r_5 left">《知识管理概要设计V1.2》</a><span class="stars3_5 left"></span></span>
+                        <span class="color_gray right">3个小时前</span>
+                    </div>
+                    <div class="over_hidden left_ie6">
+                        <div class="line_height180 margin_t_5 font_size14">
+                            “2012-10-30 UC会议<br />
+                            1）完成立项说明书；<br />
+                            2）完成一级计划；<br />
+                            3）讨论二级计划的内容；<br />
+                            4）接下来的工作安排。显示全文 收起 ~”
+                        </div>
+                        <div class="clearfix margin_t_10">
+                            <span class="left margin_t_5">文档路径:<a href="#">内容管理部/销售工具/应用宣传</a></span>
+                            <span class="qingqiu_item hidden right margin_l_10"><a href="#">删除</a></span>
+                            <span class="qingqiu_item hidden right margin_l_10"><a href="#">忽略</a></span>
+                            <span class="qingqiu_item hidden right margin_l_10"><a href="#">拒绝</a></span>
+                            <span class="qingqiu_item hidden right margin_l_10"><a href="#">同意借阅</a></span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="common_over_page align_right margin_t_10 margin_r_10">
+            每页显示<input type="text" class="common_over_page_txtbox"><span class="margin_r_20">条/共6条</span>
+            <a href="#" class="common_over_page_btn" title="首页"><em class="pageFirst"></em></a>
+            <a href="#" class="common_over_page_btn" title="上一页"><em class="pagePrev"></em></a>
+            <span class="margin_l_10">第</span><input type="text" class="common_over_page_txtbox">页/13页
+    <a href="#" class="common_over_page_btn" title="下一页"><em class="pageNext"></em></a>
+            <a href="#" class="common_over_page_btn" title="尾页"><em class="pageLast"></em></a>
+        </div>
+    </div>
+</body>
+</html>

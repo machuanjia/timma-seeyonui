@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>颜色选择器</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+	<script type="text/javascript" src="../../scriptes/jquery.js"></script>
+        <script type="text/javascript" src="../calendar/calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../calendar/calendar-zh-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/Moo-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.json-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.fillform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.code-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/i18n-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/v3x-debug.js">
+        </script>
+		<script type="text/javascript" src="../../ctp/seeyon.ui.core-debug.js">
+        </script>
+        <script type="text/javascript" src="../searchBox-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.checkform-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.dialog-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.grid-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.layout-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.menu-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.progress-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tab-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.toolbar-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.arraylist-debug.js">
+        </script>
+        <script type="text/javascript" src="../seeyon.ui.tooltip-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.comp-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../calendar/calendar-zh-debug.js"></script>
+		<script type="text/javascript" src="../seeyon.ui.colorpicker-debug.js"> </script>
+	
+</head>
+<body>
+<table class="docsShowTable dev_hide">
+        <tr>
+            <td class="td" width="200">定义</td>
+            <td class="td">颜色选择器。</td>
+        </tr>
+        <tr>
+            <td class="td" width="200">点击输入框</td>
+            <td class="td code"><input id="cpFocus" value="#dbeef3" type="text"/>
+            	<div class="sorce_code clear">
+            		<pre>$('#cpFocus').colorpicker({showOn:'focus',position:false});</pre>
+            	</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td" width="200">点击按钮</td>
+            <td class="td code">
+            	<input id="cpButton" value="#92cddc" type="text"/>
+            	<div class="sorce_code clear">
+            		<pre>$('#cpButton').colorpicker({showOn:'button'});</pre>
+            	</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td" width="200" >点击输入框或按钮</td>
+            <td class="td code"> 
+            	<input id="cpBoth" value="#31859b" type="text"/> 
+            	<div class="sorce_code clear">
+            		<pre>$('#cpBoth').colorpicker();</pre>
+            	</div>
+            </td>
+        </tr> 
+        <tr>
+            <td class="td" width="200" >点击链接</td>
+            <td class="td code">
+            	<a id="link" href="javascript:void(0)">link</a> 
+            	<input id="cpOther" value="#31859b" type="text"/> 
+            	<div class="sorce_code clear">
+            		<pre>$('#cpBoth').colorpicker();</pre>
+            	</div>
+            </td>
+        </tr> 
+        <tr>
+            <td class="td" width="200">鼠标移入自动改变颜色</td>
+            <td class="td code"> 
+            	<div id="title">动态改变我的颜色</div>
+            	<input id="cp1" value="#31859b" type="text"/> 
+            	<div class="sorce_code clear">
+            		<pre>$('#cp1').colorpicker({color:'#8db3e2'})
+		.on('change.color', function(evt, color){
+			$('#title').attr('style','color:'+color);
+		})
+		.on('mouseover.color', function(evt, color){
+			$('#title').attr('style','background-color:'+color);
+		})</pre>
+            	</div>
+            </td>
+        </tr>  
+</table>
+<h3 class="design_hide">[6.方法]</h3>
+    <table class="docsShowTable design_hide">
+        <tr class="head">
+            <td class="td" width="200">方法</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td">colorpicker()</td>
+            <td class="td">初始化颜色选择器</td>
+        </tr>
+        <tr>
+            <td class="td">enable()</td>
+            <td class="td">颜色选择器可操作:$("#mycolor").colorpicker("enable");</td>
+        </tr>
+        <tr>
+            <td class="td">disable()</td>
+            <td class="td">颜色选择器不可操作:$("#mycolor").colorpicker("disable");</td>
+        </tr>
+        <tr>
+            <td class="td">destroy()</td>
+            <td class="td">删除颜色选择器:$("#mycolor").colorpicker("destroy");</td>
+        </tr>
+        
+         <tr>
+            <td class="td">isDisabled()</td>
+            <td class="td"> </td>
+        </tr>
+         <tr>
+            <td class="td">val([color])</td>
+            <td class="td">设置或获取当前选中的颜色:$("#mycolor").colorpicker("val");$("#mycolor").colorpicker("val", "#d0d0d0");</td>
+        </tr>
+        <tr>
+            <td class="td">showPalette()</td>
+            <td class="td">显示颜色选择器面板:$("#mycolor").colorpicker("showPalette");</td>
+        </tr>
+        <tr>
+            <td class="td">hidePalette()</td>
+            <td class="td">隐藏颜色选择器面板:$("#mycolor").colorpicker("hidePalette");</td>
+        </tr>
+    </table>
+    <h3 class="design_hide dev_hide">[5.事件]</h3>
+    <table class="docsShowTable design_hide dev_hide">
+        <tr class="head">
+            <td class="td" width="200">事件</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td">change.color</td>
+            <td class="td">
+            	自动刷新选中的颜色：
+            	<pre>$("#mycolor").on("change.color", function(event, color){
+  $('#title').attr('style','background-color:'+color);
+})</pre></td></tr>
+        <tr>
+            <td class="td">mouseover.color</td>
+            <td class="td">
+            	鼠标移动选择颜色
+            	<pre>$("#mycolor").on("mouseover.color", function(event, color){
+  $('#title').attr('style','background-color:'+color);
+})</pre></td>
+</tr>
+    </table>
+<h3 class="dev_hide design_hide">[4.属性]</h3>
+    <table class="docsShowTable dev_hide design_hide">
+        <tr class="head">
+            <td class="td">属性</td>
+            <td class="td">类型</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td" rowspan="3">showOn</td>
+            <td class="td">
+            	<pre>$('#cpFocus').colorpicker({showOn:'focus'});</pre>
+			  
+    		</td>
+            <td class="td">
+            	focus:输入框触发选择器
+            </td>
+        </tr>
+        <tr>
+            <td class="td">$('#cpButton').colorpicker({showOn:'button'});</td>
+            <td class="td">
+            	button:按钮触发选择器
+            </td>
+        </tr><tr>
+            <td class="td">$('#cpOther').colorpicker({showOn:'none'});</td>
+            <td class="td">
+            	none：不触发选择器
+            </td>
+        </tr>
+        <tr>
+        	<td class="td">color</td>
+            <td class="td">$("#mycolor").colorpicker({color: "#ffffff"});</td>
+            <td class="td">
+            	设置默认颜色值
+            </td>
+        </tr>
+        
+    </table>
+
+<script>
+
+$(document).ready(function(){
+	$('#cp1').colorpicker({color:'#8db3e2'})
+		.on('change.color', function(evt, color){
+			$('#title').attr('style','color:'+color);
+		})
+		.on('mouseover.color', function(evt, color){
+			$('#title').attr('style','background-color:'+color);
+		})	
+	// Instanciate colorpickers
+    $('#cpBoth').colorpicker();
+    $('#cpFocus').colorpicker({showOn:'focus',position:'static'});
+    $('#cpButton').colorpicker({showOn:'button'});
+    $('#cpOther').colorpicker({showOn:'none'});
+	$('#link').click(function(event){
+		event.stopImmediatePropagation();
+		$('#cpOther').colorpicker("showPalette");
+	})
+
+
+});
+
+</script>
+</body>
+</html>

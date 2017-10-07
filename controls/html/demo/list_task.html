@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>list</title>
+        <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+        <script src="../../../scriptes/jquery.js">
+        </script>
+        <script src="../../seeyon.ui.layout-debug.js">
+        </script>
+        <script src="../../seeyon.ui.toolbar-debug.js">
+        </script>
+        <script src="../../seeyon.ui.grid-debug.js">
+        </script>
+        <script type="text/javascript" src="../../calendar/calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../calendar/calendar-zh-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.json-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.code-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/i18n-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/v3x-debug.js">
+        </script>
+        <script type="text/javascript" src="../../searchBox-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.grid-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.layout-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.menu-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.progress-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.scroll-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.tab-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js">
+        </script>
+        <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js">
+        </script>
+		<script type="text/javascript" src="../../seeyon.ui.common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js">
+        </script>
+        <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js">
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+            	//debugger;
+                var searchobj = $.searchCondition({
+					top:33,
+					right:10,
+                    searchHandler: function(){
+                        //alert('执行查询')
+						var ssss = searchobj.g.getReturnValue();
+						alert($.toJSON(ssss))
+                    },
+                    conditions: [{
+                        id: 'selectPeopleid',
+                        name: 'selectPeople',
+                        type: 'selectPeople',
+                        text: '发起人',
+                        value: 'selectPeople',
+						comp:"type:'selectPeople',mode:'open',value:'Department | -884316703172445_1,Member | 1730833917365171641',text:'开发中心、人员2'"
+                    },{
+                        id: 'title',
+                        name: 'title',
+                        type: 'input',
+                        text: '标题',
+                        value: 'subject'
+                    }, {
+                        id: 'importent',
+                        name: 'importent',
+                        type: 'select',
+                        text: '重要程度',
+                        value: 'importantLevel',
+                        items: [{
+                            text: '普通',
+                            value: '0'
+                        }, {
+                            text: '重要',
+                            value: '1'
+                        }, {
+                            text: '非常重要',
+                            value: '2'
+                        }]
+                    }, {
+                        id: 'spender',
+                        name: 'spender',
+                        type: 'input',
+                        text: '发起人',
+                        value: 'startMemberName'
+                    }, {
+                        id: 'datetime',
+                        name: 'datetime',
+                        type: 'datemulti',
+                        text: '发起时间',
+                        value: 'createDate',
+                        dateTime: true
+                    },
+                    {
+                        id: 'datetime1',
+                        name: 'datetime1',
+                        type: 'datemulti',
+                        text: '发起时间',
+                        value: 'createDate1',
+                        dateTime: true
+                    }
+                    ]
+                });
+				searchobj.g.setCondition('datetime','2012-10-25 17:49','2012-10-25 17:49');
+                $("#toolbar2").toolbar({
+                    searchHtml: 'sss',
+                    toolbar: [{
+                        id: "transmit",
+                        name: "转发",
+                        className: "ico16 forwarding_16 ",
+                        
+                        subMenu: [{
+                            name: "协同",
+                            click: function(){
+                                alert(111);
+                            }
+                        }, {
+                            name: "邮件",
+                            click: function(){
+                                alert(222);
+                            }
+                        }]
+                    }, {
+                        id: "new",
+                        name: "新建",
+                        className: "ico16",
+						click:function(){
+							
+							ss.grid.resizeGrid(200);
+							$("#checkForm")[0].contentWindow.check("new");
+							
+						}
+                    },{
+                        id: "modify",
+                        name: "修改",
+                        className: "ico16",
+						click:function(){
+							
+							//ss.grid.resizeGrid(200);
+							$("#checkForm")[0].contentWindow.check("modify");
+							
+						}
+                    },
+                     {
+                        id: "delete",
+                        name: "删除",
+                        className: "ico16 del_16"
+                    }, {
+                        id: "refresh",
+                        name: "刷新",
+                        className: "ico16 refresh_16"
+                    }]
+                });
+                var ss = $("#flexme3").ajaxgrid({
+                    click: testCellAction,
+                    dblclick: testCellActionDB,
+                    render: render,
+                    datas: testData,
+					isHaveIframe:true,
+                    colModel: [{
+                        display: 'id',
+                        name: 'id',
+                        width: '5%',
+                        sortable: false,
+                        align: 'center',
+                        type: 'checkbox'
+                    }, {
+                        display: '标题',
+                        name: 'username',
+                        width: '10%',
+                        sortable: true,
+                        align: 'left'
+                    }, {
+                        display: '权重',
+                        name: 'truename',
+                        width: '10%',
+                        sortable: true,
+                        align: 'left'
+                    }, {
+                        display: '状态',
+                        name: 'state',
+                        width: '10%',
+                        sortable: true,
+                        align: 'left'
+                    }, {
+                        display: '完成率',
+                        name: 'finish_rate',
+                        width: '20%',
+                        sortable: true,
+                        align: 'left'
+                    }, {
+                        display: '开始时间',
+                        name: 'email',
+                        width: '20%',
+                        align: 'left'
+                    }, {
+                        display: '结束时间',
+                        name: 'birthday',
+                        width: '10%',
+                        sortable: true,
+                        align: 'left'
+                    }, {
+                        display: '负责人',
+                        name: 'jiaqi',
+                        width: '10%',
+                        sortable: true,
+                        align: 'center'
+                    }],
+                    sortname: "id",
+                    sortorder: "asc",
+                    usepager: true,
+                    showTableToggleBtn: false,
+                    parentId: $('.layout_center').eq(0).attr('id'),
+                    vChange: true,
+					vChangeParam: {
+		                overflow: "hidden",
+						autoResize:true
+		            },
+                    slideToggleBtn: true
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id='layout' class="comp page_color" comp="type:'layout'">
+            <div class="layout_north" layout="height:65,sprit:false,border:false">
+                <div class="common_crumbs">
+                    <span class="margin_r_10">当前位置:</span><a href="#">目标管理</a><span class="common_crumbs_next margin_lr_5">-</span><a href="#">我的任务</a>
+                </div>
+                <div class="hr_heng"></div>
+                <div id="toolbar2">
+				</div>
+            </div>
+            <div class="layout_center page_color over_hidden" layout="border:false">
+                <table id="flexme3" class="flexme3" style="display: none;">
+                </table>
+                <script>
+                    var testData = {
+                        "rows": [{
+                            "id": 10001,
+                            "username": "zhujl",
+                            "truename": "朱家玲",
+                            "state": "未开始",
+                            "finish_rate": "0%",
+                            "email": "",
+                            "birthday": "1910-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10001\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 11,
+                            "username": "任务",
+                            "truename": "余强",
+                            "state": "进行中",
+                            "finish_rate": "40%",
+                            "email": "yuqiang@seeyon.com",
+                            "birthday": "1965-03-21",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10002\"/>",
+                            "jiaqi": 2,
+                            "haschild":true
+                        },{
+                            "id": 110,
+                            "username": "任务1",
+                            "truename": "余强1",
+                            "state": "已完成",
+                            "finish_rate": "100%",
+                            "email": "yuqiang@seeyon.com",
+                            "birthday": "1965-03-21",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10002\"/>",
+                            "ischild": true,
+                            "index":1,
+                            "parentId":11,
+                            "ishidden":true
+                        },{
+                            "id": 111,
+                            "username": "任务10",
+                            "truename": "余强1",
+                            "state": "已延期",
+                            "finish_rate": "20%",
+                            "email": "yuqiang@seeyon.com",
+                            "birthday": "1965-03-21",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10002\"/>",
+                            "ischild": true,
+                            "haschild":true,
+                            "index":1,
+                            "ishidden":true,
+                            "parentId":11
+                        },{
+                            "id": 1110,
+                            "username": "任务100",
+                            "truename": "余强1",
+                            "state": "已取消",
+                            "finish_rate": "",
+                            "email": "yuqiang@seeyon.com",
+                            "birthday": "1965-03-21",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10002\"/>",
+                            "ischild": true,
+                            "index":2,
+                            "ishidden":true,
+                            "parentId":111
+                        },
+                         {
+                            "id": 10003,
+                            "username": "lq",
+                            "truename": "刘清",
+                            "state": "已完成",
+                            "finish_rate": "100%",
+                            "email": "liuq@seeyon.com",
+                            "birthday": "1910-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10003\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10004,
+                            "username": "xus",
+                            "truename": "徐石",
+                            "state": "已延期",
+                            "finish_rate": "20%",
+                            "email": "Rock_xu@seeyon.com",
+                            "birthday": "1910-01-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10004\"/>",
+                            "jiaqi": 2
+                        }, {
+                            "id": 10005,
+                            "username": "张宇红",
+                            "truename": "张宇红",
+                            "state": "已取消",
+                            "finish_rate": " ",
+                            "email": "zhangyh@seeyon.com",
+                            "birthday": "1976-12-01",
+                            "idString": "<input type=\"checkbox\" vlaue=\"10005\"/>",
+                            "jiaqi": 2
+                        }],
+                        "page": 1,
+                        "pages": 18,
+                        "startAt": 0,
+                        "dataCount": 10,
+                        "sortField": null,
+                        "sortOrder": null
+                    };
+                    function render(text, row, rowIndex, colIndex,col){
+                    	//判断是否是子节点
+                    	if(row.ischild==true){
+                    		if(col.name == "username") {
+                    			var margin=row.index*20+"px";
+	                    		if(row.haschild==true){//判断是否存在二级子节点
+	                    			return "<a href='javascript:void(0)' class='row"+row.parentId+" treeNode' style='margin-left:"+margin+";'><span class='ico16 table_add_16' onclick='toggleTree(this)'> </span>"+text+"</a>";		
+	                    		}
+	                    		return "<a href='javascript:void(0)'  class='row"+row.parentId+" treeNode' style='margin-left:"+margin+";'>"+text+"</a>";	
+                    		}
+                    	}
+                    	//在某一列加属性
+                    	if(col.name == "username"){
+                    		//根节点
+                    		if(row.haschild==true)	 return "<span root='true' class='ico16 table_add_16' onclick='toggleTree(this)'> </span>"+text;
+                    		//加图标例子
+                    		if(rowIndex == 0) return "<span class='ico16 much_important_16'></span><span class='ico16 milestone'></span><span class='ico16 risk_16'></span>"+text+"<span class='ico16 affix_16'></span>";	
+                    	}
+                    	//在完成率所在列显示百分比
+                    	
+                    	
+                        if(col.name=="finish_rate") {
+                        	var percent=parseInt(text);//百分数
+                        	var color_class="rate_process"
+                        	if(row.state=="已完成") color_class="rate_filish" //已完成
+                        	if(row.state=="已延期") color_class="rate_delay";
+                        	if(row.state=="已取消") color_class="rate_canel";
+                        	return "<span class='right margin_l_5'>"+ text+"</span><p class='task_rate adapt_w' style=''><a href='#' class='"+color_class+"' style='width:"+percent+"%;'></a></p>";
+                        } 
+                        else {
+                            return text;
+                        }
+                    }
+                    // 隐藏显示树
+                    function toggleTree(obj){
+                    	var target=$(obj);
+                    	root=target.attr("root");
+                    	var id=target.parents("tr").attr("id");
+                    	var hiddentr=$("."+id).parents("tr");
+                    	hiddentr.toggleClass("hidden");
+                    	if(root&&hiddentr.hasClass("hidden")){
+                    		$(".treeNode").parents("tr").addClass("hidden");
+                    	}
+                 	
+                    }
+                    
+                    function testCellAction(row, rowIndex, colIndex) {
+                    	//$("#checkForm")[0].contentWindow.check("disable",row)
+                        //ss.grid.resizeGrid(200);
+                        //$('#s').val('click----' + row.id + '---' + colIndex + '---' + rowIndex)
+                    }
+                    
+                    function testCellActionDB(row, rowIndex, colIndex){
+                        window.open("http://www.baidu.com");
+                        $('#s').val('DBclick----' + row.id + '---' + colIndex + '---' + rowIndex)
+                    }
+                </script>
+            </div>
+        </div>
+    </body>
+</html>

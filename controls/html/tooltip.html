@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>气球状提示</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+
+    <script type="text/javascript" src="../seeyon.ui.tooltip-debug.js"></script>
+	<script type="text/javascript" src="../calendar/calendar-debug.js"></script>
+	<script type="text/javascript" src="../calendar/calendar-zh-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/misc/Moo-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.json-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.fillform-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.code-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/common-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/i18n-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/v3x-debug.js"></script>
+	<script type="text/javascript" src="../searchBox-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.checkform-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.dialog-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.grid-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.layout-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.menu-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.progress-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tab-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.toolbar-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tree-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.calendar-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.arraylist-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tooltip-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.comp-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.tree-debug.js"></script>
+</head>
+
+<body>
+    <h3>[1.气球状提示示例]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td">定义</td>
+            <td class="td">是一个小型的弹出窗口，用于通知用户出现非关键性问题或控件处于某种特殊情况。由图标、标题、正文文本组成，且所有这些部分都是可选的。气球状提示还带有一个尾部箭头以指示它的来源。通常这个来源是一个控件——该控件被称为所有者控件。</td>
+        </tr>
+        <tr>
+            <td class="td" width="200">tooltip鼠标触发提示</td>
+            <td class="td">
+                <a id="testID" tooltip="tooltip" href="#" style="cursor:default; display:block; width:600px;">tooltip测试，靠左或靠右显示。tooltip测试，靠左或靠右显示。tooltip测试，靠左或靠右显示。tooltip测试，靠左或靠右显示。tooltip测试，靠左或靠右显示。tooltip测试，靠左或靠右显示。tooltip测试，靠左或靠右显示。tooltip测试，靠左或靠右显示。tooltip测试，靠左或靠右显示。</a>
+                <div class="hidden">
+                    <div id="tooltip_html">
+                        <ul>
+                            <li id="testtttt">我要显示1</li>
+                            <li>我要显示2</li>
+                        </ul>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                        $("#testID").tooltip({
+                            htmlID: 'tooltip_html'//内容优先级顺序[ htmlID、msg、tooltip属性]
+                        });
+                    })
+                </script>
+				<br/><br/>
+				<div style="display: block;" class="sorce_code">
+				<pre>
+//$("#testID").tooltip();//不传如参数:获取id为'testID'dom的tooltip属性值
+$("#testID").tooltip({
+    event:true,
+    htmlID: 'tooltip_html'//内容优先级顺序[ htmlID、msg、tooltip属性]
+});
+				</pre>
+				</div>
+            	<br/><br/>
+            </td>
+        </tr>
+        <tr>
+            <td class="td" width="200">tooltip指定位置提示</td>
+            <td class="td">
+                <div id="testID2">tooltip指定位置提示<br />
+                    关闭按钮,class为tooltip_close</div>
+                <div class="hidden">
+                    <div id="tooltip_html2">
+                        指定位置显示.<br />
+                        关闭按钮,class为tooltip_close<br />
+                        <p class="align_right"><a class="tooltip_close font_size12" href="javascript:void(0)">知道了</a></p>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                        $.tooltip({
+                            width: 300,
+                            openAuto: true,
+                            event: false,
+                            openPoint: [250, 350],
+                            htmlID: 'tooltip_html2',
+                            direction: "BL"
+                        });
+                    })
+                </script>
+				<br/><br/>
+				<div style="display: block;" class="sorce_code">
+				<pre>
+$.tooltip({
+    width:300,
+    openAuto:true,
+    openPoint: [445, 300],
+    htmlID: 'tooltip_html2',
+    direction:"BL"
+});
+				</pre>
+				</div>
+            	<br/><br/>
+            </td>
+        </tr>
+        <tr>
+            <td class="td">tooltip跨iframe</td>
+            <td class="td"><iframe id="tooltip2" src="tooltip2.html" width="600" height="200"></iframe></td>
+        </tr>
+    </table>
+
+    <h3 class="dev_hide design_hide">[2.使用实例]</h3>
+    <table class="docsShowTable dev_hide design_hide">
+        <tr>
+            <td class="td" width="200"></td>
+            <td class="td code"></td>
+        </tr>
+    </table>
+    <h3 class="design_hide">[4.属性]</h3>
+    <table class="docsShowTable design_hide">
+        <tr class="head">
+            <td class="td" width="200">属性</td>
+            <td class="td" width="200">类型</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td">targetId</td>
+            <td class="td">string</td>
+            <td class="td">显示在targetId对象的下方</td>
+        </tr>
+        <tr>
+            <td class="td">openAuto</td>
+            <td class="td">bool</td>
+            <td class="td">自动显示[默认,false]</td>
+        </tr>
+        <tr>
+            <td class="td">openPoint</td>
+            <td class="td">[number,number]</td>
+            <td class="td">显示指定的[left,top]</td>
+        </tr>
+        <tr>
+            <td class="td">direction</td>
+            <td class="td">string<br /><br />
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr height="19">
+                        <td width="20"></td>
+                        <td width="20">TL</td>
+                        <td width="20"></td>
+                        <td width="20" align="right">TR</td>
+                        <td width="20"></td>
+                    </tr>
+                    <tr height="19">
+                        <td align="right">LT&nbsp;</td>
+                        <td class="border_t border_l"></td>
+                        <td class="border_t"></td>
+                        <td class="border_t border_r"></td>
+                        <td>&nbsp;RT</td>
+                    </tr>
+                    <tr height="19">
+                        <td></td>
+                        <td class="border_l"></td>
+                        <td></td>
+                        <td class="border_r"></td>
+                        <td></td>
+                    </tr>
+                    <tr height="19">
+                        <td align="right">LB&nbsp;</td>
+                        <td class="border_l border_b"></td>
+                        <td class="border_b"></td>
+                        <td class="border_r border_b"></td>
+                        <td>&nbsp;RB</td>
+                    </tr>
+                    <tr height="19">
+                        <td></td>
+                        <td>BL</td>
+                        <td></td>
+                        <td align="right">BR</td>
+                        <td></td>
+                    </tr>
+                </table>
+                
+            </td>
+            <td class="td">箭头的位置</td>
+        </tr>
+        <tr>
+            <td class="td">event</td>
+            <td class="td">bool</td>
+            <td class="td">是否根据 targetId和鼠标坐标 定位[默认,false]</td>
+        </tr>
+        <tr>
+            <td class="td">id</td>
+            <td class="td">string</td>
+            <td class="td">可以指定tooltip的ID</td>
+        </tr>
+        <tr>
+            <td class="td">width</td>
+            <td class="td">number</td>
+            <td class="td">用于设置tooltip宽度[默认,200]</td>
+        </tr>
+        <tr>
+            <td class="td">htmlID、msg、tooltip属性</td>
+            <td class="td">string</td>
+            <td class="td">tooltip内容,内容优先级顺序[ htmlID、msg、tooltip属性]</td>
+        </tr>
+        <tr>
+            <td class="td">targetWindow</td>
+            <td class="td"></td>
+            <td class="td">跨iframe显示[window.parent]注：window必须存在，目前支持$.tooltip方式</td>
+        </tr>
+    </table>
+
+    <h3 class="dev_hide design_hide">[5.事件]</h3>
+    <table class="docsShowTable dev_hide design_hide">
+        <tr class="head">
+            <td class="td" width="200">事件</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class="dev_hide design_hide">[6.方法]</h3>
+    <table class="docsShowTable dev_hide design_hide">
+        <tr class="head">
+            <td class="td" width="200">方法</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+    <h3>[3.UE]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="">输入问题-由单一所有者控件引发的非关键性用户输入问题，通常来自文本框。</td>
+            <td class="td"></td>
+        </tr>
+        <tr>
+            <td class="td">特殊情况-所有者控件处于某种影响输入的状态，该状态可能不是用户所期望的，但用户也许没有意识到其输入所受的影响。</td>
+            <td class="td"></td>
+        </tr>
+    </table>
+</body>
+</html>

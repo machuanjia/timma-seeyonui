@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html class="h100b over_hidden">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>UC中心</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css" />
+    <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+    <script type="text/javascript">
+        var _ctxPath = "";
+        $(document).ready(function () {
+            if ($.browser.msie) {
+                if ($.browser.version == '6.0' || $.browser.version == '7.0') {
+                    var _l = $('#stadic_layout');
+                    var _h = $('#stadic_layout_head');
+                    var _b = $('#stadic_layout_body');
+                    var body_h = _l.height() - _h.height();
+                    _b.height(body_h);
+                    var con_t = $('#content_layout_top').height();
+                    $('#content_layout_body').height(body_h - con_t);
+                    $('#content_layout_body_tab').height(body_h - con_t);
+                }
+            }
+        });
+    </script>
+</head>
+<body class="h100b over_hidden frount">
+    <div id="stadic_layout">
+        <div id="stadic_layout_head">
+            <div class="area">
+                <div class="area_l"><a href="#"></a></div>
+                <div class="area_r">
+                    <a href="#"><em class="ico24" title="返回主页"></em></a>&nbsp;&nbsp;
+                    <a href="#"><em class="ico24 refresh_icon" title="刷新"></em></a>&nbsp;&nbsp;
+                    <a href="#"><em class="ico24" title="关闭"></em></a>
+                </div>
+                <div class="area_c"></div>
+            </div>
+        </div>
+        <div id="stadic_layout_body">
+            <div id="main_layout" class="margin_l_10 margin_r_10">
+                <iframe src="uc.html" id="main" frameborder="0" class="w100b h100b"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

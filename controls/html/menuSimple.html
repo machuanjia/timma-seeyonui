@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>菜单 - 简单型</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css" />
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css" />
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+    <script type="text/javascript" src="../seeyon.ui.menu-debug.js"></script>
+    <link href="../../docs/resource/google-code-prettify/prettify.css" rel="stylesheet" />
+    <script src="../../docs/resource/google-code-prettify/prettify.js"></script>
+</head>
+<body>
+    <h3 class="dev_hide">[1.示例]</h3>
+    <table class="docsShowTable dev_hide">
+        <tr>
+            <td class="td" width="200">定义</td>
+            <td class="td"></td>
+        </tr>
+        <tr>
+            <td class="td" width="200">示例1</td>
+            <td class="td code">
+                <script type="text/javascript">
+                    $(function () {
+                        $.menuSimple({
+                            left: 100,
+                            top: 100,
+                            mRow:true,
+                            data: [{
+                                name: "示例1示例1示例1示例1示例1示例1示例1示例1",
+                                customAttr: "qq='nodePerm'",
+                                className: "toback_16",
+                                disabled: true,
+                                handle: function (json) {
+                                    alert(json.name);
+                                }
+                            }, {
+                                type: "line"
+                            }, {
+                                name: "示例1",
+                                handle: function (json) {
+                                    alert(json.name);
+                                }
+                            }]
+                        });
+                    });
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td class="td" width="200" rowspan="5">示例2</td>
+            <td class="td code">
+                <a id="qqq2">菜单</a>
+                <script type="text/javascript">
+                    $(function () {
+                        $("#qqq2").menuSimple({
+                            data: [{
+                                name: "示例1",
+                                customAttr: "class='nodePerm'",
+                                className: "toback_16",
+                                handle: function (json) {
+                                    alert(json.id);
+                                }
+                            }, {
+                                type: "line"
+                            }, {
+                                name: "示例2示例2示例2示例2示例2示例2示例2示例2示例2示例2示例2示例2示例2示例2示例2",
+                                handle: function (json) {
+                                    alert(json.id);
+                                }
+                            }, {
+                                name: "示例2",
+                                handle: function (json) {
+                                    alert(json.obj);
+                                }
+                            }]
+                        });
+                    });
+                </script>
+            </td>
+        </tr>
+    </table>
+    <h3 class="">[2.使用实例]</h3>
+    <table class="docsShowTable ">
+        <tr class="dev_hide">
+            <td class="td" width="200"></td>
+            <td class="td">当被绑定对象,设置了disable="disable",就不会执行绑定的事件</td>
+        </tr>
+    </table>
+    <h3 class=" ">[4.属性]</h3>
+    <table class="docsShowTable  ">
+        <tr class="head">
+            <td class="td" width="25%">属性</td>
+            <td class="td" width="25%">类型</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td">id</td>
+            <td class="td">string</td>
+            <td class="td"></td>
+        </tr>
+        <tr>
+            <td class="td">event</td>
+            <td class="td">string,jquery事件</td>
+            <td class="td">默认['click']</td>
+        </tr>
+        <tr>
+            <td class="td">data</td>
+            <td class="td">
+                <div class="sorce_code" style="width: 500px; margin: 10px;">
+<pre class="prettyprint">
+[{
+    id:"ID",
+    className:"文字前面16*16图标class",
+    name:"显示的文本"，
+    disabled:true,/*禁用*/
+    handle: function (json) {
+        alert(json.obj); /*选项的jquery对象*/
+        alert(json.id); /*选项的id*/
+        alert(json.name); /*选项的文本*/
+}},{
+    type: "line" /*添加分割线*/<br />
+}]
+</pre>
+                </div>
+            </td>
+            <td class="td">数据</td>
+        </tr>
+        <tr>
+            <td class="td">width</td>
+            <td class="td">number</td>
+            <td class="td">默认[150]</td>
+        </tr>
+        <tr>
+            <td class="td">top</td>
+            <td class="td">number</td>
+            <td class="td">绝对定位-上，仅"示例1"使用</td>
+        </tr>
+        <tr>
+            <td class="td">left</td>
+            <td class="td">number</td>
+            <td class="td">绝对定位-左，仅"示例1"使用</td>
+        </tr>
+        <tr>
+            <td class="td">offsetTop</td>
+            <td class="td">number</td>
+            <td class="td">绝对定位-相对上调整上，仅"示例2"使用</td>
+        </tr>
+        <tr>
+            <td class="td">offsetLeft</td>
+            <td class="td">number</td>
+            <td class="td">绝对定位-相对左调整左，仅"示例2"使用</td>
+        </tr>
+        <tr>
+            <td class="td">mRow</td>
+            <td class="td">bool</td>
+            <td class="td">默认[false],每个选项的内容是否多行显示</td>
+        </tr>
+        <tr>
+            <td class="td">direction</td>
+            <td class="td">string<br>
+                <br>
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        <tr height="19">
+                            <td width="20"></td>
+                            <td width="20"></td>
+                            <td width="20"></td>
+                            <td width="20" align="right"></td>
+                            <td width="20"></td>
+                        </tr>
+                        <tr height="19">
+                            <td align="right">&nbsp;</td>
+                            <td class="border_t border_l"></td>
+                            <td class="border_t"></td>
+                            <td class="border_t border_r"></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr height="19">
+                            <td></td>
+                            <td align="center" colspan="3" class="border_l border_r">绑定对象</td>
+                        </tr>
+                        <tr height="19">
+                            <td align="right">&nbsp;</td>
+                            <td class="border_l border_b"></td>
+                            <td class="border_b"></td>
+                            <td class="border_r border_b"></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr height="19">
+                            <td></td>
+                            <td>BL</td>
+                            <td></td>
+                            <td align="right">BR</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td class="td">默认['BL']，下左对其<br />菜单的对其位置</td>
+        </tr>
+    </table>
+
+
+    <h3 class="">[5.事件]</h3>
+    <table class="docsShowTable ">
+        <tr class="head">
+            <td class="td">事件</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3 class=" ">[6.方法]</h3>
+    <table class="docsShowTable  ">
+        <tr class="head">
+            <td class="td">方法</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+    <h3>[3.UE]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="200"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="h100b over_hidden">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>公文处理页面</title>
+        <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../../skin/default/skin.css">
+        <script type="text/javascript" src="../../../scriptes/jquery.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+        <script type="text/javascript" src="../../calendar/calendar-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/misc/Moo-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/misc/jsonGateway-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/jquery.hotkeys-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/jquery.json-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/jquery.fillform-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/jquery.jsonsubmit-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/jquery.code-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/common-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/i18n-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/v3x-debug.js"></script>
+        <script type="text/javascript" src="../../searchBox-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.checkform-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.dialog-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.grid-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.layout-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.menu-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.progress-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.tab-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.toolbar-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.tree-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.calendar-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.arraylist-debug.js"></script>
+        <script type="text/javascript" src="../../seeyon.ui.tooltip-debug.js"></script>
+		<script type="text/javascript" src="../../seeyon.ui.common-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/jquery.comp-debug.js"></script>
+        <script type="text/javascript" src="../../../ctp/jquery.tree-debug.js"></script>
+        <style>
+            .stadic_head_height{
+                height:100px;
+                background: #ededee;
+            }
+            .stadic_body_top_bottom{
+                bottom: 0px;
+                top: 100px;
+            }
+        </style>
+        <script>
+        $(function () {
+            windowResize();
+            $(window).resize(windowResize);
+        })
+        function windowResize () {
+            var w = $(window).width();
+            var dealTableObj = $("#dealTable");
+            if (w >= 1300) {
+                dealTableObj.removeClass("showScreen1024 showScreen1366").addClass("showScreen1366");
+            } else {
+                dealTableObj.removeClass("showScreen1024 showScreen1366").addClass("showScreen1024");
+            };
+        }
+        </script>
+    </head>
+    <body class="h100b over_hidden archivesDeal">
+        <div class="stadic_layout">
+            <div class="stadic_layout_head stadic_head_height over_hidden">
+                <table id="dealTable" class="showScreen1366 margin_t_10" height="50" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;">
+                    <tr>
+                        <td width="50" class="padding_l_10">
+                            <a href="javascript:void(0)" class="display_inline-block align_center new_btn">发送</a>
+                        </td>
+                        <td width="70" align="center">
+                            <a href="javascript:void(0)" class="color_black"><em class="ico24 temporary_to_do_24"></em><br>暂存待办</a><span class="ico16 arrow_1_b"></span>
+                        </td>
+                        <td width="245" valign="top">
+                            <table width="100%" height="50" cellspacing="0" cellpadding="0" border="0">
+                                <tr>
+                                    <td>
+                                        <label class="margin_t_5 hand display_block"><input type="radio" value="0" id="radio1" name="option" class="radio_com">交单位收发员交换</label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="margin_t_5 hand display_block"><input type="radio" value="0" id="radio5" name="option" class="radio_com">交单位收发员交换</label>
+                                    </td>
+                                    <td width="120">
+                                        <div class="common_selectbox_wrap">
+                                            <select>
+                                                <option value="交单位收发员交换">交单位收发员交换交单位收发员交换交单位收发员交换</option>
+                                                <option value="交单位收发员交换">交单位收发员交换</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="290" valign="top" class="padding_l_10">
+                            <table width="100%" height="50" cellspacing="0" cellpadding="0" border="0">
+                                <tr>
+                                    <td>
+                                        <label class="margin_r_10 hand"><input type="checkbox" value="0" id="Checkbox1" name="option" class="radio_com">选项1</label>
+                                        <label class="margin_t_5 hand"><input type="radio" value="0" id="radio5" name="option" class="radio_com">全部</label>
+                                        <label class="margin_t_5 hand"><input type="radio" value="0" id="radio5" name="option" class="radio_com">指定人</label>
+                                        <div class="common_txtbox_wrap display_inline-block" style="width:100px;">
+                                            <input type="text" id="text18">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="margin_r_10 hand"><input type="checkbox" value="0" id="Checkbox1" name="option" class="radio_com">处理后归档</label>
+                                        归档到：
+                                        <div class="common_selectbox_wrap display_inline-block" style="width:136px;">
+                                            <select>
+                                                <option value="交单位收发员交换">交单位收发员交换交单位收发员交换交单位收发员交换</option>
+                                                <option value="交单位收发员交换">交单位收发员交换</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="10" valign="center">
+                            <div style="height:45px;border-left:solid 1px #d1d1d1;"></div>
+                        </td>
+                        <td class="archivesOperate" valign="top">
+                            <ul class="clearfix">
+                                <li><em class="ico16"></em>回退</li>
+                                <li><em class="ico16"></em>回退</li>
+                                <li><em class="ico16"></em>回退回退</li>
+                                <li><em class="ico16"></em>回退</li>
+                                <li><em class="ico16"></em>回退</li>
+                                <li><em class="ico16"></em>回退</li>
+                                <li><em class="ico16"></em>回退</li>
+                                <li><em class="ico16"></em>回退</li>
+                                <li><em class="ico16"></em>回退</li>
+                                <li><em class="ico16"></em>回退</li>
+                                <li><em class="ico16"></em>回退</li>
+                                <li><em class="ico16"></em>回退</li>
+                                <li><em class="ico16"></em>回退</li>
+                                <li><em class="ico16"></em>回退</li>
+                                <li><em class="ico16"></em>回退</li>
+                                <li><em class="ico16"></em>回退</li>
+                            </ul>
+                        </td>
+                        <td width="10" align="center">
+                            <div class="archivesMore">
+                                <span class="ico16 arrow_1_b"></span>
+                            </div>
+                        </td>
+                        <td width="120" valign="top" class="padding_lr_10">
+                            当前权限：封发、封发、封发、封发、封发、封发
+                        </td>
+                    </tr>
+                </table>
+                <div class="common_tabs clearfix margin_t_10">
+                    <ul class="left">
+                        <li class="current"><a href="javascript:void(0)">文单</a></li>
+                        <li><a hidefocus="true" href="javascript:void(0)">正文</a></li>
+                        <li><a hidefocus="true" href="javascript:void(0)">流程</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="stadic_layout_body stadic_body_top_bottom">
+               正文区域
+            </div>
+        </div>
+    </body>
+</html>

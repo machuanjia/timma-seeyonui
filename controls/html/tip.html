@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+
+    <script type="text/javascript" src="../seeyon.ui.tooltip-debug.js"></script>
+	<script type="text/javascript" src="../calendar/calendar-debug.js"></script>
+	<script type="text/javascript" src="../calendar/calendar-zh-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/misc/Moo-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.json-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.fillform-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.code-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/common-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/i18n-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/v3x-debug.js"></script>
+	<script type="text/javascript" src="../searchBox-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.checkform-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.dialog-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.grid-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.layout-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.menu-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.progress-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tab-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.toolbar-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tree-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.calendar-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.arraylist-debug.js"></script>
+	<script type="text/javascript" src="../seeyon.ui.tooltip-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.comp-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.tree-debug.js"></script>
+</head>
+
+<body>
+    <h3>[1.非阻塞提示]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="200">定义</td>
+            <td class="td">非打断提示信息。</td>
+        </tr>
+    </table>
+
+    <h3 class="design_hide">[2.使用实例]</h3>
+    <table class="docsShowTable design_hide">
+        <tr>
+            <td class="td" width="200">指定区域</td>
+            <td class="td">
+                <div id="ddd" style="padding:10px; border:solid 1px red;">指定区域的提示，<br>默认居中显示</div>
+                <script type="text/javascript">
+                    new MxtTip({
+                        targetId : "ddd",
+                        content : "保持成功！"    
+                    });
+                </script>
+                <pre class="sorce_code">
+                    new MxtTip({
+                        targetId : "ddd",
+                        content : "保持成功！"    
+                    });
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td class="td">指定区域 + 偏移</td>
+            <td class="td">
+               <div id="ddd2" style="padding:10px; border:solid 1px red;">指定区域的提示，<br>默认居中显示</div>
+                <script type="text/javascript">
+                    new MxtTip({
+                        targetId : "ddd2",
+                        offsetTop: 10,
+                        content : "保持成功！"
+                    });
+                </script>
+                <pre class="sorce_code">
+                    new MxtTip({
+                        targetId : "ddd2",
+                        offsetTop: 10,
+                        content : "保持成功！"
+                    });
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td class="td">指定坐标</td>
+            <td class="td">
+                <script type="text/javascript">
+                    new MxtTip({
+                        top : 460,
+                        left : 230,
+                        content : "保持成功！"
+                    });
+                </script>
+                <pre class="sorce_code">
+                    new MxtTip({
+                        top : 460,
+                        left : 230,
+                        content : "保持成功！"
+                    });
+                </pre>
+            </td>
+        </tr>
+    </table>
+
+    <h3>[4.参数]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="200">id</td>
+            <td class="td" width="200">string</td>
+            <td class="td">id</td>
+        </tr>
+        <tr>
+            <td class="td">targetId</td>
+            <td class="td">string</td>
+            <td class="td">指定区域id</td>
+        </tr>
+        <tr>
+            <td class="td">content</td>
+            <td class="td">string</td>
+            <td class="td">内容</td>
+        </tr>
+        <tr>
+            <td class="td">top</td>
+            <td class="td">number</td>
+            <td class="td">position定位top</td>
+        </tr>
+        <tr>
+            <td class="td">left</td>
+            <td class="td">number</td>
+            <td class="td">position定位left</td>
+        </tr>
+        <tr>
+            <td class="td">keepTime</td>
+            <td class="td">number</td>
+            <td class="td">持续显示时间</td>
+        </tr>
+        <tr>
+            <td class="td">autoShow</td>
+            <td class="td">bool</td>
+            <td class="td">自动显示</td>
+        </tr>
+        <tr>
+            <td class="td">autoClose</td>
+            <td class="td">bool</td>
+            <td class="td">自动关闭</td>
+        </tr>
+        <tr>
+            <td class="td">offsetTop</td>
+            <td class="td">number</td>
+            <td class="td">position定位偏移top</td>
+        </tr>
+        <tr>
+            <td class="td">offsetLeft</td>
+            <td class="td">number</td>
+            <td class="td">position定位偏移left</td>
+        </tr>
+        <tr>
+            <td class="td">color</td>
+            <td class="td">string</td>
+            <td class="td">字体颜色</td>
+        </tr>
+        <tr>
+            <td class="td">background</td>
+            <td class="td">string</td>
+            <td class="td">背景颜色</td>
+        </tr>
+        <tr>
+            <td class="td">checkPosition</td>
+            <td class="td">bool</td>
+            <td class="td">验证超出显示区域</td>
+        </tr>
+    </table>
+
+    <h3>[5.方法]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="200">beforeShowCallBack</td>
+            <td class="td">显示前，回调方法</td>
+        </tr>
+        <tr>
+            <td class="td" width="200">callBack</td>
+            <td class="td">关闭后，回调方法</td>
+        </tr>
+    </table>
+</body>
+</html>

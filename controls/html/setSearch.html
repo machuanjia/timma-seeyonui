@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>查询条件</title>
+<script src="../../scriptes/jquery.js"></script>
+<script src="../../docs/resource/doc.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="../../css/common-debug.css"> 
+<link rel="stylesheet" type="text/css" href="../../skin/default/skin-debug.css">
+<link rel="stylesheet" type="text/css" href="../../docs/resource/doc.css"> 
+<script src="../seeyon.ui.toolbar-debug.js"></script>
+</head>
+
+<body class="body-pading">
+	<div class="classification">
+		<div class="title">查询条件</div>
+		<div class="code_list">
+			<div class="form_area common_tabs_body set_search border_all padding_b_10">
+				<h3 class="border_b">查询条件</h3>
+		    	<table border="0" cellspacing="0" cellpadding="0" width="800" align="center">
+		        	<tbody>
+		        		<tr>
+		            		<th nowrap="nowrap" align="right"><label class="margin_r_5" for="text">类型:</label></th>
+		            		<td width="50%"><div class="common_txtbox_wrap">
+		            			<select>
+		            				<option>协同</option>
+		            				<option>计划</option>
+		            				<option>会议</option>
+		            			</select>
+		            		</div></td>
+		            		<th noWrap="nowrap"><label class="margin_r_5" for="text">起止时间:</label></th>
+		            		<td width="50%">
+		            			<input id="text" value="" style="width:70px;" type="text"> 至 <input id="text" value="" style="width:70px;"  type="text">
+		            		</td>
+		          		</tr>
+			            <tr>
+			            	<th noWrap="nowrap" align="right"><label class="margin_r_5" for="text">标题:</label></th>
+			                <td width="50%"><div class="common_txtbox_wrap"><input id="text" value="" type="text"></div></td>
+			                <th noWrap="nowrap" align="right"><label class="margin_r_5" for="text">&nbsp;&nbsp;查询范围:</label></th>
+				                <td width="50%"><div class="common_radio_box clearfix">
+				                	<label class="margin_r_10 hand" for="radio1"><input id="radio1" class="radio_com" name="option" value="0" type="radio">未归档</label>
+									<label class="margin_r_10 hand" for="radio2"><input id="radio2" class="radio_com" name="option" value="0" type="radio">已归档</label>
+				                	<select><option>单位文档</option></select>
+				                	<label class="margin_r_10 hand" for="check1"><input id="check1" class="radio_com" name="option" value="0" type="checkbox">转储数据</label>
+		
+				                </div></td>
+			            </tr> 
+			            <tr>
+			            	<th noWrap="nowrap" align="right"><label class="margin_r_5" for="text">发起条件:</label></th>
+			                <td width="50%"><div class="common_radio_box clearfix">
+			                	<label class="margin_r_10 hand" for="radio3"><input id="radio3" class="radio_com" name="option1" value="0" type="radio">我发出的</label>
+								<label class="margin_r_10 hand" for="radio4"><input id="radio4" class="radio_com" name="option1" value="0" type="radio">发给我的</label>
+			                	<label class="margin_r_10 hand" for="radio5"><input id="radio5" class="radio_com" name="option1" value="0" type="radio"><a href="javascript:void(0)">[指定人]</a> 发给我的</label>
+			                </div></td>
+			                <th nowrap="nowrap" align="right"><label class="margin_r_5" for="text">关键字:</label></th>
+			                <td width="50%">
+		            			<input id="text" value=""  type="text"/>
+		            		</td>
+			            </tr> 
+		        	</tbody>
+		        </table>
+			    <div class="align_center clear margin_t_10">
+			        <a class="common_button common_button_gray" href="javascript:void(0)">查询</a>
+				</div>
+			</div>
+		</div>
+       
+		</div>
+	<div class="classification">
+		<div class="title">UE</div>
+		<div class="list">
+			<div class="button_box clearfix">
+			</div>
+			<div class="ue"></div>
+		</div>
+	</div>
+
+	<div class="classification">
+		<div class="title">属性</div>
+		<div class="list">
+			<table width="100%" cellpadding="0" cellspacing="0" class="showList">
+				<thead class="head">
+					<th width="200">
+						属性
+					</th>
+					<th>
+						描述
+					</th>
+				</thead>
+				<tbody class="body">
+					<!--
+					<tr>
+						<td>
+							<span class="showDemo" onclick="showDemo(this,'pro1')">+</span>background
+						</td>
+						<td>
+							简写属性，作用是将背景属性设置在一个声明中。
+						</td>
+					</tr>
+					<tr class="hidden" id="pro1">
+						<td colspan="2">
+							<div class="code">
+								<pre>&lt;a  href="javascript:void(0)" class="common_button_green"&gt;关 注&lt;/a&gt;</pre>
+							</div>
+						</td>
+					</tr>	
+					<tr>
+						<td>
+							<span class="showDemo" onclick="showDemo(this,'pro2')">+</span>background
+						</td>
+						<td>
+							简写属性，作用是将背景属性设置在一个声明中。
+						</td>
+					</tr>
+					<tr class="hidden" id="pro2">
+						<td colspan="2">
+							<div class="code">
+								<pre>&lt;a  href="javascript:void(0)" class="common_button_green"&gt;关 注&lt;/a&gt;</pre>
+							</div>
+						</td>
+					</tr>
+					-->
+				</tbody>
+			</table>
+		</div>	
+	</div>
+	
+	
+	<div class="classification">
+		<div class="title">事件</div>
+		<div class="list">
+			<table width="100%" cellpadding="0" cellspacing="0" class="showList">
+				<thead class="head">
+					<th width="200">
+						事件
+					</th>
+					<th>
+						描述
+					</th>
+				</thead>
+				<tbody class="body">
+					<!--
+					<tr>
+						<td>
+							<span class="showDemo" onclick="showDemo(this,'eve1')">+</span>onclick
+						</td>
+						<td>
+							单击事件
+						</td>
+					</tr>
+					<tr class="hidden" id="eve1">
+						<td colspan="2">
+							<div class="code">
+								<pre>&lt;a  href="javascript:void(0)" class="common_button_green"&gt;关 注&lt;/a&gt;</pre>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="showDemo" onclick="showDemo(this,'eve2')">+</span>onclick
+						</td>
+						<td>
+							单击事件
+						</td>
+					</tr>
+					<tr class="hidden" id="eve2">
+						<td colspan="2">
+							<div class="code">
+								<pre>&lt;a  href="javascript:void(0)" class="common_button_green"&gt;关 注&lt;/a&gt;</pre>
+							</div>
+						</td>
+					</tr>
+					-->
+				</tbody>
+			</table>
+		</div>	
+	</div>
+	
+	<div class="classification">
+		<div class="title">方法</div>
+		<div class="list">
+			<table width="100%" cellpadding="0" cellspacing="0" class="showList">
+				<thead class="head">
+					<th width="200">
+						方法
+					</th>
+					<th>
+						描述
+					</th>
+				</thead>
+				<tbody class="body">
+					<!--
+					<tr>
+						<td>
+							<span class="showDemo" onclick="showDemo(this,'mon1')">+</span>showMenu
+						</td>
+						<td>
+							显示下拉
+						</td>
+					</tr>
+					<tr class="hidden" id="mon1">
+						<td colspan="2">
+							<div class="code">
+								<pre>&lt;a  href="javascript:void(0)" class="common_button_green"&gt;关 注&lt;/a&gt;</pre>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="showDemo" onclick="showDemo(this,'mon2')">+</span>showMenu
+						</td>
+						<td>
+							显示下拉
+						</td>
+					</tr>
+					<tr class="hidden" id="mon2">
+						<td colspan="2">
+							<div class="code">
+								<pre>&lt;a  href="javascript:void(0)" class="common_button_green"&gt;关 注&lt;/a&gt;</pre>
+							</div>
+						</td>
+					</tr>
+					-->
+				</tbody>
+			</table>
+		</div>	
+	</div>
+
+
+<!--
+	<div class="classification">
+		<div class="title">控件使用实例</div>
+		<div class="list">
+			<div class="title">1.左对齐</div>
+			<div>
+				<table class="common_button_left">
+					<tr>
+						<td class="clearfix">
+						<a  href="javascript:void(0)" class="common_button_gray">关 注</a>
+						<a  href="javascript:void(0)" class="common_button_gray">关 注</a>
+						<a  href="javascript:void(0)" class="common_button_gray">关 注</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="code">
+<pre>
+&lt;div&gt;
+	&lt;table class="common_button_left"&gt;
+		&lt;tr&gt;
+			&lt;td class="clearfix"&gt;
+				&lt;a  href="javascript:void(0)" class="common_button_gray"&gt;关 注&lt;/a&gt;
+				&lt;a  href="javascript:void(0)" class="common_button_gray"&gt;关 注&lt;/a&gt;
+				&lt;a  href="javascript:void(0)" class="common_button_gray"&gt;关 注&lt;/a&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/table&gt;
+&lt;/div&gt;
+</pre>
+			</div>
+			
+-->
+</body>
+</html>
