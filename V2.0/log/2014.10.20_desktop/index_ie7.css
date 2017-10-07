@@ -1,0 +1,44 @@
+/* 工作桌面框架 - CSS3 版本
+ * zhenshuai 2014-10-17
+ * 支持浏览器版本：IE7、IE8、IE9、Chrome、Firefox
+ */
+
+/*布局：列表列表*/
+.desktop_skin_a { position: relative; top: 0; right: 0; bottom: 0; left: 0; }
+.desktop_skin_a .c-1 { position: fixed; top: 0; bottom: 0; overflow: auto; width: 185px; }
+.desktop_skin_a .c-2 { }
+.desktop_skin_a .c-2-r-1 { position: fixed; left: 185px; top: 0; right: 0; overflow: hidden; height: 45px; }
+.desktop_skin_a .c-2-r-2 { position: fixed; height: 100%; }
+.desktop_skin_a .c-2-r-2-c-1 { position: fixed; top: 45px; right: 0; left: 185px; bottom: 0; overflow: auto; }
+.desktop_skin_a .c-2-r-2-c-2 { display: none; position: fixed; top: 45px; right: 0; bottom: 0; left: 485px; overflow: auto; }
+.desktop_skin_a .c-3 { display: none; position: fixed; top: 0; bottom: 0; right: 0; overflow: auto; width: 250px; overflow: auto; }
+
+/*布局：上下列表*/
+.desktop_skin_b { position: relative; top: 0; right: 0; bottom: 0; left: 0; }
+.desktop_skin_b .c-1 { position: fixed; top: 0; bottom: 0; overflow: auto; width: 185px; }
+.desktop_skin_b .c-2 { }
+.desktop_skin_b .c-2-r-1 { position: fixed; left: 185px; top: 0; right: 0; overflow: hidden; height: 45px; }
+.desktop_skin_b .c-2-r-2 { position: fixed; left: 185px; top: 45px; right: 0; bottom: 0;}
+.desktop_skin_b .c-2-r-2-c-1 { position: absolute; left:0; right: 0; overflow: auto; height: 25%; }
+.desktop_skin_b .c-2-r-2-c-2 { position: absolute; left:0; top: 25%; right: 0; bottom: 0; overflow: auto; }
+.desktop_skin_b .c-3 { display: none; position: fixed; top: 0; bottom: 0; right: 0; overflow: auto; width: 250px; overflow: auto; }
+
+/*布局：左右列表*/
+.desktop_skin_c { position: relative; top: 0; right: 0; bottom: 0; left: 0; }
+.desktop_skin_c .c-1 { position: fixed; top: 0; bottom: 0; overflow: auto; width: 185px; }
+.desktop_skin_c .c-2 { }
+.desktop_skin_c .c-2-r-1 { position: fixed; left: 185px; top: 0; right: 0; overflow: hidden; height: 45px; }
+.desktop_skin_c .c-2-r-2 { position: fixed; height: 100%; }
+.desktop_skin_c .c-2-r-2-c-1 { position: fixed; top: 45px; left: 185px; bottom: 0; overflow: auto; width: 300px; }
+.desktop_skin_c .c-2-r-2-c-2 { position: fixed; top: 45px; right: 0; bottom: 0; left: 485px; overflow: auto; }
+.desktop_skin_c .c-3 { display: none; position: fixed; top: 0; bottom: 0; right: 0; overflow: auto; width: 250px; overflow: auto; }
+
+/*布局：隐藏右侧快捷区域*/
+.desktop_side .c-2-r-1 { right: 250px; }
+.desktop_side .c-2-r-2-c-1 { right: 250px; }
+.desktop_side .c-2-r-2-c-2 { right: 250px; }
+.desktop_side .c-3 { display: inline; overflow: auto; }
+
+
+
+
