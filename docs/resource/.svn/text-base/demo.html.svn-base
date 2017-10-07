@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>demo</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+</head>
+<body>
+    <h3>[1.示例]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="200" rowspan="2">示例</td>
+            <td class="td code">代码</td>
+        </tr>
+        <tr>
+            <td class="td code">代码</td>
+        </tr>
+    </table>
+
+    <h3>[2.使用实例]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="200"></td>
+            <td class="td code"></td>
+        </tr>
+    </table>
+
+    <h3>[3.UE]</h3>
+    <table class="docsShowTable">
+        <tr>
+            <td class="td" width="200">uuuuueeeeee</td>
+            <td class="td"></td>
+        </tr>
+        <tr>
+            <td class="td">uuuuueeeeee</td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3>[4.属性]</h3>
+    <table class="docsShowTable">
+        <tr class="head">
+            <td class="td" width="200">属性</td>
+            <td class="td" width="200">类型</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3>[5.事件]</h3>
+    <table class="docsShowTable">
+        <tr class="head">
+            <td class="td" width="200">事件</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+
+    <h3>[6.方法]</h3>
+    <table class="docsShowTable">
+        <tr class="head">
+            <td class="td" width="200">方法</td>
+            <td class="td">描述</td>
+        </tr>
+        <tr>
+            <td class="td"></td>
+            <td class="td"></td>
+        </tr>
+    </table>
+</body>
+</html>

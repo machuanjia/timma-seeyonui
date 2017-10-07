@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Code Prettifier</title>
+    <script src="../../../ctp/jquery-debug.js"></script>
+    <link href="../demo.css" rel="stylesheet" />
+    <script src="../demo.js"></script>
+    <link href="prettify.css" rel="stylesheet" />
+    <script src="prettify.js"></script>
+</head>
+<body>
+    <div class="sorce_code">
+    <pre class="prettyprint">
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+  &lt;head>
+    &lt;title&gt;Fibonacci number&lt;/title&gt;
+    &lt;style&gt;&lt;!-- BODY { text-decoration: blink } --&gt;&lt;/style&gt;
+    &lt;script src="foo.js"&gt;&lt;/script&gt;
+    &lt;script src="bar.js"&gt;&lt;/script&gt;
+    &lt;style type='text/css'>
+        /* desert scheme ported from vim to google prettify */
+        code.prettyprint { display: block; padding: 2px; border: 1px solid #888;
+        background-color: #333; }
+        .str { color: #ffa0a0; } /* string  - pink */
+        .kwd { color: #f0e68c; font-weight: bold; }
+        .com { color: #87ceeb; } /* comment - skyblue */
+        .typ { color: #98fb98; } /* type    - lightgreen */
+        .lit { color: #cd5c5c; } /* literal - darkred */
+        .pun { color: #fff; }    /* punctuation */
+        .pln { color: #fff; }    /* plaintext */
+        .tag { color: #f0e68c; font-weight: bold; } /* html/xml tag    - lightyellow*/
+        .atn { color: #bdb76b; font-weight: bold; } /* attribute name  - khaki*/
+        .atv { color: #ffa0a0; } /* attribute value - pink */
+        .dec { color: #98fb98; font-family: "monospace"} /* decimal         - lightgreen */
+    &lt;/style>
+    &lt;script type="text/javascript">&lt;!--
+        var google = "google";
+        function fib(n) {
+          var a = 1, b = 1;
+          var tmp;
+          while (--n >= 0) {
+            tmp = a;
+            a += b;
+            b = tmp;
+          }
+          return a;
+        }
+
+        document.writeln(fib(10));
+        // --&gt;
+    &lt;/script>
+  &lt;/head&gt;
+  &lt;body onload="go(goldens)" onclick="">
+    &lt;noscript&gt;
+      &lt;dl&gt;
+        &lt;dt&gt;Fibonacci numbers&lt;/dt&gt;
+        &lt;dd&gt;1&lt;/dd&gt;
+        &lt;dd&gt;1&lt;/dd&gt;
+        &lt;dd&gt;2&lt;/dd&gt;
+        &lt;dd&gt;3&lt;/dd&gt;
+        &lt;dd&gt;5&lt;/dd&gt;
+        &lt;dd&gt;8&lt;/dd&gt;
+        &amp;hellip;
+      &lt;/dl&gt;
+    &lt;/noscript&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</body>
+</html>
