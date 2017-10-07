@@ -1,0 +1,947 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>起步 - Seeyonui V2.0</title>
+    <link href="../css/doc.css" rel="stylesheet" />
+    <script type="text/javascript" src="../scripts/syntaxhighlighter/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../scripts/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../scripts/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../scripts/syntaxhighlighter/scripts/shBrushXml.js"></script>
+    <script type="text/javascript" src="../scripts/syntaxhighlighter/scripts/shBrushCss.js"></script>
+    <link type="text/css" rel="stylesheet" href="../scripts/syntaxhighlighter/styles/shCoreDefault.css" />
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
+
+    <script src="../../scriptes/jquery.js"></script>
+    <script src="../../controls/seeyon.ui.layout-debug.js"></script>
+    <script src="../../controls/seeyon.ui.toolbar-debug.js"></script>
+    <script src="../../controls/calendar/calendar-debug.js"></script>
+    <script src="../../controls/calendar/calendar-zh_CN.js"></script>
+    <script src="../../ctp/misc/Moo-debug.js"></script>
+    <script src="../../ctp/misc/jsonGateway-debug.js"></script>
+    <script src="../../ctp/jquery.hotkeys-debug.js"></script>
+    <script src="../../ctp/jquery.json-debug.js"></script>
+    <script src="../../ctp/jquery.fillform-debug.js"></script>
+    <script src="../../ctp/jquery.jsonsubmit-debug.js"></script>
+    <script src="../../ctp/jquery.code-debug.js"></script>
+    <script src="../../ctp/common-debug.js"></script>
+    <script src="../../ctp/i18n-debug.js"></script>
+    <script src="../../ctp/v3x-debug.js"></script>
+    <script src="../../controls/searchBox-debug.js"></script>
+    <script src="../../controls/seeyon.ui.checkform-debug.js"></script>
+    <script src="../../controls/seeyon.ui.dialog-debug.js"></script>
+    <script src="../../controls/seeyon.ui.grid-debug.js"></script>
+    <script src="../../controls/seeyon.ui.layout-debug.js"></script>
+    <script src="../../controls/seeyon.ui.menu-debug.js"></script>
+    <script src="../../controls/seeyon.ui.progress-debug.js"></script>
+    <script src="../../controls/seeyon.ui.tab-debug.js"></script>
+    <script src="../../controls/seeyon.ui.toolbar-debug.js"></script>
+    <script src="../../controls/seeyon.ui.tree-debug.js"></script>
+    <script src="../../controls/seeyon.ui.calendar-debug.js"></script>
+    <script src="../../controls/seeyon.ui.arraylist-debug.js"></script>
+    <script src="../../controls/seeyon.ui.tooltip-debug.js"></script>
+    <script src="../../controls/seeyon.ui.common-debug.js"></script>
+    <script src="../../controls/seeyon.ui.dialog-debug.js"></script>
+    <script src="../../ctp/jquery.comp-debug.js"></script>
+    <script src="../../ctp/jquery.tree-debug.js"></script>
+    <link href="../../css/common.css" rel="stylesheet" />
+    <link href="../../skin/default/skin.css" rel="stylesheet" />
+</head>
+    <script type="text/javascript">
+        $(function(){
+            GoTo_Top({ showHeight: 100});
+        })
+        
+    </script>
+<body>
+    <header class="header">
+        <div class="nav_area">
+            <ul class="clearfix">
+                <li><a href="../index.html"><strong>Seeyonui</strong></a></li>
+                <li><a href="../getting-started/index.html">起步</a></li>
+                <li><a href="../components/index.html">组件</a></li>
+                <li><a href="../prototype/index.html">关键页面</a></li>
+                <li><a href="../class/index.html">icon&class</a></li>
+                <li><a href="../problem/index.html">常见开发问题</a></li>
+            </ul>
+        </div>
+        <div class="page_title_area">
+            <div class="page_title_box">
+                <div class="t">关键页面</div>
+                <div class="c">Model Page</div>
+            </div>
+        </div>
+    </header>
+    <div id="content" class="clearfix">
+        <div class="main_body">
+            <div id="newPage" class="clearfix">
+                <h1>新建</h1>
+                <div class="code_area">
+                    <div class="code_box">
+                        <img src="./photos/newPage.jpg">
+                    </div>
+                     <h3><a href="../../controls/html/demo/newPage.html" target="view_window"><code>查看原网页</code></a></h3>
+                </div>
+            </div>
+            <div id="list" class="clearfix">
+                <h1>列表</h1>
+                <div class="code_area">
+                    <div class="code_box">
+                        <img src="./photos/list.jpg">
+                    </div>
+                    <h3><a href="../../controls/html/demo/list.html" target="view_window"><code>查看原网页</code></a></h3>
+                </div>
+            </div>
+            <div id="content_view" class="clearfix">
+                <h1>查看处理</h1>
+                <div class="code_area">
+                    <div class="code_box">
+                        <img src="./photos/summary.jpg">
+                    </div>
+                    <h3><a href="../../controls/html/demo/summary.html" target="view_window"><code>查看原网页</code></a></h3>
+                </div>
+            </div>
+            <div id="form_search" class="clearfix">
+                <h1>表单查询</h1>
+                <div class="code_area">
+                    <img src="./photos/form_search.jpg">
+                </div>
+                <h3><a href="../../controls/html/demo/form_search/form_search.html" target="view_window"><code>查看原网页</code></a></h3>
+            </div>
+            <div id="dialog_typepage" class="clearfix">
+                <h1>弹出框类型页面模板</h1>
+                <div class="code_area"> 
+                    <div class="example_box">
+                        <img src="./photos/dialog_typepage.jpg">
+                    </div>
+                    <div class="code_box">
+                        <pre class="brush:html;">
+                            &lt;body>
+                                &lt;table class="only_table edit_table no_border" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                    &lt;thead>
+                                        &lt;tr>
+                                            &lt;th width="20"> &lt;/th>
+                                            &lt;th>表单模板名称&lt;/th>
+                                        &lt;/tr>
+                                    &lt;/thead>
+                                    &lt;tbody>
+                                        &lt;tr class="erow">
+                                            &lt;td>&lt;input type="radio"/>&lt;/td>
+                                            &lt;td>模板1&lt;/td>
+                                        &lt;/tr>
+                                    &lt;/tbody>
+                                &lt;/table>
+                            &lt;/body>
+                        </pre>
+                    </div>
+                </div>
+                <div class="code_area"> 
+                    <div class="example_box">
+                        <img src="./photos/dialog_typepage1.jpg">
+                    </div>
+                    <div class="code_box">
+                        <pre class="brush:html;">
+                            &lt;body class="h100b over_hidden">
+                                &lt;textarea class="w100b h100b">
+                                    
+                                &lt;/textarea>
+                            &lt;/body>
+                        </pre>
+                    </div>
+                </div>
+                <div class="code_area"> 
+                    <div class="example_box">
+                        <img src="./photos/dialog_typepage2.jpg">
+                    </div>
+                    <div class="code_box">
+                        <pre class="brush:html;">
+                            &lt;body class="h100b">
+                                &lt;div class="form_area padding_5">
+                                    &lt;table border="0" cellSpacing="0" cellPadding="0" width="100%">
+                                      &lt;tbody>&lt;tr>
+                                        &lt;th noWrap="nowrap">&lt;label class="margin_r_10" for="text">设置节点权限:&lt;/label>&lt;/th>
+                                        &lt;td width="100%">&lt;div class="common_selectbox_wrap">&lt;select>&lt;option>协同&lt;/option>&lt;/select>&lt;/div>&lt;/td>
+                                        &lt;td nowrap="nowrap" rowspan="3" valign="top">&lt;a href="javascript:void(0)" class="display_inline-block margin_t_10">&nbsp;[权限说明]&lt;/a>&lt;/td>
+                                      &lt;/tr>
+                                      &lt;tr>
+                                        &lt;th noWrap="nowrap">&lt;label class="margin_r_10" for="text">请选择人员:&lt;/label>&lt;/th>
+                                        &lt;td >&lt;div class="common_txtbox_wrap">&lt;input id="select_people"  type="text">&lt;/div>&lt;/td>
+                                      &lt;/tr>
+                                      &lt;tr>
+                                        &lt;th noWrap="nowrap">&lt;label class="margin_r_10" for="text">流程模式:&lt;/label>&lt;/th>
+                                        &lt;td>
+                                            &lt;div class="common_radio_box clearfix">
+                                                &lt;label class="margin_r_10 hand" for="radio1">&lt;input id="radio11" checked="checked" class="radio_com" name="option" value="0" type="radio">串发&lt;/label>
+                                                &lt;label class="margin_r_10 hand" for="radio2">&lt;input id="radio12" class="radio_com" name="option" value="0" type="radio">并发&lt;/label>
+                                                &lt;label class="margin_r_10 hand" for="radio3">&lt;input id="radio13" class="radio_com" name="option" value="0" type="radio">与下一节点并发&lt;/label>  
+                                            &lt;/div>
+                                        &lt;/td>
+                                      &lt;/tr>&lt;/tbody>
+                                    &lt;/table>
+                                &lt;/div>
+
+                            &lt;/body>
+                        </pre>
+                        <pre class="brush:js">
+                            &lt;script type="text/javascript">
+                                 $(function(){
+                                    new inputChange($("#select_people"),"单击选择人员");  
+                                 })
+                            &lt;/script>
+                        </pre>
+                    </div>
+                </div>
+                <div class="code_area"> 
+                    <div class="example_box">
+                        <img src="./photos/dialog_typepage3.jpg">
+                    </div>
+                    <div class="code_box">
+                        <pre class="brush:html;">
+                            &lt;body class="h100b">
+                                &lt;table class="only_table edit_table no_border" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                    &lt;thead>
+                                        &lt;tr>
+                                            &lt;th width="20">&lt;input type="checkbox"/>&lt;/th>
+                                            &lt;th>名称&lt;/th>
+                                        &lt;/tr>
+                                    &lt;/thead>
+                                    &lt;tbody>
+                                        &lt;tr class="erow">
+                                            &lt;td>&lt;input type="checkbox"/>&lt;/td>
+                                            &lt;td>张三&lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr class="erow">
+                                            &lt;td>&lt;input type="checkbox"/>&lt;/td>
+                                            &lt;td>张三&lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr class="erow">
+                                            &lt;td>&lt;input type="checkbox"/>&lt;/td>
+                                            &lt;td>张三&lt;/td>
+                                        &lt;/tr>
+                                    &lt;/tbody>
+                                &lt;/table>
+
+                            &lt;/body>
+                        </pre>
+                        <pre class="brush:js">
+                            &lt;script type="text/javascript">
+                                 $(function(){
+                                    new inputChange($("#select_people"),"单击选择人员");  
+                                 })
+                            &lt;/script>
+                        </pre>
+                    </div>
+                </div>
+                <div class="code_area"> 
+                    <div class="example_box">
+                        <img src="./photos/dialog_typepage4.jpg">
+                    </div>
+                    <div class="code_box">
+                        <pre class="brush:html;">
+                            &lt;body>
+                                &lt;fieldset class="margin_5">
+                                    &lt;legend>新流程&lt;/legend>
+                                    &lt;div class="form_area align_center relative padding_b_15">
+                                        &lt;table border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
+                                            &lt;tr>
+                                                &lt;th nowrap="nowrap">&lt;label class="margin_r_5" for="text">&lt;span class="required">*&lt;/span>选择表单流程:&lt;/label>&lt;/th>
+                                                &lt;td width="100%">&lt;div class="common_txtbox_wrap">
+                                                    &lt;input id="newflow" type="text" name="newflow" />
+                                                &lt;/div>&lt;/td>
+                                            &lt;/tr>
+                                            &lt;tr>
+                                                &lt;th nowrap="nowrap">&lt;label class="margin_r_5" for="text">选择表单流程:&lt;/label>&lt;/th>
+                                                &lt;td width="100%">&lt;div class="common_txtbox_wrap">
+                                                    &lt;input id="newflow" type="text" name="newflow" />
+                                                &lt;/div>&lt;/td>
+                                            &lt;/tr>
+                                         &lt;/table>
+                                         &lt;div class="fieldset_edit absolute">
+                                            &lt;span class="ico16 repeater_plus_16 add" >&lt;/span>
+                                            &lt;span class="ico16 repeater_reduce_16 remove">&lt;/span>
+                                        &lt;/div>
+                                    &lt;/div>
+                                    &lt;div class="form_area align_center border_t margin_t_5 padding_t_5 newItem hidden padding_b_15 relative">
+                                        &lt;div class="fieldset_edit absolute">
+                                            &lt;span class="ico16 repeater_plus_16 add" >&lt;/span>
+                                            &lt;span class="ico16 repeater_reduce_16 remove">&lt;/span>
+                                        &lt;/div>
+                                        &lt;table border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
+                                            &lt;tr>
+                                                &lt;th nowrap="nowrap">&lt;label class="margin_r_5" for="text">&lt;span class="required">*&lt;/span>选择表单流程:&lt;/label>&lt;/th>
+                                                &lt;td width="100%">&lt;div class="common_txtbox_wrap">
+                                                    &lt;input id="newflow" type="text" name="newflow" />
+                                                &lt;/div>&lt;/td>
+                                            &lt;/tr>
+                                            &lt;tr>
+                                                &lt;th nowrap="nowrap">&lt;label class="margin_r_5" for="text">选择表单流程:&lt;/label>&lt;/th>
+                                                &lt;td width="100%">&lt;div class="common_txtbox_wrap">
+                                                    &lt;input id="newflow" type="text" name="newflow" />
+                                                &lt;/div>&lt;/td>
+                                            &lt;/tr>
+                                         &lt;/table>
+                                    &lt;/div>
+                                &lt;/fieldset>
+                                 
+                                &lt;fieldset class="margin_5">
+                                    &lt;legend>属性设置&lt;/legend>
+                                    &lt;div class="form_area relative margin_l_10">
+                                        &lt;table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                            &lt;tr>
+                                                &lt;th nowrap="nowrap">&lt;label for="text">节点名称:&lt;/label>&lt;/th>
+                                                &lt;td width="100%">总经理部门&lt;/td>
+                                            &lt;/tr>
+                                            &lt;tr>
+                                                &lt;th nowrap="nowrap">&lt;label for="text">执行模式:&lt;/label>&lt;/th>
+                                                &lt;td width="100%">单人&lt;/td>
+                                            &lt;/tr>
+                                            &lt;tr>
+                                                &lt;th nowrap="nowrap">&lt;label for="text">节点状态:&lt;/label>&lt;/th>
+                                                &lt;td width="100%">一般&lt;/td>
+                                            &lt;/tr>
+                                            &lt;tr>
+                                                &lt;th nowrap="nowrap">&lt;label for="text">节点权限:&lt;/label>&lt;/th>
+                                                &lt;td width="100%">协同&lt;/td>
+                                            &lt;/tr>
+                                         &lt;/table>
+                                            &lt;a href="javascript:void(0)" class="absolute" style="bottom:5px;right:5px;">[权限说明]&lt;/a>
+                                    &lt;/div>
+                                &lt;/fieldset>
+                                    &lt;a href="javascript:void(0)" class="absolute font_size12" style="bottom:5px;right:10px;">[处理说明]&lt;/a>
+                            &lt;/body>
+                        </pre>
+                        <pre class="brush:js">
+                            &lt;script type="text/javascript">
+                                 $(function(){
+                                    new inputChange($("#newflow"),"选择表单流程");    
+                                    //添加项
+                                    $(".add").click(function(){
+                                        var newItem=$(".newItem").eq(0).clone(true).removeClass("hidden");
+                                        $(".newItem").eq(0).parent().append(newItem);
+                                    });
+                                    //删除项
+                                    $(".remove").click(function(){
+                                        var removeItem=$(".newItem").length;
+                                        if(removeItem!=1) $(".newItem").eq(removeItem-1).remove();    
+                                    });
+                                    
+                                 })
+                            &lt;/script>
+                        </pre>
+                    </div>
+                </div>
+                <div class="code_area"> 
+                    <div class="example_box">
+                        <img src="./photos/dialog_typepage5.jpg">
+                    </div>
+                    <div class="code_box">
+                        <pre class="brush:html;">
+                            &lt;body>
+                                &lt;fieldset class="margin_5 margin_l_20">
+                                    &lt;legend>新流程&lt;/legend>
+                                    &lt;div class="form_area align_center relative">
+                                        &lt;table border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
+                                            &lt;tr>
+                                                &lt;th nowrap="nowrap">&lt;label class="margin_r_5" for="text">&lt;span class="required">*&lt;/span>选择表单流程:&lt;/label>&lt;/th>
+                                                &lt;td width="100%">&lt;div class="common_txtbox_wrap">
+                                                    &lt;input id="newflow" type="text" name="newflow" />
+                                                &lt;/div>&lt;/td>
+                                            &lt;/tr>
+                                            &lt;tr>
+                                                &lt;th nowrap="nowrap">&lt;label class="margin_r_5" for="text">选择表单流程:&lt;/label>&lt;/th>
+                                                &lt;td width="100%" align="left">
+                                                    &lt;div class="common_radio_box clearfix">
+                                                        &lt;label class="margin_r_10 hand" for="radio1">
+                                                            &lt;input id="radio1" class="radio_com" name="option" value="0" type="radio">当前节点
+                                                        &lt;/label>
+                                                        &lt;label class="margin_r_10 hand" for="radio2">
+                                                            &lt;input id="radio2" class="radio_com" name="option" value="0" type="radio">当前流程发起人
+                                                        &lt;/label>
+                                                        &lt;label class=" hand" >
+                                                            &lt;input id="radio3" class="radio_com" name="option" value="0" type="radio">  
+                                                        &lt;/label>
+                                                        &lt;input type="text" name="newflow" />
+                                                &lt;/div>
+                                            &lt;/td>
+                                            &lt;/tr>
+                                         &lt;/table>        
+                                    &lt;/div>
+                                &lt;/fieldset>
+                                &lt;fieldset class="margin_5 hidden newItem margin_l_20">
+                                    &lt;legend>新流程&lt;/legend>
+                                    &lt;div class="form_area align_center">
+                                        &lt;table border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
+                                            &lt;tr>
+                                                &lt;th nowrap="nowrap">&lt;label class="margin_r_5" for="text">&lt;span class="required">*&lt;/span>选择表单流程:&lt;/label>&lt;/th>
+                                                &lt;td width="100%">&lt;div class="common_txtbox_wrap">
+                                                    &lt;input id="newflow" type="text" name="newflow" />
+                                                &lt;/div>&lt;/td>
+                                            &lt;/tr>
+                                            &lt;tr>
+                                                &lt;th nowrap="nowrap">&lt;label class="margin_r_5" for="text">选择表单流程:&lt;/label>&lt;/th>
+                                                &lt;td width="100%">&lt;div class="common_txtbox_wrap">
+                                                    &lt;input id="newflow" type="text" name="newflow" />
+                                                &lt;/div>&lt;/td>
+                                            &lt;/tr>
+                                         &lt;/table>
+                                    &lt;/div>
+                                &lt;/fieldset>
+                                &lt;div class="fieldset_edit fixed" style="position:fixed">
+                                    &lt;span class="ico16 repeater_plus_16 add" >&lt;/span>&lt;br>
+                                    &lt;span class="ico16 repeater_reduce_16 remove">&lt;/span>
+                                &lt;/div>
+                            &lt;/body>
+                        </pre>
+                        <pre class="brush:js">
+                            &lt;script type="text/javascript">
+                                 $(function(){
+                                    new inputChange($("#newflow"),"选择表单流程");    
+                                    //添加项
+                                    $(".add").click(function(){
+                                        var newItem=$(".newItem").eq(0).clone(true).removeClass("hidden");
+                                        $(".fieldset_edit").eq(0).before(newItem);
+                                    });
+                                    //删除项
+                                    $(".remove").click(function(){
+                                        var removeItem=$(".newItem").length;
+                                        if(removeItem!=1) $(".newItem").eq(removeItem-1).remove();    
+                                    });
+                                    
+                                 })
+                            &lt;/script>
+                        </pre>
+                    </div>
+                </div>
+                <div class="code_area"> 
+                    <div class="example_box">
+                        <img src="./photos/dialog_typepage6.jpg">
+                    </div>
+                    <div class="code_box">
+                        <pre class="brush:html;">
+                            &lt;style>
+                                .stadic_bottom_height{
+                                    height:140px;
+                                    bottom:0;
+                                }
+                                .stadic_body_top_bottom{
+                                    bottom:140px;
+                                    top:0px;
+                                }
+                            &lt;/style>
+                            &lt;body class="h100b over_hidden">
+                                &lt;div class="stadic_layout">
+                                        &lt;div class=" stadic_layout_body stadic_body_top_bottom ">
+                                            &lt;table class="only_table edit_table no_border" border="0" cellspacing="0"  cellpadding="0" width="100%">
+                                                &lt;thead>
+                                                    &lt;tr>
+                                                        &lt;th width="20">&lt;input type="checkbox"/>&lt;/th>
+                                                        &lt;th>名称&lt;/th>
+                                                    &lt;/tr>
+                                                &lt;/thead>
+                                                &lt;tbody>
+                                                    &lt;tr class="erow">
+                                                        &lt;td>&lt;input type="checkbox"/>&lt;/td>
+                                                        &lt;td>张三&lt;/td>
+                                                    &lt;/tr>
+                                                    &lt;tr class="erow">
+                                                        &lt;td>&lt;input type="checkbox"/>&lt;/td>
+                                                        &lt;td>张三&lt;/td>
+                                                    &lt;/tr>
+                                                    &lt;tr class="erow">
+                                                        &lt;td>&lt;input type="checkbox"/>&lt;/td>
+                                                        &lt;td>张三&lt;/td>
+                                                    &lt;/tr>
+                                                &lt;/tbody>
+                                            &lt;/table>
+                                        &lt;/div>
+                                        &lt;div class="stadic_layout_head stadic_bottom_height absolute">
+                                            &lt;div class="font_size12 margin_5">附言:&lt;/div>
+                                            &lt;textarea rows="8" cols="49" class="margin_l_5" > &lt;/textarea>
+                                        &lt;/div>
+                                    &lt;/div>
+                                &lt;/body>
+                        </pre>
+                        <pre class="brush:js">
+                            &lt;script type="text/javascript">
+                                $(function(){
+                                    new inputChange($("#select_people"),"单击选择人员");  
+                                 })
+                            &lt;/script>
+                        </pre>
+                    </div>
+                </div>
+                <div class="code_area"> 
+                    <div class="example_box">
+                        <img src="./photos/dialog_typepage7.jpg">
+                    </div>
+                    <div class="code_box">
+                        <pre class="brush:html;">
+                            &lt;body>
+                                &lt;div class="form_area  margin_5">
+                                    &lt;table border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
+                                        &lt;tr>
+                                            &lt;th nowrap="nowrap">&lt;label class="margin_r_5" for="text">标题:&lt;/label>&lt;/th>
+                                            &lt;td width="100%" colspan="3">&lt;div class="common_txtbox_wrap">
+                                                &lt;input id="newflow" type="text" name="newflow" />
+                                            &lt;/div>&lt;/td>
+                                        &lt;/tr>
+                                         &lt;tr>
+                                            &lt;th nowrap="nowrap" class="border_b">&lt;label class="margin_r_5" for="text">事件类型:&lt;/label>&lt;/th>
+                                            &lt;td width="100%" colspan="3" class="border_b">&lt;div class="common_selectbox_wrap">
+                                                    &lt;select>&lt;option> &lt;/option>&lt;/select>
+                                            &lt;/div>&lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;th nowrap="nowrap">&lt;label class="margin_r_5" for="text">开始时间:&lt;/label>&lt;/th>
+                                            &lt;td width="50%">&lt;input id="mycal2" type="text" class="comp" comp="type:'calendar',ifFormat:'%Y-%m-%d'">&lt;/td>
+                                            &lt;th nowrap="nowrap">&lt;label class="margin_r_5" for="text">重要程度:&lt;/label>&lt;/th>
+                                            &lt;td width="50%">&lt;div class="common_selectbox_wrap">
+                                                    &lt;select>&lt;option> &lt;/option>&lt;/select>
+                                            &lt;/div>&lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;th nowrap="nowrap">&lt;label class="margin_r_5" for="text">提前提醒:&lt;/label>&lt;/th>
+                                            &lt;td width="50%">&lt;div class="common_selectbox_wrap">
+                                                    &lt;select>&lt;option> &lt;/option>&lt;/select>
+                                            &lt;/div>&lt;/td>
+                                            &lt;th nowrap="nowrap">&lt;label class="margin_r_5" for="text">已完成:&lt;/label>&lt;/th>
+                                            &lt;td width="50%">&lt;label class="right valign_m margin_t_5 margin_l_5">%&lt;/label>&lt;div class="common_txtbox_wrap">
+                                                &lt;input id="newflow" type="text" name="newflow" />
+                                            &lt;/div>&lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;th nowrap="nowrap" class="border_t padding_t_5">&lt;label class="margin_r_5" for="text">事件内容:&lt;/label>&lt;/th>
+                                            &lt;td colspan="3" class="border_t padding_t_5" align="left">&lt;div class="common_txtbox">
+                                                &lt;textarea class="w100b" rows="8">&lt;/textarea>
+                                                &lt;a class="common_button common_button_icon margin_t_5" href="javascript:void(0)">&lt;em class="ico16 affix_16">&lt;/em>上传附件&lt;/a>&lt;/div>
+                                                
+                                            &lt;/td>
+                                        &lt;/tr>
+                                     &lt;/table>
+                                &lt;/div>
+                            &lt;/body>
+                        </pre>
+                        <pre class="brush:js">
+                            &lt;script type="text/javascript">
+                                $(function(){
+                                    new inputChange($("#newflow"),"输入标题");      
+                                })
+                                                
+                            &lt;/script>
+                        </pre>
+                    </div>
+                </div>
+                <div class="code_area"> 
+                    <div class="example_box">
+                        <img src="./photos/dialog_typepage8.jpg">
+                    </div>
+                    <div class="code_box">
+                        <pre class="brush:html;">
+                            &lt;body class="body-pading">
+                                &lt;div class="font_size12 form_area">
+                                    &lt;table class="" cellpadding="0" width="400" cellspacing="0">
+                                        &lt;tr>
+                                            &lt;td colspan="2" class="font_bold">开始时间&lt;/td>
+                                            &lt;td colspan="2" class="font_bold">结束时间&lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;td class="padding_tb_5 padding_r_5" id="start" colspan="2">
+                                                &lt;script>
+                                                    $.calendar({
+                                                        displayArea:'start_time',
+                                                        flat:'start',
+                                                        returnValue: true,
+                                                        date:new Date(),
+                                                        onUpdate:showStart,
+                                                        ifFormat:"%Y-%m-%d",
+                                                        daFormat:"%Y-%m-%d",
+                                                        showsTime:false
+                                                    });
+                                                    function showStart(date){
+                                                }
+                                                &lt;/script>
+                                            &lt;/td>
+                                            &lt;td class="td" id="end" colspan="2">
+                                                &lt;script>
+                                                    $.calendar({
+                                                        //position:[500,200],
+                                                        flat:'end',
+                                                        returnValue: true,
+                                                        date:new Date(),
+                                                        onUpdate:showEnd,
+                                                        ifFormat:"%Y-%m-%d",
+                                                        daFormat:"%Y-%m-%d",
+                                                        showsTime:false
+                                                    });
+                                                    function showEnd(date){
+                                                }
+                                                &lt;/script>
+                                            &lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;td colspan="4">
+                                                &lt;div class="common_checkbox_box clearfix ">
+                                                    &lt;label class="margin_r_10 hand" for="Checkbox1">
+                                                    &lt;input id="Checkbox1" checked="checked" class="radio_com" name="option" value="0" type="checkbox">全天&lt;/label>
+                                                &lt;/div>
+                                        &lt;/td>
+                                        &lt;tr>
+                                            &lt;th  nowrap="nowrap">时间:&lt;/th>
+                                            &lt;td  width="50%">&lt;div class="common_txtbox_wrap">&lt;input id="start_time"/>&lt;/div>&lt;/td>
+                                            &lt;th nowrap="nowrap">时间:&lt;/th>
+                                            &lt;td width="50%">&lt;div class="common_txtbox_wrap">&lt;input id="end_time"/>&lt;/div>&lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;th  nowrap="nowrap">开始前提醒:&lt;/th>
+                                            &lt;td  width="50%">
+                                                &lt;div class="common_selectbox_wrap">
+                                                    &lt;select>
+                                                        &lt;option> &lt;/option>
+                                                    &lt;/select>
+                                            &lt;/div>
+                                            &lt;/td>
+                                            &lt;th nowrap="nowrap">结束前提醒:&lt;/th>
+                                            &lt;td width="50%">&lt;div class="common_selectbox_wrap">
+                                                    &lt;select>
+                                                        &lt;option> &lt;/option>
+                                                    &lt;/select>
+                                            &lt;/div>&lt;/td>
+                                        &lt;/tr>
+                                    &lt;/table>
+                                &lt;/div>
+                            &lt;/body>
+                        </pre>
+                    </div>
+                </div>
+                <div class="code_area"> 
+                    <div class="example_box">
+                        <img src="./photos/dialog_typepage9.jpg">
+                    </div>
+                    <div class="code_box">
+                        <pre class="brush:html;">
+                            &lt;body class="h100b">
+                                &lt;div class="left border_r h100b page_color" style="width:100px;">
+                                    &lt;div class=" align_center">
+                                        &lt;span class="vst relative display_inline-block  over_hidden margin_t_5">
+                                            &lt;img src="../../../skin/default/images/people.jpg" width="60" height="60">
+                                            &lt;div class="absolute current_state online"> &lt;/div>
+                                        &lt;/span>
+                                    &lt;/div>
+                                    &lt;div class=" align_center">
+                                        &lt;a class="common_button common_button_gray" href="javascript:void(0)">加为关联&lt;/a>  
+                                    &lt;/div>
+                                    &lt;ul class="font_size12 align_center card_operate">
+                                        &lt;li class="margin_t_5">&lt;a class="img-button" href="javascript:void(0)">&lt;em class="ico16 collaboration_16"> &lt;/em>发协同&lt;/a>&lt;/li>
+                                        &lt;li class="margin_t_5">&lt;a class="img-button" href="javascript:void(0)">&lt;em class="ico16 communication_16"> &lt;/em>发消息&lt;/a>&lt;/li>
+                                        &lt;li class="margin_t_5">&lt;a class="img-button" href="javascript:void(0)">&lt;em class="ico16 email_16"> &lt;/em>发邮件&lt;/a>&lt;/li>
+                                        &lt;li class="margin_t_5">&lt;a class="img-button" href="javascript:void(0)">&lt;em class="ico16 info_16"> &lt;/em>发短信&lt;/a>&lt;/li>
+                                    &lt;/ul>
+                                &lt;/div>
+                                &lt;div class="adapt_w font_size12 form_area people_msg  h100b" style="background:#fff;_width:370px;">
+                                    &lt;table cellpadding="0" cellspacing="0" width="100%" class="padding_5 margin_l_10">
+                                        &lt;caption class="align_left font_bold margin_t_5">乔立&lt;/caption>
+                                        &lt;tr>
+                                            &lt;td width="50%">人员编号：&lt;span>001&lt;/span>&lt;/td>
+                                            &lt;td width="50%">部门：&lt;span>用户体验部&lt;/span>&lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;td>主岗：&lt;span>UE总监&lt;/span>&lt;/td>
+                                            &lt;td>副岗：&lt;span>UE总监&lt;/span>&lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;td>职务级别：&lt;span>高级总监&lt;/span>&lt;/td>
+                                            &lt;td>兼职岗位：&lt;span>UE设计师&lt;/span>&lt;/td>
+                                        &lt;/tr>
+                                    &lt;/table>
+                                    &lt;table cellpadding="0" cellspacing="0" width="100%" class="padding_5 margin_l_10">
+                                        &lt;caption class="align_left font_bold border_t margin_t_10 padding_t_10">基本信息&lt;/caption>
+                                        &lt;tr>
+                                            &lt;td width="100%" colspan="2" >办公电话：&lt;span>010-82602233-456&lt;/span>&lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;td width="50%">手机号码：&lt;span>18610011355&lt;/span>&lt;/td>
+                                            &lt;td width="50%">座机号码：&lt;span>010-82602233-456&lt;/span>&lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;td colspan="2" width="100%">电子邮件：&lt;span>www.dajiawork@dajia.com&lt;/span>&lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;td colspan="2" width="100%">邮政编码：&lt;span>100065&lt;/span>&lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;td colspan="2" width="100%">个人主页：&lt;span> &lt;/span>&lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;td colspan="2" width="100%">博客地址：&lt;span>www.dajiawork.com&lt;/span>&lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;td colspan="2" width="100%">备注：&lt;span> &lt;/span>&lt;/td>
+                                        &lt;/tr>
+                                    &lt;/table>
+                                &lt;/div>
+                            &lt;/body>
+                        </pre>
+                    </div>
+                </div>
+                <div class="code_area"> 
+                    <div class="example_box">
+                        <img src="./photos/dialog_typepage10.jpg">
+                    </div>
+                    <div class="code_box">
+                        <pre class="brush:html;">
+                            &lt;body class="h100b cardmini">
+                                &lt;div class="left" style="width:90px;">
+                                    &lt;div class=" align_center">
+                                        &lt;span class="people_img relative display_inline-block  over_hidden margin_t_5">
+                                            &lt;img src="../../../skin/default/images/people.jpg" width="70" height="70">
+                                            &lt;div class="absolute current_state online"> &lt;/div>
+                                        &lt;/span>
+                                    &lt;/div>
+                                    &lt;div class=" align_center">
+                                        &lt;a class="common_button common_button_gray" href="javascript:void(0)">加为关联&lt;/a>  
+                                    &lt;/div>
+                                &lt;/div>
+                                &lt;div class="adapt_w font_size12 form_area people_msg" style="_width:240px;">
+                                    &lt;table cellpadding="0" cellspacing="0" width="100%" class="padding_5 margin_l_10">
+                                        &lt;caption class="align_left font_bold margin_5 font_size14" >乔立&lt;/caption>
+                                        &lt;tr>
+                                            &lt;td width="100%" colspan="2" class="font_bold"style="font-size:14px;">用户体验部UE总监&lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;th nowrap="nowrap">电话：&lt;/th>&lt;td width="100%">010-82602233-456&lt;/td>
+
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;th nowrap="nowrap">手机：&lt;/th>&lt;td>18610011355&lt;/td>
+
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;th nowrap="nowrap">邮箱：&lt;/th>&lt;td>www.dajiawork@dajia.com&lt;/td>
+
+                                        &lt;/tr>
+                                    &lt;/table>
+                                &lt;/div>
+                                &lt;ul class="font_size12 align_center card_operate border_t clear">
+                                    &lt;li class="margin_t_5 left" class="left">&lt;a class="img-button" href="javascript:void(0)">&lt;em class="ico16 collaboration_16"> &lt;/em>发协同&lt;/a>&lt;/li>
+                                    &lt;li class="margin_t_5 left">&lt;a class="img-button" href="javascript:void(0)">&lt;em class="ico16 communication_16"> &lt;/em>发消息&lt;/a>&lt;/li>
+                                    &lt;li class="margin_t_5 left">&lt;a class="img-button" href="javascript:void(0)">&lt;em class="ico16 email_16"> &lt;/em>发邮件&lt;/a>&lt;/li>
+                                    &lt;li class="margin_t_5 left">&lt;a class="img-button" href="javascript:void(0)">&lt;em class="ico16 info_16"> &lt;/em>发短信&lt;/a>&lt;/li>
+                                &lt;/ul>
+                            &lt;/body>
+                        </pre>
+                    </div>
+                </div>
+                <div class="code_area"> 
+                    <div class="example_box">
+                        <img src="./photos/dialog_typepage11.jpg">
+                    </div>
+                    <div class="code_box">
+                        <pre class="brush:html;">
+                            &lt;style>
+                                .fixed_width{width:50%;}
+                            &lt;/style>
+                            &lt;body>
+                                &lt;div class="right fixed_width margin_lr_5">
+                                    &lt;p class="border_b padding_tb_5 margin_b_5">
+                                        &lt;a class="form_btn" href="javascript:void(0)">&lt;span class="plus_16"> &lt;/span> &lt;/a>&nbsp;         
+                                        &lt;a class="form_btn" href="javascript:void(0)">&lt;span class="minus_16"> &lt;/span> &lt;/a>&nbsp;    
+                                        &lt;a class="form_btn" href="javascript:void(0)">&lt;span class="multiply_16"> &lt;/span> &lt;/a>&nbsp;
+                                        &lt;a class="form_btn" href="javascript:void(0)">&lt;span class="divide_16"> &lt;/span> &lt;/a>&nbsp;
+                                        &lt;a class="form_btn" href="javascript:void(0)">&lt;span class="brackl_16"> &lt;/span> &lt;/a>&nbsp;
+                                        &lt;a class="form_btn" href="javascript:void(0)">&lt;span class="brackr_16"> &lt;/span> &lt;/a>&nbsp;
+                                        
+                                    &lt;/p>
+                                    &lt;p class="margin_b_5">
+                                        &lt;a class="form_btn" href="javascript:void(0)">&lt;span class="gt_16"> &lt;/span> &lt;/a>&nbsp;
+                                        &lt;a class="form_btn" href="javascript:void(0)">&lt;span class="gt_eq_16 w32 "> &lt;/span> &lt;/a>&nbsp;
+                                        &lt;a class="form_btn" href="javascript:void(0)">&lt;span class="lt_16"> &lt;/span> &lt;/a>&nbsp;
+                                        &lt;a class="form_btn" href="javascript:void(0)">&lt;span class="lt_eq_16 w32"> &lt;/span> &lt;/a>&nbsp;
+                                        &lt;a class="form_btn" href="javascript:void(0)">&lt;span class="equal_16"> &lt;/span> &lt;/a>&nbsp;
+                                        &lt;a class="form_btn" href="javascript:void(0)">&lt;span class="brack_angle_16 w32"> &lt;/span> &lt;/a>    &nbsp;
+                                        &lt;a class="form_btn" href="javascript:void(0)">date&lt;/a>
+                                    &lt;/p>
+                                    &lt;p class="border_b padding_b_5 margin_b_5">
+                                        &lt;a class="form_btn" href="javascript:void(0)">and&lt;/a>   
+                                        &lt;a class="form_btn" href="javascript:void(0)">or&lt;/a>
+                                        &lt;a class="form_btn" href="javascript:void(0)">xor&lt;/a>
+                                        &lt;a class="form_btn" href="javascript:void(0)">date&lt;/a>
+                                        &lt;a class="form_btn w89" href="javascript:void(0)">包含&lt;/a>
+                                        &lt;a class="form_btn w89" href="javascript:void(0)">不包含&lt;/a>
+                                    &lt;/p>
+                                    &lt;p class="margin_b_5">
+                                        &lt;a class="form_btn w89" href="javascript:void(0)">extend&lt;/a>
+                                    &lt;/p>
+                                    &lt;div class="common_tabs clearfix">
+                                        &lt;ul class="left">
+                                            &lt;li class="current">&lt;a hideFocus="true" class="border_b" href="javascript:void(0)">表单数据域&lt;/a>&lt;/li>
+                                            &lt;li>&lt;a hideFocus="true" href="javascript:void(0)">系统数据域&lt;/a>&lt;/li>
+                                            &lt;li>&lt;a hideFocus="true" class="last_tab" href="javascript:void(0)">系统变量&lt;/a>&lt;/li>
+                                        &lt;/ul>
+                                    &lt;/div>
+                                    &lt;div class="margin_t_5 font_size12">
+                                        &lt;select style="width:120px;">&lt;option> 表单1&lt;/option>&lt;/select>
+                                        &lt;label for="name" class="margin_l_10">查询: &lt;/label>&lt;input class="comp" name="name" value="" type="text" comp="type:'search',fun:'testFunction',title:'查询'">
+                                        &lt;br>
+                                        &lt;select multiple="true" class="w100b margin_t_5" size="10">
+                                            &lt;option>姓名&lt;/option>
+                                            &lt;option>费用&lt;/option>
+                                            &lt;option>批准人&lt;/option>
+                                            &lt;option>批准人&lt;/option>
+                                        &lt;/select>
+                                    &lt;/div>
+                                    
+                              &lt;/div>
+                              &lt;div class="adapt_w padding_5">
+                                &lt;p class="font_size12 margin_b_5">用户输入条件&lt;/p>
+                                &lt;textarea class="w100b" rows="10"> &lt;/textarea>
+                                &lt;div class="margin_tb_5">
+                                    &lt;a class="common_button common_button_gray" href="javascript:void(0)">增加&lt;/a>
+                                    &lt;a class="common_button common_button_gray" href="javascript:void(0)">修改&lt;/a>
+                                    &lt;a class="common_button common_button_gray" href="javascript:void(0)">删除&lt;/a>
+                                &lt;/div>
+                                &lt;table class="only_table" border="0" cellSpacing="0" cellPadding="0" width="100%">
+                                    &lt;thead>
+                                        &lt;tr>
+                                            &lt;th>条件名称&lt;/th>
+                                            &lt;th>标题&lt;/th>
+                                            &lt;th>缺省值&lt;/th>
+                                            &lt;th>输入&lt;/th>
+                                        &lt;/tr>
+                                    &lt;/thead>
+                                    &lt;tbody>
+                                        &lt;tr class="erow">
+                                            &lt;td>1&lt;/td>
+                                            &lt;td>2&lt;/td>
+                                            &lt;td>3&lt;/td>
+                                            &lt;td>4&lt;/td>
+                                        &lt;/tr>
+                                    &lt;/tbody>
+                                &lt;/table>
+                              &lt;/div>
+                            &lt;/body>
+                        </pre>
+                    </div>
+                </div>
+                
+            </div>
+            <div id="checkForm" class="clearfix">
+                <h1>表单验证</h1>
+                <div class="code_area">
+                    <img src="./photos/checkForm.jpg">
+                </div>
+                <h3><a href="../../controls/html/demo/checkForm.html" target="view_window"><code>查看原网页</code></a></h3>
+            </div>
+            <!--<div id="shortCutSet" class="clearfix">
+                <h1>面板设置</h1>
+                <div class="code_area">
+                    <img src="./photos/shortCutSet.jpg">
+                </div>
+                <h3><a href="../../controls/html/demo/shortCutSet.html" target="view_window"><code>查看原网页</code></a></h3>
+            </div>
+            -->
+            <div id="explain" class="clearfix">
+                <h1>说明</h1>
+                <div class="code_area">
+                    <img src="./photos/explain.jpg">
+                </div>
+                <h3><a href="../../controls/html/demo/explain.html" target="view_window"><code>查看原网页</code></a></h3>
+            </div>
+            <div id="list_task" class="clearfix">
+                <h1>目标管理</h1>
+                <div class="code_area">
+                    <img src="./photos/list_task.jpg">
+                </div>
+                <h3><a href="../../controls/html/demo/list_task.html" target="view_window"><code>查看原网页</code></a></h3>
+            </div>
+            <div id="task_detail" class="clearfix">
+                <h1>目标管理-任务详情</h1>
+                <div class="code_area">
+                    <img src="./photos/task_detail.jpg">
+                </div>
+                <h3><a href="../../controls/html/demo/task_detail.html" target="view_window"><code>查看原网页</code></a></h3>
+            </div>
+            <div id="zszx_index" class="clearfix">
+                <h1>知识中心-我读</h1>
+                <div class="code_area">
+                    <img src="./photos/zszx_index.jpg">
+                </div>
+                <h3><a href="../../controls/html/demo/zszx-index.html" target="view_window"><code>查看原网页</code></a></h3>
+            </div>
+            <div id="zszx_index2" class="clearfix">
+                <h1>知识中心-动态</h1>
+                <div class="code_area">
+                    <img src="./photos/zszx_index2.jpg">
+                </div>
+                <h3><a href="../../controls/html/demo/zszx-index2.html" target="view_window"><code>查看原网页</code></a></h3>
+            </div>
+            <div id="zszx_index3" class="clearfix">
+                <h1>知识中心-评价</h1>
+                <div class="code_area">
+                    <img src="./photos/zszx_index3.jpg">
+                </div>
+                <h3><a href="../../controls/html/demo/zszx-index3.html" target="view_window"><code>查看原网页</code></a></h3>
+            </div>
+            <div id="zszx_index4" class="clearfix">
+                <h1>知识中心-知识库</h1>
+                <div class="code_area">
+                    <img src="./photos/zszx_index4.jpg">
+                </div>
+                <h3><a href="../../controls/html/demo/zszx-index4.html" target="view_window"><code>查看原网页</code></a></h3>
+            </div>
+            <div id="zszx_list" class="clearfix">
+                <h1>知识中心-借阅请求</h1>
+                <div class="code_area">
+                    <img src="./photos/zszx_list.jpg">
+                </div>
+                <h3><a href="../../controls/html/demo/zszx-list.html" target="view_window"><code>查看原网页</code></a></h3>
+            </div>
+            <div id="content_view" class="clearfix">
+                <h1>知识中心-查看/处理</h1>
+                <div class="code_area">
+                    <img src="./photos/content_view.jpg">
+                </div>
+                <h3><a href="../../controls/html/demo/content_view.html" target="view_window"><code>查看原网页</code></a></h3>
+            </div>
+            <div id="zszx_guangchang" class="clearfix">
+                <h1>知识中心-知识广场</h1>
+                <div class="code_area">
+                    <img src="./photos/zszx_guangchang.jpg">
+                </div>
+                <h3><a href="../../controls/html/demo/zszx-guangchang.html" target="view_window"><code>查看原网页</code></a></h3>
+            </div>
+            <div id="collcube_index" class="clearfix">
+                <h1>协同立方</h1>
+                <div class="code_area">
+                    <img src="./photos/collcube_index.jpg">
+                </div>
+                <h3><a href="../../controls/html/demo/collcube_index.html" target="view_window"><code>查看原网页</code></a></h3>
+            </div>
+           
+        </div>
+        <div class="side_nav">
+            <ul>
+                <li><a href="#support">浏览器支持</a></li>
+                <li><a href="#newPage">新建</a></li>
+                <li><a href="#list">列表</a></li>
+                <li><a href="#content_view">查看处理</a></li>
+                <li><a href="#form_search">表单查询</a></li>
+                <li><a href="#dialog_typepage">弹出框类型页面模板</a></li>
+                <li><a href="#checkForm">表单验证</a></li>
+                <!--<li><a href="#shortCutSet">面板设置</a></li>-->
+                <li><a href="#explain">说明</a></li>
+                <li><a href="#list_task">目标管理</a></li>
+                <li><a href="#task_detail">目标管理-任务详情</a></li>
+                <li><a href="#zszx_index">知识中心-我读</a></li>
+                <li><a href="#zszx_index2">知识中心-动态</a></li>
+                <li><a href="#zszx_index3">知识中心-评价</a></li>
+                <li><a href="#zszx_index4">知识中心-知识库</a></li>
+                <li><a href="#zszx_list">知识中心-借阅请求</a></li>
+                <li><a href="#content_view">知识中心-查看/处理</a></li>
+                <li><a href="#zszx_guangchang">知识中心-知识广场</a></li>
+                <li><a href="#collcube_index">协同立方</a></li>
+            </ul>
+        </div>
+    </div>
+    <footer class="footer"></footer>
+</body>
+</html>

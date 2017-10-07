@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CodePen - Triangle pattern generator</title>
+<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+<script>
+  
+  window.onload = function() {
+    // console.log(lowPoly_LIGHT);
+    var x = 0;
+    var y = 0;
+    var max_x = document.getElementsByTagName('canvas')[0].width;
+    var max_y = document.getElementsByTagName('canvas')[0].height;
+    setInterval(function(){
+      x += 15;
+      y += 15;
+      if (x > (max_x-10)/2) {
+        x = (max_x-10)/2 * -1;
+      };
+      if (y > (max_y-10)/2) {
+        y = (max_y-10)/2 * -1;
+      };
+      ll.proxy.setPosition(x, y, 200);
+    }, 100);
+  };
+</script>
+</head>
+
+<body>
+  <div id="container" class="container">
+    <div id="output" class="container"></div>
+    <!-- <ul id="links" class="links">
+      <p>Press space to drop or pick up the light. Enter key to add another one</p>
+      <li><a class="who" href="http://twitter.com/msurguy" target="_blank">by msurguy</a></li>
+      <li><a class="blog" href="http://maxoffsky.com" target="_blank">Blog post</a></li>
+      <li><a class="source" href="https://github.com/msurguy/triangles" target="_blank">GitHub</a></li>
+    </ul> -->
+  </div>
+  <div id="controls" class="controls"></div>
+  <script src="js/index.js"></script>
+</body>
+</html>

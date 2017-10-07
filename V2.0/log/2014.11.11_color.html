@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>颜色值制式转换</title>
+    <script src="../../scriptes/jquery.js"></script>
+    <style>
+        body,input { font-size: 20px; font-family: "微软雅黑"}
+        .colorConvert {}
+    	.colorConvert div { float: right; width:320px;}
+    </style>
+	<script type="text/javascript">
+		$(function () {
+            $(".rgb").keyup(function(){
+                var val = $.trim($(this).val()).replace("rgb","").replace("(","").replace(")","");
+                if (val.length != 11) {
+                    return;
+                };
+                val = val.split(",");
+                var str = "#"+ val[0].toHex() + val[1].toHex() + val[2].toHex();
+                console.log(val[0])
+                console.log(val[1])
+                console.log(val[2])
+                $(".hex").val(str);
+            });
+            $(".hex").keyup(function(){
+                var val = $.trim($(this).val()).replace(/#/g,"");
+                if (val.length != 6) {
+                    return;
+                };
+                var r = val.substr(0,2).toNum();
+                var g = val.substr(2,2).toNum();
+                var b = val.substr(4,2).toNum();
+                $(".rgb:eq(0)").val("rgb("+ r +","+ g +","+ b +")");
+            });
+		})
+        String.prototype.toHex = function() {
+            var number = this;
+            var sw = Math.floor(number/16);
+            var gw = number - sw * 16;
+            function numtochar(n) {
+                var n = n;
+                switch(n*1){
+                    case 10: return "a";  break;
+                    case 11: return "b";  break;
+                    case 12: return "c";  break;
+                    case 13: return "d";  break;
+                    case 14: return "e";  break;
+                    case 15: return "f";  break;
+                }
+                return n;
+            }
+            return numtochar(sw).toString() + numtochar(gw).toString();
+        };
+        String.prototype.toNum = function() {
+            var hex = {
+                a:10,
+                b:11,
+                c:12,
+                d:13,
+                e:14,
+                f:15
+            };
+            var str = this.toLowerCase();
+            var sw = hex[str.substr(0,1)];
+            if (sw == undefined) {
+                sw = str.substr(0,1) * 16;
+            } else {
+                sw = hex[str.substr(0,1)] * 16;
+            };
+            var gw = hex[str.substr(1,1)];
+            if (gw == undefined) {
+                gw = str.substr(1,1) * 1;
+            } else {
+                gw = hex[str.substr(1,1)] * 1;
+            };
+            return sw + gw;
+        };
+	</script>
+</head>
+<body>
+    <div class="colorConvert">
+        <div class="rgb_number">
+            10进制<br>
+            rgb_number: <br>
+            <input class="rgb" type="text" value="rgb(255,255,255)"><br>
+        </div>
+        <div class="hex_number">
+            16进制<br>
+            hex_number: <br>
+            <input class="hex" type="text" value="#ffffff"><br>
+        </div>
+    </div>
+</body>
+</html>

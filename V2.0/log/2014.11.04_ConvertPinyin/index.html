@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript汉字转拼音 - Seeyonui</title>
+    <script type="text/javascript" src="ConvertPinyin.js"></script>
+    <style>
+		#res { padding: 10px; width: 400px; min-height: 300px; color: #00FF00; font-size: 12px; font-family: "Microsoft YaHei"; background: #414141;}
+    </style>
+</head>
+<body>
+	输入汉字：<input id="text" type="text" onkeyup="searchFn()">
+	<div id="res"></div>
+    <script>
+		function searchFn () {
+			var txtObj = document.getElementById('text');
+			var resObj = document.getElementById('res');
+			
+			resObj.innerHTML = ConvertPinyin(txtObj.value);
+		}
+    </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="index.css">
+    <!-- <link rel="stylesheet" href="index_ie7.css"> -->
+    <script src="jquery-debug.js"></script>
+    <style>
+        html, body { overflow: hidden; height: 100%; }
+    </style>
+    <style>
+        /*左侧菜单区域*/
+        #nav_side_area { background: red; }
+        /*头部区域*/
+        #head_side_area { background: blue; }
+        /*列表区域*/
+        #list_side_area { background: yellow; }
+        /*正文区域*/
+        #content_side_area { background: orange; }
+        /*右侧区域*/
+        #shortcut_side_area { background: #F55; }
+    </style>
+    <script>
+        var Desktop = {};
+        /*** 工作面布局 ***/
+        Desktop._DesktopLayout = function (json) {
+            this.p = {
+                layout_type: "a",
+                layout_side: true,
+                layout_skin_all: "desktop_skin_a desktop_skin_b desktop_skin_c"
+            };
+            $.extend(this.p, json);
+            this.o = {
+                layout: $("#layout_main")
+            };
+            this.init();
+            return this;
+        };
+        // 初始化
+        Desktop._DesktopLayout.prototype.init = function () {
+            var _this = this;
+
+
+            _this.changeLayout(_this.p.layout_type);
+            _this.changeLayoutSide(_this.p.layout_side);
+        }
+        //切换布局样式
+        Desktop._DesktopLayout.prototype.changeLayout = function (str) {
+            var _this = this;
+            if (str == undefined){
+                throw new Error("changeLayout方法参数不能为空");
+                return;
+            };
+
+            _this.o.layout.removeClass(_this.p.layout_skin_all);
+            _this.o.layout.addClass("desktop_skin_" + str);
+            _this.o.layout.attr("data-type", str);
+        }
+        //切换边栏
+        Desktop._DesktopLayout.prototype.changeLayoutSide = function (bool) {
+            var _this = this;
+            if (bool == undefined){
+                throw new Error("changeLayoutSide方法参数不能为空");
+                return;
+            };
+            if (bool == true) {
+                _this.o.layout.addClass("desktop_side");
+            };
+            if (bool == false) {
+                _this.o.layout.removeClass("desktop_side");
+            };
+
+            _this.o.layout.attr("data-side", bool);
+        }
+
+
+        $(function () {
+            Desktop.DesktopLayout = new Desktop._DesktopLayout();
+            $("#skin_a").click(function () {
+                Desktop.DesktopLayout.changeLayout("a");
+            });
+            $("#skin_b").click(function () {
+                Desktop.DesktopLayout.changeLayout("b");
+            });
+            $("#skin_c").click(function () {
+                Desktop.DesktopLayout.changeLayout("c");
+            });
+            $("#side_show").click(function () {
+                Desktop.DesktopLayout.changeLayoutSide(true);
+            });
+            $("#side_hidden").click(function () {
+                Desktop.DesktopLayout.changeLayoutSide(false);
+            });
+        })
+    </script>
+</head>
+<body>
+    <div id="layout_main" class="desktop_skin_a desktop_side ">
+        <div id="nav_side_area" class="c-1">
+            <div>左侧菜单</div>
+            <div>左侧菜单</div>
+            <div>左侧菜单</div>
+            <div><input id="skin_a" type="button" value="&nbsp;&nbsp;skin_a：全列表&nbsp;&nbsp;" /></div>
+            <div><input id="skin_b" type="button" value="&nbsp;&nbsp;skin_b：上下列表&nbsp;&nbsp;" /></div>
+            <div><input id="skin_c" type="button" value="&nbsp;&nbsp;skin_c：左右列表&nbsp;&nbsp;" /></div>
+            <hr>
+            <div><input id="side_show" type="button" value="&nbsp;&nbsp;右边栏显示&nbsp;&nbsp;" /></div>
+            <div><input id="side_hidden" type="button" value="&nbsp;&nbsp;右边栏隐藏&nbsp;&nbsp;" /></div>
+
+        </div>
+        <div class="c-2">
+            <div id="head_side_area" class="c-2-r-1">
+                <div>头部区域头部区域头部区域头部区域头部区域头部区域头部头部区域头部区域头部区域头部区域头部区域头部区域头部区域头部区域头部区域头部头部区域头部区域头部区域</div>
+            </div>
+            <div class="c-2-r-2">
+                <div id="list_side_area" class="c-2-r-2-c-1">
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                    <div>列表区域</div>
+                </div>
+                <div id="content_side_area" class="c-2-r-2-c-2">
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                    <div>正文区域</div>
+                </div>
+            </div>
+
+        </div>
+        <div id="shortcut_side_area" class="c-3">
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+            <div>右侧区域</div>
+        </div>
+    </div>
+</body>
+</html>

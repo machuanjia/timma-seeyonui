@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>tree</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+
+    <script type="text/javascript" src="../../controls/seeyon.ui.tree-debug.js"></script>
+</head>
+<body>
+    <ul id="tree" class="treeDemo_0 ztree"></ul>
+    <script>
+        var setting1 = {
+            callback: {
+                onClick: onClick1 //回调函数 onClick
+            }
+        }
+        var zNodes1 = [{
+            name: "根节点 - 展开-隐藏checkbox",
+            open: true,
+            children: [{
+                name: "父节点11 - 折叠",
+				iconSkin:'treeAccount',
+                children: [{
+                    name: "叶子节点11",
+					iconSkin:'treeAccount',
+					children:[{
+						name: "叶子节点113",
+						iconSkin:'account'
+					}]
+                }, {
+                    name: "叶子节点112",
+					iconSkin:'flow'
+                }, {
+                    name: "叶子节点113",
+					iconSkin:'department'
+                }, {
+                    name: "叶子节点114",
+					iconSkin:'department'
+                }]
+            }, {
+                name: "父节点12 - 折叠",
+				iconSkin:'treeDepartment',
+                children: [{
+                    name: "叶子节点121"
+                }, {
+                    name: "叶子节点122"
+                }, {
+                    name: "叶子节点123"
+                }, {
+                    name: "叶子节点124"
+                }]
+            }, {
+                name: "父节点13 - 没有子节点",
+				iconSkin:'treeMyKnowledge',
+				children:[{
+					name: "叶子节点121"
+				}]
+            }, {
+                name: "父节点13 - 没有子节点",
+				iconSkin:'treeAccountFile',
+				children:[{
+					name: "叶子节点121"
+				}]
+            }, {
+                name: "父节点13 - 没有子节点",
+				iconSkin:'treeGroupFile',
+				children:[{
+					name: "叶子节点121"
+				}]
+            }, {
+                name: "父节点13 - 没有子节点",
+				iconSkin:'treeProjectFile',
+				children:[{
+					name: "叶子节点121"
+				}]
+            }, {
+                name: "父节点13 - 没有子节点",
+				iconSkin:'treeEdocFile',
+				children:[{
+					name: "叶子节点121"
+				}]
+            }, {
+                name: "父节点13 - 没有子节点",
+				iconSkin:'treeCustomAccountFile',
+				children:[{
+					name: "叶子节点121"
+				}]
+            }, {
+                name: "父节点13 - 没有子节点",
+				iconSkin:'treeCustomGroupFile',
+				children:[{
+					name: "叶子节点121"
+				}]
+            }, {
+                name: "父节点13 - 没有子节点",
+				iconSkin:'treeCustomFile',
+				children:[{
+					name: "叶子节点121"
+				}]
+            }]
+        }];
+        function onClick1(e, treeId, treeNode) { //单击节点展开子节点
+            var zTree = $.fn.zTree.getZTreeObj("tree");
+            zTree.expandNode(treeNode);
+        }
+
+        $(document).ready(function () {
+            $.fn.zTree.init($("#tree"), setting1, zNodes1);//zTree 初始化方法，创建 zTree 必须使用此方法
+        });
+    </script>
+	<div><a href="http://10.3.4.240:8080/userContent/ctp_pub/docs/CTP开发指南.html#d5e2214">查看代码</a></div>
+</body>
+</html>

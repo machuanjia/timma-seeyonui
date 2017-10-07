@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Message-Box</title>
+   <link href="../css/doc.css" rel="stylesheet" />
+    <script type="text/javascript" src="../scripts/syntaxhighlighter/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../scripts/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../scripts/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../scripts/syntaxhighlighter/scripts/shBrushXml.js"></script>
+    <script type="text/javascript" src="../scripts/syntaxhighlighter/scripts/shBrushCss.js"></script>
+    <link type="text/css" rel="stylesheet" href="../scripts/syntaxhighlighter/styles/shCoreDefault.css" />
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
+
+    <script src="../../scriptes/jquery.js"></script>
+    <script src="../../controls/seeyon.ui.layout-debug.js"></script>
+    <script src="../../controls/seeyon.ui.toolbar-debug.js"></script>
+    <script src="../../controls/calendar/calendar-debug.js"></script>
+    <script src="../../controls/calendar/calendar-zh_CN.js"></script>
+    <script src="../../ctp/misc/Moo-debug.js"></script>
+    <script src="../../ctp/misc/jsonGateway-debug.js"></script>
+    <script src="../../ctp/jquery.hotkeys-debug.js"></script>
+    <script src="../../ctp/jquery.json-debug.js"></script>
+    <script src="../../ctp/jquery.fillform-debug.js"></script>
+    <script src="../../ctp/jquery.jsonsubmit-debug.js"></script>
+    <script src="../../ctp/jquery.code-debug.js"></script>
+    <script src="../../ctp/common-debug.js"></script>
+    <script src="../../ctp/i18n-debug.js"></script>
+    <script src="../../ctp/v3x-debug.js"></script>
+    <script src="../../controls/searchBox-debug.js"></script>
+    <script src="../../controls/seeyon.ui.checkform-debug.js"></script>
+    <script src="../../controls/seeyon.ui.dialog-debug.js"></script>
+    <script src="../../controls/seeyon.ui.grid-debug.js"></script>
+    <script src="../../controls/seeyon.ui.contextmenu-debug.js"></script>
+    <script src="../../controls/seeyon.ui.layout-debug.js"></script>
+    <script src="../../controls/seeyon.ui.menu-debug.js"></script>
+    <script src="../../controls/seeyon.ui.progress-debug.js"></script>
+    <script src="../../controls/seeyon.ui.tab-debug.js"></script>
+    <script src="../../controls/seeyon.ui.toolbar-debug.js"></script>
+    <script src="../../controls/seeyon.ui.tree-debug.js"></script>
+    <script src="../../controls/seeyon.ui.calendar-debug.js"></script>
+    <script src="../../controls/seeyon.ui.scrollbar-debug.js"></script>
+    <script src="../../controls/seeyon.ui.arraylist-debug.js"></script>
+    <script src="../../controls/seeyon.ui.tooltip-debug.js"></script>
+    <script src="../../controls/seeyon.ui.common-debug.js"></script>
+    <script src="../../ctp/jquery.comp-debug.js"></script>
+    <script src="../../ctp/jquery.tree-debug.js"></script>
+    <script src="../../docs/resource/google-code-prettify/prettify.js"></script>
+    <link href="../../docs/resource/google-code-prettify/prettify.css" rel="stylesheet" />
+    <link href="../../css/common.css" rel="stylesheet" />
+    <link href="../../skin/default/skin.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+	<script>
+        function OK(json) {
+            return window.dialogArguments+"----ddddddddddddd";
+        }
+		function MIN(json){
+			alert(1)
+			return json.name
+		}
+		function MAX(json){
+			alert(2)
+			return json.name
+		}
+		function CLOSE(json){
+			alert(3)
+			return json.name
+		}
+	</script>
+</head>
+<body>
+    
+            <a href="javascript:showMessageBox(0)" class="common_button common_button_gray">确定</a>
+            <a href="javascript:showMessageBox(1)" class="common_button common_button_gray">确定 + 取消</a>
+            <a href="javascript:showMessageBox(2)" class="common_button common_button_gray">是 + 否 + 取消</a>
+            <a href="javascript:showMessageBox(3)" class="common_button common_button_gray">是 + 否</a>
+            <a href="javascript:showMessageBox(4)" class="common_button common_button_gray">重试 + 取消</a>
+            <a href="javascript:showMessageBox(5)" class="common_button common_button_gray">确定 + 详细</a>
+            <a href="javascript:showMessageBox(100)" class="common_button common_button_gray">自定义</a>
+            <script type="text/ecmascript">
+                    function showMessageBox(flag) {
+                        if (flag == 0) {
+                            $.messageBox({
+                                'type': 0,
+                                'msg': 'this is msg content!',
+                                ok_fn: function () { alert('确定后执行，自定义方法test()!'); }
+                            });
+                        } else if (flag == 1) {
+                            $.messageBox({
+                                'type': 1,
+                                'msg': 'this is msg content!',
+                                ok_fn: function () { alert('确定后执行，自定义方法test()!'); }
+                            });
+                        } else if (flag == 2) {
+                            $.messageBox({
+                                'type': 2,
+                                'msg': 'this is msg content!',
+                                ok_fn: function () { alert('确定后执行，自定义方法test()!'); }
+                            });
+                        } else if (flag == 3) {
+                            $.messageBox({
+                                'type': 3,
+                                'msg': 'this is msg content!',
+                                ok_fn: function () { alert('确定后执行，自定义方法test()!'); }
+                            });
+                        } else if (flag == 4) {
+                            $.messageBox({
+                                'type': 4,
+                                'msg': 'this is msg content!',
+                                ok_fn: function () { alert('确定后执行，自定义方法test()!'); }
+                            });
+                        } else if (flag == 5) {
+                            $.messageBox({
+                                'type': 5,
+                                'msg': 'this is msg content!',
+                                imgType: 4,
+                                ok_fn: function () { alert('确定后执行，自定义方法test()!'); }
+                            });
+                        } else if (flag == 100) {
+                            $.messageBox({
+                                'type': 100,
+                                'msg': 'this is msg content!',
+                                buttons: [{
+									id:'btn1',
+                                    text: "button1",
+                                    handler: function () { alert('handler') }
+                                }, {
+									id:'btn2',
+                                    text: "button2",
+                                    handler: function () { alert('handler') }
+                                }]
+                            });
+                        }
+                    }
+                </script>
+</body>
+</html>

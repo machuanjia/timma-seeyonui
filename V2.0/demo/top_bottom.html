@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html class="h100b over_hidden">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>静态布局-上下</title>
+    <script src="../../scriptes/jquery.js"></script>
+    <script src="../../docs/resource/doc.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/doc.css">
+    <link href="../../docs/resource/demo.css" rel="stylesheet" />
+    <link href="../../docs/resource/google-code-prettify/prettify.css" rel="stylesheet" />
+    <script src="../../docs/resource/google-code-prettify/prettify.js"></script>
+    <style>
+        .stadic_head_height {
+            height: 30px;
+        }
+
+        .stadic_body_top_bottom {
+            bottom: 0px;
+            top: 30px;
+        }
+    </style>
+</head>
+<body class="h100b over_hidden">
+    <div class="stadic_layout">
+        <div class="stadic_layout_head stadic_head_height">我在上边区域</div>
+        <div class="stadic_layout_body stadic_body_top_bottom border_t">
+            我在下边区域<br />
+            <br />
+            <span class="color_red ">Tip:<br />
+                <span class="font_bold">1. 禁止在“code区域”外添加元素，否则会导致页面显示错位！！！</span><br />
+                <span class="font_bold">2. 注意添加，html和body元素上的class，和style标签的内容，否则会导致出现多余滚动条！！！</span><br />
+                3. style标签中的30px，为上部区域高度
+            </span>
+        </div>
+    </div>
+</body>
+</html>

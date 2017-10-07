@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2014.09.15 html5</title>
+    <link href="../css/doc.css" rel="stylesheet" />
+    <script src="../../scriptes/jquery.js"></script>
+    <link href="../../css/common.css" rel="stylesheet" />
+    <style>
+    	.main_body{width:1100px;}
+    	.effect_container div{
+    		margin-right:5px; margin-bottom:5px;float:left;  width:170px; height:180px; line-height:180px; text-align:center; background:#004488; text-shadow:0 0 10px #FFF; font-size:18px; font-weight:800; cursor:pointer;
+    	}
+    </style>
+	<script type="text/javascript">
+		$(function () {
+            init_AnimationCss();
+		})
+
+        function init_AnimationCss () {
+            var _eff = ['slideUp','slideDown','slideLeft','slideRight','slideExpandUp','expandUp','fadeIn','expandOpen','bigEntrance','hatch','bounce','pulse','floating',
+                        'tossing','pullUp','pullDown','stretchLeft','stretchRight'];
+            
+            var _color = [ "#002800", "#003c00", "#005500", "#1f6e00",
+                           "#418700", "#5ea200", "#002300", "#173800", "#304f00",
+                           "#496700", "#638118", "#7d9b34", "#122000", "#273503",
+                           "#3d4b1b", "#556332", "#6f7d49", "#889661" ];
+            
+            var _asc = $('#animation_css_container');
+            _asc.empty();
+            for (var i=0; i < _eff.length; i++) {
+              _asc.append("<div id='animation_css"+i+"' style='background:"+_color[i]+"'></div>");
+              (function(index){
+                $('#animation_css'+index).addClass(_eff[index]).attr("AnClass", _eff[index]).html(_eff[index]).click(function () {
+                    var _t = $(this);
+                    var sAnClass = _t.attr("AnClass");
+                    _t.removeClass();
+                    setTimeout(function(){
+                        _t.addClass(sAnClass);
+                    },300);
+                });
+              })(i);
+            };
+        }
+	</script>
+</head>
+<body>
+    <header class="header">
+        <div class="nav_area">
+            <ul class="clearfix">
+                <li><a href="../index.html"><strong>Seeyonui</strong></a></li>
+                <li><a href="../getting-started/index.html">起步</a></li>
+                <li><a href="../components/index.html">组件</a></li>
+                <li><a href="../demo/index.html">关键页面</a></li>
+                <li><a href="../class/index.html">icon&class</a></li>
+                <li><a href="../problem/index.html">常见开发问题</a></li>
+                <li><a href="../log/index.html">日志</a></li>
+            </ul>
+        </div>
+        <div class="page_title_area">
+            <div class="page_title_box">
+                <div class="t">special effects</div>
+                <div class="c"></div>
+            </div>
+        </div>
+    </header>
+    <div id="content" class="clearfix">
+        <div class="main_body">
+            <section>
+            	<h3>1、新特效网页</h3>
+            	<a href="http://beta.theexpressiveweb.com/" target="_blank">Adobe HTML5</a><br>
+            	<a href="http://graphicnovel-hybrid4.peugeot.com/start.html" target="_blank">漫画 HTML5</a><br>
+            	<a href="http://www.zensorium.com/tinke/" target="_blank">产品展示</a><br>
+				<a href="http://www.bootcss.com/p/chart.js/" target="_blank">HTML5 图表</a><br>
+				<hr>
+				<a href="http://fff.cmiscm.com/#!/main" target="_blank">展示站1</a><br>
+				<a href="http://fff.cmiscm.com/#!/section/pixelated" target="_blank"> - 素华照片</a><br>
+				<a href="http://fff.cmiscm.com/#!/section/triangulation" target="_blank"> - 低面建模</a>
+				<hr>
+            	<a href="http://codepen.io/" target="_blank">展示站2</a><br>
+				<a href="http://codepen.io/yoannhel/pen/vmBKa" target="_blank"> - 模板</a><br>
+				<a href="http://codepen.io/yoannhel/pen/pntHc" target="_blank"> - 弹出框</a><br>
+				<a href="http://codepen.io/JustAnotherCoder/pen/elotL" target="_blank"> -  菊花图</a><br>
+				<hr>
+				<a href="http://journey.lifeofpimovie.com/#!/" target="_blank">少年派的奇幻漂流</a>
+            </section>
+            <section>
+                <h3>2、CSS3动画库 - CSS3 Animation Cheat Sheet</h3>
+                <div id="animation_css_container" class="effect_container clearfix"></div>
+                
+            </section>
+            <section>
+                <h3>3、强力CSS3动画工具 - Adobe Edge Animate</h3>
+                <a href="https://www.adobe.com/creativecloud/catalog/desktop.html" target="_blank">Adobe 产品线</a>
+                <div><img src="images/QQ截图20140915150929.png"></div>
+                <div><img src="images/QQ截图20140915151915.png"></div>
+            </section>
+        </div>
+        <!--
+        <div class="side_nav">
+             <ul>
+                <li><a href="#template">基本模板</a></li>
+                <li><a href="#directory">目录结构</a></li>
+                <li><a href="#initialization">初始化组件方式</a></li>
+                <li><a href="#support">浏览器支持</a></li>
+            </ul> 
+        </div>
+        -->
+    </div>
+    <footer class="footer"></footer>
+</body>
+</html>

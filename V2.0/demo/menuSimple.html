@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>菜单 - 简单型</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css" />
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css" />
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+    <script type="text/javascript" src="../../controls/seeyon.ui.menu-debug.js"></script>
+    <link href="../../docs/resource/google-code-prettify/prettify.css" rel="stylesheet" />
+    <script src="../../docs/resource/google-code-prettify/prettify.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        $(function () {
+            $.menuSimple({
+                left: 20,
+                top: 20,
+                mRow:true,
+                data: [{
+                    name: "示例1示例1示例1示例1示例1示例1示例1示例1",
+                    customAttr: "qq='nodePerm'",
+                    className: "toback_16",
+                    disabled: true,
+                    handle: function (json) {
+                        alert(json.name);
+                    }
+                }, {
+                    type: "line"
+                }, {
+                    name: "示例1",
+                    handle: function (json) {
+                        alert(json.name);
+                    }
+                }]
+            });
+        });
+    </script>
+
+
+    <a id="qqq2" title="示例2" style="margin-left:220px;">菜单</a>
+    <script type="text/javascript">
+        $(function () {
+            $("#qqq2").menuSimple({
+                data: [{
+                    name: "示例2",
+                    customAttr: "class='nodePerm'",
+                    className: "toback_16",
+                    handle: function (json) {
+                        alert(json.id);
+                    }
+                }, {
+                    type: "line"
+                }, {
+                    name: "示例2示例2示例2示例2示例2示例2示例2示例2示例2示例2示例2示例2示例2示例2示例2",
+                    handle: function (json) {
+                        alert(json.id);
+                    }
+                }, {
+                    name: "示例2",
+                    handle: function (json) {
+                        alert(json.obj);
+                    }
+                }]
+            });
+        });
+    </script>
+</body>
+</html>

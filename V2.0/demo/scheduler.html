@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Untitled Document</title>
+          <link rel="stylesheet" type="text/css" href="../../css/common.css">
+         
+        <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+
+
+       <script src="../../scriptes/jquery.js">
+        </script>
+        <script src="../../controls/seeyon.ui.layout-debug.js">
+        </script>
+        <script src="../../controls/seeyon.ui.toolbar-debug.js">
+        </script>
+        <script src="../../controls/seeyon.ui.grid-debug.js">
+        </script>
+        <script type="text/javascript" src="../../controls/calendar/calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/Moo-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.json-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.fillform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.code-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/i18n-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/v3x-debug.js">
+        </script>
+        <script type="text/javascript" src="../../controls/searchBox-debug.js">
+        </script>
+        <script type="text/javascript" src="../../controls/seeyon.ui.checkform-debug.js">
+        </script>
+        <script type="text/javascript" src="../../controls/seeyon.ui.dialog-debug.js">
+        </script>
+        <script type="text/javascript" src="../../controls/seeyon.ui.grid-debug.js">
+        </script>
+        <script type="text/javascript" src="../../controls/seeyon.ui.layout-debug.js">
+        </script>
+        <script type="text/javascript" src="../../controls/seeyon.ui.menu-debug.js">
+        </script>
+        <script type="text/javascript" src="../../controls/seeyon.ui.progress-debug.js">
+        </script>
+        <script type="text/javascript" src="../../controls/seeyon.ui.tab-debug.js">
+        </script>
+        <script type="text/javascript" src="../../controls/seeyon.ui.toolbar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../controls/seeyon.ui.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../../controls/seeyon.ui.calendar-debug.js">
+        </script>
+        <script type="text/javascript" src="../../controls/seeyon.ui.arraylist-debug.js">
+        </script>
+        <script type="text/javascript" src="../../controls/seeyon.ui.tooltip-debug.js">
+        </script>
+		<script type="text/javascript" src="../../controls/seeyon.ui.common-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.comp-debug.js">
+        </script>
+        <script type="text/javascript" src="../../ctp/jquery.tree-debug.js">
+        </script>
+        <script type="text/javascript" src="../../controls/scheduler/dhtmlxscheduler-debug.js">
+        </script>
+		<script type="text/javascript" src="../../controls/seeyon.ui.menu-debug.js"></script>
+        <script type="text/javascript" src="../../controls/scheduler/zh_CN-debug.js">
+        </script>
+       
+        <style type="text/css" media="screen">
+            html, body {
+                margin: 0px;
+                padding: 0px;
+                height: 100%;
+                overflow: hidden;
+            }
+        </style>
+        <script type="text/javascript" charset="utf-8">
+            function init() {
+                scheduler.config.multi_day = true;//日视图、周视图允许显示全天、跨天日程
+                scheduler.config.xml_date = "%Y-%m-%d %H:%i";//数据时间格式
+                scheduler.config.dblclick_create = false;//禁止双击创建
+                scheduler.config.drag_create = false;//禁止拖拽创建
+                scheduler.config.drag_resize = false;//日视图、周视图禁拖拽改变时间
+                scheduler.config.drag_move = false;//月视图禁止拖拽改变时间
+                scheduler.config.hour_size_px = 84;//时间高度
+                scheduler.config.scroll_hour = "03.00";//定位初始时间
+                scheduler.config.clickMenu = [{
+                    name: "新建会xxxxxxxxxxx议",
+					isShow:false,
+                    handle: function () {
+                        //debugger;
+                        alert(scheduler.config.currentDateTime);
+                    }
+                }, {
+					isShow:true,
+                    name: "新建计划",
+                    handle: function () {
+                        alert(scheduler.config.currentDateTime);
+                    }
+                }];//单击是否有菜单on
+                //scheduler.config.tabClick = test;    
+                //scheduler.config.prevClick = test;
+                //scheduler.config.nextClick = test;
+
+
+
+                scheduler.xy.bar_height = 30;//全天、跨天日程之前的间隔
+                scheduler.maxLength = 8;//全天、跨天日程最多显示的条数
+                scheduler.xy.nav_height = 40;//导航高度
+
+
+                scheduler.attachEvent("onClick", function (id) {
+                    var event = this.getEvent(id);
+                    var eventType = event.type;
+
+                    alert(eventType)
+                });
+                scheduler.attachEvent("onDblClick", function () {
+                    return false;
+                });
+
+                //portal使用参数
+                // scheduler.isPortal = true;//是否在portal显示
+                scheduler.config.goToPage = goToPage;
+                //  scheduler.isPortal_scheduler = true;//如果是日程事件，则不显示日期切换
+                scheduler.dayEvent = [];//单日事件
+
+                scheduler.getId = function (id) { //单击事件，参数为事件id
+                    var event = this.getEvent(id);
+                    var eventType = event.type;
+
+                    alert(eventType)
+                }
+                function goToPage(date) {
+                    alert(date)
+                    // window.open("http://www.baidu.com");
+                }
+                //portal使用参数 end
+
+                scheduler.config.xml_date = "%Y-%m-%d %H:%i";
+
+                scheduler.init('scheduler_here', new Date(), "week");//初始化显示当天日期+周视图
+                //初始化数据,数据格式为json
+                scheduler.parse([{
+                    id: '6896764909577916408',
+                    type: 'collaboration',
+                    start_date: '2012-12-24 10:30',
+                    end_date: '2012-12-26 11:00',
+                    text: '协同1',
+                    ico: "work_time_set_16",
+                    content: "<span class='ico16'></span>+sfsdfsdsfsdswewew"
+                }, {
+                    id: '6896764909577916418',
+                    type: 'collaboration',
+                    start_date: '2012-12-24 10:30',
+                    end_date: '2012-12-24 11:00',
+                    text: '任务2'
+                }, {
+                    "id": "2825558033677960100",
+                    "type": "plan",
+                    "content": "dddddddddddddddddd<span class=\"ico16 xls_16\"></span>",
+                    "subject": "dddddddddddddddddd",
+                    "endDate": "2012-12-30 23:59",
+                    "title": "计划",
+                    start_date: '2012-12-24 10:30',
+                    end_date: '2012-12-24 11:00'
+                }, {
+                    id: '6896764909577916448',
+                    type: 'task',
+                    start_date: '2012-12-13 00:00',
+                    end_date: '2012-12-14 23:59',
+                    text: '任务3'
+                }
+                , {
+                    id: '6896764909577916428',
+                    type: 'task',
+                    start_date: '2012-11-13 00:00',
+                    end_date: '2012-11-21 23:59',
+                    text: '任务3'
+                }, {
+                    id: '6896764909577916438',
+                    type: 'plan',
+                    start_date: '2012-12-14 00:00',
+                    end_date: '2012-12-14 23:59',
+                    text: '计划4'
+                    , set_disable: true
+                }, {
+                    id: '2078061340905455728',
+                    type: 'event',
+                    start_date: '2012-11-13 00:00',
+                    end_date: '2012-11-22 23:59',
+                    text: '事件5'
+                }, {
+                    id: '2078061340905455738',
+                    type: 'event',
+                    start_date: '2012-11-13 00:00',
+                    end_date: '2012-11-22 23:59',
+                    text: '事件6'
+                }, {
+                    id: '2078061340905455748',
+                    type: 'event',
+                    start_date: '2012-11-13 00:00',
+                    end_date: '2012-11-22 23:59',
+                    text: '事件7'
+                }, {
+                    id: '2078061340905455758',
+                    type: 'task',
+                    start_date: '2012-11-13 00:00',
+                    end_date: '2012-11-22 23:59',
+                    text: '任务8',
+                    ico: "milestone right"
+                }, {
+                    id: '2078061340905455768',
+                    type: 'event',
+                    start_date: '2012-11-13 00:00',
+                    end_date: '2012-11-22 23:59',
+                    text: '事件9'
+                }, {
+                    id: '2078061340905455778',
+                    type: 'event',
+                    start_date: '2012-11-13 00:00',
+                    end_date: '2012-11-22 23:59',
+                    text: '事件10'
+                }, {
+                    id: '-5722754109640979663',
+                    type: 'doc',
+                    eventId: '-8165958465554986075',
+                    eventCreateUserId: '684019058616189893',
+                    eventReceiveMemberId: '',
+                    eventPeriodicalId: 'null',
+                    eventBeginDate: '2012-11-22',
+                    start_date: '2012-12-25 11:00',
+                    end_date: '2012-12-25 11:00',
+                    text: '公文11',
+                    ico: 'work_time_set_16'
+                }, {
+                    id: '-7346394655019678232',
+                    type: 'meeting',
+                    eventId: '6836291771407417598',
+                    eventCreateUserId: '684019058616189893',
+                    eventReceiveMemberId: '',
+                    eventPeriodicalId: 'null',
+                    eventBeginDate: '2012-11-22',
+                    start_date: '2012-11-22 11:00',
+                    end_date: '2012-11-22 11:30',
+                    text: '会议12'
+                }, {
+                    id: '-4031401379237048532',
+                    type: 'plan',
+                    eventId: '3259770405833755198',
+                    eventCreateUserId: '684019058616189893',
+                    eventReceiveMemberId: '',
+                    eventPeriodicalId: 'null',
+                    eventBeginDate: '2012-11-23',
+                    start_date: '2012-11-23 11:30',
+                    end_date: '2012-11-23 12:00',
+                    text: '计划13'
+                }, {
+                    id: '-4031401379237048542',
+                    type: 'task',
+                    eventId: '3259770405833755198',
+                    eventCreateUserId: '684019058616189893',
+                    eventReceiveMemberId: '',
+                    eventPeriodicalId: 'null',
+                    eventBeginDate: '2012-11-23',
+                    start_date: '2012-12-23 11:30',
+                    end_date: '2012-12-23 12:00',
+                    text: '任务14',
+                    ico: 'milestone right',
+                    set_disable: true
+                }, {
+                    id: '-4031401379237048552',
+                    type: 'task',
+                    eventId: '3259770405833755198',
+                    eventCreateUserId: '684019058616189893',
+                    eventReceiveMemberId: '',
+                    eventPeriodicalId: 'null',
+
+                    start_date: '2011-12-19 11:30',
+                    end_date: '2012-12-23 11:00',
+                    text: '任务15',
+                    ico: 'milestone right'
+                }], "json");
+
+                $("#itemize").bind({
+                    mouseover: function () {
+                        $("#itemize_content").removeClass("hidden");
+                    },
+                    mouseout: function () {
+                        $("#itemize_content").addClass("hidden");
+                    }
+                })
+            }
+			function test(type, nextDate){
+			    alert(nextDate)
+			}
+			$(function() {
+			    $("#dhx_cal_common_tabs li div").click(function () {
+			        $("#dhx_cal_common_tabs li").removeClass("current");
+			        $(this).parents("li").addClass("current");
+			    });
+				$('#meeting11111').hide()
+			})
+        </script>
+    </head>
+    <body onload="init();">
+        <div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:100%;'>
+            <div class="dhx_cal_navline">
+                <div id="top_left">
+				<a id="newMeeting" class="common_button common_button_gray" href="javascript:void(0)">新建会议</a>
+				<a id="newPlan" class="common_button common_button_gray" href="javascript:void(0)">新建计划</a>
+				<a id="newTask" class="common_button common_button_gray" href="javascript:void(0)">新建任务</a>
+            	<a id="newEvent" class="common_button common_button_gray" href="javascript:void(0)">新建事件</a>
+				</div>
+                <div class="dhx_cal_prev_button" id="dhx_cal_prev_button">
+                    &nbsp;
+                </div>
+                <div class="dhx_cal_next_button" id="dhx_cal_next_button">
+                    &nbsp;
+                </div>
+				<!--
+                <div class="dhx_cal_today_button" id="dhx_cal_today_button">
+                </div>
+				-->
+                <div class="dhx_cal_date" id="dhx_cal_date">
+                </div>
+                <span id="top_right"> 
+                <!--<div class="dhx_cal_tab" name="day_tab" id="day_tab" style="right:204px;"></div>
+                <div class="dhx_cal_tab" name="week_tab" id="week_tab" style="right:140px;"></div>
+                <div class="dhx_cal_tab" name="month_tab" id="month_tab" style="right:76px;"></div>-->
+                <div id="dhx_cal_common_tabs" class="common_tabs clearfix" style="position:absolute;top:12px; right:75px;">
+                    <ul class="left">
+                        <li class="left"><a hidefocus="true" href="javascript:void(0)" class="border_b left" style="padding:0;"><div class="dhx_cal_tab" name="day_tab" id="day_tab" style="text-align:center; position:initial;top:initial;white-space:initial;padding:0 10px;position:static;"></div></a></li>
+                        <li class="left current"><a hidefocus="true" href="javascript:void(0)" class="border_b"style="padding:0;"><div class="dhx_cal_tab" name="week_tab" id="week_tab" style="text-align:center; position:initial;top:initial;white-space:initial;padding:0 10px;position:static;"></div></a></li>
+                        <li class="left"><a hidefocus="true" href="javascript:void(0)" class="border_b last_tab"style="padding:0;"><div class="dhx_cal_tab" name="month_tab" id="month_tab" style="text-align:center; position:initial;top:initial;white-space:initial;padding:0 10px;position:static;"></div></a></li>
+                    </ul>
+                </div>
+                <div href="#" class="common_drop_list dhx_cal_type"  name="more_tab"  id="more_tab">
+					<span class="ico16 arrow_1_b" id="itemize"> </span>
+                		<div class="common_drop_list_content common_drop_list_content_action hidden dhx_cal_content" id="itemize_content">
+	                	 	<a href="javascript:void(0)" value="0"><span class="dhx_cal_type_color cal_meeting">■</span>会议</a>
+	                	 	<a href="javascript:void(0)" value="1"><span class="dhx_cal_type_color cal_plan">■</span>计划</a>
+	                	 	<a  href="javascript:void(0)" value="2"><span class="dhx_cal_type_color cal_task">■</span>任务</a>
+	                	 	<a href="javascript:void(0)" value="3"><span class="dhx_cal_type_color cal_event">■</span>事件</a>
+	                	 	<a  href="javascript:void(0)" value="2"><span class="dhx_cal_type_color cal_col">■</span>到期协同</a>
+	                	 	<a href="javascript:void(0)" value="3"><span class="dhx_cal_type_color cal_doc">■</span>到期公文</a>
+                	 	</div>
+                </div>
+                </span>
+            </div>
+            <div class="dhx_cal_header">
+            </div>
+            <div class="dhx_cal_data">
+            </div>
+        </div>
+
+        <div id="showEvent" class="border_all hidden h100b">
+            <p class="hidden padding_5 font_bold" id="all_DayTitle">全天/跨日:</p>
+            <ul id="allday_event" class="padding_5">
+            </ul>
+            <ul class="border_t_dashed margin_t_5 padding_5" id="oneday_event">
+
+            </ul>
+        </div> 
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>tree</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+
+    <script type="text/javascript" src="../../controls/seeyon.ui.tree-debug.js"></script>
+</head>
+<body>
+    <div class="zTreeDemoBackground left">
+        <ul id="tree2" class="treeDemo_0 ztree"></ul>
+    </div>
+    <script>
+        var setting2 = {
+            check: {
+                enable: true, //设置 zTree 的节点上显示 checkbox/radio
+                chkStyle: "checkbox",//勾选框类型为checkbox
+                chkboxType: {
+                    "Y": "ps",
+                    "N": "ps"
+                }//勾选 checkbox 对于父子相互关联
+            },
+            callback: {
+                onClick: onClick2
+            }
+        }
+        var zNodes2 = [{
+            name: "根节点 - 展开-隐藏checkbox",
+            open: true,
+            children: [{
+                name: "父节点11 - 折叠",
+                children: [{
+                    name: "叶子节点111--disabled"
+                }, {
+                    name: "叶子节点112"
+                }, {
+                    name: "叶子节点113"
+                }, {
+                    name: "叶子节点114"
+                }]
+            }, {
+                name: "父节点12 - 折叠",
+                children: [{
+                    name: "叶子节点121"
+                }, {
+                    name: "叶子节点122"
+                }, {
+                    name: "叶子节点123"
+                }, {
+                    name: "叶子节点124"
+                }]
+            }, {
+                name: "父节点13 - 没有子节点",
+                isParent: true
+            }]
+        }];
+        function onClick2(e, treeId, treeNode) {
+            var zTree = $.fn.zTree.getZTreeObj("tree2");
+            zTree.expandNode(treeNode);
+        }
+
+        $(document).ready(function () {
+            $.fn.zTree.init($("#tree2"), setting2, zNodes2);
+        });
+    </script>
+    <div class="clear"><a href="http://10.3.4.240:8080/userContent/ctp_pub/docs/CTP开发指南.html#d5e2214">查看代码</a></div>
+
+</body>
+</html>

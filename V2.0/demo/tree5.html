@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>tree</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+
+    <script type="text/javascript" src="../../controls/seeyon.ui.tree-debug.js"></script>
+</head>
+<body>
+    <ul id="treeDemo6" class="ztree"></ul>
+    <script type="text/javascript">
+        var IDMark_Switch = "_switch",
+        IDMark_Icon = "_ico",
+        IDMark_Span = "_span",
+        IDMark_Input = "_input",
+        IDMark_Check = "_check",
+        IDMark_Edit = "_edit",
+        IDMark_Remove = "_remove",
+        IDMark_Ul = "_ul",
+        IDMark_A = "_a";
+
+        var setting6 = {
+            view: {
+                addDiyDom: addDiyDom
+            }
+        };
+
+        var zNodes6 = [
+            {
+                id: 1, name: "hover事件显示控件", open: true,
+                children: [
+                       { id: 11, name: "按钮1" },
+                       { id: 12, name: "按钮2" },
+                       { id: 13, name: "下拉框" },
+                       { id: 141, name: "文本1" },
+                       { id: 142, name: "文本2" },
+                       { id: 15, name: "超链接" }
+
+                ]
+            },
+            {
+                id: 2, name: "始终显示控件", open: true,
+                children: [
+                       { id: 21, name: "按钮1" },
+                       { id: 22, name: "按钮2" },
+                       { id: 23, name: "下拉框" },
+                       { id: 24, name: "文本" },
+                       { id: 25, name: "超链接" }
+                ]
+            }
+        ];
+
+
+        function addDiyDom(treeId, treeNode) {
+            if (treeNode.parentNode && treeNode.parentNode.id != 2) return;
+            var aObj = $("#" + treeNode.tId + IDMark_A);
+            if (treeNode.id == 21) {
+                var editStr = "<span style='display: inline-block;background:#ccc;width:200px;height:12px;'></span><span>30%</span>";
+                aObj.append(editStr);
+            } else if (treeNode.id == 22) {
+                var editStr = "<span style='display: inline-block;background:#ccc;width:200px;height:12px;'></span><span>30%</span>";
+                aObj.after(editStr);
+            } else if (treeNode.id == 23) {
+                var editStr = "<span style='display: inline-block;background:#ccc;width:200px;height:12px;'></span><span>30%</span>";
+                aObj.after(editStr);
+            } else if (treeNode.id == 24) {
+                var editStr = "<span style='display: inline-block;background:#ccc;width:200px;height:12px;'></span><span>30%</span>";
+                aObj.after(editStr);
+            } else if (treeNode.id == 25) {
+                var editStr = "<span style='display: inline-block;background:#ccc;width:200px;height:12px;'></span><span>30%</span>";
+                aObj.after(editStr);
+            }
+        }
+
+        $(document).ready(function () {
+            $.fn.zTree.init($("#treeDemo6"), setting6, zNodes6);
+        });
+        //-->
+    </script>
+	<div><a href="http://10.3.4.240:8080/userContent/ctp_pub/docs/CTP开发指南.html#d5e2214">查看代码</a></div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>layout</title>
+        <script src="../../scriptes/jquery.js"></script>
+        <script src="../../controls/seeyon.ui.layout-debug.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/common.css">
+		<link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+		
+		<script type="text/javascript" src="../../controls/calendar/calendar-debug.js"></script>
+		<script type="text/javascript" src="../../controls/calendar/calendar-zh-debug.js"></script>
+		<script type="text/javascript" src="../../ctp/misc/Moo-debug.js"></script>
+		<script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js"></script>
+		<script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js"></script>
+		<script type="text/javascript" src="../../ctp/jquery.json-debug.js"></script>
+		<script type="text/javascript" src="../../ctp/jquery.fillform-debug.js"></script>
+		<script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js"></script>
+		<script type="text/javascript" src="../../ctp/jquery.code-debug.js"></script>
+		<script type="text/javascript" src="../../ctp/common-debug.js"></script>
+		<script type="text/javascript" src="../../ctp/i18n-debug.js"></script>
+		<script type="text/javascript" src="../../ctp/v3x-debug.js"></script>
+		<script type="text/javascript" src="../../controls/searchBox-debug.js"></script>
+		<script type="text/javascript" src="../../controls/seeyon.ui.checkform-debug.js"></script>
+		<script type="text/javascript" src="../../controls/seeyon.ui.dialog-debug.js"></script>
+		<script type="text/javascript" src="../../controls/seeyon.ui.grid-debug.js"></script>
+		<script type="text/javascript" src="../../controls/seeyon.ui.layout-debug.js"></script>
+		<script type="text/javascript" src="../../controls/seeyon.ui.menu-debug.js"></script>
+		<script type="text/javascript" src="../../controls/seeyon.ui.progress-debug.js"></script>
+		<script type="text/javascript" src="../../controls/seeyon.ui.scroll-debug.js"></script>
+		<script type="text/javascript" src="../../controls/seeyon.ui.tab-debug.js"></script>
+		<script type="text/javascript" src="../../controls/seeyon.ui.toolbar-debug.js"></script>
+		<script type="text/javascript" src="../../controls/seeyon.ui.tree-debug.js"></script>
+		<script type="text/javascript" src="../../controls/seeyon.ui.calendar-debug.js"></script>
+		<script type="text/javascript" src="../../controls/seeyon.ui.arraylist-debug.js"></script>
+		<script type="text/javascript" src="../../controls/seeyon.ui.tooltip-debug.js"></script>
+		<script type="text/javascript" src="../../ctp/jquery.comp-debug.js"></script>
+		<script type="text/javascript" src="../../ctp/jquery.tree-debug.js"></script>
+        <script type="text/javascript">
+            var layout;
+            $(document).ready(function () {
+				layout = $('#layout').layout();
+				$('#closeRight').click(function(){
+					layout.setEast(40);
+				});
+				$('#closeLeft').click(function(){
+					layout.setWest(40);
+				});
+				$('#closeSouth').click(function(){
+					layout.setSouth(10);
+				});
+				$('#closeNorth').click(function(){
+					layout.setNorth(10);
+				});
+            });
+        </script>
+    </head>
+    <body>
+    <div id='layout' class="comp" comp="type:'layout'">
+        <div class="layout_north" layout="height:100,maxHeight:100,minHeight:30,spiretBar:{show:true,handlerT:function(){layout.setNorth(0);},handlerB:function(){layout.setNorth(100);}}">
+        	<input type="button" id="closeNorth" value="closeNorth"/>
+        </div>
+        <div class="layout_east" layout="width:200,minWidth:50,maxWidth:200,spiretBar:{show:true,handlerL:function(){layout.setEast(200);},handlerR:function(){layout.setEast(0);}}">
+        	<input type="button" id="closeRight" value="closeEast"/>
+        </div>
+        <div class="layout_center" layout="border:true">
+        	
+        </div>
+        <div class="layout_west" layout="width:200,minWidth:50,maxWidth:300,sprit:false,spiretBar:{show:true,handlerL:function(){layout.setWest(0);},handlerR:function(){layout.setWest(200);}}">
+        	<input type="button" id="closeLeft" value="closeWest"/>
+        </div>
+        <div class="layout_south" layout="height:50,maxHeight:300,minHeight:30,spiretBar:{show:true,handlerT:function(){layout.setSouth(50);},handlerB:function(){layout.setSouth(0);}}">
+        	<input type="button" id="closeSouth" value="closeSouth"/>
+        </div>
+    </div>
+
+    </body>
+</html>

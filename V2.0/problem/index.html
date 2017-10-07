@@ -1,0 +1,834 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>起步 - Seeyonui V2.0</title>
+    <link href="../css/doc.css" rel="stylesheet" />
+    <script type="text/javascript" src="../scripts/syntaxhighlighter/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../scripts/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../scripts/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../scripts/syntaxhighlighter/scripts/shBrushXml.js"></script>
+    <script type="text/javascript" src="../scripts/syntaxhighlighter/scripts/shBrushCss.js"></script>
+    <link type="text/css" rel="stylesheet" href="../scripts/syntaxhighlighter/styles/shCoreDefault.css" />
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
+
+    <script src="../../scriptes/jquery.js"></script>
+    <script src="../../controls/seeyon.ui.layout-debug.js"></script>
+    <script src="../../controls/seeyon.ui.toolbar-debug.js"></script>
+    <script src="../../controls/calendar/calendar-debug.js"></script>
+    <script src="../../controls/calendar/calendar-zh_CN.js"></script>
+    <script src="../../ctp/misc/Moo-debug.js"></script>
+    <script src="../../ctp/misc/jsonGateway-debug.js"></script>
+    <script src="../../ctp/jquery.hotkeys-debug.js"></script>
+    <script src="../../ctp/jquery.json-debug.js"></script>
+    <script src="../../ctp/jquery.fillform-debug.js"></script>
+    <script src="../../ctp/jquery.jsonsubmit-debug.js"></script>
+    <script src="../../ctp/jquery.code-debug.js"></script>
+    <script src="../../ctp/common-debug.js"></script>
+    <script src="../../ctp/i18n-debug.js"></script>
+    <script src="../../ctp/v3x-debug.js"></script>
+    <script src="../../controls/searchBox-debug.js"></script>
+    <script src="../../controls/seeyon.ui.checkform-debug.js"></script>
+    <script src="../../controls/seeyon.ui.dialog-debug.js"></script>
+    <script src="../../controls/seeyon.ui.grid-debug.js"></script>
+    <script src="../../controls/seeyon.ui.layout-debug.js"></script>
+    <script src="../../controls/seeyon.ui.menu-debug.js"></script>
+    <script src="../../controls/seeyon.ui.progress-debug.js"></script>
+    <script src="../../controls/seeyon.ui.tab-debug.js"></script>
+    <script src="../../controls/seeyon.ui.toolbar-debug.js"></script>
+    <script src="../../controls/seeyon.ui.tree-debug.js"></script>
+    <script src="../../controls/seeyon.ui.calendar-debug.js"></script>
+    <script src="../../controls/seeyon.ui.arraylist-debug.js"></script>
+    <script src="../../controls/seeyon.ui.tooltip-debug.js"></script>
+    <script src="../../controls/seeyon.ui.common-debug.js"></script>
+    <script src="../../ctp/jquery.comp-debug.js"></script>
+    <script src="../../ctp/jquery.tree-debug.js"></script>
+    <link href="../../css/common.css" rel="stylesheet" />
+    <link href="../../skin/default/skin.css" rel="stylesheet" />
+    <style>
+    	.side_nav li{
+    		margin-bottom: 15px;
+    	}
+    </style>
+    <script type="text/javascript">
+        $(function(){
+            GoTo_Top({ showHeight: 100});
+        })
+        
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="nav_area">
+            <ul class="clearfix">
+                <li><a href="../index.html"><strong>Seeyonui</strong></a></li>
+                <li><a href="../getting-started/index.html">起步</a></li>
+                <li><a href="../components/index.html">组件</a></li>
+                <li><a href="../prototype/index.html">关键页面</a></li>
+                <li><a href="../class/index.html">icon&class</a></li>
+                <li><a href="../problem/index.html">常见开发问题</a></li>
+                <li><a href="../log/index.html">日志</a></li>
+            </ul>
+        </div>
+        <div class="page_title_area">
+            <div class="page_title_box">
+                <div class="t">常见开发问题</div>
+                <div class="c">一些常见开发问题及解决方案</div>
+            </div>
+        </div>
+    </header>
+    <div id="content" class="clearfix">
+        <div class="main_body">
+            <div id="problem1" class="clearfix">
+                <h1>新老框架是否可以并存?</h1>
+                <p>不可以，如果一个模块中涉及到新老框架，需要用iframe进行分离.</p>
+            </div>
+            <div id="problem2" class="clearfix">
+                <h1>如何在JSP页面获取当前登录用户相关信息?</h1>
+                <div class="code_area">
+                    <div class="code_box">
+                    <pre class="brush: html;">
+                    	
+                        ${CurrentUser.xxx}，如${CurrentUser.name}
+
+                        CurrentUser对应用户数据对象com.seeyon.ctp.common.authenticate.domain.User
+
+                    </pre>
+                    </div>
+                </div>
+            </div>
+            <div id="problem_sear">
+                <h1>搜索组建</h1>
+                <div id="problem_sear1">
+                    <h3>1，怎么定位？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                我们初始化searchCondition的时候配置参数top，right，bottom，left等来定位。一般我们使用的top和right。例如：
+                                var searchobj = $.searchCondition({
+                                top:33,
+                                right:10,
+                                //left:10,
+                                //bottom:10,
+
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_sear2">
+                    <h3>2，怎么配置？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                在conditions这个参数当中配置：
+                                conditions: [{
+                                    id: 'title',//查询条件生成input/select/data的id
+                                    name: 'title',//查询条件生成input/select/data的name
+                                    type: 'input',//类型: [input:输入框] [select:下拉选择] [datemulti:时间段]
+                                    text: '标题',//查询条件名称
+                                    value: 'subject'//查询条件value
+                                }]
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_sear3">
+                     <h3>3，点搜索按钮怎么取值？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                searchHandler: function(){
+                                var val = searchobj.g.getReturnValue();
+                                   console.log($.toJson(val));
+                                },
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_sear4">
+                    <h3>4，可以配置什么类型？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                类型: [input:输入框] [select:下拉选择] [datemulti:时间段]
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_sear5">
+                     <h3>5，怎么设置默认值？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                searchobj.g.setCondition('datetime', '2012-10-25 17:49', '2012-10-25 17:49');
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="problem_grid">
+                <h1>列表</h1>
+                <pre class="brush:html">
+                    var t = $("#mytable").ajaxgrid({})
+                </pre>
+                <div id="problem_grid1">
+                    <h3>1，列表组件如何处理特殊数据的展示？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                function rend(txt,rowData, rowIndex, colIndex,colObj)自定义渲染器，可以对单元格显示数据和样式进行加工展现.
+                                //txt为表身渲染单元格文本，
+                                //rowData为渲染当前行数据对象，
+                                //rowIndex为当前行，
+                                //colIndex为当前列,
+                                //obj为表头对象的width，name，display，align以及sortType等等
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_grid2">
+                    <h3>2，如何让grid组件默认不显示某一列</h3>
+                    <p>grid默认列不显示使用：hide:true</p>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                            var gridObj = $("#flexme3").ajaxgrid({
+                            ...
+                            colModel: [{
+                                display: 'id',
+                                name: 'id',
+                                width: '5%',
+                                hide:true,
+                                sortable: false,
+                                align: 'center',
+                                type: 'checkbox',
+                                isToggleHideShow:true
+                            }
+                            ...
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_grid3">
+                    <h3>3，如何让表格宽度自适应？</h3>
+                    
+                        <p>
+                            列表属性width默认是auto，即根据<code>每列的宽度自动计算</code>。也可以设置宽度px的值或者百分比。
+                        </p>
+                      
+                </div>
+                <div id="problem_grid4">
+                    <h3>4，怎么禁止个性化设置？</h3>
+                    <p>列表属性customize个性化设置，默认的是true，禁用的话设为false即可。默认支持</p>
+                </div>
+               
+                <div id="problem_grid5">
+                    <h3>5，表格组件grid的排序机制？</h3>
+                    <p>grid默认按照字符串排序，也可以制定排序类型(number或date)</p>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush: html;">
+                                colModel : [{
+                                    display : '日期',
+                                    name : 'mydate',
+                                    width : '180',
+                                    sortType : 'number'
+                                }
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_grid6">
+                    <h3>6，如何在列表数据加载完之后调用自定义函数？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                onSuccess:function(){
+                                    alert("成功");
+                                },
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_grid7">
+                    <h3>7，如何自定义列表上下箭头事件？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                slideToggleUpHandle:function(){} 
+                                slideToggleDownHandle:dunction(){}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_grid8">
+                    <h3>8，如何让列表显示上下结构？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                列表对象.grid.resizeGridUpDown("middle")//up，down
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_grid9">
+                    <h3>9，通过什么方式来获取列表所有选中的数据？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                列表对象.grid.getSelectRows()：获取选中行数组
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_grid10">
+                    <h3>11，UI控件中的grid是否支持多表头，类似于统计报表的表头</h3>
+                    <p>新框架grid不支持多列头，可以通过电子表格（普通的table）实现</p>
+                </div>
+                <div id="problem_grid11">
+                    <h3>12，表格组件colModel增加cutsize属性，用于对时间的显示处理截取掉时分秒只保留年月日？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                colModel : [{
+                                    display : '日期',
+                                    name : 'mydate',
+                                    width : '180',
+                                    cutsize : 10
+                                }
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="problem_menu">
+                <h1>简易菜单</h1>
+                <pre class="brush:html;">
+                    $.menuSimple({})
+                </pre>
+                <div id="problem_menu1">
+                    <h3>1，如何控制换行？</h3>
+                    <p>mRow:true</p>
+                </div>
+                <div id="problem_menu2">
+                    <h3>2，如何控制分割线？</h3>
+                    <p>type:line</p>          
+                </div>
+                <div id="problem_menu3">
+                    <h3>3，如何让简易菜单直接显示？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                页面加载完成之后直接初始化简易菜单，例如：
+                                $(function () {
+                                    $.menuSimple({
+                                        left: 20,
+                                        top: 20,
+                                        mRow:true,
+                                        data: [{
+                                            name: "示例1",
+                                            customAttr: "qq='nodePerm'",
+                                            className: "toback_16",
+                                            disabled: true,
+                                            handle: function (json) {
+                                                alert(json.name);
+                                            }
+                                        }, {
+                                            type: "line"//显示分割线
+                                        }, {
+                                            name: "示例1",
+                                            handle: function (json) {
+                                                alert(json.name);
+                                            }
+                                        }]
+                                    });
+                                });
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div id="problem_top">
+                <h3>回到顶部组建</h3>
+                <p>GoTo_Top({ showHeight: 100, marginLeft: 500 });</p>
+                <div id="problem_top1">
+                    <h3>1，如何指定回到某个位置？</h3>
+                    <p>nGoToHeight：100，//默认的是回到顶部</p>
+                </div>
+                <div id="problem_top2">
+                    <h3>2，到什么位置显示？</h3>
+                    <p>showHeight：100</p>
+                </div>
+                <div id="problem_top3">
+                    <h3>3，如何设置定位？</h3>
+                    <p>marginLeft：500，//默认的是798</p>
+                </div>
+            </div>
+            <div id="problem_layout">
+                <h3>layout</h3>
+                <p></p>
+                <div id="problem_layout1">
+                    <h3>1，怎么隐藏拖动条？</h3>
+                    <p>sprit：true/false //true是显示，false不显示</p>
+                </div>
+                <div id="problem_layout2">
+                    <h3>2，获取某个区域的大小？</h3>
+                    <p>通过var layout = $("#layout").layout()函数获取Layout对象。
+                        还可以动态设置layout大小，如：layout.setEast(300);</p>
+                </div>
+                <div id="problem_layout3">
+                    <h3>1，怎么隐藏拖动条？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                可以。通过spiretBar来配置。例如：
+                                spiretBar: {
+                                    show: true,
+                                    handlerB: function () {
+                                        layout.setNorth(98);
+                                    },
+                                    handlerT: function () {
+                                        layout.setNorth(0);
+                                    }
+                                }
+                            </pre>
+                            <code>注意：<br/>
+                                north 和 south为handlerB和handlerT;west 和 east为handlerL和handlerR
+                            </code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="problem_calendar">
+                <h3>时间控件</h3>
+                <div id="problem_calendar1">
+                    <h3>1，如何定义显示格式？</h3>
+                    <P>
+                    显示时分:ifFormat:'%Y-%m-%d %H:%M'<br/>
+                    显示月:ifFormat:'%Y-%m'
+                    </P>
+                </div>
+                <div id="problem_calendar2">
+                    <h3>2，如何控制清除按钮是否显示？</h3>
+                    <p>clearBlank:true/false</p>
+                </div>
+                <div id="problem_calendar3">
+                    <h3>3，如何绑定选中点击事件？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                &lt;input id="mycal" type="text" class="comp" comp="type:'calendar',ifFormat:'%Y-%m-%d',onUpdate:aaa"/>
+                                &lt;script type="text/javascript">
+
+                                    function aaa(){
+
+                                        alert("aaaa");
+                                    }
+                                &lt;/script>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_calendar4">
+                    <h3>4，如何设置默认日期？</h3>
+                   <p>dateString:'2012-12-16 17:59'</p>
+                </div>
+            </div> 
+            <div id="problem_dialog">
+                <h3>弹出框</h3>
+                <p>var dialog = $.dialog({})</p>
+                <div id="problem_dialog1">
+                    <h3>1，怎样从父页面往子窗口传参数？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                可以通过transParams传参数到弹出窗口中
+                                transParams:{
+                                            name:"陈宁宁" 
+
+                                       }
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_dialog2">
+                    <h3>2，子页面如何接收父页面传的参数？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                在子页面中通过
+                                window.parentDialogObj[id]获取窗口对象，然后调用getTransParams()来获取传过来的参数
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_dialog3">
+                    <h3>3，如何设置按钮是否高亮显示？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                按钮初始化的时候默认第一个为高亮，其他的为灰色。show的时候传btnType：1/0 //1为高亮，0为灰色
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_dialog4">
+                    <h3>4，如何给关闭图标添加自定义事件？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                closeParam:{
+                                 'show':true, //必须写。否则按钮图标不显示
+                                  autoClose:false, //必须，如果不设置false属性，他会在执行你自定义方法之后，执行自带的方法
+                                   handler:function(){ 
+                                     //var d = dialog.getClose(); 
+                                      alert(1) 
+                                    } 
+                              },
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_dialog5">
+                    <h3>5，如何定义下部左侧html？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                bottomHTML:"&lt;label for='Checkbox1' class='margin_r_10 hand'>"+
+                                 "&lt;input type='checkbox' value='0' id='Checkbox1' name='option' class='radio_com'>选项1"+
+                                 "&lt;/label>",
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_dialog6">
+                    <h3>6，如何动态更改弹出窗口的title？</h3>
+                    <p>dialog.setTitle(title)</p>
+                </div>
+                <div id="problem_dialog7">
+                    <h3>7，如何设置跨iframe显示？</h3>
+                    <p>targetWindow：window.parent</p>
+                </div>
+                <div id="problem_dialog8">
+                    <h3>8，如何设置按钮可用不可用，显示不显示？</h3>
+                    <p>
+                        dialog.disabledBtn('按钮id')//按钮不可用<br/>
+                        dialog.enabledBtn('按钮id')//按钮可以<br/>
+                        dialog.hideBtn('按钮id') //按钮隐藏<br/>
+                        dialog.showBtn('按钮id')//按钮显示
+                    </p>
+                </div>
+                <div id="problem_dialog9">
+                    <h3>9，关闭弹出框</h3>
+                    <p>dialog.close();</p>
+                </div>
+            </div>  
+            <div id="problem_msg">
+                <h3>提示窗口</h3>
+                <div id="problem_msg1">
+                    <h3>1，有几种类型？</h3>
+                    <p>
+                        5种类型：
+                        1,alert窗口  //$.alert("这个是alert窗口!");
+                        2,提示信息   //$.infor("这个是提示信息!");
+                        3,confirm    // $.confirm({...});
+                        4,自定义     //$.messageBox({...})
+                        5,错误对话框 //$.error("这个是错误对话框!");
+                    </p>
+                </div>
+                <div id="problem_msg2">
+                    <h3>2，如何给提示窗口绑定自定义事件？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                以confirm为例：
+                                 var confirm = $.confirm({
+                                        'msg': '点击按钮后执行某个方法!',
+                                        ok_fn: function () { alert('确定后执行，自定义方法!'); },//点击确定执行操作
+                                        cancel_fn:function(){alert('取消后执行，自定义方法!');}//点击取消执行操作
+                                    });
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div id="problem_toolbar">
+                <h3>toolbar</h3>
+                <p>var tt = $("#toolbar").toolbar({...})</p>
+                <div id="problem_toolbar1">
+                    <h3>1，可以定义几种类型？</h3>
+                    <p>1，按钮，2，select 3，checkbox，（默认的是按钮，需要修改的话可以指定type:select/checkbox）</p>
+                </div>
+                <div id="problem_toolbar2">
+                    <h3>2，如何设置toolbar的图标？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                toolbar: [{  
+                                    className: "ico16",//样式名称[按钮图标--从通用class中查询]
+                                    ...
+                                }]
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_toolbar3">
+                    <h3>3，如何设置按钮可用不可用，显示不显示？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                禁用： toolbar.disabled(id)
+                                启用：toolbar.enabled(id)
+                                显示：toolbar.showBtn(id)
+                                不显示：toolbar.hideBtn(id)//设置一个按钮不显示，如果不传参数，则设置所有的按钮不显示
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_toolbar4">
+                    <h3>4，如何动态添加按钮？重新整理</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                var tt = $("#toolbar").toolbar({
+                                //searchHtml:"search",
+                                toolbar: [{
+                                    id: "delete",
+                                    name: "删除",
+                                    className: "ico16 del_16",
+                                    selected:true
+                                }
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_toolbar5">
+                    <h3>5，如何设置toolbar的翻页显示不显示？</h3>
+                    <p>isPager：true/false;</p>
+                </div>
+            </div>
+            <div id="problem_tree">
+                <h3>Tree</h3>
+                <p>$("#tree").tree({})</p>
+                <div id="problem_tree1">
+                    <h3>1，如何更换定义图标？</h3>
+                    <p>
+                        <code>iconSkin属性</code>
+                        iconSkin:"treeDepartment",//配置class即可换图标
+                    </p>
+                </div>
+                <div id="problem_tree2">
+                    <h3>2，如何获取当前选中的树节点？</h3>
+                        <p>treeObj.getSelectedNodes()</p>
+                </div>
+                <div id="problem_tree3">
+                    <h3>3，怎么禁用某个树节点？</h3>
+                    <p>chkDisabled:true/false  //true表示禁用，false表示启用</p>
+                </div>
+                <div id="problem_tree4">
+                    <h3>4，怎么判断当前节点是父节点还是子节点？</h3>
+                    <pre class="brush:html;">
+                        var sNodes = treeObj.getSelectedNodes();
+                        if (sNodes.length > 0) {
+                            var isParent = sNodes[0].isParent;
+                        }
+                    </pre>
+                        
+                    <p>treeNode.children [n] .isParent  //[n] 是子节点的序列号 判断子节点是否为父节点</p>
+                </div>
+                <div id="problem_tree5">
+                    <h3>5，怎么定制异部树查询参数？</h3>
+                    <p>
+                        <code>managerMethod，</code>异步树加载Manager的方法名，该Manager方法只允许有一个Map参数，用于接收查询参数，当前展开节点id将以idKey属性名传入，另外还可以通过<code>asyncParam</code>配置其它异步树加载查询参数用于指定异步树加载时的其它定制查询参数
+                    </p>
+                </div>
+                <div id="problem_tree6">
+                    <h3>6，怎么设置树节点默认展开？</h3>
+                    <p>
+                    节点的open属性设置为true表示节点展开<br/>
+                    open: true,</p>
+                </div>
+                <div id="problem_tree7">
+                    <h3>7，怎么对树的节点进行特殊渲染？</h3>
+                    <p>render用于树节点展现渲染，<br/>
+                    function render(name, data)，第一个参数为<code>树节点显示名称</code>，第二个参数为<code>数据对象</code>，返回值为渲染后的树节点</p>
+                </div>
+            </div>
+            <div id="problem_tooltip">
+                <h3>气球状提示</h3>
+                <div id="problem_tooltip1">
+                    <h3>1，怎么控制气球状提示的位置？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                $.tooltip({
+                                    openPoint: [10, 10],//左，上
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_tooltip2">
+                    <h3>2，如何关闭？</h3>
+                    <p>
+                        定义class=<code>"tooltip_close"</code>即可。如：
+                        <pre class="brush:html;">
+                            &lt;a class="tooltip_close font_size12" href="javascript:void(0)">关闭&lt;/a>
+                        </pre>
+                        
+                    </p>
+                </div>
+            </div>
+            <div id="problem_win">
+                <h3>多窗口</h3>
+                <div id="problem_win1">
+                    <h3>1，怎么设置多窗口打开？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                openCtpWindow({
+                                    url:"subForm.html",//新窗口地址
+                                    id:id//父窗口存贮新窗口的key，不传则用新窗口的url作为标记
+                                })
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="problem_win2">
+                    <h3>2，子窗口打开后如何获取父窗口的参数和调用方法？</h3>
+                    <div class="code_area">
+                        <div class="code_box">
+                            <pre class="brush:html;">
+                                window.opener:就是指的父窗体。
+                                window.opener.test(); ---调用父窗体中的test()方法
+                                ,如果window.opener存在,设置A窗口中stockBox的值。
+                                    if (window.opener && !window.opener.closed) {
+                                       window.opener.document.parentForm.stockBox.value = symbol;
+                                }
+
+
+                                window.close();关闭子窗口。
+                                子窗口关闭后刷新父窗口：
+
+                                1,window.opener.location.href=window.opener.location.href;
+                                2,window.opener.location.reload(true);
+
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="side_nav">
+            <ul>
+                <li><a href="#problem1">新老框架是否可以并存?</a></li>
+                <li><a href="#problem2">如何在JSP页面获取当前登录用户相关信息</a></li>
+                <li><a href="#problem_sear"><h3>搜索组建</h3></a>
+                    <ul class="margin_l_10">
+                        <li><a href="#problem_sear1">1，怎么定位？</a></li>
+                        <li><a href="#problem_sear2">2，怎么配置？</a></li>
+                        <li><a href="#problem_sear3">3，点搜索按钮怎么取值？</a></li>
+                        <li><a href="#problem_sear4">4，可以配置什么类型？</a></li>
+                        <li><a href="#problem_sear5">5，怎么设置默认值？</a></li>
+                    </ul>
+                </li>
+                <li><a href="#problem_grid"><h3>列表</h3></a>
+                    <ul class="margin_l_10">
+                        <li><a href="#problem_grid1">1，列表组件如何处理特殊数据的展示？</a></li>
+                        <li><a href="#problem_grid2">2，如何让grid组件默认不显示某一列?</a></li>
+                        <li><a href="#problem_grid3">3，如何让表格宽度自适应？</a></li>
+                        <li><a href="#problem_grid4">4，怎么禁止个性化设置？</a></li>
+                        <li><a href="#problem_grid5">5，表格组件grid的排序机制？</a></li>
+                        <li><a href="#problem_grid6">6，如何在列表数据加载完之后调用自定义函数？</a></li>
+                        <li><a href="#problem_grid7">7，如何自定义列表上下箭头事件？</a></li>
+                        <li><a href="#problem_grid8">8，如何让列表显示上下结构？</a></li>
+                        <li><a href="#problem_grid9">9，通过什么方式来获取列表所有选中的数据？</a></li>
+                        <li><a href="#problem_grid10">10，UI控件中的grid是否支持多表头，类似于统计报表的表头?</a></li>
+                        <li><a href="#problem_grid11">11，表格组件colModel增加cutsize属性，用于对时间的显示处理截取掉时分秒只保留年月日？</a></li>
+                    </ul>
+                </li>
+                <li><a href="#problem_menu"><h3>简易菜单</h3></a>
+                    <ul class="margin_l_10">
+                        <li><a href="#problem_menu1">1，如何控制换行？</a></li>
+                        <li><a href="#problem_menu2">2，如何控制分割线？</a></li>
+                        <li><a href="#problem_menu3">3，如何让简易菜单直接显示？</a></li>
+                    </ul>
+                </li>
+                <li><a href="#problem_top"><h3>回到顶部组建</h3></a>
+                    <ul class="margin_l_10">
+                         <li><a href="#problem_top1">1，如何指定回到某个位置？</a></li>
+                         <li><a href="#problem_top2">2，到什么位置显示？</a></li>
+                         <li><a href="#problem_top3">3，如何设置定位？</a></li>
+                    </ul>
+                </li> 
+                <li><a href="#problem_layout"><h3>layout</h3></a>
+                    <ul class="margin_l_10">
+                         <li><a href="#problem_layout1">1，怎么隐藏拖动条？</a></li>
+                         <li><a href="#problem_layout2">2，获取某个区域的大小？</a></li>
+                         <li><a href="#problem_layout3">3，分割条能不能自定义事件？</a></li>
+                    </ul>
+                </li> 
+                <li><a href="#problem_calendar"><h3>时间控件</h3></a>
+                    <ul class="margin_l_10">
+                         <li><a href="#problem_calendar1">1，如何定义显示格式？</a></li>
+                         <li><a href="#problem_calendar2">2，如何控制清除按钮是否显示？</a></li>
+                         <li><a href="#problem_calendar3">3，如何绑定选中点击事件？</a></li>
+                         <li><a href="#problem_calendar4">4，如何设置默认日期？</a></li>
+                    </ul>
+                </li>  
+                <li><a href="#problem_dialog"><h3>弹出框</h3></a>
+                    <ul class="margin_l_10">
+                         <li><a href="#problem_dialog1">1，怎样从父页面往子窗口传参数？</a></li>
+                         <li><a href="#problem_dialog2">2，子页面如何接收父页面传的参数？</a></li>
+                         <li><a href="#problem_dialog3">3，如何设置按钮是否高亮显示？</a></li>
+                         <li><a href="#problem_dialog4">4，如何给关闭图标添加自定义事件？</a></li>
+                         <li><a href="#problem_dialog5">5，如何定义下部左侧html？</a></li>
+                         <li><a href="#problem_dialog6">6，如何动态更改弹出窗口的title？</a></li>
+                         <li><a href="#problem_dialog7">7，如何设置跨iframe显示？</a></li>
+                         <li><a href="#problem_dialog8">8，如何设置按钮可用不可用，显示不显示？</a></li>
+                         <li><a href="#problem_dialog9">9，关闭弹出框</a></li>
+                    </ul>
+                </li>
+                <li><a href="#problem_msg"><h3>提示窗口</h3></a>
+                    <ul class="margin_l_10">
+                         <li><a href="#problem_msg1">1，有几种类型？</a></li>
+                         <li><a href="#problem_msg2">2，如何给提示窗口绑定自定义事件？</a></li>
+                    </ul>
+                </li>  
+                <li><a href="#problem_toolbar"><h3>toolbar</h3></a>
+                    <ul class="margin_l_10">
+                         <li><a href="#problem_toolbar1">1，可以定义几种类型？</a></li>
+                         <li><a href="#problem_toolbar2">2，如何设置toolbar的图标？</a></li>
+                         <li><a href="#problem_toolbar3">3，如何设置按钮可用不可用，显示不显示？</a></li>
+                         <li><a href="#problem_toolbar4">4，如何动态添加按钮？重新整理</a></li>
+                         <li><a href="#problem_toolbar5">5，如何设置toolbar的翻页显示不显示？</a></li>
+                    </ul>
+                </li> 
+                <li><a href="#problem_tree"><h3>tree</h3></a>
+                    <ul class="margin_l_10">
+                         <li><a href="#problem_tree1">1，如何更换定义图标？</a></li>
+                         <li><a href="#problem_tree2">2，如何获取当前选中的树节点？</a></li>
+                         <li><a href="#problem_tree3">3，怎么禁用某个树节点？</a></li>
+                         <li><a href="#problem_tree4">4，怎么判断当前节点是父节点还是子节点？</a></li>
+                         <li><a href="#problem_tree5">5，怎么定制异部树查询参数？</a></li>
+                         <li><a href="#problem_tree6">6，怎么设置树节点默认展开？</a></li>
+                         <li><a href="#problem_tree7">7，怎么对树的节点进行特殊渲染？</a></li>
+                    </ul>
+                </li> 
+                <li><a href="#problem_tooltip"><h3>气球状提示</h3></a>
+                    <ul class="margin_l_10">
+                         <li><a href="#problem_tooltip1">1，怎么控制气球状提示的位置？</a></li>
+                         <li><a href="#problem_tooltip2">2，如何关闭？</a></li>
+                    </ul>
+                </li> 
+                <li><a href="#problem_win"><h3>多窗口</h3></a>
+                    <ul class="margin_l_10">
+                         <li><a href="#problem_win1">1，怎么设置多窗口打开？</a></li>
+                         <li><a href="#problem_win2">2，子窗口打开后如何获取父窗口的参数和调用方法？</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <footer class="footer"></footer>
+</body>
+</html>

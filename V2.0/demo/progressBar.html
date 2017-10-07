@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>progressBar</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+
+    <script src="../seeyon.ui.progress-debug.js" type="text/javascript"></script>
+	<script type="text/javascript" src="../../controls/calendar/calendar-debug.js"></script>
+	<script type="text/javascript" src="../../controls/calendar/calendar-zh-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/misc/Moo-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.json-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.fillform-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.code-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/common-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/i18n-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/v3x-debug.js"></script>
+	<script type="text/javascript" src="../../controls/searchBox-debug.js"></script>
+	<script type="text/javascript" src="../../controls/seeyon.ui.checkform-debug.js"></script>
+	<script type="text/javascript" src="../../controls/seeyon.ui.dialog-debug.js"></script>
+	<script type="text/javascript" src="../../controls/seeyon.ui.grid-debug.js"></script>
+	<script type="text/javascript" src="../../controls/seeyon.ui.layout-debug.js"></script>
+	<script type="text/javascript" src="../../controls/seeyon.ui.menu-debug.js"></script>
+	<script type="text/javascript" src="../../controls/seeyon.ui.progress-debug.js"></script>
+	<script type="text/javascript" src="../../controls/seeyon.ui.scroll-debug.js"></script>
+	<script type="text/javascript" src="../../controls/seeyon.ui.tab-debug.js"></script>
+	<script type="text/javascript" src="../../controls/seeyon.ui.toolbar-debug.js"></script>
+	<script type="text/javascript" src="../../controls/seeyon.ui.tree-debug.js"></script>
+	<script type="text/javascript" src="../../controls/seeyon.ui.calendar-debug.js"></script>
+	<script type="text/javascript" src="../../controls/seeyon.ui.arraylist-debug.js"></script>
+	<script type="text/javascript" src="../../controls/seeyon.ui.tooltip-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.comp-debug.js"></script>
+	<script type="text/javascript" src="../../ctp/jquery.tree-debug.js"></script>
+    <script>
+        var ss = null
+        function showProgress() {
+            ss = new MxtProgressBar({
+                text: "正在更新RSS信息...."
+//               , progress: 10
+//                , buttons: [{
+//                    text: "button1",
+//                    handler: function () {
+//                        alert('close')
+//                        ss.close();
+//                    }
+//                }, {
+//                    text: "button2",
+//                    handler: function () {
+//                        ss.close();
+//                    }
+//                }]
+            });
+        }
+        function showProgress1() {
+            ss = new MxtProgressBar({
+                text: "正在更新RSS信息...."
+               	, progress: 10
+                , buttons: [{
+                    text: "关闭",
+                    handler: function () {
+                        ss.close();
+                    }
+                }]
+            });
+        }
+        function cl() {
+            ss.close();
+        }
+    </script>
+</head>
+
+<body>
+	<a id="proce" href="javascript:void(0)" class="common_button common_button_gray">旋转进度条</a>
+	<script>
+		$(document).ready(function(){
+			$('#proce').click(function(){
+				var proce = $.progressBar();
+			});
+		});
+	</script>
+</body>
+</html>

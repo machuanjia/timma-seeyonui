@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>菜单 - 简单型</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin-debug.css" />
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css" />
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+    <link href="../../docs/resource/google-code-prettify/prettify.css" rel="stylesheet" />
+    <script src="../../docs/resource/google-code-prettify/prettify.js"></script>
+    <script src="../../controls/seeyon.ui.colorPanel-debug.js"></script>
+    <script>
+        $(function(){
+            $("#cc").click(function(){
+                new MxtColorPanel({
+                    targetId: "cc",
+                    onChange: function(p){
+                        console.log("大类: "+ p.modelColor +", 小类: "+ p.listColor +", modelIndex: "+ p.modelIndex +", listIndex: "+ p.listIndex);
+                    },
+                });
+            });
+        })
+    </script>
+</head>
+<body>
+    <button id="cc" style="margin:20px; padding:6px 10px;">颜色选择</button>
+</body>
+</html>

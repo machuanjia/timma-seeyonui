@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../skin/default/skin.css">
+    <link rel="stylesheet" type="text/css" href="../../docs/resource/demo.css">
+    <script type="text/javascript" src="../../scriptes/jquery.js"></script>
+    <script type="text/javascript" src="../../docs/resource/demo.js"></script>
+
+    <script type="text/javascript" src="../../controls/seeyon.ui.tooltip-debug.js"></script>
+    <script type="text/javascript" src="../../controls/calendar/calendar-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/misc/Moo-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/misc/jsonGateway-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/jquery.hotkeys-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/jquery.json-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/jquery.fillform-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/jquery.jsonsubmit-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/jquery.code-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/common-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/i18n-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/v3x-debug.js"></script>
+    <script type="text/javascript" src="../../controls/searchBox-debug.js"></script>
+    <script type="text/javascript" src="../../controls/seeyon.ui.checkform-debug.js"></script>
+    <script type="text/javascript" src="../../controls/seeyon.ui.dialog-debug.js"></script>
+    <script type="text/javascript" src="../../controls/seeyon.ui.grid-debug.js"></script>
+    <script type="text/javascript" src="../../controls/seeyon.ui.layout-debug.js"></script>
+    <script type="text/javascript" src="../../controls/seeyon.ui.menu-debug.js"></script>
+    <script type="text/javascript" src="../../controls/seeyon.ui.progress-debug.js"></script>
+    <script type="text/javascript" src="../../controls/seeyon.ui.tab-debug.js"></script>
+    <script type="text/javascript" src="../../controls/seeyon.ui.toolbar-debug.js"></script>
+    <script type="text/javascript" src="../../controls/seeyon.ui.tree-debug.js"></script>
+    <script type="text/javascript" src="../../controls/seeyon.ui.calendar-debug.js"></script>
+    <script type="text/javascript" src="../../controls/seeyon.ui.arraylist-debug.js"></script>
+    <script type="text/javascript" src="../../controls/seeyon.ui.tooltip-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/jquery.comp-debug.js"></script>
+    <script type="text/javascript" src="../../ctp/jquery.tree-debug.js"></script>
+</head>
+<body>
+    <div class="hidden">
+        <div id="tooltip_html3">
+            跨iframe显示<br />
+            <a href="javascript:void(0)" class="tooltip_close">关闭</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            var tt = $.tooltip({
+                width: 300,
+                openAuto: true,
+                event: false,
+                openPoint: [50, 100],
+                htmlID: 'tooltip_html3',
+                direction: "TL",
+                targetWindow: window.parent
+            });
+            //tt.setDirection("TL");
+        })
+    </script>
+</body>
+</html>
